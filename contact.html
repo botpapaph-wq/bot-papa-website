@@ -289,6 +289,37 @@
       color: var(--text);
     }
 
+    .social-buttons {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.9);
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .social-btn span {
+      font-size: 14px;
+    }
+
+    .social-btn:hover {
+      text-decoration: none;
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(10, 15, 30, 0.95);
+    }
+
     .form-card {
       padding: 20px 18px;
       border-radius: var(--radius-lg);
@@ -495,21 +526,24 @@
             <strong>Phone (US number):</strong>
             <a href="tel:+16288959439">+1‑628‑895‑9439</a>
           </li>
-          <li>
-            <strong>Book a call:</strong>
-            <a href="https://meet.brevo.com/bodo-kopplin-online" target="_blank" rel="noopener">
-              Schedule a 20‑minute discovery call via Brevo
-            </a>
-          </li>
-          <li>
-            <strong>Updates:</strong>
-            <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
-              BOT PAPA on Facebook
-            </a>
-          </li>
         </ul>
 
-        <h2>What we usually cover</h2>
+        <div class="social-buttons">
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            <span>📘</span>
+            <span>Facebook</span>
+          </a>
+          <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">
+            <span>▶</span>
+            <span>YouTube</span>
+          </a>
+          <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">
+            <span>💬</span>
+            <span>Slack</span>
+          </a>
+        </div>
+
+        <h2 style="margin-top:16px;">What we usually cover</h2>
         <p>
           In most first calls we walk through three things:
         </p>
@@ -619,56 +653,56 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
+      const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
 
-    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const form = document.getElementById('contact-form');
-    const statusEl = document.getElementById('status');
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('status');
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      statusEl.textContent = 'Sending...';
-      statusEl.className = 'status-message';
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        statusEl.textContent = 'Sending...';
+        statusEl.className = 'status-message';
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const business = document.getElementById('business').value.trim();
-      const countryCode = document.getElementById('country_code').value;
-      const phoneNumber = document.getElementById('phone_number').value.trim();
-      const message = document.getElementById('message').value.trim();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const business = document.getElementById('business').value.trim();
+        const countryCode = document.getElementById('country_code').value;
+        const phoneNumber = document.getElementById('phone_number').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-      try {
-        const { error } = await supabaseClient
-          .from('contact_requests') // Tabellenname ggf. anpassen
-          .insert([{
-            name,
-            email,
-            business,
-            country_code: countryCode,
-            phone_number: phoneNumber,
-            message,
-            source: 'contact_page'
-          }]);
+        try {
+          const { error } = await supabaseClient
+            .from('contact_requests')
+            .insert([{
+              name,
+              email,
+              business,
+              country_code: countryCode,
+              phone_number: phoneNumber,
+              message,
+              source: 'contact_page'
+            }]);
 
-        if (error) {
-          console.error(error);
-          statusEl.textContent = 'Supabase error: ' + (error.message || 'unknown');
+          if (error) {
+            console.error(error);
+            statusEl.textContent = 'Supabase error: ' + (error.message || 'unknown');
+            statusEl.className = 'status-message err';
+            return;
+          }
+
+          form.reset();
+          statusEl.textContent = 'Thanks. Your message has been stored. I will get back to you.';
+          statusEl.className = 'status-message ok';
+        } catch (e) {
+          console.error(e);
+          statusEl.textContent = 'Unexpected error. Please try again later.';
           statusEl.className = 'status-message err';
-          return;
         }
-
-        form.reset();
-        statusEl.textContent = 'Thanks. Your message has been stored. I will get back to you.';
-        statusEl.className = 'status-message ok';
-      } catch (e) {
-        console.error(e);
-        statusEl.textContent = 'Unexpected error. Please try again later.';
-        statusEl.className = 'status-message err';
-      }
+      });
     });
-    }); // DOMContentLoaded
   </script>
 </body>
 </html>
