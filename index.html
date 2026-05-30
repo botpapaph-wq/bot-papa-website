@@ -65,7 +65,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 16px;
+      padding: 10px 16px 12px;
       margin-bottom: 32px;
       border-radius: var(--radius-full);
       border: var(--border-soft);
@@ -116,8 +116,27 @@
 
     .header-right {
       display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
     }
 
     .pill {
@@ -390,8 +409,17 @@
       .hero {
         padding: 22px 18px 18px;
       }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
       .nav-links {
-        display: none;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -416,26 +444,30 @@
         </div>
       </div>
       <div class="header-right">
-        <div class="nav-links">
-          <a href="#who">Who it's for</a>
-          <a href="#behavior">How it behaves</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-          <div class="lang-switch">
-            <a href="index.html" aria-label="English">
-              <span class="lang-flag active">🇺🇸</span>
-            </a>
-            <a href="index_de.html" aria-label="Deutsch">
-              <span class="lang-flag">🇩🇪</span>
-            </a>
+        <div class="header-top-row">
+          <div class="pill">
+            Solo founder: <strong>Bodo Kopplin</strong>
           </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Free 20‑min call <span>↗</span>
+          </a>
         </div>
-        <div class="pill">
-          Solo founder: <strong>Bodo Kopplin</strong>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="#who">Who it's for</a>
+            <a href="#behavior">How it behaves</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <div class="lang-switch">
+              <a href="index.html" aria-label="English">
+                <span class="lang-flag active">🇺🇸</span>
+              </a>
+              <a href="index_de.html" aria-label="Deutsch">
+                <span class="lang-flag">🇩🇪</span>
+              </a>
+            </div>
+          </nav>
         </div>
-        <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
-          Free 20‑min call <span>↗</span>
-        </a>
       </div>
     </header>
 
