@@ -19,7 +19,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
 
-  <!-- Supabase JS client -->
+  <!-- Supabase JS client v2 -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
   <style>
@@ -618,8 +618,10 @@
   </div>
 
   <script>
-    const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co'; // TODO: ersetzen
-    const SUPABASE_ANON_KEY = 'YOUR_ANON_PUBLIC_KEY'; // TODO: ersetzen
+    // TODO: hier deine echten Supabase-Daten rein
+    const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+    const SUPABASE_ANON_KEY = 'YOUR_ANON_PUBLIC_KEY';
+
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const form = document.getElementById('contact-form');
@@ -639,7 +641,7 @@
 
       try {
         const { error } = await supabaseClient
-          .from('contact_requests') // TODO: Tabellenname ggf. anpassen
+          .from('contact_requests') // Tabellenname ggf. anpassen
           .insert([{
             name,
             email,
@@ -652,12 +654,11 @@
 
         if (error) {
           console.error(error);
-          statusEl.textContent = 'Something went wrong. Please try again or email directly.';
+          statusEl.textContent = 'Supabase error: ' + (error.message || 'unknown');
           statusEl.className = 'status-message err';
           return;
         }
 
-        // Formular leeren
         form.reset();
         statusEl.textContent = 'Thanks. Your message has been stored. I will get back to you.';
         statusEl.className = 'status-message ok';
