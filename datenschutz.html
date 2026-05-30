@@ -1,35 +1,524 @@
-<h1>Impressum</h1>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datenschutzerklärung – BOT PAPA</title>
+  <meta name="description" content="Datenschutzerklärung von BOT PAPA – Informationen zur Verarbeitung personenbezogener Daten bei Nutzung dieser Website." />
 
-<p><strong>Anbieter:</strong><br>
-BOT PAPA<br>
-Bodo Kopplin<br>
-Purok 20, Acacia Street<br>
-Mandaguit Compound, Calinan<br>
-8000 Davao City<br>
-Philippinen</p>
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
 
-<p><strong>Korrespondenzadresse in Deutschland:</strong><br>
-Bodo Kopplin<br>
-Caya Postbox 100685<br>
-96035 Bamberg<br>
-Deutschland</p>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
 
-<p><strong>Kontakt:</strong><br>
-Telefon (US): <a href="tel:+16288959439">+1 628 895 9439</a><br>
-Telefon (DACH): <a href="tel:+491743282867">+49 174 3282867</a><br>
-E-Mail: <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
-</p>
+    * { box-sizing: border-box; }
 
-<p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
-Bodo Kopplin<br>
-Purok 20, Acacia Street<br>
-Mandaguit Compound, Calinan<br>
-8000 Davao City<br>
-Philippinen</p>
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
 
-<p><strong>Berufsbezeichnung:</strong><br>
-Freelancer / AI Voice Assistant Developer<br>
-(bei Bedarf: zuvor tätig als Associate Engineer bei Capgemini Engineering)</p>
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
-<p><strong>Hinweis zur Leistungserbringung:</strong><br>
-Die Leistungserbringung erfolgt außerhalb Deutschlands von den Philippinen aus.</p>
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+    }
+
+    .lang-switch a {
+      padding: 0;
+      border: none;
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      filter: grayscale(60%);
+      transform: translateY(1px);
+    }
+
+    .lang-flag.active {
+      filter: grayscale(0%);
+    }
+
+    main {
+      padding: 22px 20px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    main h1 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    main h2 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    main p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main ul {
+      margin: 0 0 10px 18px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      main {
+        padding: 18px 16px;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Solo‑Gründer: <strong>Bodo Kopplin</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="index_de.html#who">Für wen</a>
+            <a href="index_de.html#behavior">Verhalten</a>
+            <a href="index_de.html#about">Über BOT PAPA</a>
+            <a href="contact.html">Kontakt</a>
+            <div class="lang-switch">
+              <a href="index.html" aria-label="English">
+                <span class="lang-flag">🇺🇸</span>
+              </a>
+              <a href="datenschutz.html" aria-label="Deutsch">
+                <span class="lang-flag active">🇩🇪</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Datenschutzerklärung</h1>
+
+      <p>
+        Der Schutz Ihrer personenbezogenen Daten ist mir wichtig. In dieser Datenschutzerklärung
+        informiere ich Sie darüber, welche Daten bei der Nutzung dieser Website erhoben werden,
+        wie sie verwendet werden und welche Rechte Sie in Bezug auf Ihre Daten haben.
+      </p>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+      </p>
+      <p>
+        BOT PAPA<br>
+        Bodo Kopplin<br>
+        Purok 20, Acacia Street<br>
+        Mandaguit Compound, Calinan<br>
+        8000 Davao City<br>
+        Philippinen<br>
+        E‑Mail: <a href="mailto:support@bot-papa.online">support@bot-papa.online</a><br>
+        Telefon (US): <a href="tel:+16288959439">+1&nbsp;628&nbsp;895&nbsp;9439</a><br>
+        Telefon (DACH): <a href="tel:+491743282867">+49&nbsp;174&nbsp;3282867</a>
+      </p>
+
+      <h2>2. Allgemeine Hinweise zur Datenverarbeitung</h2>
+      <p>
+        Ich verarbeite personenbezogene Daten grundsätzlich nur, soweit dies zur Bereitstellung
+        einer funktionsfähigen Website sowie der angebotenen Inhalte und Leistungen erforderlich ist.
+        Die Verarbeitung erfolgt im Einklang mit der DSGVO, soweit Nutzerinnen und Nutzer aus der
+        Europäischen Union / dem EWR betroffen sind.
+      </p>
+
+      <h2>3. Aufruf der Website (Server-Logfiles)</h2>
+      <p>
+        Beim Aufruf dieser Website werden durch den Webserver automatisch Informationen erfasst,
+        die Ihr Browser übermittelt. Dazu können gehören:
+      </p>
+      <ul>
+        <li>IP‑Adresse</li>
+        <li>Datum und Uhrzeit der Anfrage</li>
+        <li>aufgerufene Seite / Datei</li>
+        <li>Referrer‑URL</li>
+        <li>verwendeter Browser und Betriebssystem</li>
+      </ul>
+      <p>
+        Die Verarbeitung dieser Daten erfolgt, um die Website auszuliefern, die Stabilität und
+        Sicherheit des Systems zu gewährleisten und Missbrauch vorzubeugen.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+        technisch fehlerfreien und sicheren Bereitstellung der Website).
+      </p>
+
+      <h2>4. Kontaktaufnahme und Formulare (Supabase)</h2>
+      <p>
+        Wenn Sie das Kontaktformular auf dieser Website nutzen, werden die von Ihnen eingegebenen
+        Daten (z.B. Name, E‑Mail‑Adresse, Telefonnummer, Nachricht) über den Dienst
+        „Supabase“ gespeichert und an mich übermittelt.
+      </p>
+      <p>
+        Dienstanbieter: Supabase, Inc., 970 Toa Payoh North #07-04, Singapore 318992. [Infos zum Dienst siehe Website des Anbieters.]
+      </p>
+      <p>
+        Die Verarbeitung der Daten erfolgt zur Bearbeitung Ihrer Anfrage und ggf. zur
+        Vorbereitung einer Zusammenarbeit. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
+        (Vertragserfüllung bzw. vorvertragliche Maßnahmen) sowie ggf. Art. 6 Abs. 1 lit. f DSGVO
+        (berechtigtes Interesse an einer effizienten Kommunikation).
+      </p>
+      <p>
+        Die Speicherung in Supabase erfolgt auf Servern außerhalb der EU. Es kann daher zu einer
+        Übermittlung personenbezogener Daten in sogenannte Drittländer kommen. Ich trage dem
+        Rechnung, indem ich nur die Daten erhebe, die für die Bearbeitung Ihrer Anfrage
+        erforderlich sind, und mit dem Dienstleister geeignete datenschutzrechtliche Vereinbarungen
+        (z.B. Standardvertragsklauseln / Auftragsverarbeitung) schließe, soweit dies erforderlich ist.
+      </p>
+
+      <h2>5. Brevo (Chat & Terminbuchung)</h2>
+      <p>
+        Auf dieser Website kommen Funktionen von „Brevo“ zum Einsatz, z.B. für den
+        Chat‑/Conversations‑Dienst sowie für die Online‑Terminbuchung.
+      </p>
+      <p>
+        Dienstanbieter: Brevo (Sendinblue GmbH / Sendinblue S.A.S., je nach Vertragskonstellation).
+        Informationen zum Datenschutz des Anbieters finden Sie auf der jeweiligen Website.
+      </p>
+      <p>
+        Wenn Sie den Chat oder das Terminformular nutzen, werden die von Ihnen eingegebenen Daten
+        (z.B. Name, E‑Mail‑Adresse, Nachricht, gewünschter Termin) an Brevo übermittelt und dort
+        verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung /
+        vorvertragliche Maßnahmen), soweit es um konkrete Anfragen und Terminvereinbarungen geht,
+        sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Kommunikation).
+      </p>
+      <p>
+        Mit Brevo wird ein Vertrag zur Auftragsverarbeitung geschlossen, soweit dies datenschutzrechtlich
+        erforderlich ist. Die Daten werden nur so lange gespeichert, wie dies für den jeweiligen Zweck
+        (Kommunikation, Terminabwicklung, Dokumentation der Geschäftsbeziehung) notwendig ist.
+      </p>
+
+      <h2>6. Google Tag Manager und ggf. weitere Tools</h2>
+      <p>
+        Diese Website verwendet den Google Tag Manager. Der Google Tag Manager selbst speichert keine
+        personenbezogenen Daten, sondern hilft dabei, andere Tools (z.B. Analyse‑ oder Marketing‑Tools)
+        technisch einzubinden und zu verwalten.
+      </p>
+      <p>
+        Je nachdem, welche Tools über den Google Tag Manager eingebunden werden, können weitere
+        Datenverarbeitungen erfolgen (z.B. Reichweitenmessung, Webanalyse). Details zu diesen
+        Diensten (Art der Daten, Zwecke, Rechtsgrundlage, Speicherfristen) werden – soweit eingesetzt –
+        in dieser Datenschutzerklärung gesondert beschrieben bzw. in Zukunft ergänzt.
+      </p>
+
+      <h2>7. Cookies und vergleichbare Technologien</h2>
+      <p>
+        Soweit auf dieser Website Cookies oder vergleichbare Technologien eingesetzt werden,
+        erfolgt dies nur, soweit dies technisch erforderlich ist oder Sie – falls rechtlich
+        notwendig – zuvor eingewilligt haben.
+      </p>
+      <p>
+        Technisch notwendige Cookies dienen der Bereitstellung der Website und bestimmter Funktionen.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem funktionsfähigen
+        Online‑Angebot).
+      </p>
+
+      <h2>8. Datenübermittlung in Drittländer</h2>
+      <p>
+        Die Verwendung von Diensten wie Supabase und Brevo kann dazu führen, dass personenbezogene
+        Daten in Staaten außerhalb der Europäischen Union bzw. des Europäischen Wirtschaftsraums
+        übermittelt werden (sogenannte Drittländer).
+      </p>
+      <p>
+        In diesen Fällen achte ich darauf, dass entweder ein Angemessenheitsbeschluss der EU‑Kommission
+        besteht oder dass geeignete Garantien im Sinne der DSGVO (z.B. Standardvertragsklauseln) vorliegen
+        bzw. nur die Daten verarbeitet werden, die für den jeweiligen Zweck notwendig sind.
+      </p>
+
+      <h2>9. Speicherdauer</h2>
+      <p>
+        Personenbezogene Daten werden nur so lange gespeichert, wie dies zur Erfüllung der genannten
+        Zwecke erforderlich ist oder wie es gesetzliche Aufbewahrungspflichten vorsehen.
+        Entfallen der Verarbeitungszweck bzw. die gesetzlichen Aufbewahrungsfristen, werden die Daten
+        gelöscht oder anonymisiert.
+      </p>
+
+      <h2>10. Ihre Rechte</h2>
+      <p>
+        Soweit die DSGVO Anwendung findet, haben Sie insbesondere folgende Rechte:
+      </p>
+      <ul>
+        <li>Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten (Art. 15 DSGVO),</li>
+        <li>Recht auf Berichtigung unrichtiger Daten (Art. 16 DSGVO),</li>
+        <li>Recht auf Löschung (Art. 17 DSGVO),</li>
+        <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO),</li>
+        <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO),</li>
+        <li>Recht auf Widerspruch gegen bestimmte Verarbeitungen (Art. 21 DSGVO).</li>
+      </ul>
+      <p>
+        Soweit eine Verarbeitung auf Ihrer Einwilligung beruht (Art. 6 Abs. 1 lit. a DSGVO),
+        können Sie diese Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.
+      </p>
+      <p>
+        Zur Wahrnehmung Ihrer Rechte können Sie sich jederzeit an die oben genannten Kontaktdaten wenden.
+      </p>
+
+      <h2>11. Änderungen dieser Datenschutzerklärung</h2>
+      <p>
+        Ich behalte mir vor, diese Datenschutzerklärung anzupassen, wenn sich die Rechtslage oder
+        die eingesetzten Dienste ändern. Die jeweils aktuelle Version ist jederzeit auf dieser
+        Website unter „Datenschutzerklärung“ abrufbar.
+      </p>
+    </main>
+
+    <footer>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div class="footer-links">
+        <a href="faq-de.html">FAQ</a>
+        <span>•</span>
+        <a href="impressum.html">Impressum</a>
+        <span>•</span>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <span>•</span>
+        <a href="agb.html">AGB</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
