@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech Stack – BOT PAPA AI Phone Reception</title>
+  <meta name="description" content="Technical overview of the BOT PAPA AI phone assistant stack: telephony carriers, AI models, databases, orchestration and monitoring." />
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
+
+  <!-- Supabase JS client v2 (not used directly here, but kept consistent) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .nav-links .nav-current {
+      border-color: rgba(0, 224, 255, 0.6);
+      background: rgba(0, 224, 255, 0.12);
+      color: var(--accent);
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+    }
+
+    .lang-switch a {
+      padding: 0;
+      border: none;
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      filter: grayscale(60%);
+      transform: translateY(1px);
+    }
+
+    .lang-flag.active {
+      filter: grayscale(0%);
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .btn-primary span {
+      font-size: 16px;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      filter: brightness(0.98);
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    .section {
+      padding: 22px 20px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    .section h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .section h2 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section ul {
+      margin: 0 0 10px 16px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section ul li {
+      margin-bottom: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 4px;
+    }
+
+    .badge {
+      font-size: 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .card {
+      padding: 14px 14px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.12), rgba(5, 8, 22, 0.96));
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .card p {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .pill-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 11px;
+      background: rgba(0, 224, 255, 0.08);
+      border: 1px solid rgba(0, 224, 255, 0.35);
+      color: var(--accent);
+    }
+
+    .pill-small span {
+      font-size: 13px;
+    }
+
+    .sidebar {
+      padding: 18px 16px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.99));
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .sidebar p {
+      margin: 0 0 8px;
+      color: var(--muted);
+    }
+
+    .sidebar-list {
+      list-style: none;
+      margin: 6px 0 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">AI Phone Assistants for Small Businesses</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Solo founder: <strong>Bodo Kopplin</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Free 20‑min call <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#who">Who it's for</a>
+            <a href="index.html#behavior">How it behaves</a>
+            <a href="index.html#about">About</a>
+            <a href="contact.html">Contact</a>
+            <!-- Nerd page intentionally not linked in production yet
+            <a href="tech.html" class="nav-current">Tech</a>
+            -->
+            <div class="lang-switch">
+              <a href="tech.html" aria-label="English">
+                <span class="lang-flag active">🇺🇸</span>
+              </a>
+              <span class="lang-flag" aria-hidden="true">🇩🇪</span>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <h1>Under the hood: BOT PAPA tech stack</h1>
+        <p>
+          This page is for people who actually enjoy reading about carriers, call flows and databases.
+          BOT PAPA runs on a small, opinionated stack instead of “every tool under the sun”.
+        </p>
+
+        <h2>Telephony & call routing</h2>
+        <div class="badge-row">
+          <span class="badge">Telnyx (international)</span>
+          <span class="badge">Telnyx EU</span>
+          <span class="badge">Placetel (EU)</span>
+          <span class="badge">Webex softphone</span>
+        </div>
+        <div class="card">
+          <h3>Two backends, no chaos</h3>
+          <p>
+            For cloud telephony and AI phone reception we work with two main backends: Telnyx internationally,
+            and Telnyx plus Placetel inside the EU. Webex is used as a softphone on top of Placetel, and can be
+            integrated with Telnyx where needed.
+          </p>
+          <p>
+            The goal is boring reliability, not a zoo of random SIP providers. Calls are routed through a small
+            number of well-understood carriers so we can actually debug things when something goes sideways.
+          </p>
+        </div>
+
+        <h2>AI layer & orchestration</h2>
+        <div class="badge-row">
+          <span class="badge">Claude</span>
+          <span class="badge">Perplexity</span>
+          <span class="badge">comet</span>
+          <span class="badge">Custom call orchestration</span>
+        </div>
+        <div class="card">
+          <h3>Conversation brains, not gimmicks</h3>
+          <p>
+            The actual “thinking” for phone bots runs on production-grade LLMs (Claude and others) with a narrow,
+            task-focused prompt layer. Perplexity and comet are used on the research and tooling side, not as
+            black-box magic in your call flow.
+          </p>
+          <p>
+            Orchestration is kept simple: clear state machines for call flows, explicit hand‑offs to humans
+            and no hidden “let’s see what the model does” in critical branches.
+          </p>
+        </div>
+
+        <h2>Application stack & data</h2>
+        <div class="badge-row">
+          <span class="badge">Cloudflare</span>
+          <span class="badge">Supabase</span>
+          <span class="badge">GitHub</span>
+          <span class="badge">VS Code (Community)</span>
+          <span class="badge">Z.com</span>
+          <span class="badge">Titan Mail</span>
+        </div>
+        <div class="card">
+          <h3>Hosting, database and code</h3>
+          <p>
+            Public web properties sit behind Cloudflare, with static assets and simple workers where they make sense.
+            Supabase is used for structured data (contacts, configurations) with row-level security turned on by default.
+          </p>
+          <p>
+            Source code lives on GitHub, day-to-day work happens in Visual Studio Code (Community). Domains and DNS
+            are handled via Z.com, transactional and business email via Titan Mail and Brevo.
+          </p>
+        </div>
+
+        <h2>Automation & integrations</h2>
+        <div class="badge-row">
+          <span class="badge">Make</span>
+          <span class="badge">Brevo</span>
+          <span class="badge">Slack</span>
+          <span class="badge">Discord</span>
+          <span class="badge">Telegram</span>
+          <span class="badge">WhatsApp</span>
+          <span class="badge">Facebook</span>
+          <span class="badge">YouTube</span>
+        </div>
+        <div class="card">
+          <h3>Glue between phone, inbox and CRM</h3>
+          <p>
+            Make is used as an automation layer to connect incoming call outcomes and contact form data to email,
+            Brevo and other tools. No-code where it saves time, code where determinism matters.
+          </p>
+          <p>
+            Slack and Discord are used for internal alerts and monitoring, Telegram and WhatsApp for lightweight
+            notifications and client-side testing. Social channels (Facebook, YouTube) stay strictly at the top
+            of the funnel.
+          </p>
+        </div>
+
+        <h2>Monitoring, analytics & remote work</h2>
+        <div class="badge-row">
+          <span class="badge">Google Analytics</span>
+          <span class="badge">Google Tag Manager</span>
+          <span class="badge">Clockify</span>
+          <span class="badge">TeamViewer (fallback)</span>
+        </div>
+        <div class="card">
+          <h3>Seeing what actually happens</h3>
+          <p>
+            Google Analytics and Google Tag Manager are used for basic traffic and event tracking, with a focus on
+            understanding which calls and forms turn into actual projects – not for building creepy profiles.
+          </p>
+          <p>
+            Clockify tracks implementation work and support time on projects. TeamViewer is only used as a fallback
+            for remote troubleshooting when there is no other reasonable option.
+          </p>
+        </div>
+
+        <h2>Data handling & call recordings</h2>
+        <div class="badge-row">
+          <span class="pill-small"><span>✓</span> No default call recording</span>
+          <span class="pill-small"><span>✓</span> Limited retention</span>
+        </div>
+        <div class="card">
+          <h3>Recordings only where they make sense</h3>
+          <p>
+            By default, AI receptionist calls are not recorded just to “have more data”. Recordings are only used
+            for explicit consulting and coaching sessions where both sides agree that review makes sense.
+          </p>
+          <p>
+            Those recordings are deleted after the project is closed and the agreed warranty period is over.
+            There is no long-term training corpus built out of your customer conversations in the background.
+          </p>
+        </div>
+
+        <h2>Philosophy</h2>
+        <p>
+          The stack is intentionally small: a few solid carriers, a few solid AI models, one main database and
+          a handful of automation tools. No experimental “vibes-based” infrastructure, no surprise third-party
+          tools that never make it into the proposal.
+        </p>
+      </section>
+
+      <aside class="sidebar">
+        <h2>Who runs this?</h2>
+        <p>
+          BOT PAPA is built and operated by solo founder Bodo Kopplin out of Davao City, Philippines –
+          with a background in VoIP, Placetel/Webex setups and AI assistant engineering.
+        </p>
+        <ul class="sidebar-list">
+          <li><strong>Focus:</strong> AI phone reception for trades and service SMEs.</li>
+          <li><strong>Geography:</strong> International, English-speaking clients first.</li>
+          <li><strong>Carriers:</strong> Telnyx &amp; Placetel, no random “cheap minutes”.</li>
+        </ul>
+
+        <h2 style="margin-top:16px;">Want to go deeper?</h2>
+        <p>
+          If you want to talk about SIP details, latency budgets or how the assistants decide to hand off to a human,
+          book a short call and bring your current setup.
+        </p>
+        <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+          Talk about the stack <span>↗</span>
+        </a>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div>www.bot-papa.online</div>
+    </footer>
+  </div>
+</body>
+</html>
