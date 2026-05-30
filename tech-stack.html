@@ -374,6 +374,40 @@
       margin-bottom: 6px;
     }
 
+    .sidebar-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-full);
+      padding: 7px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      outline: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      background: rgba(5, 8, 22, 0.95);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-secondary span {
+      font-size: 14px;
+      transform: translateY(1px);
+    }
+
+    .btn-secondary:hover {
+      text-decoration: none;
+      border-color: rgba(255, 255, 255, 0.26);
+      background: rgba(10, 15, 30, 0.98);
+    }
+
     footer {
       margin-top: 32px;
       padding-top: 16px;
@@ -445,11 +479,9 @@
             <a href="index.html#behavior">How it behaves</a>
             <a href="index.html#about">About</a>
             <a href="contact.html">Contact</a>
-            <!-- Nerd page intentionally not linked in production yet
-            <a href="tech.html" class="nav-current">Tech</a>
-            -->
+            <!-- Later: <a href="tech-stack.html" class="nav-current">Tech</a> -->
             <div class="lang-switch">
-              <a href="tech.html" aria-label="English">
+              <a href="tech-stack.html" aria-label="English">
                 <span class="lang-flag active">🇺🇸</span>
               </a>
               <span class="lang-flag" aria-hidden="true">🇩🇪</span>
@@ -608,14 +640,15 @@
           <li><strong>Carriers:</strong> Telnyx &amp; Placetel, no random “cheap minutes”.</li>
         </ul>
 
-        <h2 style="margin-top:16px;">Want to go deeper?</h2>
-        <p>
-          If you want to talk about SIP details, latency budgets or how the assistants decide to hand off to a human,
-          book a short call and bring your current setup.
-        </p>
-        <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
-          Talk about the stack <span>↗</span>
-        </a>
+        <div class="sidebar-actions">
+          <a href="https://botpapa.slack.com/archives/C0B4V9WHWDP" class="btn-secondary" target="_blank" rel="noopener">
+            <span>💬</span>
+            <span>Join the #tech-talk Slack</span>
+          </a>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Talk about the stack <span>↗</span>
+          </a>
+        </div>
       </aside>
     </main>
 
