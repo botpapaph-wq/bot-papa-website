@@ -675,7 +675,7 @@
 
         try {
           const { error } = await supabaseClient
-            .from('contact_requests')
+            .from('contact_requests_simple')
             .insert([{
               name,
               email,
