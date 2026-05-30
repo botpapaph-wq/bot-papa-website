@@ -77,13 +77,13 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
     }
 
-    /* Rund, kompakter, Logo im Kreis maximal groß */
+    /* Rundes, großes Logo */
     .brand-mark {
-      width: 96px;
-      height: 96px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -94,8 +94,8 @@
     }
 
     .brand-mark img {
-      width: 110%;
-      height: 110%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       display: block;
     }
@@ -381,8 +381,186 @@
       </div>
     </header>
 
-    <!-- Rest wie gehabt (Hero, Sektionen, Kontakt...) -->
-    <!-- ... identischer Inhalt wie in der letzten Version ... -->
+    <main class="grid">
+      <section class="hero">
+        <div class="hero-kicker">AI Phone Reception • Telnyx & Placetel</div>
+        <h1 class="hero-title">
+          Stop missing calls while you’re <span>on the roof</span>, on site or with clients.
+        </h1>
+        <p class="hero-sub">
+          BOT PAPA builds custom AI phone receptionists for trades and service pros – so your
+          calls are answered, filtered and documented even when you cannot pick up the phone.
+        </p>
+        <p class="hero-sub-2">
+          Built for people who actually work with their hands: painters, roofers, plumbers,
+          locksmiths, coaches and personal trainers – not for law firms or medical practices.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Book free discovery call <span>✚</span>
+          </a>
+          <a href="#status" class="btn-secondary">
+            <span>●</span>
+            Platform relaunch in progress
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>Custom AI phone receptionist</span>
+          <span>For Telnyx & Placetel setups</span>
+          <span>One‑to‑one collaboration with the builder</span>
+        </div>
+      </section>
+
+      <aside id="status" class="card">
+        <div class="card-title">
+          Platform status <strong>May 2026</strong>
+        </div>
+        <p style="color: var(--muted); margin-top: 0; margin-bottom: 10px;">
+          BOT PAPA is currently moving to a new server. The service will be brought back
+          online with a fresh setup and new features.
+        </p>
+        <p style="color: var(--muted); margin-bottom: 10px;">
+          If you want to be early in line, simply book a free 20‑minute discovery call.
+          We will walk through your phone setup, your call flow and what an AI receptionist
+          could realistically take off your plate.
+        </p>
+        <p style="color: var(--muted); margin-bottom: 8px;">
+          Short updates and small behind‑the‑scenes notes are shared here:
+        </p>
+        <p style="margin: 0;">
+          <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            BOT PAPA updates on Facebook ↗
+          </a>
+        </p>
+      </aside>
+    </main>
+
+    <section class="section">
+      <h2>Who BOT PAPA is for</h2>
+      <p>
+        This is not a generic call center bot. It is a tailored phone receptionist for small
+        businesses where the owner still answers the phone – until the work on the roof,
+        scaffold or gym floor makes that impossible.
+      </p>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Trades & field work</h3>
+          <p>
+            Painters, roofers, plumbers, locksmiths and similar trades that are constantly
+            on site, in noise and dust, but still need every serious inquiry captured
+            and structured.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Coaches & personal services</h3>
+          <p>
+            Coaches and personal trainers who are in sessions most of the day and cannot
+            interrupt clients every time the phone rings.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">No clinics, no law firms</h3>
+          <p>
+            BOT PAPA deliberately does not target medical practices or legal offices.
+            The focus stays on practical, hands‑on businesses with straightforward
+            service offers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How your AI phone receptionist behaves</h2>
+      <p>
+        The assistant introduces itself clearly as an AI receptionist, speaks in a natural
+        phone style and keeps answers to a few short sentences – no jargon, no fake promises,
+        no hidden systems talk.
+      </p>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Clear call flows</h3>
+          <p>
+            Calls are greeted, the concern is understood, then either a message is taken
+            or the call is routed – using rules crafted specifically for your business.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">No hallucinations</h3>
+          <p>
+            If the AI does not know something, it says so and takes a message instead
+            of inventing answers. It never claims to see live data or internal systems
+            unless that is truly wired up.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Callback‑ready messages</h3>
+          <p>
+            Name, phone number, topic and best time to call back are captured in a
+            structured but natural way, so you can process them quickly between jobs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>About BOT PAPA (Bodo)</h2>
+      <p>
+        BOT PAPA is not a big SaaS company. It is a solo practice run by Bodo Kopplin,
+        focusing on AI phone assistants and automation for small businesses.
+      </p>
+      <div class="section-grid">
+        <div>
+          <p><strong>Role:</strong> Builder and maintainer of your AI receptionist – from the first call flow sketch to live traffic.</p>
+          <p><strong>Stack:</strong> AI voice agents connected to phone systems like Telnyx and Placetel, plus the glue needed in between.</p>
+        </div>
+        <div>
+          <p><strong>Style:</strong> Direct, pragmatic and transparent. No hype, no buzzword bingo – just clear agreements about what the AI will and will not do.</p>
+          <p><strong>Languages:</strong> English and German, with a dedicated German sub‑page planned for DACH clients.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Next step: short, focused call</h2>
+      <p>
+        If you want to know whether an AI phone receptionist makes sense for your business,
+        book a free 20‑minute discovery call. No long pitch deck – just a straight look
+        at your calls, your tools and your options.
+      </p>
+      <div class="contact">
+        <div class="contact-item">
+          <strong>Email:</strong>
+          <a href="mailto:bodo@bot-papa.online">bodo@bot-papa.online</a>
+        </div>
+        <div class="contact-item">
+          <strong>Phone:</strong>
+          <a href="tel:+16288959439">+1‑628‑895‑9439</a>
+        </div>
+        <div class="contact-item">
+          <strong>Book a call:</strong>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" target="_blank" rel="noopener">
+            Schedule via Brevo
+          </a>
+        </div>
+        <div class="contact-item">
+          <strong>Updates:</strong>
+          <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            BOT PAPA on Facebook
+          </a>
+        </div>
+      </div>
+      <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
+        A more detailed German sub‑page and an online shop will follow once the new
+        platform rollout is complete.
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 BOT PAPA – a brand of HomeOffice Worldwide</div>
+      <div>www.bot-papa.online</div>
+    </footer>
   </div>
 </body>
 </html>
