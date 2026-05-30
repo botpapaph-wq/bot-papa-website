@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOT PAPA – KI‑Telefonempfang für Handwerk & Servicebetriebe</title>
+  <meta name="description" content="BOT PAPA entwickelt individuelle KI‑Telefonassistenten für kleine Handwerks- und Servicebetriebe. Kein Anruf geht mehr verloren, wenn Sie auf dem Dach, auf der Baustelle oder bei Kundenterminen sind." />
+
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary span {
+      font-size: 16px;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      filter: brightness(0.98);
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-full);
+      padding: 8px 14px;
+      font-size: 12px;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary span {
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .hero {
+      padding: 26px 24px 24px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.08), transparent 55%),
+        linear-gradient(145deg, rgba(14, 21, 47, 0.95), rgba(3, 5, 16, 0.98));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 3.1vw, 32px);
+      line-height: 1.12;
+      margin: 0 0 12px;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub-2 {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(0, 0, 0, 0.36);
+      border: var(--border-soft);
+    }
+
+    .card {
+      padding: 18px 16px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card-title strong {
+      color: var(--accent);
+    }
+
+    .section {
+      margin-top: 28px;
+      padding: 20px 18px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .section p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .contact-item strong {
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding: 22px 18px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="pill">
+          Solo‑Gründer: <strong>Bodo Kopplin</strong>
+        </div>
+        <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+          Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="hero">
+        <div class="hero-kicker">KI‑Telefonempfang • Telnyx & Placetel</div>
+        <h1 class="hero-title">
+          Kein Anruf mehr, während Sie <span>auf dem Dach</span>, auf der Baustelle oder bei Kundinnen und Kunden sind.
+        </h1>
+        <p class="hero-sub">
+          BOT PAPA entwickelt individuelle KI‑Telefonassistenten für Handwerks- und Servicebetriebe – damit Ihre
+          Anrufe beantwortet, vorsortiert und dokumentiert werden, auch wenn Sie selbst gerade nicht ans Telefon gehen können.
+        </p>
+        <p class="hero-sub-2">
+          Gemacht für Menschen, die wirklich mit den Händen arbeiten: Maler, Dachdecker, Installateure, Schlosser,
+          Coaches und Personal Trainer – nicht für Kanzleien oder Arztpraxen.
+        </p>
+
+        <div class="hero-actions">
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenloses Erstgespräch buchen <span>✚</span>
+          </a>
+          <a href="#status" class="btn-secondary">
+            <span>●</span>
+            Plattform‑Relaunch in Vorbereitung
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>Individueller KI‑Telefonempfang</span>
+          <span>Für Telnyx‑ & Placetel‑Setups</span>
+          <span>Direkte Zusammenarbeit mit dem Erbauer</span>
+        </div>
+      </section>
+
+      <aside id="status" class="card">
+        <div class="card-title">
+          Plattform‑Status <strong>Mai 2026</strong>
+        </div>
+        <p style="color: var(--muted); margin-top: 0; margin-bottom: 10px;">
+          BOT PAPA zieht aktuell auf eine neue Plattform um. Der Dienst wird mit einem frischen Setup und neuen Funktionen wieder online gebracht.
+        </p>
+        <p style="color: var(--muted); margin-bottom: 10px;">
+          Wenn Sie früh dabei sein möchten, buchen Sie einfach ein kostenloses 20‑minütiges Erstgespräch.
+          Wir gehen gemeinsam Ihre Telefonanlage, Ihre Gesprächsabläufe und die realistischen Aufgaben für einen KI‑Empfang durch.
+        </p>
+        <p style="color: var(--muted); margin-bottom: 8px;">
+          Kurze Updates und Einblicke hinter die Kulissen finden Sie hier:
+        </p>
+        <p style="margin: 0;">
+          <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            BOT PAPA Updates auf Facebook ↗
+          </a>
+        </p>
+      </aside>
+    </main>
+
+    <section class="section">
+      <h2>Für wen BOT PAPA gedacht ist</h2>
+      <p>
+        BOT PAPA ist kein generischer Callcenter‑Bot. Es ist ein speziell eingerichteter Telefonempfang
+        für kleine Betriebe, in denen die Inhaberin oder der Inhaber noch selbst ans Telefon geht – bis die Arbeit
+        auf dem Dach, am Gerüst oder im Studio das unmöglich macht.
+      </p>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Handwerk & Außendienst</h3>
+          <p>
+            Maler, Dachdecker, Installateure, Schlosser und ähnliche Gewerke, die ständig auf Baustellen
+            und im Lärm stehen, aber trotzdem jede ernsthafte Anfrage strukturiert festhalten müssen.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Coaches & persönliche Dienstleistungen</h3>
+          <p>
+            Coaches und Personal Trainer, die den Großteil des Tages in Terminen sind und ihre Kundinnen
+            und Kunden nicht bei jedem Klingeln unterbrechen wollen.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Keine Arztpraxen, keine Kanzleien</h3>
+          <p>
+            BOT PAPA richtet sich bewusst nicht an medizinische Einrichtungen oder Anwaltskanzleien.
+            Der Fokus liegt auf praxisnahen, bodenständigen Dienstleistern mit klaren Leistungen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Wie sich Ihr KI‑Telefonassistent verhält</h2>
+      <p>
+        Der Assistent stellt sich klar als KI‑Empfang vor, spricht in natürlicher Telefonsprache
+        und hält sich kurz – wenige Sätze pro Antwort, kein Fachchinesisch, keine falschen Versprechen
+        und keine Hinweise auf interne Technik.
+      </p>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Klare Gesprächsabläufe</h3>
+          <p>
+            Anruf begrüßen, Anliegen verstehen, dann entweder Rückrufnotiz aufnehmen oder passend
+            weiterleiten – nach Regeln, die explizit auf Ihren Betrieb zugeschnitten werden.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Keine Halluzinationen</h3>
+          <p>
+            Wenn die KI etwas nicht weiß, sagt sie es offen und nimmt eine Nachricht auf,
+            statt Antworten zu erfinden. Sie behauptet nie, Live‑Daten oder interne Systeme
+            zu sehen, wenn das nicht wirklich angebunden ist.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size: 14px; margin: 0 0 4px;">Rückruf‑fertige Notizen</h3>
+          <p>
+            Name, Telefonnummer, Anliegen und beste Rückrufzeit werden strukturiert,
+            aber in natürlicher Sprache erfasst – damit Sie die Anfragen zügig
+            zwischen zwei Aufträgen abarbeiten können.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Über BOT PAPA (Bodo)</h2>
+      <p>
+        BOT PAPA ist kein großer SaaS‑Konzern. Es ist eine Einzelpraxis von Bodo Kopplin mit
+        Schwerpunkt auf KI‑Telefonassistenten und Automatisierung für kleine Unternehmen.
+      </p>
+      <div class="section-grid">
+        <div>
+          <p><strong>Rolle:</strong> Aufbau und laufende Betreuung Ihres KI‑Telefonempfangs – von der ersten Skizze des Gesprächsablaufs bis zum Live‑Betrieb.</p>
+          <p><strong>Tech‑Stack:</strong> KI‑Sprachagenten, angebunden an Telefonanlagen wie Telnyx und Placetel, plus die Integrationen dazwischen.</p>
+        </div>
+        <div>
+          <p><strong>Arbeitsstil:</strong> Direkt, pragmatisch und transparent. Kein Hype, kein Buzzword‑Bingo – sondern klare Absprachen, was die KI übernehmen soll und was ausdrücklich nicht.</p>
+          <p><strong>Sprachen:</strong> Deutsch und Englisch, mit dieser eigenen deutschsprachigen Seite für Kundinnen und Kunden in der DACH‑Region.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Nächster Schritt: kurzes, fokussiertes Gespräch</h2>
+      <p>
+        Wenn Sie prüfen möchten, ob ein KI‑Telefonempfang für Ihren Betrieb sinnvoll ist,
+        buchen Sie ein kostenfreies, 20‑minütiges Erstgespräch. Keine lange Präsentation –
+        sondern ein klarer Blick auf Ihre Anrufe, Ihre Tools und die realistischen Optionen.
+      </p>
+      <div class="contact">
+        <div class="contact-item">
+          <strong>E‑Mail:</strong>
+          <a href="mailto:bodo@bot-papa.online">bodo@bot-papa.online</a>
+        </div>
+        <div class="contact-item">
+          <strong>Telefon:</strong>
+          <a href="tel:+16288959439">+1‑628‑895‑9439</a>
+        </div>
+        <div class="contact-item">
+          <strong>Termin buchen:</strong>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" target="_blank" rel="noopener">
+            Termin über Brevo vereinbaren
+          </a>
+        </div>
+        <div class="contact-item">
+          <strong>Updates:</strong>
+          <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            BOT PAPA auf Facebook
+          </a>
+        </div>
+      </div>
+      <div style="margin-top: 12px; font-size: 12px; color: var(--muted);">
+        Weitere Fachseiten für einzelne Branchen sowie ein kleiner Onlineshop folgen,
+        sobald der neue Plattform‑Rollout abgeschlossen ist.
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div>www.bot-papa.online</div>
+    </footer>
+  </div>
+</body>
+</html>
