@@ -6,6 +6,9 @@
   <title>BOT PAPA – Shop</title>
   <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt-Engineering für Placetel KI-Telefonassistenten.">
 
+  <!-- PAYPAL SDK INTEGRIERT (Ersetze DEINE_LIVE_CLIENT_ID mit deiner ID aus dem PayPal Developer Portal) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=DEINE_LIVE_CLIENT_ID&currency=USD"></script>
+
   <style>
     :root {
       --bg: #050816;
@@ -18,8 +21,7 @@
       --radius-lg: 18px;
       --radius-full: 999px;
       --border-soft: 1px solid rgba(255, 255, 255, 0.07);
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -65,8 +67,8 @@
     }
 
     .brand-mark {
-      width: 180px;
-      height: 180px;
+      width: 50px; /* Korrigiert, da 180px den Header gesprengt hat */
+      height: 50px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -389,38 +391,22 @@
     }
 
     .paypal-wrapper {
-      padding: 12px;
+      padding: 16px;
       border-radius: 10px;
       background: #ffffff;
       color: #003087;
-      max-width: 320px;
+      max-width: 340px;
     }
 
     .paypal-label {
-      font-size: 12px;
-      margin-bottom: 6px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
       color: #111111;
     }
 
-    .paypal-btn-link {
-      display: inline-block;
+    #paypal-button-container {
       width: 100%;
-      border-radius: 4px;
-      background: #0070ba;
-      color: #ffffff;
-      text-align: center;
-      padding: 8px 12px;
-      font-weight: 600;
-      font-size: 13px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      margin-top: 4px;
-    }
-
-    .paypal-btn-link:hover {
-      background: #005c99;
-      text-decoration: none;
     }
 
     .legal-text {
@@ -448,8 +434,8 @@
         padding: 10px 12px;
       }
       .brand-mark {
-        width: 120px;
-        height: 120px;
+        width: 50px;
+        height: 50px;
       }
       .header-right {
         align-items: flex-start;
@@ -539,7 +525,7 @@
           </button>
         </div>
 
-        <!-- Produkt 2 (Platzhalter DE) -->
+        <!-- Produkt 2 -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
           <h3 class="product-title">
@@ -567,7 +553,7 @@
           </button>
         </div>
 
-        <!-- Produkt 3 (Platzhalter EN) -->
+        <!-- Produkt 3 -->
         <div class="product-card">
           <div class="product-badge">Digital Product</div>
           <h3 class="product-title">
@@ -594,8 +580,6 @@
             Buy now
           </button>
         </div>
-
-        <!-- Weitere Produkte: diesen Block kopieren -->
 
       </div>
     </section>
@@ -628,7 +612,8 @@
         Trage hier deine Rechnungsdaten ein und schließe die Zahlung über PayPal ab.
       </p>
 
-      <form class="checkout-form">
+      <!-- ID zur Validierung via JS hinzugefügt -->
+      <form class="checkout-form" id="billing-form">
         <div class="form-field">
           <label for="fullName">Vollständiger Name *</label>
           <input type="text" id="fullName" name="fullName" required autocomplete="name">
@@ -654,17 +639,14 @@
 
       <div class="form-footer">
         <div class="paypal-wrapper">
-          <div class="paypal-label">Zahlung per PayPal</div>
-          <!-- Hier aktuell noch EIN statischer Link – später kannst du je nach Produkt mappen -->
-          <a class="paypal-btn-link" id="paypal-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
-            Mit PayPal bezahlen
-          </a>
+          <div class="paypal-label">Sichere Zahlung via PayPal</div>
+          
+          <!-- Hier rendert PayPal jetzt die echten Buttons rein -->
+          <div id="paypal-button-container"></div>
         </div>
 
         <p class="legal-text">
-          Hinweis: Dieses Setup ist ein erster Entwurf ohne echte Warenkorb-Logik.
-          Die Zuordnung Produkt → PayPal-Link und die automatisierte Zustellung
-          solltest du später serverseitig oder mit einem Payment-Tool sauber lösen.
+          Hinweis: Nach erfolgreicher Zahlung wirst du sofort automatisch auf die Download-Seite deines gewählten Guides weitergeleitet.
         </p>
       </div>
     </section>
@@ -676,40 +658,93 @@
   </div>
 
   <script>
-    // Minimal-Logik: Produkt aus Karte in Checkout anzeigen
+    // Globale Variablen für das aktuell ausgewählte Produkt
+    let currentProduct = {
+      id: null,
+      name: null,
+      price: "0.00"
+    };
+
     const buttons = document.querySelectorAll('.btn-scroll-checkout');
     const summaryName = document.getElementById('summary-name');
     const summaryPrice = document.getElementById('summary-price');
     const summaryQty = document.getElementById('summary-qty');
     const summaryTotal = document.getElementById('summary-total');
-    const paypalLink = document.getElementById('paypal-link');
+    const billingForm = document.getElementById('billing-form');
 
-    // einfache Zuordnung Produkt-ID → PayPal-Link
-    const paypalMap = {
-      p1: 'DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1',
-      p2: 'DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_2',
-      p3: 'YOUR_PAYPAL_LINK_PRODUCT_3'
-    };
-
+    // Wenn ein User auf "Jetzt kaufen" klickt
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        const name = btn.getAttribute('data-product-name');
-        const price = btn.getAttribute('data-product-price');
-        const id = btn.getAttribute('data-product-id');
-        const qty = 1;
+        currentProduct.name = btn.getAttribute('data-product-name');
+        currentProduct.price = btn.getAttribute('data-product-price');
+        currentProduct.id = btn.getAttribute('data-product-id');
 
-        summaryName.textContent = name;
-        summaryPrice.textContent = price + ' USD';
-        summaryQty.textContent = qty;
-        summaryTotal.textContent = (price * qty).toFixed(2) + ' USD';
+        summaryName.textContent = currentProduct.name;
+        summaryPrice.textContent = currentProduct.price + ' USD';
+        summaryQty.textContent = "1";
+        summaryTotal.textContent = currentProduct.price + ' USD';
 
-        if (paypalMap[id]) {
-          paypalLink.href = paypalMap[id];
-        }
-
+        // Sanft zum Checkout scrollen
         document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
       });
     });
+
+    // PAYPAL SMART BUTTON LOGIK
+    paypal.Buttons({
+      // 1. Validierung: Prüfen, ob der User ein Produkt gewählt und das Formular ausgefüllt hat
+      onClick: function(data, actions) {
+        if (!currentProduct.id) {
+          alert("Bitte wähle zuerst oben ein Produkt aus, indem du auf 'Jetzt kaufen' klickst.");
+          return actions.reject();
+        }
+        if (!billingForm.checkValidity()) {
+          alert("Bitte fülle alle erforderlichen Rechnungsdaten (*) aus, bevor du die Zahlung startest.");
+          billingForm.reportValidity();
+          return actions.reject();
+        }
+        return actions.resolve();
+      },
+
+      // 2. Transaktion erstellen mit dynamischem Preis des gewählten Produkts
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: currentProduct.name,
+            amount: {
+              currency_code: "USD",
+              value: currentProduct.price
+            }
+          }]
+        });
+      },
+
+      // 3. Zahlung erfolgreich abgeschlossen
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          
+          // Formulardaten auslesen, falls du sie wegschicken willst (z.B. per Webhook oder Mail)
+          const customerName = document.getElementById('fullName').value;
+          const customerEmail = document.getElementById('email').value;
+
+          alert('Danke für deine Zahlung, ' + details.payer.name.given_name + '! Du wirst jetzt zu deinem Download weitergeleitet.');
+
+          // WEITERLEITUNG JE NACH PRODUKT-ID
+          if (currentProduct.id === 'p1') {
+            window.location.href = "https://www.bot-papa.online/downloads/guide-placetel-xyz.pdf";
+          } else if (currentProduct.id === 'p2') {
+            window.location.href = "https://www.bot-papa.online/downloads/produkt-2.pdf";
+          } else if (currentProduct.id === 'p3') {
+            window.location.href = "https://www.bot-papa.online/downloads/product-3-en.pdf";
+          }
+        });
+      },
+
+      // Fehlerbehandlung
+      onError: function(err) {
+        console.error('PayPal Error:', err);
+        alert('Es gab ein Problem mit der PayPal-Abwicklung. Bitte versuche es erneut.');
+      }
+    }).render('#paypal-button-container');
   </script>
 </body>
 </html>
