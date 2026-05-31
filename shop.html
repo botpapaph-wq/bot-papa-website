@@ -6,10 +6,8 @@
   <title>BOT PAPA – Shop</title>
   <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt-Engineering für Placetel KI-Telefonassistenten.">
 
-  <!-- PAYPAL SDK INTEGRIERT (Ersetze DEINE_LIVE_CLIENT_ID mit deiner ID aus dem PayPal Developer Portal) -->
   <script src="https://www.paypal.com/sdk/js?client-id=DEINE_LIVE_CLIENT_ID&currency=USD"></script>
 
-  <!-- SUPABASE LIBRARY HINZUGEFÜGT (Für die sichere Datenbankanbindung) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -500,7 +498,6 @@
 
       <div class="products-grid">
 
-        <!-- Produkt 1 -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
           <h3 class="product-title">
@@ -528,7 +525,6 @@
           </button>
         </div>
 
-        <!-- Produkt 2 -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
           <h3 class="product-title">
@@ -556,7 +552,6 @@
           </button>
         </div>
 
-        <!-- Produkt 3 -->
         <div class="product-card">
           <div class="product-badge">Digital Product</div>
           <h3 class="product-title">
@@ -590,7 +585,6 @@
     <section class="form-section" id="checkout">
       <h2>Rechnungsdaten & Zahlung</h2>
 
-      <!-- Ausgewähltes Produkt -->
       <div class="checkout-summary" id="checkout-summary">
         <div class="checkout-summary-title">Ausgewähltes Produkt</div>
         <div class="checkout-summary-line">
@@ -643,7 +637,6 @@
         <div class="paypal-wrapper">
           <div class="paypal-label">Sichere Zahlung via PayPal</div>
           
-          <!-- Hier rendert PayPal jetzt die echten Buttons rein -->
           <div id="paypal-button-container"></div>
         </div>
 
@@ -698,7 +691,7 @@
 
     // PAYPAL SMART BUTTON LOGIK
     paypal.Buttons({
-      // 1. Validierung UND Eintrag in Supabase beim Klick
+      // 1. Validierung UND Eintrag in Supabase beim Klick (Jetzt sauber synchronisiert)
       onClick: function(data, actions) {
         if (!currentProduct.id) {
           alert("Bitte wähle zuerst oben ein Produkt aus, indem du auf 'Jetzt kaufen' klickst.");
@@ -716,8 +709,8 @@
         const address = document.getElementById('address').value;
         const notes = document.getElementById('notes').value;
 
-        // Bestelldaten asynchron in Supabase speichern
-        supabaseClient
+        // Wir zwingen PayPal zu warten, bis Supabase antwortet
+        return supabaseClient
           .from('orders')
           .insert([
             { 
@@ -732,10 +725,11 @@
           .then(({ error }) => {
             if (error) {
               console.error('Supabase Error:', error);
+              alert('Fehler beim Speichern der Bestelldaten. Bitte versuche es erneut oder kontaktiere den Support.');
+              return actions.reject(); // PayPal bricht ab
             }
+            return actions.resolve(); // Alles okay, PayPal öffnet sich
           });
-
-        return actions.resolve();
       },
 
       // 2. Transaktion erstellen mit dynamischem Preis des gewählten Produkts
