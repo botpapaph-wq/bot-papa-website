@@ -397,6 +397,152 @@
       justify-content: space-between;
     }
 
+    /* Cookie Banner Styles */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1a1a1a;
+      color: #ffffff;
+      padding: 20px;
+      z-index: 9999;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+      font-family: var(--font-sans);
+    }
+
+    .cookie-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cookie-text {
+      flex: 1;
+      min-width: 300px;
+      margin: 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .cookie-link {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .cookie-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .cookie-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cookie-btn-reject {
+      background: #ef5350;
+      color: white;
+    }
+
+    .cookie-btn-reject:hover {
+      background: #c62828;
+    }
+
+    .cookie-btn-settings {
+      background: #424242;
+      color: white;
+      border: 1px solid #757575;
+    }
+
+    .cookie-btn-settings:hover {
+      background: #616161;
+    }
+
+    .cookie-btn-accept {
+      background: #66bb6a;
+      color: white;
+    }
+
+    .cookie-btn-accept:hover {
+      background: #2e7d32;
+    }
+
+    .cookie-btn-save {
+      background: var(--accent);
+      color: #050816;
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+    }
+
+    .cookie-btn-save:hover {
+      filter: brightness(0.9);
+    }
+
+    .cookie-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cookie-modal-content {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .cookie-close {
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .cookie-category {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 5px;
+    }
+
+    .cookie-category label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .cookie-description {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+      margin-left: 30px;
+      line-height: 1.4;
+    }
+
     @media (max-width: 768px) {
       header {
         position: static;
@@ -421,6 +567,21 @@
       .nav-links {
         flex-wrap: wrap;
       }
+      
+      .cookie-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .cookie-btn {
+        flex: 1;
+        min-width: 120px;
+      }
     }
   </style>
 </head>
@@ -431,6 +592,65 @@
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p class="cookie-text">
+        We use cookies to improve our website, provide you with the best experience, and collect anonymized usage data. 
+        <strong>Non-essential cookies are blocked by default</strong> – you can adjust your preferences anytime.
+        <a href="/cookie-policy" target="_blank" class="cookie-link">Learn more</a>
+      </p>
+      <div class="cookie-buttons">
+        <button id="cookie-reject" class="cookie-btn cookie-btn-reject">Decline</button>
+        <button id="cookie-settings" class="cookie-btn cookie-btn-settings">Settings</button>
+        <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept all</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Preferences Modal -->
+  <div id="cookie-modal" class="cookie-modal">
+    <div class="cookie-modal-content">
+      <span id="cookie-close" class="cookie-close">&times;</span>
+      <h2>Cookie Settings</h2>
+      <p>Choose which cookies you want to accept:</p>
+      
+      <div class="cookie-category">
+        <label>
+          <input type="checkbox" id="cookie-necessary" checked disabled>
+          <strong>Essential Cookies</strong> (required)
+        </label>
+        <p class="cookie-description">Necessary for website operation. Cannot be disabled.</p>
+      </div>
+      
+      <div class="cookie-category">
+        <label>
+          <input type="checkbox" id="cookie-analytics">
+          <strong>Analytics Cookies</strong>
+        </label>
+        <p class="cookie-description">Anonymized usage data (e.g., Google Analytics). Help us improve the website.</p>
+      </div>
+      
+      <div class="cookie-category">
+        <label>
+          <input type="checkbox" id="cookie-functional">
+          <strong>Functional Cookies</strong>
+        </label>
+        <p class="cookie-description">Store your preferences (e.g., language, region) for better experience.</p>
+      </div>
+      
+      <div class="cookie-category">
+        <label>
+          <input type="checkbox" id="cookie-marketing">
+          <strong>Marketing Cookies</strong>
+        </label>
+        <p class="cookie-description">Advertising cookies for targeted ads (e.g., Meta Pixel, Google Ads).</p>
+      </div>
+      
+      <button id="cookie-save" class="cookie-btn cookie-btn-save">Save Settings</button>
+    </div>
+  </div>
 
   <div class="page">
     <header>
@@ -475,7 +695,7 @@
       <section class="hero">
         <div class="hero-kicker">AI Phone Reception • Telnyx & Placetel</div>
         <h1 class="hero-title">
-          Stop missing calls while you’re <span>on the roof</span>, on site or with clients.
+          Stop missing calls while you're <span>on the roof</span>, on site or with clients.
         </h1>
         <p class="hero-sub">
           BOT PAPA builds custom AI phone receptionists for trades and service pros – so your
@@ -664,5 +884,117 @@
       <div>www.bot-papa.online</div>
     </footer>
   </div>
+
+  <!-- Cookie Banner JavaScript -->
+  <script>
+  (function() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieModal = document.getElementById('cookie-modal');
+    const cookieAccept = document.getElementById('cookie-accept');
+    const cookieReject = document.getElementById('cookie-reject');
+    const cookieSettings = document.getElementById('cookie-settings');
+    const cookieClose = document.getElementById('cookie-close');
+    const cookieSave = document.getElementById('cookie-save');
+    
+    // Check if user already made a choice
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    if (cookieConsent) {
+      cookieBanner.style.display = 'none';
+      loadScripts(JSON.parse(cookieConsent));
+    } else {
+      cookieBanner.style.display = 'block';
+    }
+    
+    // Accept all cookies
+    cookieAccept.addEventListener('click', () => {
+      const consent = {
+        necessary: true,
+        analytics: true,
+        functional: true,
+        marketing: true
+      };
+      saveConsent(consent);
+    });
+    
+    // Reject all non-essential cookies
+    cookieReject.addEventListener('click', () => {
+      const consent = {
+        necessary: true,
+        analytics: false,
+        functional: false,
+        marketing: false
+      };
+      saveConsent(consent);
+    });
+    
+    // Open settings modal
+    cookieSettings.addEventListener('click', () => {
+      cookieModal.style.display = 'flex';
+    });
+    
+    // Close modal
+    cookieClose.addEventListener('click', () => {
+      cookieModal.style.display = 'none';
+    });
+    
+    // Save custom settings
+    cookieSave.addEventListener('click', () => {
+      const consent = {
+        necessary: true,
+        analytics: document.getElementById('cookie-analytics').checked,
+        functional: document.getElementById('cookie-functional').checked,
+        marketing: document.getElementById('cookie-marketing').checked
+      };
+      saveConsent(consent);
+      cookieModal.style.display = 'none';
+    });
+    
+    function saveConsent(consent) {
+      localStorage.setItem('cookieConsent', JSON.stringify(consent));
+      cookieBanner.style.display = 'none';
+      loadScripts(consent);
+      logConsent(consent);
+    }
+    
+    function loadScripts(consent) {
+      // Load analytics scripts only if consented
+      if (consent.analytics) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
+      
+      // Load marketing scripts only if consented
+      if (consent.marketing) {
+        if (typeof gtag !== 'undefined') {
+          gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted'
+          });
+        }
+      }
+    }
+    
+    function logConsent(consent) {
+      const consentLog = {
+        timestamp: new Date().toISOString(),
+        consent: consent,
+        userAgent: navigator.userAgent
+      };
+      localStorage.setItem('cookieConsentLog', JSON.stringify(consentLog));
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === cookieModal) {
+        cookieModal.style.display = 'none';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>
