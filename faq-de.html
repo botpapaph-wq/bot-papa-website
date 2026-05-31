@@ -1,1 +1,533 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ – BOT PAPA KI‑Telefonassistent</title>
+  <meta name="description" content="Häufige Fragen zu BOT PAPA: KI-Telefonassistent für Handwerksbetriebe und Dienstleister in der DACH-Region – Kosten, Technik, Datenschutz und Einsatzbereiche." />
 
+  <!-- Google Tag Manager -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <!-- End Google Tag Manager -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+    }
+
+    .lang-switch a {
+      padding: 0;
+      border: none;
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      filter: grayscale(60%);
+      transform: translateY(1px);
+    }
+
+    .lang-flag.active {
+      filter: grayscale(0%);
+    }
+
+    main {
+      padding: 22px 20px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    main h1 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .faq-item {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .faq-item h2 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .faq-item p {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .faq-item ul {
+      margin: 0 0 8px 18px;
+      padding: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      main {
+        padding: 18px 16px;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Solo‑Gründer: <strong>Bodo Kopplin</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="index_de.html#who">Für wen</a>
+            <a href="index_de.html#behavior">Verhalten</a>
+            <a href="index_de.html#about">Über BOT PAPA</a>
+            <a href="contact.html">Kontakt</a>
+            <div class="lang-switch">
+              <a href="index.html" aria-label="English">
+                <span class="lang-flag">🇺🇸</span>
+              </a>
+              <a href="faq-de.html" aria-label="Deutsch">
+                <span class="lang-flag active">🇩🇪</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1>Häufige Fragen (FAQ)</h1>
+
+      <div class="faq-item">
+        <h2>Für wen ist BOT PAPA gedacht?</h2>
+        <p>
+          BOT PAPA richtet sich an Handwerksbetriebe und dienstleistende Selbstständige in der DACH‑Region,
+          die tagsüber meist auf Baustellen, beim Kunden oder im Studio sind und trotzdem erreichbar
+          bleiben müssen.
+        </p>
+        <p>
+          Typische Beispiele: Maler, Dachdecker, Installateure, Schlosser, kleinere Servicebetriebe,
+          Coaches und Personal Trainer. Kanzleien und Arztpraxen gehören bewusst nicht zu meinem Fokus.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Was kostet der Einstieg?</h2>
+        <p>
+          Der erste Schritt ist ein kompakter Einstiegsleitfaden als PDF. Er kostet 2,99&nbsp;USD –
+          nicht als „Produktpreis“, sondern als Handling‑ und Versandpauschale für die Abwicklung.
+        </p>
+        <p>
+          Das Basis‑Setup eines individuellen KI‑Telefonassistenten (3 Stunden) kostet 299&nbsp;EUR
+          pauschal. Jede zusätzliche Stunde, die aufgrund von nachträglichen Wünschen oder Zusatzumfang
+          anfällt, berechne ich mit 49&nbsp;EUR.
+        </p>
+        <p>
+          Für die laufende Wartung und kleinere Änderungen gibt es einen Wartungsvertrag:
+          49&nbsp;EUR pro Monat, unabhängig davon, ob im jeweiligen Monat Änderungen anfallen oder nicht
+          – monatlich kündbar.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Was ist im 3‑Stunden‑Setup enthalten?</h2>
+        <p>Im Basis‑Setup sind in der Regel enthalten:</p>
+        <ul>
+          <li>eine kurze Bedarfsanalyse,</li>
+          <li>das Prompting eines individuellen Verhaltens‑Prompts für Ihren Sprachassistenten,</li>
+          <li>Einpflegen Ihrer wichtigsten Wissensquellen (Leistungen, Ablauf, Standort, Öffnungszeiten),</li>
+          <li>Backend‑Setup wie SMS‑ und/oder E‑Mail‑Benachrichtigungen, Weiterleitungen und Grundlogik.</li>
+        </ul>
+        <p>
+          Ziel ist ein Assistent, der in Ihrem Ton begrüßt, Anrufe strukturiert annimmt und
+          Rückruf‑fertige Notizen erzeugt – ohne Hype, dafür praxistauglich.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Welche Telefonanlagen werden unterstützt?</h2>
+        <p>
+          Für die DACH‑Region arbeite ich in erster Linie mit Placetel. Wenn Sie kein Placetel nutzen,
+          ist der erste Schritt meist ein Anbieterwechsel dorthin – dabei unterstütze ich Sie.
+        </p>
+        <p>
+          Alternativ kann ich auch Setups mit Telnyx begleiten. Ich verkaufe keine eigenen Telefonanlagen,
+          sondern konzipiere und betreue maßgeschneiderte KI‑Sprachassistenten auf bestehenden Systemen.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Verkaufst du eine „eigene“ KI wie Placetel AI?</h2>
+        <p>
+          Nein. Placetel AI ist ein eigenes Produkt von Placetel, das direkt als KI‑Telefonassistent in
+          die Placetel‑Plattform integriert ist. Es kann Termine buchen, Anfragen qualifizieren und
+          Vorgänge direkt in angebundene Systeme weiterführen. [web:363]
+        </p>
+        <p>
+          BOT PAPA baut auf solchen Plattformen auf, übersetzt Ihr Geschäft in klare Gesprächslogik
+          und kümmert sich um die individuelle Einrichtung, Anpassung und laufende Pflege – speziell
+          für kleinere Betriebe, die das nicht „nebenbei“ stemmen wollen.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Klingt das nicht unpersönlich?</h2>
+        <p>
+          Ein KI‑Assistent ersetzt keine Inhaberin und keinen Meister am Telefon. Er sorgt aber dafür,
+          dass Interessenten überhaupt eine Antwort bekommen, statt dauerhaft auf dem Anrufbeantworter
+          zu landen oder gar nicht durchzukommen.
+        </p>
+        <p>
+          Die Sprache wird bewusst natürlich gehalten, ohne Marketing‑Floskeln. Der Assistent stellt sich
+          klar als KI‑Empfang vor und versucht nicht, einen Menschen zu „spielen“.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Versteht der Assistent meine Kundschaft wirklich?</h2>
+        <p>
+          Der Assistent nutzt moderne Sprachmodelle und ist darauf ausgelegt, normale Alltags‑Sprache
+          zu verstehen – inklusive „Baustellen‑Deutsch“ und unverblümten Formulierungen.
+        </p>
+        <p>
+          Ich arbeite mit realen Gesprächsbeispielen und passe den Prompt so an, dass typische Anfragen
+          aus Ihrem Gewerk sauber erfasst und strukturiert werden. Wenn etwas nicht verstanden wird,
+          wird offen nachgefragt – statt zu raten.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Was passiert mit den Anrufen und Daten?</h2>
+        <p>
+          Technisch können Gespräche aufgezeichnet und Transkripte erstellt werden – ob das genutzt wird,
+          hängt von Ihrem Wunsch und von den rechtlichen Rahmenbedingungen in Ihrem Land ab.
+        </p>
+        <p>
+          Grundsätzlich gilt: Für die rechtssichere Gestaltung Ihrer Ansagen, Einwilligungen und Hinweise
+          an Anruferinnen und Anrufer sind Sie als Betreiber selbst verantwortlich. Ich unterstütze mit
+          praxisnahen Formulierungen, ersetze aber keine Rechtsberatung.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Ist das rechtlich überhaupt erlaubt?</h2>
+        <p>
+          Der Einsatz eines KI‑Telefonassistenten ist grundsätzlich zulässig, wenn Sie Transparenz wahren,
+          eine passende Rechtsgrundlage für die Verarbeitung der Daten haben und mit Ihren Anbietern
+          sauber arbeiten (z.B. Auftragsverarbeitungsverträge, DSGVO‑Konformität).
+        </p>
+        <p>
+          Wichtige Themen sind u.a. Information der Anrufer, Umgang mit Mitschnitten und die Wahl
+          der verwendeten Dienste. Wo es um konkrete Rechtsfragen geht, sollten Sie immer Ihre
+          Steuer‑ oder Rechtsberatung einbeziehen.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Was kann der Assistent ausdrücklich nicht?</h2>
+        <p>
+          Der Assistent macht keine Rechts‑ oder Steuerberatung und trifft keine verbindlichen
+          medizinischen Aussagen. Solche Themen müssen immer von qualifizierten Menschen übernommen
+          werden.
+        </p>
+        <p>
+          Notfälle, medizinische Anliegen, rechtliche Fragen oder eskalierte Beschwerden sollten
+          entweder gar nicht von der KI beantwortet oder sehr schnell an einen Menschen
+          weitergereicht werden – das berücksichtige ich bei der Gestaltung der Gesprächslogik.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Wann lohnt sich BOT PAPA eher nicht?</h2>
+        <p>
+          Wenn Sie nur wenige Anrufe pro Woche bekommen, die Sie problemlos selbst oder mit einem
+          klassischen Anrufbeantworter abfangen, lohnt ein KI‑Empfang meist nicht.
+        </p>
+        <p>
+          Spannend wird es dort, wo regelmäßig Anrufe reinkommen, Sie aber zwischen Gerüst, Baustelle
+          und Kundenterminen schlicht nicht jeden Anruf persönlich annehmen können – und trotzdem
+          nichts liegen lassen wollen.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h2>Wie starte ich am besten?</h2>
+        <p>
+          Der einfachste Einstieg ist ein kurzes, fokussiertes Erstgespräch. Wir schauen uns Ihre
+          aktuelle Telefonanlage, typische Anruf‑Situationen und sinnvolle Aufgaben für den
+          Assistenten an – ohne Verkaufsdruck.
+        </p>
+        <p>
+          Wenn das für beide Seiten passt, folgt der Einstiegsleitfaden und danach das 3‑Stunden‑Setup
+          für Ihren ersten produktiven Bot.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div class="footer-links">
+        <a href="faq-de.html">FAQ</a>
+        <span>•</span>
+        <a href="impressum.html">Impressum</a>
+        <span>•</span>
+        <a href="datenschutz.html">Datenschutzerklärung</a>
+        <span>•</span>
+        <a href="agb.html">AGB</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
