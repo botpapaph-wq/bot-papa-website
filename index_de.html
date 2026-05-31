@@ -921,17 +921,15 @@
     const cookieClose = document.getElementById('cookie-close');
     const cookieSave = document.getElementById('cookie-save');
     
-    // Check if user already made a choice
     const cookieConsent = localStorage.getItem('cookieConsent');
     
-    if (cookieConsent) {
+    if (!cookieConsent) {
+      cookieBanner.style.display = 'block';
+    } else {
       cookieBanner.style.display = 'none';
       loadScripts(JSON.parse(cookieConsent));
-    } else {
-      cookieBanner.style.display = 'block';
     }
     
-    // Accept all cookies
     cookieAccept.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -942,7 +940,6 @@
       saveConsent(consent);
     });
     
-    // Reject all non-essential cookies
     cookieReject.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -953,17 +950,14 @@
       saveConsent(consent);
     });
     
-    // Open settings modal
     cookieSettings.addEventListener('click', () => {
       cookieModal.style.display = 'flex';
     });
     
-    // Close modal
     cookieClose.addEventListener('click', () => {
       cookieModal.style.display = 'none';
     });
     
-    // Save custom settings
     cookieSave.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -983,7 +977,6 @@
     }
     
     function loadScripts(consent) {
-      // Load analytics scripts only if consented
       if (consent.analytics) {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -992,7 +985,6 @@
         });
       }
       
-      // Load marketing scripts only if consented
       if (consent.marketing) {
         if (typeof gtag !== 'undefined') {
           gtag('consent', 'update', {
@@ -1013,7 +1005,6 @@
       localStorage.setItem('cookieConsentLog', JSON.stringify(consentLog));
     }
     
-    // Close modal when clicking outside
     window.addEventListener('click', (e) => {
       if (e.target === cookieModal) {
         cookieModal.style.display = 'none';
