@@ -353,6 +353,7 @@
             <a href="index_de.html">Start</a>
             <a href="#weg">Mein Weg</a>
             <a href="#heute">Was ich heute mache</a>
+            <a href="#rollen">Rollen</a>
             <a href="#kontakt">Kontakt</a>
             <div class="lang-switch">
               <a href="about.html" aria-label="English">
@@ -393,46 +394,49 @@
       <p>
         Bis 2017 habe ich in Deutschland gelebt und gearbeitet. In dieser Zeit war ich
         unter anderem im Ladenbau, Messebau und im Handwerk tätig – auch als Inhaber
-        von <strong>MSK Montageservice Kopplin</strong>.
-        Diese Jahre haben meinen Arbeitsstil geprägt: klare Absprachen, Verantwortung
-        für Termine, Budget und Qualität und die Gewohnheit, Dinge einfach zu Ende zu bringen.
+        von <strong>MSK Montageservice Kopplin</strong>. Diese Jahre haben meinen
+        Arbeitsstil geprägt: klare Absprachen, Verantwortung für Termine, Budget und
+        Qualität und die Gewohnheit, Dinge einfach zu Ende zu bringen.
       </p>
       <p>
-        2017 habe ich Deutschland verlassen und bin ins Ausland gegangen. Seitdem haben
-        mich vier Stationen begleitet, jeweils mit einem stärkeren Fokus auf Remote‑Arbeit,
-        Technik und Support.
+        2017 habe ich Deutschland verlassen und bin ins Ausland gegangen. Seitdem
+        haben mich vier Stationen begleitet, jeweils mit einem stärkeren Fokus auf
+        Remote‑Arbeit, Technik und Support.
       </p>
 
       <div class="section-grid">
         <div>
           <h3 style="font-size:14px;margin:0 0 4px;">Schweiz – 4,5 Jahre</h3>
           <p>
-            Arbeit in einem Umfeld, in dem Präzision, Zuverlässigkeit und Planungssicherheit
-            keine Buzzwords, sondern Alltag sind. Diese Haltung nehme ich heute mit in
-            jedes Remote‑Projekt.
+            Arbeit in einem Umfeld, in dem Präzision, Zuverlässigkeit und
+            Planungssicherheit keine Schlagworte, sondern Alltag sind. Diese Haltung
+            nehme ich heute mit in jedes Remote‑Projekt.
           </p>
         </div>
         <div>
           <h3 style="font-size:14px;margin:0 0 4px;">Donostia‑San Sebastián – 1 Jahr</h3>
           <p>
-            Ein Jahr im spanischen Norden, in dem ich Schritt für Schritt vom klassischen
-            Vor‑Ort‑Projektgeschäft in Richtung ortsunabhängige Arbeit und Online‑Dienstleistungen
-            gewechselt bin.
+            Ein Jahr im spanischen Norden, in dem ich Schritt für Schritt vom
+            klassischen Vor‑Ort‑Projektgeschäft in Richtung ortsunabhängige Arbeit
+            und Online‑Dienstleistungen gewechselt bin.
           </p>
         </div>
         <div>
           <h3 style="font-size:14px;margin:0 0 4px;">Lissabon – 3,5 Jahre</h3>
           <p>
-            In Lissabon habe ich tief in Remote‑Kundenservice, technischen Support und
-            digitale Prozesse hineingearbeitet – mit Fokus auf strukturierte Kommunikation,
-            Dokumentation und verlässliche Abläufe.
+            In Lissabon habe ich für internationale Konzerne im
+            <strong>technischen Support</strong> gearbeitet – unter anderem als
+            <strong>IT&nbsp;Support / Helpdesk für Fujitsu</strong> und als
+            <strong>Associate Engineer bei Capgemini Engineering</strong>.
+            Dort ging es um Connectivity, Netzwerk‑Themen, Microsoft&nbsp;365,
+            Troubleshooting und saubere Dokumentation im 24/7‑Remote‑Setup.
           </p>
         </div>
         <div>
           <h3 style="font-size:14px;margin:0 0 4px;">Davao City – seit 1. Oktober 2025</h3>
           <p>
-            Von Davao aus arbeite ich heute vollständig remote für Kundinnen und Kunden
-            im deutschsprachigen Raum – mit Schwerpunkt auf KI‑Telefonassistenten,
+            Von Davao aus arbeite ich heute vollständig remote für Kundinnen und
+            Kunden im deutschsprachigen Raum – mit Schwerpunkt auf KI‑Telefonassistenten,
             Placetel KI‑Sprachassistenten und IT‑Service für kleine Unternehmen.
           </p>
         </div>
@@ -468,6 +472,37 @@
             Mit Haus iT Service &amp; Vertrieb unterstütze ich kleine Unternehmen
             dabei, ihre IT‑Basis, Cloud‑Kommunikation und einfache Automatisierungen
             aufzubauen – ohne Enterprise‑Overhead, passend zum tatsächlichen Alltag.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rollen">
+      <h2>Ausgewählte Rollen &amp; Erfahrungen</h2>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size:14px;margin:0 0 4px;">IT Support / Helpdesk – Fujitsu</h3>
+          <p>
+            Technischer Support für Geschäftskunden: Störungen analysieren,
+            Tickets strukturieren, remote lösen oder sauber an den nächsten Level
+            übergeben. Schwerpunkte: Microsoft&nbsp;365, Netzwerk‑Themen und klare
+            Dokumentation.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size:14px;margin:0 0 4px;">Associate Engineer – Capgemini Engineering</h3>
+          <p>
+            Arbeit an Connectivity‑ und Netzwerk‑Cases im internationalen Umfeld:
+            Konfiguration prüfen, Logs auswerten, Ursachen eingrenzen und Lösungen
+            so formulieren, dass sie für Kunden nachvollziehbar sind.
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size:14px;margin:0 0 4px;">MSK Montageservice Kopplin – Inhaber</h3>
+          <p>
+            Eigenes Unternehmen im Messe‑ und Ladenbau: Teamkoordination,
+            Baustellen‑Organisation, Budget‑ und Qualitätsverantwortung – die
+            Grundlage für meinen heutigen, sehr praxisnahen Blick auf Prozesse.
           </p>
         </div>
       </div>
