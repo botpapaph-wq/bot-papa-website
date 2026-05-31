@@ -6,7 +6,7 @@
   <title>BOT PAPA – Shop</title>
   <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt-Engineering für Placetel KI-Telefonassistenten.">
 
-  <script src="https://www.paypal.com/sdk/js?client-id=DEINE_LIVE_CLIENT_ID&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=Af8U_mfe7X54mZlE4M8WInb6hOOf_A_k_Y2BymjM3K0WqM6zVnd4SgGZ28-S07w16Z8qO-V8wV2z9f4b&currency=USD"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -394,8 +394,8 @@
     .paypal-wrapper {
       padding: 16px;
       border-radius: 10px;
-      background: #ffffff;
-      color: #003087;
+      background: rgba(11, 16, 32, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       max-width: 340px;
     }
 
@@ -403,11 +403,12 @@
       font-size: 13px;
       font-weight: bold;
       margin-bottom: 12px;
-      color: #111111;
+      color: var(--text);
     }
 
     #paypal-button-container {
       width: 100%;
+      min-height: 150px; /* Hält Platz für das SDK-Rendering frei */
     }
 
     .legal-text {
@@ -497,7 +498,6 @@
       </p>
 
       <div class="products-grid">
-
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
           <h3 class="product-title">
@@ -578,7 +578,6 @@
             Buy now
           </button>
         </div>
-
       </div>
     </section>
 
@@ -636,7 +635,6 @@
       <div class="form-footer">
         <div class="paypal-wrapper">
           <div class="paypal-label">Sichere Zahlung via PayPal</div>
-          
           <div id="paypal-button-container"></div>
         </div>
 
@@ -653,12 +651,10 @@
   </div>
 
   <script>
-    // 1. INITIALISIERUNG DES SUPABASE CLIENTS
-    const SUPABASE_URL = "https://supabase.com/dashboard/project/jvujmlssgnqawqqaeqnb";
+    const SUPABASE_URL = "https://jvujmlssgnqawqqaeqnb.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI";
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    // Globale Variablen für das aktuell ausgewählte Produkt
     let currentProduct = {
       id: null,
       name: null,
@@ -672,7 +668,88 @@
     const summaryTotal = document.getElementById('summary-total');
     const billingForm = document.getElementById('billing-form');
 
-    // Wenn ein User auf "Jetzt kaufen" klickt
+    function initPayPalButton() {
+      // Leert den Container vor dem Neu-Rendern, um Button-Dopplungen zu vermeiden
+      document.getElementById('paypal-button-container').innerHTML = '';
+
+      paypal.Buttons({
+        style: {
+          layout: 'vertical',
+          color:  'gold',
+          shape:  'rect',
+          label:  'paypal'
+        },
+
+        onClick: function(data, actions) {
+          // HTML Formular-Validierung prüfen
+          if (!billingForm.checkValidity()) {
+            alert("Bitte fülle alle erforderlichen Rechnungsdaten (*) aus, bevor du die Zahlung startest.");
+            billingForm.reportValidity();
+            return actions.reject();
+          }
+
+          const fullName = document.getElementById('fullName').value;
+          const email = document.getElementById('email').value;
+          const address = document.getElementById('address').value;
+          const notes = document.getElementById('notes').value;
+
+          // Daten-Eintrag in Supabase vor der Zahlungausführung
+          return supabaseClient
+            .from('orders')
+            .insert([
+              { 
+                customer_name: fullName, 
+                customer_email: email, 
+                billing_address: address, 
+                product_id: currentProduct.id,
+                notes: notes,
+                payment_status: 'pending'
+              }
+            ])
+            .then(({ error }) => {
+              if (error) {
+                console.error('Supabase Schreibfehler:', error);
+                alert('Fehler beim Speichern der Bestelldaten in der Datenbank.');
+                return actions.reject();
+              }
+              return actions.resolve();
+            });
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: currentProduct.name,
+              amount: {
+                currency_code: "USD",
+                value: currentProduct.price
+              }
+            }]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Danke für deine Zahlung, ' + details.payer.name.given_name + '! Dein Download startet jetzt.');
+
+            if (currentProduct.id === 'p1') {
+              window.location.href = "https://www.bot-papa.online/downloads/guide-placetel-xyz.pdf";
+            } else if (currentProduct.id === 'p2') {
+              window.location.href = "https://www.bot-papa.online/downloads/produkt-2.pdf";
+            } else if (currentProduct.id === 'p3') {
+              window.location.href = "https://www.bot-papa.online/downloads/product-3-en.pdf";
+            }
+          });
+        },
+
+        onError: function(err) {
+          console.error('PayPal Ausführungsfehler:', err);
+          alert('Zahlungsabwicklung fehlgeschlagen oder abgebrochen.');
+        }
+      }).render('#paypal-button-container');
+    }
+
+    // Event Listener für die Produktauswahl
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         currentProduct.name = btn.getAttribute('data-product-name');
@@ -684,89 +761,12 @@
         summaryQty.textContent = "1";
         summaryTotal.textContent = currentProduct.price + ' USD';
 
-        // Sanft zum Checkout scrollen
+        // Initialisiert und zeichnet die PayPal-Schaltflächen live
+        initPayPalButton();
+
         document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
       });
     });
-
-    // PAYPAL SMART BUTTON LOGIK
-    paypal.Buttons({
-      // 1. Validierung UND Eintrag in Supabase beim Klick (Jetzt sauber synchronisiert)
-      onClick: function(data, actions) {
-        if (!currentProduct.id) {
-          alert("Bitte wähle zuerst oben ein Produkt aus, indem du auf 'Jetzt kaufen' klickst.");
-          return actions.reject();
-        }
-        if (!billingForm.checkValidity()) {
-          alert("Bitte fülle alle erforderlichen Rechnungsdaten (*) aus, bevor du die Zahlung startest.");
-          billingForm.reportValidity();
-          return actions.reject();
-        }
-
-        // Formulardaten auslesen
-        const fullName = document.getElementById('fullName').value;
-        const email = document.getElementById('email').value;
-        const address = document.getElementById('address').value;
-        const notes = document.getElementById('notes').value;
-
-        // Wir zwingen PayPal zu warten, bis Supabase antwortet
-        return supabaseClient
-          .from('orders')
-          .insert([
-            { 
-              customer_name: fullName, 
-              customer_email: email, 
-              billing_address: address, 
-              product_id: currentProduct.id,
-              notes: notes,
-              payment_status: 'pending'
-            }
-          ])
-          .then(({ error }) => {
-            if (error) {
-              console.error('Supabase Error:', error);
-              alert('Fehler beim Speichern der Bestelldaten. Bitte versuche es erneut oder kontaktiere den Support.');
-              return actions.reject(); // PayPal bricht ab
-            }
-            return actions.resolve(); // Alles okay, PayPal öffnet sich
-          });
-      },
-
-      // 2. Transaktion erstellen mit dynamischem Preis des gewählten Produkts
-      createOrder: function(data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            description: currentProduct.name,
-            amount: {
-              currency_code: "USD",
-              value: currentProduct.price
-            }
-          }]
-        });
-      },
-
-      // 3. Zahlung erfolgreich abgeschlossen
-      onApprove: function(data, actions) {
-        return actions.order.capture().then(function(details) {
-          alert('Danke für deine Zahlung, ' + details.payer.name.given_name + '! Du wirst jetzt zu deinem Download weitergeleitet.');
-
-          // WEITERLEITUNG JE NACH PRODUKT-ID
-          if (currentProduct.id === 'p1') {
-            window.location.href = "https://www.bot-papa.online/downloads/guide-placetel-xyz.pdf";
-          } else if (currentProduct.id === 'p2') {
-            window.location.href = "https://www.bot-papa.online/downloads/produkt-2.pdf";
-          } else if (currentProduct.id === 'p3') {
-            window.location.href = "https://www.bot-papa.online/downloads/product-3-en.pdf";
-          }
-        });
-      },
-
-      // Fehlerbehandlung
-      onError: function(err) {
-        console.error('PayPal Error:', err);
-        alert('Es gab ein Problem mit der PayPal-Abwicklung. Bitte versuche es erneut.');
-      }
-    }).render('#paypal-button-container');
   </script>
 </body>
 </html>
