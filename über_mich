@@ -354,6 +354,7 @@
             <a href="#weg">Mein Weg</a>
             <a href="#heute">Was ich heute mache</a>
             <a href="#rollen">Rollen</a>
+            <a href="#zertifikate">Zertifikate</a>
             <a href="#kontakt">Kontakt</a>
             <div class="lang-switch">
               <a href="about.html" aria-label="English">
@@ -503,6 +504,38 @@
             Eigenes Unternehmen im Messe‑ und Ladenbau: Teamkoordination,
             Baustellen‑Organisation, Budget‑ und Qualitätsverantwortung – die
             Grundlage für meinen heutigen, sehr praxisnahen Blick auf Prozesse.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zertifikate">
+      <h2>Zertifikate &amp; Nachweise</h2>
+      <div class="section-grid">
+        <div>
+          <h3 style="font-size:14px;margin:0 0 4px;">Certified Webex für Placetel Associate</h3>
+          <p>
+            Offizielles Zertifikat als <strong>Certified Webex für Placetel Associate</strong>.
+            Es bestätigt meine Qualifikation rund um Webex in Verbindung mit Placetel –
+            insbesondere für Einrichtung, Anpassung und Support von Cloud‑Telefonie‑Setups.
+          </p>
+          <p>
+            <a href="https://drive.google.com/file/d/1cjIJ64XcgPHiGLfLEzKcaFwP19AefBRR/view?usp=sharing" target="_blank" rel="noopener">
+              Zertifikat als PDF ansehen ↗
+            </a>
+          </p>
+        </div>
+        <div>
+          <h3 style="font-size:14px;margin:0 0 4px;">Certified Placetel AI Associate</h3>
+          <p>
+            Offizielles Zertifikat als <strong>Certified Placetel AI Associate</strong>.
+            Der Fokus liegt auf Placetel AI und KI‑Sprachassistenten – von der Konfiguration
+            bis zum praktischen Einsatz im täglichen Kundenkontakt.
+          </p>
+          <p>
+            <a href="https://drive.google.com/file/d/1SDgPc39N89VTniIzMZXbSWy_D8oME8Vw/view?usp=sharing" target="_blank" rel="noopener">
+              Zertifikat als PDF ansehen ↗
+            </a>
           </p>
         </div>
       </div>
