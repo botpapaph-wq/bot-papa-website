@@ -1,24 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BOT PAPA – Shop</title>
-  <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt-Engineering für Placetel KI-Telefonassistenten. Bezahlung per PayPal.">
-
-  <!-- Google Tag Manager -->
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-P5XG82W9');
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
-     crossorigin="anonymous"></script>
+  <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt-Engineering für Placetel KI-Telefonassistenten.">
 
   <style>
     :root {
@@ -28,7 +14,6 @@
       --accent-soft: rgba(0, 224, 255, 0.12);
       --text: #f5f7ff;
       --muted: #a3aac2;
-      --danger: #ff4b6b;
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
       --radius-lg: 18px;
       --radius-full: 999px;
@@ -47,13 +32,8 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 1120px;
@@ -152,9 +132,7 @@
       white-space: nowrap;
     }
 
-    .pill strong {
-      color: var(--accent);
-    }
+    .pill strong { color: var(--accent); }
 
     .nav-links {
       display: flex;
@@ -185,11 +163,6 @@
       margin-left: 4px;
     }
 
-    .lang-switch a {
-      padding: 0;
-      border: none;
-    }
-
     .lang-flag {
       font-size: 18px;
       line-height: 1;
@@ -198,15 +171,12 @@
       transform: translateY(1px);
     }
 
-    .lang-flag.active {
-      filter: grayscale(0%);
-    }
+    .lang-flag.active { filter: grayscale(0%); }
 
     .btn-primary {
       border-radius: var(--radius-full);
       padding: 9px 18px;
       border: none;
-      outline: none;
       cursor: pointer;
       font-size: 13px;
       font-weight: 600;
@@ -224,17 +194,6 @@
     .btn-primary span {
       font-size: 16px;
       transform: translateY(1px);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.06);
-      transform: translateY(-1px);
-    }
-
-    .btn-primary:active {
-      filter: brightness(0.98);
-      transform: translateY(0);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
     }
 
     .section {
@@ -359,6 +318,27 @@
     .form-section h2 {
       margin-top: 0;
       font-size: 18px;
+    }
+
+    .checkout-summary {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      background: rgba(2, 4, 13, 0.9);
+    }
+
+    .checkout-summary-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .checkout-summary-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 2px;
     }
 
     .checkout-form {
@@ -488,13 +468,6 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
   <div class="page">
     <header>
       <div class="brand">
@@ -521,12 +494,8 @@
             <a href="#products">Shop</a>
             <a href="#checkout">Checkout</a>
             <div class="lang-switch">
-              <a href="shop.html" aria-label="Deutsch">
-                <span class="lang-flag active">🇩🇪</span>
-              </a>
-              <a href="shop.html" aria-label="English">
-                <span class="lang-flag">🇺🇸</span>
-              </a>
+              <span class="lang-flag active">🇩🇪</span>
+              <span class="lang-flag">🇺🇸</span>
             </div>
           </nav>
         </div>
@@ -536,101 +505,94 @@
     <section class="section" id="products">
       <h2>Digitale Produkte & Guides</h2>
       <p>
-        Wähle ein Produkt und klicke auf „Jetzt kaufen“. Im nächsten Schritt trägst du deine Rechnungsdaten ein
-        und bezahlst über PayPal.
+        Wähle ein Produkt und klicke auf „Jetzt kaufen“. Im Checkout siehst du danach das ausgewählte Produkt
+        mit Preis und Menge.
       </p>
 
       <div class="products-grid">
 
-        <!-- PRODUKT 1 – dein echtes eBook -->
+        <!-- Produkt 1 -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
-
           <h3 class="product-title">
             Professionelles Prompt‑Engineering für Placetel KI‑Telefonassistenten
           </h3>
-
           <p class="product-description">
             Dieses eBook zeigt dir Schritt für Schritt, wie du Placetel KI‑Telefonassistenten so einstellst,
             dass sie wichtige Anrufe erkennen, sauber dokumentieren und sinnvoll weiterleiten.
           </p>
-
           <div class="product-meta">
             <span>Sprache: Deutsch</span>
             <span>Lizenz: Nur für dich persönlich</span>
           </div>
-
           <div class="price-row">
-            <div class="price-main">USD 2,99</div>
-            <div class="price-note">
-              Handling & „Versand“. Das Produkt selbst ist frei.
-            </div>
+            <div class="price-main">2.99</div>
+            <div class="price-note">Preis in USD, Handling & „Versand“.</div>
           </div>
-
-          <!-- Scroll zum Checkout-Bereich -->
-          <a href="#checkout" class="btn-scroll-checkout">
+          <button
+            class="btn-scroll-checkout"
+            data-product-id="p1"
+            data-product-name="Professionelles Prompt‑Engineering für Placetel KI‑Telefonassistenten"
+            data-product-price="2.99"
+          >
             Jetzt kaufen
-          </a>
+          </button>
         </div>
 
-        <!-- PRODUKT 2 – Platzhalter DE -->
+        <!-- Produkt 2 (Platzhalter DE) -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
-
           <h3 class="product-title">
             DEIN PRODUKTNAME (DE)
           </h3>
-
           <p class="product-description">
             Kurzbeschreibung für ein weiteres deutsches Produkt. 2–3 Sätze, was der Inhalt bringt
             und für wen es gedacht ist.
           </p>
-
           <div class="product-meta">
             <span>Sprache: Deutsch</span>
             <span>Lizenz: Nur für dich persönlich</span>
           </div>
-
           <div class="price-row">
-            <div class="price-main">USD X,XX</div>
-            <div class="price-note">
-              Handling & „Versand“. Produkt selbst ist frei.
-            </div>
+            <div class="price-main">4.99</div>
+            <div class="price-note">Preis in USD, Handling & „Versand“.</div>
           </div>
-
-          <a href="#checkout" class="btn-scroll-checkout">
+          <button
+            class="btn-scroll-checkout"
+            data-product-id="p2"
+            data-product-name="DEIN PRODUKTNAME (DE)"
+            data-product-price="4.99"
+          >
             Jetzt kaufen
-          </a>
+          </button>
         </div>
 
-        <!-- PRODUKT 3 – Platzhalter EN -->
+        <!-- Produkt 3 (Platzhalter EN) -->
         <div class="product-card">
           <div class="product-badge">Digital Product</div>
-
           <h3 class="product-title">
             YOUR PRODUCT NAME (EN)
           </h3>
-
           <p class="product-description">
             Short description for an English product. 2–3 sentences about what it does
             and who it is for.
           </p>
-
           <div class="product-meta">
             <span>Language: English</span>
             <span>License: Personal use only</span>
           </div>
-
           <div class="price-row">
-            <div class="price-main">USD X,XX</div>
-            <div class="price-note">
-              Handling & "Shipping". Product itself is free.
-            </div>
+            <div class="price-main">3.49</div>
+            <div class="price-note">Price in USD, handling & "shipping".</div>
           </div>
-
-          <a href="#checkout" class="btn-scroll-checkout">
+          <button
+            class="btn-scroll-checkout"
+            data-product-id="p3"
+            data-product-name="YOUR PRODUCT NAME (EN)"
+            data-product-price="3.49"
+          >
             Buy now
-          </a>
+          </button>
         </div>
 
         <!-- Weitere Produkte: diesen Block kopieren -->
@@ -640,9 +602,30 @@
 
     <section class="form-section" id="checkout">
       <h2>Rechnungsdaten & Zahlung</h2>
+
+      <!-- Ausgewähltes Produkt -->
+      <div class="checkout-summary" id="checkout-summary">
+        <div class="checkout-summary-title">Ausgewähltes Produkt</div>
+        <div class="checkout-summary-line">
+          <span>Produkt:</span>
+          <span id="summary-name">Noch kein Produkt ausgewählt</span>
+        </div>
+        <div class="checkout-summary-line">
+          <span>Preis:</span>
+          <span id="summary-price">–</span>
+        </div>
+        <div class="checkout-summary-line">
+          <span>Menge:</span>
+          <span id="summary-qty">1</span>
+        </div>
+        <div class="checkout-summary-line">
+          <span>Summe:</span>
+          <span id="summary-total">–</span>
+        </div>
+      </div>
+
       <p>
-        Trage hier deine Rechnungsdaten ein und schließe die Zahlung über PayPal ab. Der Link zum Produkt
-        wird dir per E‑Mail zugeschickt.
+        Trage hier deine Rechnungsdaten ein und schließe die Zahlung über PayPal ab.
       </p>
 
       <form class="checkout-form">
@@ -672,23 +655,61 @@
       <div class="form-footer">
         <div class="paypal-wrapper">
           <div class="paypal-label">Zahlung per PayPal</div>
-          <!-- EINZIGER PayPal-Button / Link -->
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
+          <!-- Hier aktuell noch EIN statischer Link – später kannst du je nach Produkt mappen -->
+          <a class="paypal-btn-link" id="paypal-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
             Mit PayPal bezahlen
           </a>
         </div>
 
         <p class="legal-text">
-          Hinweis: Dies ist ein erster Entwurf. Die tatsächliche Verarbeitung der Daten
-          und automatisierte Zustellung der Produkte werden später über Supabase & Automatisierung gelöst.
+          Hinweis: Dieses Setup ist ein erster Entwurf ohne echte Warenkorb-Logik.
+          Die Zuordnung Produkt → PayPal-Link und die automatisierte Zustellung
+          solltest du später serverseitig oder mit einem Payment-Tool sauber lösen.
         </p>
       </div>
     </section>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div>© 2026 BOT PAPA – Davao City</div>
       <div>www.bot-papa.online</div>
     </footer>
   </div>
+
+  <script>
+    // Minimal-Logik: Produkt aus Karte in Checkout anzeigen
+    const buttons = document.querySelectorAll('.btn-scroll-checkout');
+    const summaryName = document.getElementById('summary-name');
+    const summaryPrice = document.getElementById('summary-price');
+    const summaryQty = document.getElementById('summary-qty');
+    const summaryTotal = document.getElementById('summary-total');
+    const paypalLink = document.getElementById('paypal-link');
+
+    // einfache Zuordnung Produkt-ID → PayPal-Link
+    const paypalMap = {
+      p1: 'DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1',
+      p2: 'DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_2',
+      p3: 'YOUR_PAYPAL_LINK_PRODUCT_3'
+    };
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-product-name');
+        const price = btn.getAttribute('data-product-price');
+        const id = btn.getAttribute('data-product-id');
+        const qty = 1;
+
+        summaryName.textContent = name;
+        summaryPrice.textContent = price + ' USD';
+        summaryQty.textContent = qty;
+        summaryTotal.textContent = (price * qty).toFixed(2) + ' USD';
+
+        if (paypalMap[id]) {
+          paypalLink.href = paypalMap[id];
+        }
+
+        document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
