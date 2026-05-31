@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BOT PAPA – Shop</title>
-  <meta name="description" content="BOT PAPA Shop: Digitale Guides und Prompt‑Engineering für Placetel KI‑Telefonassistenten – für DACH in Du‑Form.">
+  <meta name="description" content="BOT PAPA Shop: Professionelles Prompt‑Engineering für Placetel KI‑Telefonassistenten. Digitales eBook, direkt per PayPal bezahlen.">
 
   <style>
     :root {
@@ -192,7 +192,6 @@
       font-size: 13px;
     }
 
-    /* Produkt-Raster für 20 Produkte */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -242,7 +241,6 @@
       gap: 8px;
       font-size: 11px;
       color: var(--muted);
-      margin-top: auto;
     }
 
     .price-row {
@@ -256,6 +254,7 @@
       font-size: 20px;
       font-weight: 600;
     }
+
     .price-note {
       font-size: 11px;
       color: var(--muted);
@@ -274,11 +273,92 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
+      margin-top: 8px;
     }
 
     .paypal-btn-link:hover {
       background: #005c99;
       text-decoration: none;
+    }
+
+    .form-section {
+      margin-top: 28px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      padding: 20px 18px;
+    }
+
+    .form-section h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .checkout-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px 18px;
+      margin-top: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .form-field label {
+      color: var(--text);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(2, 4, 13, 0.9);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+
+    .form-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .form-footer {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .paypal-wrapper {
+      padding: 12px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #003087;
+      max-width: 320px;
+    }
+
+    .paypal-label {
+      font-size: 12px;
+      margin-bottom: 6px;
+      color: #111111;
+    }
+
+    .legal-text {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 520px;
     }
 
     footer {
@@ -310,7 +390,7 @@
       }
       .nav-links { flex-wrap: wrap; }
       .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
       }
     }
   </style>
@@ -346,83 +426,94 @@
       </div>
     </header>
 
-    <section class="section">
+    <section class="section" id="products">
       <h2>Digitale Guides & Prompt‑Engineering für Placetel KI‑Telefonassistenten</h2>
       <p>
-        Hier findest du unsere digitalen Produkte. Jedes Produkt ist in seiner eigenen Sprache (Deutsch oder Englisch).
-        Du kaufst direkt über PayPal und erhältst den Zugangslink per E‑Mail.
+        Hier findest du deine digitalen Produkte. Jedes Produkt hat seine eigene Sprache (Deutsch oder Englisch),
+        die Beschreibung steht direkt in der Produktkarte. Du kaufst per PayPal und erhältst den Zugangslink per E‑Mail.
       </p>
 
       <div class="products-grid">
 
-        <!-- Produkt 1 (DE) -->
+        <!-- EIN Produkt – dein eBook -->
         <div class="product-card">
           <div class="product-badge">Digitales Produkt</div>
-          <h3 class="product-title">Professionelles Prompt‑Engineering für Placetel KI‑Telefonassistenten</h3>
+
+          <h3 class="product-title">
+            Professionelles Prompt‑Engineering für Placetel KI‑Telefonassistenten
+          </h3>
+
           <p class="product-description">
-            Du bekommst klare, praxiserprobte Prompts und Strukturen für Placetel‑KI‑Telefonassistenten.
-            Direkt, ungeschönt, aus Support‑Fällen und Projekten abgeleitet. Du liest in Ruhe und entscheidest danach,
-            ob du Videocoachings über Brevo dazubuchst.
+            Du bekommst ein praxistaugliches eBook, mit dem du deine Placetel KI‑Telefonassistenten
+            klar strukturierst: von der Rolle der KI über Gesprächsziele und Eskalationslogik
+            bis hin zu sauberen Gesprächszusammenfassungen für deinen Alltag im Betrieb.
           </p>
+
           <div class="product-meta">
             <span>Sprache: Deutsch</span>
             <span>Lizenz: Nur für dich persönlich</span>
           </div>
+
           <div class="price-row">
             <div class="price-main">USD 2,99</div>
-            <div class="price-note">Handling & „Versand". Produkt selbst ist frei.</div>
+            <div class="price-note">
+              Handling & „Versand“. Das Produkt selbst ist frei.
+            </div>
           </div>
-          <!-- HIER später PayPal‑Link pro Produkt -->
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1">
+
+          <!-- PayPal-Link NUR für dieses Produkt -->
+          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
             Mit PayPal kaufen
           </a>
         </div>
 
-        <!-- Produkt 2 (DE) – Beispiel, kopieren für weitere DE‑Produkte -->
-        <div class="product-card">
-          <div class="product-badge">Digitales Produkt</div>
-          <h3 class="product-title">Beispiel‑Produkt 2 (DE)</h3>
-          <p class="product-description">
-            Duarbeitest dich hier in ein konkretes Thema rund um KI‑Telefonassistenten ein.
-            Kurz, praxisnah und auf den Punkt.
-          </p>
-          <div class="product-meta">
-            <span>Sprache: Deutsch</span>
-            <span>Lizenz: Nur für dich persönlich</span>
-          </div>
-          <div class="price-row">
-            <div class="price-main">USD 2,99</div>
-            <div class="price-note">Handling & „Versand". Produkt selbst ist frei.</div>
-          </div>
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_2">
-            Mit PayPal kaufen
+      </div>
+    </section>
+
+    <section class="form-section" id="checkout">
+      <h2>Rechnungsdaten (Entwurf)</h2>
+      <p>
+        Dieses Formular ist ein erster Entwurf. Aktuell werden die Daten noch nicht automatisch gespeichert –
+        Supabase und Automatisierung kommen später dazu.
+      </p>
+
+      <form class="checkout-form">
+        <div class="form-field">
+          <label for="fullName">Vollständiger Name *</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          <div class="form-hint">So wie auf der Rechnung erscheinen soll.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">E‑Mail-Adresse *</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <div class="form-hint">An diese Adresse wird der Zugangslink gesendet.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="address">Rechnungsadresse *</label>
+          <textarea id="address" name="address" required placeholder="Straße, Hausnummer&#10;PLZ, Ort&#10;Land"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="notes">Optionale Notiz</label>
+          <textarea id="notes" name="notes" placeholder="Z. B. Firmenname, USt-ID oder interne Bestellnummer."></textarea>
+        </div>
+      </form>
+
+      <div class="form-footer">
+        <div class="paypal-wrapper">
+          <div class="paypal-label">Zahlung per PayPal</div>
+          <!-- Hier denselben PayPal-Link wie oben verwenden oder einen separaten Checkout-Link -->
+          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
+            Mit PayPal bezahlen
           </a>
         </div>
 
-        <!-- Produkt 3 (EN) – Beispiel, kopieren für EN‑Produkte -->
-        <div class="product-card">
-          <div class="product-badge">Digital Product</div>
-          <h3 class="product-title">Example Product 3 (EN)</h3>
-          <p class="product-description">
-            This is an English‑language product. You get a concise guide with practical prompts
-            for AI phone assistants. Straightforward, no fluff.
-          </p>
-          <div class="product-meta">
-            <span>Language: English</span>
-            <span>License: Personal use only</span>
-          </div>
-          <div class="price-row">
-            <div class="price-main">USD 2,99</div>
-            <div class="price-note">Handling & "Shipping". Product itself is free.</div>
-          </div>
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_3">
-            Buy with PayPal
-          </a>
-        </div>
-
-        <!-- Weitere Produkte einfach kopieren -->
-        <!-- Bis insgesamt 20 product-card‑Blöcke -->
-
+        <p class="legal-text">
+          Hinweis: Dies ist ein erster Entwurf. Die tatsächliche Verarbeitung der Daten
+          und automatisierte Zustellung des eBooks werden später über Supabase & Automatisierung gelöst.
+        </p>
       </div>
     </section>
 
