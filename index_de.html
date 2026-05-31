@@ -586,17 +586,17 @@
       .footer-links {
         justify-content: flex-start;
       }
-      
+
       .cookie-content {
         flex-direction: column;
         text-align: center;
       }
-      
+
       .cookie-buttons {
         width: 100%;
         justify-content: center;
       }
-      
+
       .cookie-btn {
         flex: 1;
         min-width: 120px;
@@ -616,7 +616,7 @@
   <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
       <p class="cookie-text">
-        Wir verwenden Cookies, um unsere Website zu verbessern, Ihnen die beste Erfahrung zu bieten und anonymisierte Nutzungsdaten zu sammeln. 
+        Wir verwenden Cookies, um unsere Website zu verbessern, Ihnen die beste Erfahrung zu bieten und anonymisierte Nutzungsdaten zu sammeln.
         <strong>Nicht-essentielle Cookies werden standardmäßig blockiert</strong> – Sie können Ihre Präferenzen jederzeit anpassen.
         <a href="/cookie-policy" target="_blank" class="cookie-link">Mehr erfahren</a>
       </p>
@@ -634,7 +634,7 @@
       <span id="cookie-close" class="cookie-close">&times;</span>
       <h2>Cookie-Einstellungen</h2>
       <p>Wählen Sie aus, welche Cookies Sie akzeptieren möchten:</p>
-      
+
       <div class="cookie-category">
         <label>
           <input type="checkbox" id="cookie-necessary" checked disabled>
@@ -642,7 +642,7 @@
         </label>
         <p class="cookie-description">Notwendig für den Betrieb der Website. Kann nicht deaktiviert werden.</p>
       </div>
-      
+
       <div class="cookie-category">
         <label>
           <input type="checkbox" id="cookie-analytics">
@@ -650,7 +650,7 @@
         </label>
         <p class="cookie-description">Anonymisierte Nutzungsdaten (z. B. Google Analytics). Helfen uns, die Website zu verbessern.</p>
       </div>
-      
+
       <div class="cookie-category">
         <label>
           <input type="checkbox" id="cookie-functional">
@@ -658,7 +658,7 @@
         </label>
         <p class="cookie-description">Speichern Ihre Einstellungen (z. B. Sprache, Region) für eine bessere Erfahrung.</p>
       </div>
-      
+
       <div class="cookie-category">
         <label>
           <input type="checkbox" id="cookie-marketing">
@@ -666,7 +666,7 @@
         </label>
         <p class="cookie-description">Werbe-Cookies für maßgeschneiderte Anzeigen (z. B. Meta Pixel, Google Ads).</p>
       </div>
-      
+
       <button id="cookie-save" class="cookie-btn cookie-btn-save">Einstellungen speichern</button>
     </div>
   </div>
@@ -921,16 +921,16 @@
     const cookieSettings = document.getElementById('cookie-settings');
     const cookieClose = document.getElementById('cookie-close');
     const cookieSave = document.getElementById('cookie-save');
-    
+
     const cookieConsent = localStorage.getItem('cookieConsent');
-    
+
     if (!cookieConsent) {
       cookieBanner.style.display = 'block';
     } else {
       cookieBanner.style.display = 'none';
       loadScripts(JSON.parse(cookieConsent));
     }
-    
+
     cookieAccept.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -940,7 +940,7 @@
       };
       saveConsent(consent);
     });
-    
+
     cookieReject.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -950,15 +950,15 @@
       };
       saveConsent(consent);
     });
-    
+
     cookieSettings.addEventListener('click', () => {
       cookieModal.style.display = 'flex';
     });
-    
+
     cookieClose.addEventListener('click', () => {
       cookieModal.style.display = 'none';
     });
-    
+
     cookieSave.addEventListener('click', () => {
       const consent = {
         necessary: true,
@@ -969,14 +969,14 @@
       saveConsent(consent);
       cookieModal.style.display = 'none';
     });
-    
+
     function saveConsent(consent) {
       localStorage.setItem('cookieConsent', JSON.stringify(consent));
       cookieBanner.style.display = 'none';
       loadScripts(consent);
       logConsent(consent);
     }
-    
+
     function loadScripts(consent) {
       if (consent.analytics) {
         window.dataLayer = window.dataLayer || [];
@@ -985,7 +985,7 @@
           'analytics_storage': 'granted'
         });
       }
-      
+
       if (consent.marketing) {
         if (typeof gtag !== 'undefined') {
           gtag('consent', 'update', {
@@ -996,7 +996,7 @@
         }
       }
     }
-    
+
     function logConsent(consent) {
       const consentLog = {
         timestamp: new Date().toISOString(),
@@ -1005,7 +1005,7 @@
       };
       localStorage.setItem('cookieConsentLog', JSON.stringify(consentLog));
     }
-    
+
     window.addEventListener('click', (e) => {
       if (e.target === cookieModal) {
         cookieModal.style.display = 'none';
