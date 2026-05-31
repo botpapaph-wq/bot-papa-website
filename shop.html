@@ -327,7 +327,7 @@
       color: var(--muted);
     }
 
-    .paypal-btn-link {
+    .btn-scroll-checkout {
       display: inline-block;
       width: 100%;
       border-radius: 4px;
@@ -343,7 +343,7 @@
       margin-top: 8px;
     }
 
-    .paypal-btn-link:hover {
+    .btn-scroll-checkout:hover {
       background: #005c99;
       text-decoration: none;
     }
@@ -420,6 +420,27 @@
       font-size: 12px;
       margin-bottom: 6px;
       color: #111111;
+    }
+
+    .paypal-btn-link {
+      display: inline-block;
+      width: 100%;
+      border-radius: 4px;
+      background: #0070ba;
+      color: #ffffff;
+      text-align: center;
+      padding: 8px 12px;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .paypal-btn-link:hover {
+      background: #005c99;
+      text-decoration: none;
     }
 
     .legal-text {
@@ -515,7 +536,8 @@
     <section class="section" id="products">
       <h2>Digitale Produkte & Guides</h2>
       <p>
-        Hier kaufst du digitale Produkte direkt über PayPal. Die Beschreibung steht je nach Produkt auf Deutsch oder Englisch.
+        Wähle ein Produkt und klicke auf „Jetzt kaufen“. Im nächsten Schritt trägst du deine Rechnungsdaten ein
+        und bezahlst über PayPal.
       </p>
 
       <div class="products-grid">
@@ -545,9 +567,9 @@
             </div>
           </div>
 
-          <!-- PayPal-Link für dieses Produkt -->
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
-            Mit PayPal kaufen
+          <!-- Scroll zum Checkout-Bereich -->
+          <a href="#checkout" class="btn-scroll-checkout">
+            Jetzt kaufen
           </a>
         </div>
 
@@ -576,8 +598,8 @@
             </div>
           </div>
 
-          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_2" target="_blank" rel="noopener">
-            Mit PayPal kaufen
+          <a href="#checkout" class="btn-scroll-checkout">
+            Jetzt kaufen
           </a>
         </div>
 
@@ -606,21 +628,21 @@
             </div>
           </div>
 
-          <a class="paypal-btn-link" href="YOUR_PAYPAL_LINK_PRODUCT_3" target="_blank" rel="noopener">
-            Buy with PayPal
+          <a href="#checkout" class="btn-scroll-checkout">
+            Buy now
           </a>
         </div>
 
-        <!-- WEITERE PRODUKTE: einfach diese product-card-Blöcke kopieren -->
+        <!-- Weitere Produkte: diesen Block kopieren -->
 
       </div>
     </section>
 
     <section class="form-section" id="checkout">
-      <h2>Rechnungsdaten (Entwurf)</h2>
+      <h2>Rechnungsdaten & Zahlung</h2>
       <p>
-        Dieses Formular ist ein erster Entwurf. Aktuell werden die Daten noch nicht automatisch gespeichert –
-        Supabase und Automatisierung kommen später dazu.
+        Trage hier deine Rechnungsdaten ein und schließe die Zahlung über PayPal ab. Der Link zum Produkt
+        wird dir per E‑Mail zugeschickt.
       </p>
 
       <form class="checkout-form">
@@ -650,7 +672,7 @@
       <div class="form-footer">
         <div class="paypal-wrapper">
           <div class="paypal-label">Zahlung per PayPal</div>
-          <!-- hier kannst du denselben Link wie bei Produkt 1 nehmen oder einen separaten Checkout-Link -->
+          <!-- EINZIGER PayPal-Button / Link -->
           <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK_PRODUKT_1" target="_blank" rel="noopener">
             Mit PayPal bezahlen
           </a>
