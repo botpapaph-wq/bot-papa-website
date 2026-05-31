@@ -1,1 +1,591 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOT PAPA – Digitaler Leitfaden Shop</title>
+  <meta name="description" content="Digitaler Leitfaden von BOT PAPA: Wie du bei AI-Projekten garantiert scheiterst – und ab wann sich echte Hilfe lohnt.">
 
+  <!-- Dein bestehender GTM / Adsense Code kannst du bei Bedarf hier wieder einfügen -->
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-left: 4px;
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      filter: grayscale(60%);
+      transform: translateY(1px);
+    }
+
+    .lang-flag.active { filter: grayscale(0%); }
+
+    .section {
+      margin-top: 28px;
+      padding: 20px 18px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .section p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 24px;
+      margin-top: 18px;
+      align-items: flex-start;
+    }
+
+    .product-card {
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(145deg, rgba(14, 21, 47, 0.95), rgba(3, 5, 16, 0.98));
+      padding: 20px 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .product-title {
+      font-size: 18px;
+      margin: 0 0 6px;
+    }
+
+    .product-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.4);
+      margin-bottom: 10px;
+    }
+
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 8px 0 12px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+
+    .price-main {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .buy-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .btn-buy {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #050816;
+      box-shadow: var(--shadow-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-buy:hover { filter: brightness(1.05); }
+
+    .product-link {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .info-card {
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      padding: 18px 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .info-card h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+
+    .form-section {
+      margin-top: 28px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      padding: 20px 18px;
+    }
+
+    .form-section h2 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .checkout-form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px 18px;
+      margin-top: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .form-field label {
+      color: var(--text);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(2, 4, 13, 0.9);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+
+    .form-field textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .form-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .form-footer {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .paypal-wrapper {
+      padding: 12px;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #003087;
+      max-width: 320px;
+    }
+
+    .paypal-label {
+      font-size: 12px;
+      margin-bottom: 6px;
+      color: #111111;
+    }
+
+    .paypal-btn-link {
+      display: inline-block;
+      width: 100%;
+      border-radius: 4px;
+      background: #0070ba; /* PayPal-Blau-Empfehlung */ /* [web:14] */
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .paypal-btn-link:hover {
+      background: #005c99;
+      text-decoration: none;
+    }
+
+    .legal-text {
+      font-size: 11px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .nav-links { flex-wrap: wrap; }
+      .product-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">AI Phone Assistants & Guides</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Solo founder: <strong>Bodo Kopplin</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-buy" target="_blank" rel="noopener">
+            Free 20‑min call
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="index.html">Back to main page</a>
+            <a href="#product">Shop</a>
+            <a href="#checkout">Checkout</a>
+            <div class="lang-switch">
+              <span class="lang-flag active">🇩🇪</span>
+              <span class="lang-flag">🇺🇸</span>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="product">
+      <h2>Digitaler Leitfaden & Trigger zum Hilfe buchen</h2>
+      <p>
+        Du bekommst einen kompakten Leitfaden dazu, wie du mit AI‑Projekten, Tools und
+        eigenen Vorstellungen zuverlässig scheitern kannst – plus klare Triggerpunkte,
+        ab wann sich echte Hilfe lohnt.
+      </p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-badge">Digitales Produkt · PDF / Google Doc</div>
+          <h3 class="product-title">Leitfaden zum Scheitern (und Trigger zum Hilfe buchen)</h3>
+
+          <p>
+            Direkt, ungeschönt, aus Support‑Fällen und Projekten abgeleitet. Du liest in Ruhe,
+            reflektierst deine eigenen Baustellen und entscheidest danach, ob du Videocoachings
+            über Brevo dazubuchen willst.
+          </p>
+
+          <div class="product-meta">
+            <span>Sprache: Deutsch</span>
+            <span>Zugriff: Google Drive / Download</span>
+            <span>Lizenz: Nur für dich persönlich</span>
+          </div>
+
+          <div class="price-row">
+            <div class="price-main">USD 2,99</div>
+            <div class="price-note">
+              Handling & „Versand“. Das Produkt selbst ist frei.
+            </div>
+          </div>
+
+          <div class="buy-actions">
+            <a href="#checkout" class="btn-buy">
+              Jetzt kaufen
+            </a>
+            <div class="product-link">
+              Beispiel ansehen:
+              <a href="DEIN_GOOGLE_DOC_LINK" target="_blank" rel="noopener">
+                Leitfaden in Google Docs
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-card">
+          <h3>Was passiert nach dem Kauf?</h3>
+          <p>
+            1. Du trägst deinen vollständigen Namen, Rechnungsadresse und E‑Mail ein.<br>
+            2. Du bezahlst über den PayPal‑Button im nächsten Schritt.<br>
+            3. Du erhältst den Zugangslink zum Dokument per E‑Mail.
+          </p>
+          <p>
+            Videocoachings und Meetings laufen getrennt über das Brevo‑Meeting‑Tool,
+            abgerechnet ebenfalls über PayPal.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="form-section" id="checkout">
+      <h2>Checkout · Rechnungsdaten & Zahlung</h2>
+      <p>
+        Dies ist der erste Entwurf deiner Checkout‑Seite. Das Formular speichert aktuell
+        noch nichts – Supabase und Automatisierung kommen später dazu.
+      </p>
+
+      <form class="checkout-form">
+        <div class="form-field">
+          <label for="fullName">Vollständiger Name *</label>
+          <input type="text" id="fullName" name="fullName" required autocomplete="name">
+          <div class="form-hint">So wie auf der Rechnung erscheinen soll.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="email">E‑Mail-Adresse *</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <div class="form-hint">An diese Adresse wird der Zugangslink gesendet.</div>
+        </div>
+
+        <div class="form-field">
+          <label for="address">Rechnungsadresse *</label>
+          <textarea id="address" name="address" required placeholder="Straße, Hausnummer&#10;PLZ, Ort&#10;Land"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label for="notes">Optionale Notiz</label>
+          <textarea id="notes" name="notes" placeholder="Z. B. Firmenname, USt-ID oder interne Bestellnummer."></textarea>
+        </div>
+      </form>
+
+      <div class="form-footer">
+        <div class="paypal-wrapper">
+          <div class="paypal-label">Zahlung per PayPal</div>
+          <!-- HIER später deinen echten PayPal-Link oder Button-Code einfügen -->
+          <a class="paypal-btn-link" href="DEIN_PAYPAL_ZAHLUNGSLINK" target="_blank" rel="noopener">
+            Mit PayPal bezahlen
+          </a>
+        </div>
+
+        <p class="legal-text">
+          Hinweis: Dies ist ein erster Entwurf. Die tatsächliche Verarbeitung der Daten
+          und automatisierte Zustellung des Leitfadens werden später über Supabase &
+          Automatisierung gelöst.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div>www.bot-papa.online</div>
+    </footer>
+  </div>
+</body>
+</html>
