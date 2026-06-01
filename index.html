@@ -395,6 +395,24 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
     /* Cookie Banner Styles */
@@ -567,20 +585,25 @@
       .nav-links {
         flex-wrap: wrap;
       }
-      
+
       .cookie-content {
         flex-direction: column;
         text-align: center;
       }
-      
+
       .cookie-buttons {
         width: 100%;
         justify-content: center;
       }
-      
+
       .cookie-btn {
         flex: 1;
         min-width: 120px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -869,19 +892,24 @@
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
-<!-- Test für BOT PAPA -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9428336256500980"
-     data-ad-slot="3095316630"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    <!-- Test für BOT PAPA -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9428336256500980"
+         data-ad-slot="3095316630"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
     <footer>
       <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
-      <div>www.bot-papa.online</div>
+      <div class="footer-links">
+        <span>www.bot-papa.online</span>
+        <span>•</span>
+        <a href="discovery_form_en.html">AI Telephone Assistant – Discovery Form</a>
+      </div>
     </footer>
   </div>
 
