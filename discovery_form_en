@@ -47,6 +47,7 @@
       padding: 24px 20px 64px;
     }
 
+    /* Header jetzt wie Index-Seite */
     header {
       display: flex;
       align-items: center;
@@ -71,8 +72,8 @@
     }
 
     .brand-mark {
-      width: 72px;
-      height: 72px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -169,7 +170,7 @@
     }
 
     .hero {
-      padding: 24px 22px 18px;
+      padding: 26px 24px 20px;
       border-radius: var(--radius-lg);
       border: var(--border-soft);
       background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.08), transparent 55%),
@@ -319,6 +320,7 @@
       font-size: 12px;
       color: var(--muted);
       margin-top: 16px;
+      flex-wrap: wrap;
     }
 
     .status-dot {
@@ -353,23 +355,6 @@
       justify-content: flex-end;
     }
 
-    .btn-secondary {
-      border-radius: var(--radius-full);
-      padding: 8px 14px;
-      font-size: 12px;
-      border: var(--border-soft);
-      color: var(--muted);
-      background: rgba(5, 8, 22, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .btn-secondary span {
-      font-size: 14px;
-    }
-
     footer {
       margin-top: 28px;
       padding-top: 16px;
@@ -397,7 +382,10 @@
         row-gap: 6px;
       }
       .hero {
-        padding: 20px 16px 16px;
+        padding: 22px 18px 18px;
+      }
+      .status-right {
+        text-align: left;
       }
     }
   </style>
@@ -420,7 +408,7 @@
           <div class="pill">
             Discovery form • AI telephone assistant
           </div>
-          <a href="index.html" class="btn-primary">
+          <a href="index" class="btn-primary">
             Back to main site <span>↗</span>
           </a>
         </div>
@@ -1083,86 +1071,7 @@
             <textarea id="process_restrictions" name="process_restrictions" placeholder="Describe any processes that are fixed and cannot be altered by the AI setup."></textarea>
           </div>
 
-          <div class="divider"></div>
-
-          <!-- 15. Internal Fit (for internal evaluation only) -->
-          <h2 class="section-title">15. Internal Fit (for internal evaluation only)</h2>
-          <p class="field-help">
-            This section is mainly for BOT PAPA internal notes. It can be filled after an initial call.
-          </p>
-          <div class="inline-group">
-            <div class="field-group">
-              <span class="field-label">Data quality</span>
-              <div class="inline-group">
-                <label class="radio-inline">
-                  <input type="radio" name="data_quality" value="green" />
-                  Green
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="data_quality" value="yellow" />
-                  Yellow
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="data_quality" value="red" />
-                  Red
-                </label>
-              </div>
-            </div>
-            <div class="field-group">
-              <span class="field-label">Integration feasibility</span>
-              <div class="inline-group">
-                <label class="radio-inline">
-                  <input type="radio" name="integration_feasibility" value="green" />
-                  Green
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="integration_feasibility" value="yellow" />
-                  Yellow
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="integration_feasibility" value="red" />
-                  Red
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <div class="inline-group" style="margin-top: 8px;">
-            <div class="field-group">
-              <span class="field-label">Automation potential</span>
-              <div class="inline-group">
-                <label class="radio-inline">
-                  <input type="radio" name="automation_potential" value="green" />
-                  Green
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="automation_potential" value="yellow" />
-                  Yellow
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="automation_potential" value="red" />
-                  Red
-                </label>
-              </div>
-            </div>
-            <div class="field-group">
-              <span class="field-label">Closing probability</span>
-              <div class="inline-group">
-                <label class="radio-inline">
-                  <input type="radio" name="closing_probability" value="green" />
-                  Green
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="closing_probability" value="yellow" />
-                  Yellow
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="closing_probability" value="red" />
-                  Red
-                </label>
-              </div>
-            </div>
-          </div>
+          <!-- Abschnitt 15 wurde auf deinen Wunsch vollständig entfernt -->
 
           <div class="submit-row">
             <button type="submit" class="btn-primary">
@@ -1313,12 +1222,6 @@
 
         // 14. Process Restrictions
         process_restrictions: form.process_restrictions.value || null,
-
-        // 15. Internal Fit
-        data_quality: getRadioValue("data_quality"),
-        integration_feasibility: getRadioValue("integration_feasibility"),
-        automation_potential: getRadioValue("automation_potential"),
-        closing_probability: getRadioValue("closing_probability"),
 
         submitted_at: new Date().toISOString()
       };
