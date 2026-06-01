@@ -556,11 +556,34 @@
             </select>
           </div>
 
+          <!-- Billing / Company Address -->
           <div class="inline-group">
-            <div class="field-group">
-              <label for="locations" class="field-label">Locations (cities / regions)</label>
-              <input type="text" id="locations" name="locations" />
+            <div class="field-group" style="flex:2">
+              <label for="address_street" class="field-label">Street</label>
+              <input type="text" id="address_street" name="address_street" placeholder="Street name" />
             </div>
+            <div class="field-group" style="flex:0.6">
+              <label for="address_number" class="field-label">No.</label>
+              <input type="text" id="address_number" name="address_number" placeholder="12a" />
+            </div>
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group" style="flex:0.8">
+              <label for="address_zip" class="field-label">ZIP / Postcode</label>
+              <input type="text" id="address_zip" name="address_zip" placeholder="e.g. 10115" />
+            </div>
+            <div class="field-group" style="flex:2">
+              <label for="address_city" class="field-label">City</label>
+              <input type="text" id="address_city" name="address_city" placeholder="e.g. Berlin" />
+            </div>
+            <div class="field-group" style="flex:1.5">
+              <label for="address_state" class="field-label">State / Region</label>
+              <input type="text" id="address_state" name="address_state" placeholder="e.g. Bayern" />
+            </div>
+          </div>
+
+          <div class="inline-group">
             <div class="field-group">
               <label for="num_employees" class="field-label">Number of employees</label>
               <input type="text" id="num_employees" name="num_employees" />
@@ -1249,7 +1272,11 @@
         website: form.website.value || null,
         industry: form.industry.value || null,
         country: form.country.value || null,
-        locations: form.locations.value || null,
+        address_street: form.address_street.value || null,
+        address_number: form.address_number.value || null,
+        address_zip: form.address_zip.value || null,
+        address_city: form.address_city.value || null,
+        address_state: form.address_state.value || null,
         num_employees: form.num_employees.value || null,
         phone_contacts: form.phone_contacts.value || null,
         business_hours: form.business_hours.value || null,
