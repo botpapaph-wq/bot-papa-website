@@ -475,7 +475,7 @@
           <h2 class="section-title">1. Company Information</h2>
           <div class="field-group">
             <label for="company_name" class="field-label">Company name</label>
-            <input type="text" id="company_name" name="company_name" />
+            <input type="text" id="company_name" name="company_name" required />
           </div>
 
           <div class="inline-group">
@@ -485,7 +485,7 @@
             </div>
             <div class="field-group">
               <label for="industry" class="field-label">Industry</label>
-              <input type="text" id="industry" name="industry" />
+              <input type="text" id="industry" name="industry" required />
             </div>
           </div>
 
@@ -560,7 +560,7 @@
           <div class="inline-group">
             <div class="field-group" style="flex:2">
               <label for="address_street" class="field-label">Street</label>
-              <input type="text" id="address_street" name="address_street" placeholder="Street name" />
+              <input type="text" id="address_street" name="address_street" required placeholder="Street name" />
             </div>
             <div class="field-group" style="flex:0.6">
               <label for="address_number" class="field-label">No.</label>
@@ -571,11 +571,11 @@
           <div class="inline-group">
             <div class="field-group" style="flex:0.8">
               <label for="address_zip" class="field-label">ZIP / Postcode</label>
-              <input type="text" id="address_zip" name="address_zip" placeholder="e.g. 10115" />
+              <input type="text" id="address_zip" name="address_zip" required placeholder="e.g. 10115" />
             </div>
             <div class="field-group" style="flex:2">
               <label for="address_city" class="field-label">City</label>
-              <input type="text" id="address_city" name="address_city" placeholder="e.g. Berlin" />
+              <input type="text" id="address_city" name="address_city" required placeholder="e.g. Berlin" />
             </div>
             <div class="field-group" style="flex:1.5">
               <label for="address_state" class="field-label">State / Region</label>
@@ -634,7 +634,7 @@
             </div>
             <div class="field-group">
               <label for="phone_number_customer" class="field-label">Customer phone number</label>
-              <input type="text" id="phone_number_customer" name="phone_number_customer" placeholder="Local number without country code" />
+              <input type="text" id="phone_number_customer" name="phone_number_customer" required placeholder="Local number without country code" />
             </div>
           </div>
 
@@ -646,6 +646,7 @@
               name="customer_email"
               placeholder="name@company.com"
               pattern="^(?!info@).*"
+              required
               title="Please use a personal or role-specific email, not a generic info@ address."
             />
             <div class="field-help">
@@ -1371,7 +1372,7 @@
           statusEl.textContent = "Form submitted successfully. Thank you! Redirecting…";
           statusEl.classList.add("status-success");
           form.reset();
-          setTimeout(() => { window.location.href = "index.html"; }, 2000);
+          setTimeout(() => { window.location.href = "https://www.bot-papa.online"; }, 2000);
         }
       } catch (err) {
         console.error(err);
