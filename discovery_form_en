@@ -1368,9 +1368,10 @@
           statusEl.textContent = "Error while submitting. Please try again or contact Bodo.";
           statusEl.classList.add("status-error");
         } else {
-          statusEl.textContent = "Form submitted successfully. Thank you!";
+          statusEl.textContent = "Form submitted successfully. Thank you! Redirecting…";
           statusEl.classList.add("status-success");
           form.reset();
+          setTimeout(() => { window.location.href = "index.html"; }, 2000);
         }
       } catch (err) {
         console.error(err);
