@@ -237,9 +237,9 @@
       position: fixed;
       right: 16px;
       bottom: 80px;
-      width: 380px;
+      width: 420px;
       max-width: calc(100vw - 32px);
-      max-height: 600px;
+      max-height: 640px;
       display: flex;
       flex-direction: column;
       border-radius: 18px;
@@ -262,7 +262,7 @@
     }
 
     .chat-header {
-      padding: 10px 12px 9px;
+      padding: 12px 14px 10px;
       background: radial-gradient(circle at top left, #0f172a, #020617 60%);
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       display: flex;
@@ -277,19 +277,23 @@
     }
 
     .chat-avatar {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 12px;
       background: rgba(15, 23, 42, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
+      font-size: 14px;
+      font-weight: 700;
+      color: #e5e7eb;
+      overflow: hidden;
     }
 
     .chat-avatar img {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       display: block;
     }
 
@@ -299,7 +303,7 @@
     }
 
     .chat-title-main {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: #e5e7eb;
     }
@@ -314,17 +318,18 @@
       background: transparent;
       color: var(--text-muted);
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
       padding: 0 4px;
     }
 
     .chat-body {
       flex: 1;
-      padding: 10px 10px 8px;
+      padding: 10px 12px 10px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 13px;
+      gap: 8px;
+      font-size: 14px;
+      line-height: 1.5;
       overflow-y: auto;
       background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 55%, #020617 100%);
     }
@@ -349,10 +354,10 @@
     }
 
     .message-bubble {
-      max-width: 80%;
-      padding: 7px 9px;
+      max-width: 85%;
+      padding: 9px 11px;
       border-radius: 10px;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
     .message-bubble.bot {
@@ -360,14 +365,12 @@
       border: 1px solid rgba(148, 163, 184, 0.35);
       border-bottom-left-radius: 2px;
       color: #e5e7eb;
-      font-size: 13px;
     }
 
     .message-bubble.user {
       background: var(--accent);
       color: #0b1120;
       border-bottom-right-radius: 2px;
-      font-size: 13px;
     }
 
     .suggestions {
@@ -389,7 +392,7 @@
 
     .chat-footer {
       border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 6px 7px 7px;
+      padding: 8px 8px 8px;
       background: rgba(15, 23, 42, 0.96);
       display: flex;
       align-items: center;
@@ -400,7 +403,7 @@
       flex: 1;
       border-radius: var(--radius-full);
       border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 7px 10px;
+      padding: 8px 11px;
       font-size: 13px;
       background: #020617;
       color: #e5e7eb;
@@ -417,7 +420,7 @@
       background: var(--accent);
       color: #0b1120;
       font-size: 13px;
-      padding: 7px 11px;
+      padding: 8px 12px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -439,6 +442,8 @@
     @media (max-width: 480px) {
       .chat-widget {
         bottom: 70px;
+        width: calc(100vw - 24px);
+        right: 12px;
       }
       .chat-launcher {
         right: 14px;
@@ -476,7 +481,7 @@
         <div class="pill-row">
           <div class="pill">DACH Handwerk & Dienstleister</div>
           <div class="pill">Nur Test – kein echtes Angebot</div>
-          <div class="pill">Chat‑UI v0.1</div>
+          <div class="pill">Chat‑UI v0.2</div>
         </div>
         <p class="note">
           Hinweis: Inhalte, Logik und API‑Anbindung werden in diesem Testfeld Schritt für Schritt
@@ -502,7 +507,7 @@
     </main>
 
     <footer>
-      Testumgebung BOT PAPA • Chatbot v0.1 • Nur für interne Tests
+      Testumgebung BOT PAPA • Chatbot v0.2 • Nur für interne Tests
     </footer>
   </div>
 
@@ -515,9 +520,9 @@
   <section class="chat-widget" id="chat-widget" aria-label="BOT PAPA Chat" aria-live="polite">
     <header class="chat-header">
       <div class="chat-header-left">
-        <div class="chat-avatar">
-          <!-- Passe den Pfad an deine Logo-Datei an -->
-          <img src="/assets/bot-papa-logo-32.png" alt="BOT PAPA Logo" />
+        <div class="chat-avatar" id="chat-avatar">
+          <!-- Fallback-Buchstabe, falls Logo nicht lädt -->
+          B
         </div>
         <div class="chat-title">
           <span class="chat-title-main">BOT PAPA – DACH Chat</span>
@@ -536,8 +541,8 @@
 
       <div class="message-row bot">
         <div class="message-bubble bot">
-          Hallo, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region.  
-          Kurz gesagt: Ich helfe kleinen Betrieben, weniger Anrufe zu verlieren und Standardfragen zu automatisieren.  
+          Hallo, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region. 
+          Kurz gesagt: Ich helfe kleinen Betrieben, weniger Anrufe zu verlieren und Standardfragen zu automatisieren. 
           Wie kann ich dir im Testmodus helfen?
         </div>
       </div>
@@ -582,6 +587,18 @@
       const sendBtn = document.getElementById("chat-send");
       const suggestionsEl = document.getElementById("chat-suggestions");
       const statusEl = document.getElementById("chat-status");
+      const avatarEl = document.getElementById("chat-avatar");
+
+      // Logo einbinden, wenn Pfad stimmt
+      const logoPath = "/assets/bot-papa-logo-32.png"; // Pfad bei Bedarf anpassen
+      const img = new Image();
+      img.src = logoPath;
+      img.alt = "BOT PAPA Logo";
+      img.onload = function () {
+        avatarEl.innerHTML = "";
+        avatarEl.appendChild(img);
+      };
+      // Wenn das Bild nicht lädt, bleibt das "B" als Fallback stehen.
 
       function openChat() {
         widget.classList.add("open");
