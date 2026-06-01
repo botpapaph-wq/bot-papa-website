@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOT PAPA – Chatbot Testfeld (DACH)</title>
+  <title>BOT PAPA – Chatbot Testfeld (DACH) v0.3</title>
   <meta name="description" content="Testfeld für den BOT PAPA Website-Chatbot für die DACH-Region." />
 
   <style>
@@ -237,15 +237,15 @@
       position: fixed;
       right: 16px;
       bottom: 80px;
-      width: 420px;
+      width: 460px;
       max-width: calc(100vw - 32px);
-      max-height: 640px;
+      max-height: 700px;
       display: flex;
       flex-direction: column;
       border-radius: 18px;
       background: linear-gradient(to bottom right, #020617 0%, #020617 40%, #020617 100%);
       border: 1px solid rgba(148, 163, 184, 0.32);
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.95);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
       overflow: hidden;
       transform-origin: bottom right;
       transform: scale(0.96);
@@ -262,7 +262,7 @@
     }
 
     .chat-header {
-      padding: 12px 14px 10px;
+      padding: 12px 16px 10px;
       background: radial-gradient(circle at top left, #0f172a, #020617 60%);
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       display: flex;
@@ -273,27 +273,27 @@
     .chat-header-left {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .chat-avatar {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 12px;
       background: rgba(15, 23, 42, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: #e5e7eb;
       overflow: hidden;
     }
 
     .chat-avatar img {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
       display: block;
     }
 
@@ -324,12 +324,12 @@
 
     .chat-body {
       flex: 1;
-      padding: 10px 12px 10px;
+      padding: 12px 14px 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
       font-size: 14px;
-      line-height: 1.5;
+      line-height: 1.6;
       overflow-y: auto;
       background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 55%, #020617 100%);
     }
@@ -354,10 +354,10 @@
     }
 
     .message-bubble {
-      max-width: 85%;
-      padding: 9px 11px;
+      max-width: 90%;
+      padding: 10px 12px;
       border-radius: 10px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .message-bubble.bot {
@@ -392,7 +392,7 @@
 
     .chat-footer {
       border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 8px 8px 8px;
+      padding: 9px 9px 9px;
       background: rgba(15, 23, 42, 0.96);
       display: flex;
       align-items: center;
@@ -403,7 +403,7 @@
       flex: 1;
       border-radius: var(--radius-full);
       border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 8px 11px;
+      padding: 9px 12px;
       font-size: 13px;
       background: #020617;
       color: #e5e7eb;
@@ -420,7 +420,7 @@
       background: var(--accent);
       color: #0b1120;
       font-size: 13px;
-      padding: 8px 12px;
+      padding: 9px 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -459,7 +459,7 @@
         <div class="brand-mark">B</div>
         <div class="brand-text">
           <div class="brand-text-main">BOT PAPA</div>
-          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat</div>
+          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat v0.3</div>
         </div>
       </div>
       <div class="header-nav">
@@ -481,7 +481,7 @@
         <div class="pill-row">
           <div class="pill">DACH Handwerk & Dienstleister</div>
           <div class="pill">Nur Test – kein echtes Angebot</div>
-          <div class="pill">Chat‑UI v0.2</div>
+          <div class="pill">Chat‑UI v0.3</div>
         </div>
         <p class="note">
           Hinweis: Inhalte, Logik und API‑Anbindung werden in diesem Testfeld Schritt für Schritt
@@ -507,7 +507,7 @@
     </main>
 
     <footer>
-      Testumgebung BOT PAPA • Chatbot v0.2 • Nur für interne Tests
+      Testumgebung BOT PAPA • Chatbot v0.3 • Nur für interne Tests
     </footer>
   </div>
 
@@ -520,10 +520,7 @@
   <section class="chat-widget" id="chat-widget" aria-label="BOT PAPA Chat" aria-live="polite">
     <header class="chat-header">
       <div class="chat-header-left">
-        <div class="chat-avatar" id="chat-avatar">
-          <!-- Fallback-Buchstabe, falls Logo nicht lädt -->
-          B
-        </div>
+        <div class="chat-avatar" id="chat-avatar">B</div>
         <div class="chat-title">
           <span class="chat-title-main">BOT PAPA – DACH Chat</span>
           <span class="chat-title-sub">Testassistent für Handwerk & Dienstleister</span>
@@ -541,8 +538,8 @@
 
       <div class="message-row bot">
         <div class="message-bubble bot">
-          Hallo, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region. 
-          Kurz gesagt: Ich helfe kleinen Betrieben, weniger Anrufe zu verlieren und Standardfragen zu automatisieren. 
+          Hallo, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region.
+          Kurz gesagt: Ich helfe kleinen Betrieben, weniger Anrufe zu verlieren und Standardfragen zu automatisieren.
           Wie kann ich dir im Testmodus helfen?
         </div>
       </div>
@@ -589,16 +586,15 @@
       const statusEl = document.getElementById("chat-status");
       const avatarEl = document.getElementById("chat-avatar");
 
-      // Logo einbinden, wenn Pfad stimmt
-      const logoPath = "/assets/bot-papa-logo-32.png"; // Pfad bei Bedarf anpassen
-      const img = new Image();
-      img.src = logoPath;
-      img.alt = "BOT PAPA Logo";
-      img.onload = function () {
-        avatarEl.innerHTML = "";
-        avatarEl.appendChild(img);
-      };
-      // Wenn das Bild nicht lädt, bleibt das "B" als Fallback stehen.
+      // Logo bei Bedarf aktivieren: Pfad anpassen und Kommentar entfernen
+      // const logoPath = "/assets/dein-logo.png";
+      // const img = new Image();
+      // img.src = logoPath;
+      // img.alt = "BOT PAPA Logo";
+      // img.onload = function () {
+      //   avatarEl.innerHTML = "";
+      //   avatarEl.appendChild(img);
+      // };
 
       function openChat() {
         widget.classList.add("open");
