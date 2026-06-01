@@ -1200,8 +1200,9 @@
   </div>
 
   <!-- Supabase via CDN (v2) – placeholders, fill in URL & ANON KEY later -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
     const SUPABASE_URL = "https://jvujmlssgnqawqqaeqnb.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI";
     const SUPABASE_TABLE = "ai_discovery_forms_v1";
@@ -1350,6 +1351,7 @@
         statusEl.classList.add("status-error");
       }
     });
+    }); // DOMContentLoaded
   </script>
 </body>
 </html>
