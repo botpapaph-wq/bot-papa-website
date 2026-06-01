@@ -47,7 +47,6 @@
       padding: 24px 20px 64px;
     }
 
-    /* Header jetzt wie Index-Seite */
     header {
       display: flex;
       align-items: center;
@@ -200,13 +199,6 @@
       margin-bottom: 4px;
     }
 
-    .hero-sub-small {
-      font-size: 12px;
-      color: var(--muted);
-      max-width: 640px;
-      margin-top: 4px;
-    }
-
     .form-card {
       margin-top: 20px;
       padding: 20px 18px 22px;
@@ -220,14 +212,6 @@
     h2.section-title {
       margin: 18px 0 8px;
       font-size: 18px;
-    }
-
-    h3.section-subtitle {
-      margin: 10px 0 6px;
-      font-size: 14px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     .field-group {
@@ -250,7 +234,8 @@
     input[type="text"],
     input[type="number"],
     input[type="email"],
-    textarea {
+    textarea,
+    select {
       width: 100%;
       padding: 8px 10px;
       border-radius: 10px;
@@ -395,7 +380,6 @@
     <header>
       <div class="brand">
         <div class="brand-mark">
-          <!-- Passe den Pfad an dein Logo an -->
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
@@ -422,14 +406,9 @@
           Project discovery for your AI‑powered telephony setup.
         </h1>
         <p class="hero-sub">
-          This form helps collect all relevant details about your current phone setup,
-          call flows and constraints – so we can design an AI telephone assistant that
-          fits your real‑world operations.
-        </p>
-        <p class="hero-sub-small">
-          You can fill this out together with Bodo on a call or complete it in your own
-          time. Fields are grouped by topic; not every field has to be filled, but more
-          detail usually means a better‑fitting first version.
+          This form collects the key details about your current phone setup,
+          call flows and constraints – so we can design an AI telephone assistant
+          that fits your real‑world operations.
         </p>
       </section>
 
@@ -498,33 +477,157 @@
             <label for="company_name" class="field-label">Company name</label>
             <input type="text" id="company_name" name="company_name" />
           </div>
-          <div class="field-group">
-            <label for="website" class="field-label">Website</label>
-            <input type="text" id="website" name="website" />
-          </div>
+
           <div class="inline-group">
+            <div class="field-group">
+              <label for="website" class="field-label">Website</label>
+              <input type="text" id="website" name="website" />
+            </div>
             <div class="field-group">
               <label for="industry" class="field-label">Industry</label>
               <input type="text" id="industry" name="industry" />
             </div>
-            <div class="field-group">
-              <label for="locations" class="field-label">Locations</label>
-              <input type="text" id="locations" name="locations" placeholder="Cities / regions" />
-            </div>
           </div>
+
+          <!-- Country selection (Europe excl. TR/UA/AL + English-speaking/PH) -->
+          <div class="field-group">
+            <label for="country" class="field-label">Country</label>
+            <select id="country" name="country">
+              <option value="">Select country…</option>
+              <!-- Europe (some examples, ohne TR/UA/AL) -->
+              <option value="DE">Germany</option>
+              <option value="AT">Austria</option>
+              <option value="CH">Switzerland</option>
+              <option value="FR">France</option>
+              <option value="IT">Italy</option>
+              <option value="ES">Spain</option>
+              <option value="PT">Portugal</option>
+              <option value="NL">Netherlands</option>
+              <option value="BE">Belgium</option>
+              <option value="LU">Luxembourg</option>
+              <option value="DK">Denmark</option>
+              <option value="SE">Sweden</option>
+              <option value="NO">Norway</option>
+              <option value="FI">Finland</option>
+              <option value="IS">Iceland</option>
+              <option value="IE">Ireland</option>
+              <option value="GB">United Kingdom</option>
+              <option value="PL">Poland</option>
+              <option value="CZ">Czech Republic</option>
+              <option value="SK">Slovakia</option>
+              <option value="HU">Hungary</option>
+              <option value="SI">Slovenia</option>
+              <option value="HR">Croatia</option>
+              <option value="RS">Serbia</option>
+              <option value="BA">Bosnia and Herzegovina</option>
+              <option value="MK">North Macedonia</option>
+              <option value="RO">Romania</option>
+              <option value="BG">Bulgaria</option>
+              <option value="GR">Greece</option>
+              <option value="CY">Cyprus</option>
+              <option value="MT">Malta</option>
+              <option value="EE">Estonia</option>
+              <option value="LV">Latvia</option>
+              <option value="LT">Lithuania</option>
+
+              <!-- English-speaking / English official or co-official + PH -->
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="AU">Australia</option>
+              <option value="NZ">New Zealand</option>
+              <option value="ZA">South Africa</option>
+              <option value="PH">Philippines</option>
+              <option value="SG">Singapore</option>
+              <option value="IN">India</option>
+              <option value="PK">Pakistan</option>
+              <option value="NG">Nigeria</option>
+              <option value="GH">Ghana</option>
+              <option value="KE">Kenya</option>
+              <option value="TZ">Tanzania</option>
+              <option value="UG">Uganda</option>
+              <option value="ZW">Zimbabwe</option>
+              <option value="JM">Jamaica</option>
+              <option value="TT">Trinidad and Tobago</option>
+              <option value="BB">Barbados</option>
+              <option value="BS">Bahamas</option>
+              <option value="BZ">Belize</option>
+              <option value="FJ">Fiji</option>
+              <option value="PG">Papua New Guinea</option>
+            </select>
+          </div>
+
           <div class="inline-group">
+            <div class="field-group">
+              <label for="locations" class="field-label">Locations (cities / regions)</label>
+              <input type="text" id="locations" name="locations" />
+            </div>
             <div class="field-group">
               <label for="num_employees" class="field-label">Number of employees</label>
               <input type="text" id="num_employees" name="num_employees" />
             </div>
+          </div>
+
+          <div class="inline-group">
             <div class="field-group">
               <label for="phone_contacts" class="field-label">Phone contacts</label>
               <input type="text" id="phone_contacts" name="phone_contacts" placeholder="How many people handle calls?" />
             </div>
+            <div class="field-group">
+              <label for="business_hours" class="field-label">Business hours</label>
+              <input type="text" id="business_hours" name="business_hours" placeholder="e.g. Mon–Fri 8:00–17:00 local time" />
+            </div>
           </div>
+
+          <!-- Customer phone & email -->
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="phone_country_code" class="field-label">Customer phone country code</label>
+              <select id="phone_country_code" name="phone_country_code">
+                <option value="">Select code…</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+43">+43 (Austria)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+351">+351 (Portugal)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+32">+32 (Belgium)</option>
+                <option value="+44">+44 (United Kingdom)</option>
+                <option value="+1">+1 (USA/Canada)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+64">+64 (New Zealand)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+63">+63 (Philippines)</option>
+                <option value="+65">+65 (Singapore)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+92">+92 (Pakistan)</option>
+                <option value="+234">+234 (Nigeria)</option>
+                <option value="+233">+233 (Ghana)</option>
+                <option value="+254">+254 (Kenya)</option>
+                <option value="+255">+255 (Tanzania)</option>
+                <option value="+256">+256 (Uganda)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="phone_number_customer" class="field-label">Customer phone number</label>
+              <input type="text" id="phone_number_customer" name="phone_number_customer" placeholder="Local number without country code" />
+            </div>
+          </div>
+
           <div class="field-group">
-            <label for="business_hours" class="field-label">Business hours</label>
-            <input type="text" id="business_hours" name="business_hours" placeholder="e.g. Mon–Fri 8:00–17:00 local time" />
+            <label for="customer_email" class="field-label">Customer email</label>
+            <input
+              type="email"
+              id="customer_email"
+              name="customer_email"
+              placeholder="name@company.com"
+              pattern="^(?!info@).*"
+              title="Please use a personal or role-specific email, not a generic info@ address."
+            />
+            <div class="field-help">
+              Generic inboxes like <code>info@</code> are often not monitored closely. Please use a personal or role‑specific address.
+            </div>
           </div>
 
           <div class="divider"></div>
@@ -1071,8 +1174,6 @@
             <textarea id="process_restrictions" name="process_restrictions" placeholder="Describe any processes that are fixed and cannot be altered by the AI setup."></textarea>
           </div>
 
-          <!-- Abschnitt 15 wurde auf deinen Wunsch vollständig entfernt -->
-
           <div class="submit-row">
             <button type="submit" class="btn-primary">
               Submit discovery form <span>✚</span>
@@ -1101,7 +1202,6 @@
   <!-- Supabase via CDN (v2) – placeholders, fill in URL & ANON KEY later -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-    // ===== Supabase placeholders – set values in production =====
     const SUPABASE_URL = "https://YOUR-PROJECT-ID.supabase.co";
     const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
     const SUPABASE_TABLE = "ai_discovery_forms_v1";
@@ -1147,10 +1247,14 @@
         company_name: form.company_name.value || null,
         website: form.website.value || null,
         industry: form.industry.value || null,
+        country: form.country.value || null,
         locations: form.locations.value || null,
         num_employees: form.num_employees.value || null,
         phone_contacts: form.phone_contacts.value || null,
         business_hours: form.business_hours.value || null,
+        phone_country_code: form.phone_country_code.value || null,
+        phone_number_customer: form.phone_number_customer.value || null,
+        customer_email: form.customer_email.value || null,
 
         // 2. Project Stakeholders
         technical_contact: form.technical_contact.value || null,
