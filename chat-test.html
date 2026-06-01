@@ -3,30 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOT PAPA – Chatbot Testfeld (DACH) v0.3</title>
+  <title>BOT PAPA – Chatbot Testfeld (DACH) v0.4</title>
   <meta name="description" content="Testfeld für den BOT PAPA Website-Chatbot für die DACH-Region." />
 
   <style>
     :root {
       --bg-color: #050816;
-      --bg-elevated: #0b1020;
       --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --border-subtle: #1f2937;
-      --danger: #f97373;
       --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
       --radius-lg: 14px;
-      --radius-md: 10px;
       --radius-full: 999px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -37,14 +28,8 @@
       flex-direction: column;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .page-shell {
       max-width: 1120px;
@@ -70,52 +55,25 @@
       backdrop-filter: blur(16px);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .brand { display: flex; align-items: center; gap: 10px; }
 
     .brand-mark {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       border-radius: 12px;
       background: radial-gradient(circle at 30% 0, #38bdf8, #0ea5e9 50%, #020617 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0b1120;
-      font-weight: 700;
-      font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+      color: #0b1120; font-weight: 700; font-size: 18px;
       box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7), 0 18px 40px rgba(8, 47, 73, 0.9);
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
+    .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
     .brand-text-main {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-      text-transform: uppercase;
-      color: #e5e7eb;
+      font-weight: 600; letter-spacing: 0.08em;
+      font-size: 13px; text-transform: uppercase; color: #e5e7eb;
     }
+    .brand-text-sub { font-size: 11px; color: var(--text-muted); }
 
-    .brand-text-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .header-nav {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      font-size: 13px;
-    }
-
+    .header-nav { display: flex; gap: 14px; align-items: center; font-size: 13px; }
     .tag {
       padding: 3px 10px;
       border-radius: var(--radius-full);
@@ -136,18 +94,9 @@
     }
 
     @media (max-width: 880px) {
-      .main-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      .header-nav {
-        justify-content: space-between;
-        width: 100%;
-      }
+      .main-grid { grid-template-columns: minmax(0, 1fr); }
+      header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .header-nav { justify-content: space-between; width: 100%; }
     }
 
     .panel {
@@ -158,55 +107,26 @@
       padding: 18px 18px 20px;
     }
 
-    .panel h1 {
-      font-size: 24px;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
+    .panel h1 { font-size: 24px; line-height: 1.3; margin-bottom: 6px; }
+    .panel h2 { font-size: 16px; margin-bottom: 10px; }
+    .panel p { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
 
-    .panel h2 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .panel p {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-      margin-bottom: 8px;
-    }
-
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; margin-bottom: 8px; }
     .pill {
-      font-size: 11px;
-      padding: 3px 9px;
+      font-size: 11px; padding: 3px 9px;
       border-radius: var(--radius-full);
       border: 1px solid rgba(148, 163, 184, 0.35);
       background: rgba(15, 23, 42, 0.9);
       color: #e5e7eb;
     }
 
-    .note {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
+    .note { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
 
     footer {
       margin-top: 18px;
       font-size: 11px;
       color: var(--text-muted);
       text-align: center;
-    }
-
-    footer a {
-      color: var(--text-muted);
     }
 
     /* CHAT WIDGET */
@@ -228,18 +148,15 @@
       z-index: 60;
     }
 
-    .chat-launcher span {
-      font-size: 24px;
-      color: #0b1120;
-    }
+    .chat-launcher span { font-size: 24px; color: #0b1120; }
 
     .chat-widget {
       position: fixed;
       right: 16px;
       bottom: 80px;
-      width: 460px;
+      width: 480px;
       max-width: calc(100vw - 32px);
-      max-height: 700px;
+      max-height: 800px;
       display: flex;
       flex-direction: column;
       border-radius: 18px;
@@ -262,7 +179,7 @@
     }
 
     .chat-header {
-      padding: 12px 16px 10px;
+      padding: 10px 14px;
       background: radial-gradient(circle at top left, #0f172a, #020617 60%);
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       display: flex;
@@ -270,11 +187,7 @@
       justify-content: space-between;
     }
 
-    .chat-header-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .chat-header-left { display: flex; align-items: center; gap: 10px; }
 
     .chat-avatar {
       width: 30px;
@@ -291,27 +204,9 @@
       overflow: hidden;
     }
 
-    .chat-avatar img {
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .chat-title {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .chat-title-main {
-      font-size: 14px;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    .chat-title-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
+    .chat-title { display: flex; flex-direction: column; }
+    .chat-title-main { font-size: 14px; font-weight: 600; color: #e5e7eb; }
+    .chat-title-sub { font-size: 11px; color: var(--text-muted); }
 
     .chat-header-right button {
       border: none;
@@ -324,7 +219,7 @@
 
     .chat-body {
       flex: 1;
-      padding: 12px 14px 12px;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -334,27 +229,14 @@
       background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 55%, #020617 100%);
     }
 
-    .chat-hint {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
+    .chat-hint { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
 
-    .message-row {
-      display: flex;
-      margin-bottom: 4px;
-    }
-
-    .message-row.bot {
-      justify-content: flex-start;
-    }
-
-    .message-row.user {
-      justify-content: flex-end;
-    }
+    .message-row { display: flex; margin-bottom: 4px; }
+    .message-row.bot { justify-content: flex-start; }
+    .message-row.user { justify-content: flex-end; }
 
     .message-bubble {
-      max-width: 90%;
+      max-width: 92%;
       padding: 10px 12px;
       border-radius: 10px;
       line-height: 1.6;
@@ -392,7 +274,7 @@
 
     .chat-footer {
       border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 9px 9px 9px;
+      padding: 8px;
       background: rgba(15, 23, 42, 0.96);
       display: flex;
       align-items: center;
@@ -403,15 +285,11 @@
       flex: 1;
       border-radius: var(--radius-full);
       border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 9px 12px;
+      padding: 8px 12px;
       font-size: 13px;
       background: #020617;
       color: #e5e7eb;
       outline: none;
-    }
-
-    .chat-input::placeholder {
-      color: #6b7280;
     }
 
     .chat-send-btn {
@@ -420,7 +298,7 @@
       background: var(--accent);
       color: #0b1120;
       font-size: 13px;
-      padding: 9px 13px;
+      padding: 8px 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -428,9 +306,7 @@
       font-weight: 600;
     }
 
-    .chat-send-btn span.icon {
-      font-size: 14px;
-    }
+    .chat-send-btn span.icon { font-size: 14px; }
 
     .chat-status {
       font-size: 10px;
@@ -444,11 +320,9 @@
         bottom: 70px;
         width: calc(100vw - 24px);
         right: 12px;
+        max-height: 600px;
       }
-      .chat-launcher {
-        right: 14px;
-        bottom: 14px;
-      }
+      .chat-launcher { right: 14px; bottom: 14px; }
     }
   </style>
 </head>
@@ -459,7 +333,7 @@
         <div class="brand-mark">B</div>
         <div class="brand-text">
           <div class="brand-text-main">BOT PAPA</div>
-          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat v0.3</div>
+          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat v0.4</div>
         </div>
       </div>
       <div class="header-nav">
@@ -470,53 +344,32 @@
     <main class="main-grid">
       <section class="panel">
         <h1>Chatbot Testfeld – DACH</h1>
-        <p>
-          Auf dieser Testseite üben wir den BOT PAPA Website‑Chat für die DACH‑Region, bevor er auf der
-          echten Startseite live geht.
-        </p>
-        <p>
-          Das Widget unten rechts ist aktuell nur ein Platzhalter mit einfachen Beispielantworten.
-          Später wird hier deine echte Wissensbasis (`knowledge.md`, `faq-dach.md`) angebunden.
-        </p>
+        <p>Auf dieser Testseite üben wir den BOT PAPA Website‑Chat.</p>
         <div class="pill-row">
           <div class="pill">DACH Handwerk & Dienstleister</div>
           <div class="pill">Nur Test – kein echtes Angebot</div>
-          <div class="pill">Chat‑UI v0.3</div>
+          <div class="pill">Chat‑UI v0.4</div>
         </div>
         <p class="note">
-          Hinweis: Inhalte, Logik und API‑Anbindung werden in diesem Testfeld Schritt für Schritt
-          verfeinert. Ziel ist eine stabile, eigene BOT‑PAPA‑Chatlösung – unabhängig von Dritt‑Widgets.
+          Dieses Testfeld wird Schritt für Schritt verfeinert. Ziel ist eine stabile, eigene BOT‑PAPA‑Chatlösung.
         </p>
       </section>
 
       <aside class="panel">
         <h2>Was wird hier getestet?</h2>
-        <p>
-          Dieses Testfeld konzentriert sich auf:
-        </p>
-        <ul style="font-size:13px;color:var(--text-muted);margin-left:16px;margin-top:4px;line-height:1.5;">
-          <li>Layout und Verhalten des Chat‑Widgets</li>
-          <li>Tonalität und Struktur der ersten Antworten</li>
-          <li>Vorbereitung für eine spätere API‑Anbindung</li>
-        </ul>
-        <p class="note">
-          Die Antworten stammen aktuell aus einer einfachen Mock‑Logik im Browser. Später wird hier
-          eine echte Server‑Logik mit Zugriff auf deine Wissensquellen eingebaut.
-        </p>
+        <p>Layout, Verhalten und Ton des Widgets – noch ohne echtes Backend.</p>
       </aside>
     </main>
 
     <footer>
-      Testumgebung BOT PAPA • Chatbot v0.3 • Nur für interne Tests
+      Testumgebung BOT PAPA • Chatbot v0.4 • Nur für interne Tests
     </footer>
   </div>
 
-  <!-- Chat Launcher -->
   <button class="chat-launcher" aria-label="Chat mit BOT PAPA öffnen" id="chat-launcher">
     <span>💬</span>
   </button>
 
-  <!-- Chat Widget -->
   <section class="chat-widget" id="chat-widget" aria-label="BOT PAPA Chat" aria-live="polite">
     <header class="chat-header">
       <div class="chat-header-left">
@@ -533,7 +386,7 @@
 
     <div class="chat-body" id="chat-body">
       <div class="chat-hint">
-        Dies ist eine Testversion. Keine verbindliche Beratung, keine Preise, keine Rechts‑ oder Medizin‑Infos.
+        Testversion. Keine verbindliche Beratung, keine Preise, keine Rechts‑ oder Medizin‑Infos.
       </div>
 
       <div class="message-row bot">
@@ -545,15 +398,9 @@
       </div>
 
       <div class="suggestions" id="chat-suggestions">
-        <button class="suggestion-chip" data-text="Was macht der Bot genau?">
-          Was macht der Bot genau?
-        </button>
-        <button class="suggestion-chip" data-text="Ist das DSGVO-konform?">
-          Ist das DSGVO-konform?
-        </button>
-        <button class="suggestion-chip" data-text="Ersetzt der Bot meine Mitarbeiter?">
-          Ersetzt der Bot meine Mitarbeiter?
-        </button>
+        <button class="suggestion-chip" data-text="Was macht der Bot genau?">Was macht der Bot genau?</button>
+        <button class="suggestion-chip" data-text="Ist das DSGVO-konform?">Ist das DSGVO-konform?</button>
+        <button class="suggestion-chip" data-text="Ersetzt der Bot meine Mitarbeiter?">Ersetzt der Bot meine Mitarbeiter?</button>
       </div>
     </div>
 
@@ -584,23 +431,10 @@
       const sendBtn = document.getElementById("chat-send");
       const suggestionsEl = document.getElementById("chat-suggestions");
       const statusEl = document.getElementById("chat-status");
-      const avatarEl = document.getElementById("chat-avatar");
-
-      // Logo bei Bedarf aktivieren: Pfad anpassen und Kommentar entfernen
-      // const logoPath = "/assets/dein-logo.png";
-      // const img = new Image();
-      // img.src = logoPath;
-      // img.alt = "BOT PAPA Logo";
-      // img.onload = function () {
-      //   avatarEl.innerHTML = "";
-      //   avatarEl.appendChild(img);
-      // };
 
       function openChat() {
         widget.classList.add("open");
-        setTimeout(() => {
-          inputEl.focus();
-        }, 150);
+        setTimeout(() => inputEl.focus(), 150);
       }
 
       function closeChat() {
@@ -608,25 +442,18 @@
       }
 
       launcher.addEventListener("click", () => {
-        if (widget.classList.contains("open")) {
-          closeChat();
-        } else {
-          openChat();
-        }
+        if (widget.classList.contains("open")) closeChat();
+        else openChat();
       });
 
-      closeBtn.addEventListener("click", () => {
-        closeChat();
-      });
+      closeBtn.addEventListener("click", closeChat);
 
       function appendMessage(text, sender) {
         const row = document.createElement("div");
         row.className = "message-row " + sender;
-
         const bubble = document.createElement("div");
         bubble.className = "message-bubble " + sender;
         bubble.textContent = text;
-
         row.appendChild(bubble);
         bodyEl.appendChild(row);
         bodyEl.scrollTop = bodyEl.scrollHeight;
@@ -639,19 +466,15 @@
         if (t.includes("was macht") || t.includes("genau")) {
           return "Kurz gesagt: Der Bot nimmt Anrufe entgegen, beantwortet Standardfragen und sammelt Rückrufdaten, damit dein Betrieb weniger Anrufe verliert und nicht ständig aus der Arbeit gerissen wird.";
         }
-
         if (t.includes("dsgvo") || t.includes("datenschutz")) {
-          return "Der Einsatz kann DSGVO-konform gestaltet werden, wenn nur notwendige Daten erfasst werden und klar dokumentiert ist, wie sie gespeichert und gelöscht werden. Konkrete Rechtsberatung muss aber immer über euren eigenen Ansprechpartner laufen.";
+          return "Der Einsatz kann DSGVO-konform gestaltet werden, wenn nur notwendige Daten erfasst werden und klar dokumentiert ist, wie sie gespeichert und gelöscht werden. Konkrete Rechtsberatung muss immer über euren eigenen Ansprechpartner laufen.";
         }
-
         if (t.includes("mitarbeiter") || t.includes("ersetzen")) {
           return "Nein, der Bot ersetzt niemanden. Er übernimmt nur Standardanfragen und Vorqualifizierung, damit Fachkräfte mehr Zeit für die eigentliche Arbeit haben.";
         }
-
         if (t.includes("kosten") || t.includes("preis")) {
           return "Im Testmodus nenne ich keine konkreten Preise. Die Idee ist: Der Bot kostet deutlich weniger als eine zusätzliche Telefonkraft, ist aber verlässlich erreichbar. Konkrete Preise gehören in ein Gespräch mit dem Betrieb.";
         }
-
         return "Im Testmodus antworte ich nur allgemein: Der AI-Telefonassistent soll verpasste Anrufe reduzieren, Standardfragen automatisieren und Rückruflisten sauber vorbereiten. Für Details wird später die echte Wissensbasis angebunden.";
       }
 
@@ -671,10 +494,7 @@
         }, 400);
       }
 
-      sendBtn.addEventListener("click", () => {
-        handleSend();
-      });
-
+      sendBtn.addEventListener("click", () => handleSend());
       inputEl.addEventListener("keydown", (ev) => {
         if (ev.key === "Enter" && !ev.shiftKey) {
           ev.preventDefault();
@@ -686,8 +506,7 @@
         suggestionsEl.addEventListener("click", (ev) => {
           const btn = ev.target.closest("[data-text]");
           if (!btn) return;
-          const txt = btn.getAttribute("data-text");
-          handleSend(txt);
+          handleSend(btn.getAttribute("data-text"));
         });
       }
     })();
