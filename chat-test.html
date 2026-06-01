@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOT PAPA – Chatbot Testfeld (DACH) v0.4</title>
+  <title>BOT PAPA – Chatbot Testfeld (DACH) v0.5</title>
   <meta name="description" content="Testfeld für den BOT PAPA Website-Chatbot für die DACH-Region." />
 
   <style>
@@ -333,7 +333,7 @@
         <div class="brand-mark">B</div>
         <div class="brand-text">
           <div class="brand-text-main">BOT PAPA</div>
-          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat v0.4</div>
+          <div class="brand-text-sub">AI Telefonassistent – Testfeld Chat v0.5</div>
         </div>
       </div>
       <div class="header-nav">
@@ -344,39 +344,59 @@
     <main class="main-grid">
       <section class="panel">
         <h1>Chatbot Testfeld – DACH</h1>
-        <p>Auf dieser Testseite üben wir den BOT PAPA Website‑Chat.</p>
+        <p>
+          Auf dieser Testseite testen wir den BOT PAPA Website‑Chat für die DACH‑Region, bevor er auf der
+          echten Startseite eingesetzt wird.
+        </p>
+        <p>
+          Das Widget unten rechts ist derzeit ein Platzhalter mit einfachen Beispielantworten.
+          Später wird hier Ihre echte Wissensbasis (z.&nbsp;B. <code>knowledge.md</code>, <code>faq-dach.md</code>) angebunden.
+        </p>
         <div class="pill-row">
-          <div class="pill">DACH Handwerk & Dienstleister</div>
+          <div class="pill">DACH Handwerk &amp; Dienstleister</div>
           <div class="pill">Nur Test – kein echtes Angebot</div>
-          <div class="pill">Chat‑UI v0.4</div>
+          <div class="pill">Chat‑UI v0.5</div>
         </div>
         <p class="note">
-          Dieses Testfeld wird Schritt für Schritt verfeinert. Ziel ist eine stabile, eigene BOT‑PAPA‑Chatlösung.
+          Ziel ist eine stabile, eigene BOT‑PAPA‑Chatlösung – unabhängig von Dritt‑Widgets.
         </p>
       </section>
 
       <aside class="panel">
         <h2>Was wird hier getestet?</h2>
-        <p>Layout, Verhalten und Ton des Widgets – noch ohne echtes Backend.</p>
+        <p>
+          Dieses Testfeld konzentriert sich auf:
+        </p>
+        <ul style="font-size:13px;color:var(--text-muted);margin-left:16px;margin-top:4px;line-height:1.5;">
+          <li>Layout und Verhalten des Chat‑Widgets</li>
+          <li>Tonalität in der Sie‑Form und Einstieg in Gespräche</li>
+          <li>Vorbereitung für eine spätere API‑ und Wissensbasis‑Anbindung</li>
+        </ul>
+        <p class="note">
+          Die Antworten stammen aktuell aus einer einfachen Demo‑Logik im Browser.
+          Später wird hier eine echte Server‑Logik mit Zugriff auf Ihre Wissensquellen eingebaut.
+        </p>
       </aside>
     </main>
 
     <footer>
-      Testumgebung BOT PAPA • Chatbot v0.4 • Nur für interne Tests
+      Testumgebung BOT PAPA • Chatbot v0.5 • Nur für interne Tests
     </footer>
   </div>
 
+  <!-- Chat Launcher -->
   <button class="chat-launcher" aria-label="Chat mit BOT PAPA öffnen" id="chat-launcher">
     <span>💬</span>
   </button>
 
+  <!-- Chat Widget -->
   <section class="chat-widget" id="chat-widget" aria-label="BOT PAPA Chat" aria-live="polite">
     <header class="chat-header">
       <div class="chat-header-left">
         <div class="chat-avatar" id="chat-avatar">B</div>
         <div class="chat-title">
           <span class="chat-title-main">BOT PAPA – DACH Chat</span>
-          <span class="chat-title-sub">Testassistent für Handwerk & Dienstleister</span>
+          <span class="chat-title-sub">Testassistent für kleine Betriebe</span>
         </div>
       </div>
       <div class="chat-header-right">
@@ -391,16 +411,31 @@
 
       <div class="message-row bot">
         <div class="message-bubble bot">
-          Hallo, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region.
-          Kurz gesagt: Ich helfe kleinen Betrieben, weniger Anrufe zu verlieren und Standardfragen zu automatisieren.
-          Wie kann ich dir im Testmodus helfen?
+          Guten Tag, ich bin der digitale Assistent von BOT PAPA für die DACH‑Region.
+          Ich helfe Betrieben dabei, weniger Anrufe zu verpassen und Standardfragen zu automatisieren.
+          Wie kann ich Sie im Testmodus unterstützen?
+        </div>
+      </div>
+
+      <div class="message-row bot">
+        <div class="message-bubble bot">
+          Damit ich Sie korrekt ansprechen kann: Wie ist Ihr Name?
         </div>
       </div>
 
       <div class="suggestions" id="chat-suggestions">
-        <button class="suggestion-chip" data-text="Was macht der Bot genau?">Was macht der Bot genau?</button>
-        <button class="suggestion-chip" data-text="Ist das DSGVO-konform?">Ist das DSGVO-konform?</button>
-        <button class="suggestion-chip" data-text="Ersetzt der Bot meine Mitarbeiter?">Ersetzt der Bot meine Mitarbeiter?</button>
+        <button class="suggestion-chip" data-text="Ich heiße Peter Müller.">
+          Ich heiße Peter Müller.
+        </button>
+        <button class="suggestion-chip" data-text="Was macht der Bot genau?">
+          Was macht der Bot genau?
+        </button>
+        <button class="suggestion-chip" data-text="Ist das DSGVO-konform?">
+          Ist das DSGVO-konform?
+        </button>
+        <button class="suggestion-chip" data-text="Ersetzt der Bot meine Mitarbeiter?">
+          Ersetzt der Bot meine Mitarbeiter?
+        </button>
       </div>
     </div>
 
@@ -409,7 +444,7 @@
         type="text"
         class="chat-input"
         id="chat-input"
-        placeholder="Frage eingeben … (Testmodus, ohne echte Beratung)"
+        placeholder="Nachricht eingeben … (Testmodus, ohne echte Beratung)"
         autocomplete="off"
       />
       <button class="chat-send-btn" id="chat-send">
@@ -417,7 +452,7 @@
       </button>
     </div>
     <div class="chat-status" id="chat-status">
-      Testmodus: Antworten stammen aus einfachem Demo‑Script, nicht aus der echten Wissensbasis.
+      Testmodus: Antworten stammen aus einem einfachen Demo‑Skript, nicht aus der echten Wissensbasis.
     </div>
   </section>
 
@@ -431,6 +466,11 @@
       const sendBtn = document.getElementById("chat-send");
       const suggestionsEl = document.getElementById("chat-suggestions");
       const statusEl = document.getElementById("chat-status");
+
+      // TODO: Name- und Anrede-Handling später im Backend/LLM auswerten.
+      // Beispiel-Ziele:
+      // - Aus "Peter Müller" -> "Herr Müller" oder "Peter, was möchten Sie genau wissen?"
+      // - Formelle Sie-Ansprache beibehalten.
 
       function openChat() {
         widget.classList.add("open");
@@ -463,19 +503,28 @@
         const t = userText.trim().toLowerCase();
         if (!t) return;
 
+        // Sehr einfache Demo-Erkennung für "Name nennen"
+        if (t.startsWith("ich heiße") || t.startsWith("ich heisse") || t.startsWith("mein name ist")) {
+          return "Vielen Dank. Ich merke mir Ihren Namen für dieses Gespräch. Was möchten Sie genau wissen?";
+        }
+
         if (t.includes("was macht") || t.includes("genau")) {
-          return "Kurz gesagt: Der Bot nimmt Anrufe entgegen, beantwortet Standardfragen und sammelt Rückrufdaten, damit dein Betrieb weniger Anrufe verliert und nicht ständig aus der Arbeit gerissen wird.";
+          return "Kurz gefasst: Der Bot nimmt Anrufe entgegen, beantwortet Standardfragen und sammelt strukturierte Rückrufdaten, damit Ihr Betrieb weniger Anrufe verliert und Sie konzentriert arbeiten können.";
         }
+
         if (t.includes("dsgvo") || t.includes("datenschutz")) {
-          return "Der Einsatz kann DSGVO-konform gestaltet werden, wenn nur notwendige Daten erfasst werden und klar dokumentiert ist, wie sie gespeichert und gelöscht werden. Konkrete Rechtsberatung muss immer über euren eigenen Ansprechpartner laufen.";
+          return "Der Einsatz kann datenschutzkonform gestaltet werden, wenn nur notwendige Daten erfasst werden und klar geregelt ist, wie diese gespeichert und gelöscht werden. Konkrete Rechtsberatung muss aber über Ihren eigenen Ansprechpartner laufen.";
         }
-        if (t.includes("mitarbeiter") || t.includes("ersetzen")) {
-          return "Nein, der Bot ersetzt niemanden. Er übernimmt nur Standardanfragen und Vorqualifizierung, damit Fachkräfte mehr Zeit für die eigentliche Arbeit haben.";
+
+        if (t.includes("mitarbeiter") || t.includes("ersetzt")) {
+          return "Der Bot ersetzt keine Mitarbeitenden. Er übernimmt wiederkehrende Standardanfragen und die Vorqualifizierung, damit Fachkräfte mehr Zeit für die eigentliche Arbeit haben.";
         }
+
         if (t.includes("kosten") || t.includes("preis")) {
-          return "Im Testmodus nenne ich keine konkreten Preise. Die Idee ist: Der Bot kostet deutlich weniger als eine zusätzliche Telefonkraft, ist aber verlässlich erreichbar. Konkrete Preise gehören in ein Gespräch mit dem Betrieb.";
+          return "Im Testmodus nenne ich keine konkreten Preise. Die Idee ist: Der Bot ist deutlich günstiger als eine zusätzliche Telefonkraft, aber verlässlich erreichbar. Konkrete Konditionen gehören in ein persönliches Gespräch mit dem Betrieb.";
         }
-        return "Im Testmodus antworte ich nur allgemein: Der AI-Telefonassistent soll verpasste Anrufe reduzieren, Standardfragen automatisieren und Rückruflisten sauber vorbereiten. Für Details wird später die echte Wissensbasis angebunden.";
+
+        return "Im Testmodus kann ich nur allgemein antworten: Der AI‑Telefonassistent soll verpasste Anrufe reduzieren, Standardfragen automatisieren und saubere Rückruflisten vorbereiten. Für Details wird später Ihre echte Wissensbasis angebunden.";
       }
 
       function handleSend(textOverride) {
@@ -488,9 +537,9 @@
 
         setTimeout(() => {
           const reply = mockBotReply(text);
-          appendMessage(reply, "bot");
+          if (reply) appendMessage(reply, "bot");
           statusEl.textContent =
-            "Testmodus: Antworten stammen aus einfachem Demo-Script, nicht aus der echten Wissensbasis.";
+            "Testmodus: Antworten stammen aus einem einfachen Demo‑Skript, nicht aus der echten Wissensbasis.";
         }, 400);
       }
 
