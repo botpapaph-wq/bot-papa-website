@@ -1210,7 +1210,6 @@
               <span id="status-message">Form not yet submitted.</span>
             </div>
             <div class="status-right">
-              <span class="tagline">Data is stored in Supabase once configured.</span>
             </div>
           </div>
         </form>
