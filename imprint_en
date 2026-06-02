@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Service – BOT PAPA</title>
-  <meta name="description" content="Terms of Service for BOT PAPA AI phone assistant services." />
+  <title>Imprint – BOT PAPA</title>
+  <meta name="description" content="Imprint / Legal Notice for BOT PAPA AI phone assistant services." />
 
   <style>
     :root {
@@ -275,7 +275,7 @@
       <div class="header-right">
         <div class="header-top-row">
           <div class="pill">
-            Terms of Service
+            Imprint • Legal Notice
           </div>
           <a href="index" class="btn-primary">
             Back to main site <span>↗</span>
@@ -286,16 +286,37 @@
 
     <main>
       <section class="content-card">
-        <h1>Terms of Service</h1>
+        <h1>Imprint / Legal Notice</h1>
+
+        <h2>Service provider</h2>
         <p>
-          These Terms of Service govern the use of the BOT PAPA website and
-          AI phone assistant services (“Services”). By accessing or using the
-          Services, you agree to these Terms.[web:87][web:90]
+          BOT PAPA<br />
+          Bodo Kopplin<br />
+          Purok 20, Acacia Street<br />
+          Mandaguit Compound, Calinan<br />
+          8000 Davao City<br />
+          Philippines
         </p>
 
-        <h2>1. Provider</h2>
         <p>
-          The Services are provided by:
+          Correspondence address in Germany:<br />
+          Bodo Kopplin<br />
+          Caya Postbox 100685<br />
+          96035 Bamberg<br />
+          Germany
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Phone (US): <a href="tel:+16288959439">+1 628 895 9439</a><br />
+          Phone (DACH): <a href="tel:+491743282867">+49 174 3282867</a><br />
+          Email: <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
+        </p>
+
+        <h2>Responsible for content</h2>
+        <p>
+          Responsible for the content of this website, where required by
+          applicable law:
         </p>
         <p>
           BOT PAPA<br />
@@ -305,114 +326,43 @@
           8000 Davao City<br />
           Philippines
         </p>
+
+        <h2>Disclaimer</h2>
         <p>
-          Correspondence address in Germany:<br />
-          Bodo Kopplin<br />
-          Caya Postbox 100685<br />
-          96035 Bamberg<br />
-          Germany
+          The content on this website has been created with great care.
+          Nevertheless, we do not assume any liability for the correctness,
+          completeness and up‑to‑dateness of the content.[web:94]
         </p>
         <p>
-          Email: <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
+          As a service provider we are responsible for our own content on these
+          pages under general laws. We are not obligated to monitor transmitted
+          or stored third‑party information or to investigate circumstances
+          indicating illegal activity. Obligations to remove or block the use
+          of information under general laws remain unaffected. Liability is
+          only possible from the time we become aware of a specific legal
+          infringement. If we become aware of any such infringement, we will
+          remove the content in question immediately.[web:94]
         </p>
 
-        <h2>2. Scope of services</h2>
+        <h2>Links to external sites</h2>
         <p>
-          BOT PAPA provides consulting, configuration and operation of
-          AI‑supported telephone assistants for small businesses, as well as
-          related services such as call flow design, integration support and
-          ongoing optimization, as agreed individually with each client.
-        </p>
-        <p>
-          The concrete scope of services, prices and service levels are defined
-          in individual offers, order confirmations or separate contracts.
-        </p>
-
-        <h2>3. Use of the website and forms</h2>
-        <p>
-          You may use the website and any forms provided (for example discovery
-          forms) only for legitimate business purposes and only in accordance
-          with these Terms and applicable law.[web:87]
-        </p>
-        <p>
-          You are responsible for ensuring that the information you provide is
-          accurate and up to date.
+          Our website may contain links to external third‑party websites.
+          We have no influence on the content of these websites and therefore
+          cannot assume any liability for such external content. The respective
+          provider or operator of the pages is always responsible for the
+          content of the linked pages. Linked pages were checked for possible
+          legal violations at the time of linking; illegal content was not
+          recognizable at that time.[web:94]
         </p>
 
-        <h2>4. No legal or financial advice</h2>
+        <h2>Intellectual property</h2>
         <p>
-          The content on this website and information provided by the AI
-          assistants do not constitute legal, tax or financial advice.
-          Any decisions based on such information are taken at your own risk.[web:87]
-        </p>
-
-        <h2>5. Availability and changes</h2>
-        <p>
-          BOT PAPA aims to provide high availability of the Services but
-          does not guarantee uninterrupted or error‑free operation.
-          Maintenance work, further development or technical disruptions
-          may temporarily affect availability.[web:90]
-        </p>
-        <p>
-          We may change, extend or discontinue parts of the Services or
-          the website at any time, provided this does not unreasonably
-          disadvantage existing clients.
-        </p>
-
-        <h2>6. Liability</h2>
-        <p>
-          We are liable for damages only in accordance with applicable law.
-          In particular, liability for slight negligence is excluded to the
-          extent permitted by law. This does not apply in cases of injury to
-          life, body or health, or in cases of mandatory statutory liability.[web:90]
-        </p>
-        <p>
-          We are not liable for losses resulting from incorrect or incomplete
-          information provided by users or clients, or from misuse of the Services.
-        </p>
-
-        <h2>7. Third‑party services and integrations</h2>
-        <p>
-          Our AI phone assistants may connect to third‑party systems
-          (for example telephony providers, CRM systems or calendar tools).
-          The use of such third‑party services is governed by the terms
-          of the respective providers.[web:90]
-        </p>
-        <p>
-          We are not responsible for the content, availability or data
-          processing practices of those third parties.
-        </p>
-
-        <h2>8. Data protection</h2>
-        <p>
-          The processing of personal data in connection with the Services
-          is described in our Privacy Policy, which forms part of these
-          Terms by reference.[web:86][web:89]
-        </p>
-        <p>
-          You can access the current version of the Privacy Policy at:
-          <a href="privacy_en">privacy_en</a>
-        </p>
-
-        <h2>9. Changes to these Terms</h2>
-        <p>
-          We may update these Terms of Service from time to time.
-          In the case of significant changes, we will inform existing
-          clients in an appropriate form. The current version is always
-          available on this page.[web:90]
-        </p>
-
-        <h2>10. Applicable law and jurisdiction</h2>
-        <p>
-          Unless otherwise agreed in writing, any contractual relationship
-          with BOT PAPA in connection with these Services is subject to
-          the law that is actually agreed with the client in the individual
-          contract. If no explicit choice of law has been made, the
-          statutory conflict‑of‑laws rules apply.
-        </p>
-        <p>
-          Any mandatory consumer protection provisions of the country in
-          which you have your habitual residence remain unaffected.
+          The content and works created by us on these pages are subject to
+          applicable copyright laws. Reproduction, editing, distribution and
+          any kind of exploitation outside the limits of copyright law require
+          our prior written consent or the consent of the respective rights
+          holder. Downloads and copies of this site are permitted only for
+          private, non‑commercial use.[web:94]
         </p>
       </section>
     </main>
