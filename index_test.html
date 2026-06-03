@@ -102,7 +102,7 @@
 
     .brand-text-title {
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letterspacing: 0.06em;
       text-transform: uppercase;
       font-size: 14px;
     }
@@ -356,14 +356,25 @@
       margin-top: 12px;
     }
 
+    .example-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
     .example-img {
-      width: 100%;
-      max-width: 640px;
+      max-width: 280px; /* ungefähr 15 % kleiner als vorher */
       border-radius: 14px;
       border: var(--border-soft);
       box-shadow: var(--shadow-soft);
-      margin: 10px 0 14px;
-      display: block;
+      flex-shrink: 0;
+    }
+
+    .example-text {
+      flex: 1;
+      min-width: 260px;
     }
 
     .contact {
@@ -432,6 +443,12 @@
       }
       .footer-links {
         justify-content: flex-start;
+      }
+      .example-wrapper {
+        flex-direction: column;
+      }
+      .example-img {
+        max-width: 100%;
       }
     }
   </style>
@@ -572,44 +589,48 @@
 
     <section class="section" id="alarm">
       <h2>Branchen‑Beispiel Handwerk: Wie ein Prompt „Alarmstufe Rot“ erkennt</h2>
-      <img
-        src="Baustellen Cartoon.png"
-        alt="Cartoon einer Baustelle als Beispiel für Alarmstufe Rot im Handwerk"
-        class="example-img"
-      />
-      <p>
-        Im Handwerk gibt es Anrufe, die einfach wichtig sind – und es gibt Anrufe, bei denen jede Minute Verzögerung richtig Geld kostet.
-        Wenn auf der Baustelle fünf Leute herumstehen, das Material fehlt und der Polier anruft, ist das keine normale Rückfrage,
-        sondern die Alarmstufe Rot.
-      </p>
-      <p>
-        Ein guter KI‑Telefonassistent muss genau solche Situationen erkennen und anders behandeln als Standard‑Anfragen zu Angeboten
-        oder Terminen. Damit das zuverlässig funktioniert, reicht es nicht, „bitte dringende Anrufe priorisieren“ zu schreiben.
-        Du musst im Prompt klar definieren, welche Schlüsselwörter, Formulierungen und Situationen als „kritisch“ gelten
-        und was dann konkret passieren soll.
-      </p>
-      <div class="section-grid">
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Szenarien für Alarmstufe Rot im Handwerk</h3>
+      <div class="example-wrapper">
+        <img
+          src="Baustellen Cartoon.png"
+          alt="Cartoon einer Baustelle als Beispiel für Alarmstufe Rot im Handwerk"
+          class="example-img"
+        />
+        <div class="example-text">
           <p>
-            Material‑ oder Lieferprobleme („Materiallieferung ist nicht da“, „LKW steht im Stau“, „falsches Material geliefert“),
-            Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“, „Baustelle steht“).
+            Im Handwerk gibt es Anrufe, die einfach wichtig sind – und es gibt Anrufe, bei denen jede Minute Verzögerung richtig Geld kostet.
+            Wenn auf der Baustelle fünf Leute herumstehen, das Material fehlt und der Polier anruft, ist das keine normale Rückfrage,
+            sondern die Alarmstufe Rot.
           </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Personalausfall &amp; Ärger beim Endkunden</h3>
           <p>
-            Personalausfall auf der Baustelle („Mitarbeiter ausgefallen“, „keiner auf der Baustelle“, „Schlüssel nicht da“),
-            Ärger beim Endkunden („Kunde ist stinksauer“, „Beschwerde“, „Termin platzt“, „Abnahme in Gefahr“).
+            Ein guter KI‑Telefonassistent muss genau solche Situationen erkennen und anders behandeln als Standard‑Anfragen zu Angeboten
+            oder Terminen. Damit das zuverlässig funktioniert, reicht es nicht, „bitte dringende Anrufe priorisieren“ zu schreiben.
+            Du musst im Prompt klar definieren, welche Schlüsselwörter, Formulierungen und Situationen als „kritisch“ gelten
+            und was dann konkret passieren soll.
           </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann konkret passieren soll</h3>
-          <p>
-            Im Prompt lässt sich festlegen, dass solche Anrufe z.B. sofort aufs private Handy des Chefs durchgestellt werden,
-            zusätzlich eine SMS und eine E‑Mail mit Kurzfassung des Problems versendet werden – damit echte Alarmfälle
-            nicht im Rückruf‑Stapel untergehen.
-          </p>
+          <div class="section-grid">
+            <div>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Szenarien für Alarmstufe Rot im Handwerk</h3>
+              <p>
+                Material‑ oder Lieferprobleme („Materiallieferung ist nicht da“, „LKW steht im Stau“, „falsches Material geliefert“),
+                Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“, „Baustelle steht“).
+              </p>
+            </div>
+            <div>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Personalausfall &amp; Ärger beim Endkunden</h3>
+              <p>
+                Personalausfall auf der Baustelle („Mitarbeiter ausgefallen“, „keiner auf der Baustelle“, „Schlüssel nicht da“),
+                Ärger beim Endkunden („Kunde ist stinksauer“, „Beschwerde“, „Termin platzt“, „Abnahme in Gefahr“).
+              </p>
+            </div>
+            <div>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann konkret passieren soll</h3>
+              <p>
+                Im Prompt lässt sich festlegen, dass solche Anrufe z.B. sofort aufs private Handy des Chefs durchgestellt werden,
+                zusätzlich eine SMS und eine E‑Mail mit Kurzfassung des Problems versendet werden – damit echte Alarmfälle
+                nicht im Rückruf‑Stapel untergehen.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
