@@ -6,8 +6,8 @@
   <title>BOT PAPA – KI‑Telefonempfang für Handwerk & Servicebetriebe</title>
   <meta name="description" content="BOT PAPA richtet KI‑Telefonassistenten für kleine Handwerks- und Servicebetriebe ein. Kein Anruf geht mehr verloren, Alarmstufe‑Rot‑Anrufe werden erkannt und sofort priorisiert." />
 
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  /x-icon" href="favicon.ico" />
+  /png" sizes="32x32" href="favicon-32x32.png" />
 
   <!-- Google Tag Manager -->
   <script>
@@ -356,6 +356,8 @@
       margin-top: 12px;
     }
 
+    /* Alarmstufe-Rot-Layout */
+
     .example-wrapper {
       display: flex;
       align-items: flex-start;
@@ -376,17 +378,25 @@
     .example-text {
       flex: 1;
       min-width: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; /* Text schließt näher mit Unterkante des Bildes ab */
     }
 
     .example-top {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .example-top p {
+      margin-bottom: 6px;
     }
 
     .example-bottom-grid {
-      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .example-bottom-grid p {
+      margin-bottom: 4px;
     }
 
     .contact {
@@ -456,15 +466,13 @@
       .footer-links {
         justify-content: flex-start;
       }
+
       .example-wrapper {
         flex-direction: column;
       }
       .example-img {
         width: 100%;
         max-width: 100%;
-      }
-      .example-text {
-        justify-content: flex-start;
       }
     }
   </style>
@@ -619,31 +627,29 @@
               sondern die Alarmstufe Rot.
             </p>
             <p>
-              Ein guter KI‑Telefonassistent muss genau solche Situationen erkennen und anders behandeln als Standard‑Anfragen zu Angeboten
-              oder Terminen. Damit das zuverlässig funktioniert, reicht es nicht, „bitte dringende Anrufe priorisieren“ zu schreiben.
-              Im Prompt müssen die kritischen Situationen klar beschrieben sein – und ebenso, was dann sofort passieren soll.
+              Ein KI‑Telefonassistent muss solche Situationen klar erkennen und anders behandeln als Standard‑Anfragen.
+              Deshalb wird im Prompt genau festgelegt, welche Formulierungen als „kritisch“ gelten und welche Sofort‑Aktion folgt.
             </p>
           </div>
-          <div class="section-grid example-bottom-grid">
+          <div class="example-bottom-grid">
             <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Alarmstufe‑Rot‑Szenarien</h3>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Alarm‑Szenarien</h3>
               <p>
                 Material‑ oder Lieferprobleme („Materiallieferung ist nicht da“, „LKW steht im Stau“, „falsches Material geliefert“),
-                Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“, „Baustelle steht“).
+                Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“).
               </p>
             </div>
             <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Personalausfall &amp; Ärger beim Endkunden</h3>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Personalausfall &amp; Ärger beim Kunden</h3>
               <p>
-                Personalausfall auf der Baustelle („Mitarbeiter ausgefallen“, „keiner auf der Baustelle“, „Schlüssel nicht da“),
-                Ärger beim Endkunden („Kunde ist stinksauer“, „Beschwerde“, „Termin platzt“, „Abnahme in Gefahr“).
+                Niemand auf der Baustelle, Schlüssel fehlt, Kunde ist stinksauer, Beschwerde, Termin platzt oder Abnahme in Gefahr.
               </p>
             </div>
             <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann konkret passieren soll</h3>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann passiert</h3>
               <p>
-                Der Prompt legt fest, wie der Assistent reagiert: zum Beispiel sofortige Durchstellung aufs private Handy des Chefs,
-                plus SMS und E‑Mail mit einer Kurzfassung des Problems – damit echte Alarmfälle nicht im Rückruf‑Stapel verschwinden.
+                Der Assistent stellt solche Anrufe z.B. direkt aufs Handy des Chefs durch und schickt zusätzlich eine kurze Zusammenfassung
+                per SMS oder E‑Mail – damit kein echter Alarmfall im Rückruf‑Stapel verschwindet.
               </p>
             </div>
           </div>
