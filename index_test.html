@@ -359,14 +359,14 @@
     .example-wrapper {
       display: flex;
       align-items: flex-start;
-      gap: 24px;
+      gap: 28px;
       margin-top: 12px;
       flex-wrap: wrap;
     }
 
     .example-img {
-      width: 40%;           /* ~15–20 % kleiner als volle Spaltenbreite */
-      max-width: 420px;     /* obere Grenze für sehr große Bilder */
+      width: 48%;
+      max-width: 520px;
       border-radius: 14px;
       border: var(--border-soft);
       box-shadow: var(--shadow-soft);
@@ -375,7 +375,18 @@
 
     .example-text {
       flex: 1;
-      min-width: 280px;
+      min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Text schließt näher mit Unterkante des Bildes ab */
+    }
+
+    .example-top {
+      margin-bottom: 8px;
+    }
+
+    .example-bottom-grid {
+      margin-top: 8px;
     }
 
     .contact {
@@ -451,6 +462,9 @@
       .example-img {
         width: 100%;
         max-width: 100%;
+      }
+      .example-text {
+        justify-content: flex-start;
       }
     }
   </style>
@@ -598,20 +612,21 @@
           class="example-img"
         />
         <div class="example-text">
-          <p>
-            Im Handwerk gibt es Anrufe, die einfach wichtig sind – und es gibt Anrufe, bei denen jede Minute Verzögerung richtig Geld kostet.
-            Wenn auf der Baustelle fünf Leute herumstehen, das Material fehlt und der Polier anruft, ist das keine normale Rückfrage,
-            sondern die Alarmstufe Rot.
-          </p>
-          <p>
-            Ein guter KI‑Telefonassistent muss genau solche Situationen erkennen und anders behandeln als Standard‑Anfragen zu Angeboten
-            oder Terminen. Damit das zuverlässig funktioniert, reicht es nicht, „bitte dringende Anrufe priorisieren“ zu schreiben.
-            Du musst im Prompt klar definieren, welche Schlüsselwörter, Formulierungen und Situationen als „kritisch“ gelten
-            und was dann konkret passieren soll.
-          </p>
-          <div class="section-grid">
+          <div class="example-top">
+            <p>
+              Im Handwerk gibt es Anrufe, die einfach wichtig sind – und es gibt Anrufe, bei denen jede Minute Verzögerung richtig Geld kostet.
+              Wenn auf der Baustelle fünf Leute herumstehen, das Material fehlt und der Polier anruft, ist das keine normale Rückfrage,
+              sondern die Alarmstufe Rot.
+            </p>
+            <p>
+              Ein guter KI‑Telefonassistent muss genau solche Situationen erkennen und anders behandeln als Standard‑Anfragen zu Angeboten
+              oder Terminen. Damit das zuverlässig funktioniert, reicht es nicht, „bitte dringende Anrufe priorisieren“ zu schreiben.
+              Im Prompt müssen die kritischen Situationen klar beschrieben sein – und ebenso, was dann sofort passieren soll.
+            </p>
+          </div>
+          <div class="section-grid example-bottom-grid">
             <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Szenarien für Alarmstufe Rot im Handwerk</h3>
+              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Alarmstufe‑Rot‑Szenarien</h3>
               <p>
                 Material‑ oder Lieferprobleme („Materiallieferung ist nicht da“, „LKW steht im Stau“, „falsches Material geliefert“),
                 Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“, „Baustelle steht“).
@@ -627,9 +642,8 @@
             <div>
               <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann konkret passieren soll</h3>
               <p>
-                Im Prompt lässt sich festlegen, dass solche Anrufe z.B. sofort aufs private Handy des Chefs durchgestellt werden,
-                zusätzlich eine SMS und eine E‑Mail mit Kurzfassung des Problems versendet werden – damit echte Alarmfälle
-                nicht im Rückruf‑Stapel untergehen.
+                Der Prompt legt fest, wie der Assistent reagiert: zum Beispiel sofortige Durchstellung aufs private Handy des Chefs,
+                plus SMS und E‑Mail mit einer Kurzfassung des Problems – damit echte Alarmfälle nicht im Rückruf‑Stapel verschwinden.
               </p>
             </div>
           </div>
