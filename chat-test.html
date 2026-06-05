@@ -156,11 +156,12 @@
       bottom: 80px;
       width: 480px;
       max-width: calc(100vw - 32px);
-      max-height: 800px;
+      height: 600px;
+      max-height: calc(100vh - 120px);
       display: flex;
       flex-direction: column;
       border-radius: 18px;
-      background: linear-gradient(to bottom right, #020617 0%, #020617 40%, #020617 100%);
+      background: #020617;
       border: 1px solid rgba(148, 163, 184, 0.32);
       box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
       overflow: hidden;
@@ -179,7 +180,7 @@
     }
 
     .chat-header {
-      padding: 10px 14px;
+      padding: 12px 14px;
       background: radial-gradient(circle at top left, #0f172a, #020617 60%);
       border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       display: flex;
@@ -219,32 +220,47 @@
 
     .chat-body {
       flex: 1;
-      padding: 10px 12px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       font-size: 14px;
       line-height: 1.6;
       overflow-y: auto;
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617 55%, #020617 100%);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.5), #020617 70%);
     }
 
-    .chat-hint { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+    /* Elegantes Custom Scrollbar Design für den Chat */
+    .chat-body::-webkit-scrollbar {
+      width: 6px;
+    }
+    .chat-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .chat-body::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.3);
+      border-radius: var(--radius-full);
+    }
+    .chat-body::-webkit-scrollbar-thumb:hover {
+      background: rgba(148, 163, 184, 0.5);
+    }
 
-    .message-row { display: flex; margin-bottom: 4px; }
+    .chat-hint { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; padding-bottom: 4px; border-bottom: 1px solid rgba(255,255,255,0.04); }
+
+    .message-row { display: flex; margin-bottom: 2px; }
     .message-row.bot { justify-content: flex-start; }
     .message-row.user { justify-content: flex-end; }
 
     .message-bubble {
-      max-width: 92%;
+      max-width: 88%;
       padding: 10px 12px;
-      border-radius: 10px;
-      line-height: 1.6;
+      border-radius: 12px;
+      line-height: 1.5;
     }
 
     .message-bubble.bot {
       background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.25);
       border-bottom-left-radius: 2px;
       color: #e5e7eb;
     }
@@ -259,37 +275,55 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 4px;
+      margin-top: 6px;
+      margin-bottom: 4px;
     }
 
     .suggestion-chip {
       font-size: 11px;
-      padding: 4px 8px;
+      padding: 5px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(15, 23, 42, 0.6);
+      color: #cbd5e1;
       cursor: pointer;
+      transition: background 150ms easy, border-color 150ms ease;
+    }
+
+    .suggestion-chip:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--accent);
+    }
+
+    /* Optimierter Footer-Bereich */
+    .chat-footer-container {
+      border-top: 1px solid rgba(148, 163, 184, 0.25);
+      background: #020617;
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .chat-footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 8px;
-      background: rgba(15, 23, 42, 0.96);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .chat-input {
       flex: 1;
       border-radius: var(--radius-full);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 8px 12px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 9px 14px;
       font-size: 13px;
-      background: #020617;
+      background: #090d1f;
       color: #e5e7eb;
       outline: none;
+    }
+
+    .chat-input:focus {
+      border-color: var(--accent);
     }
 
     .chat-send-btn {
@@ -298,29 +332,33 @@
       background: var(--accent);
       color: #0b1120;
       font-size: 13px;
-      padding: 8px 13px;
+      width: 36px;
+      height: 36px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 4px;
+      justify-content: center;
       font-weight: 600;
+      flex-shrink: 0;
+      transition: transform 100ms ease;
     }
 
-    .chat-send-btn span.icon { font-size: 14px; }
+    .chat-send-btn:active {
+      transform: scale(0.95);
+    }
 
     .chat-status {
       font-size: 10px;
       color: var(--text-muted);
-      margin-left: 2px;
-      margin-top: 2px;
+      padding-left: 4px;
     }
 
     @media (max-width: 480px) {
       .chat-widget {
-        bottom: 70px;
+        bottom: 74px;
         width: calc(100vw - 24px);
         right: 12px;
-        max-height: 600px;
+        height: 520px;
       }
       .chat-launcher { right: 14px; bottom: 14px; }
     }
@@ -438,20 +476,23 @@
       </div>
     </div>
 
-    <div class="chat-footer">
-      <input
-        type="text"
-        class="chat-input"
-        id="chat-input"
-        placeholder="Nachricht eingeben …"
-        autocomplete="off"
-      />
-      <button class="chat-send-btn" id="chat-send">
-        <span class="icon">⮞</span>
-      </button>
-    </div>
-    <div class="chat-status" id="chat-status">
-      Testmodus aktiv (Lokales Demo-Skript)
+    <!-- Optimierter und gekapselter Footer-Bereich -->
+    <div class="chat-footer-container">
+      <div class="chat-footer">
+        <input
+          type="text"
+          class="chat-input"
+          id="chat-input"
+          placeholder="Nachricht eingeben …"
+          autocomplete="off"
+        />
+        <button class="chat-send-btn" id="chat-send" aria-label="Senden">
+          <span>⮞</span>
+        </button>
+      </div>
+      <div class="chat-status" id="chat-status">
+        Testmodus aktiv (Lokales Demo-Skript)
+      </div>
     </div>
   </section>
 
@@ -467,7 +508,6 @@
       const statusEl = document.getElementById("chat-status");
 
       // KONFIGURATION SUPABASE EDGE FUNCTION
-      // Setze hier deine echte URL ein, sobald bereit (z.B. 'https://xxx.supabase.co/functions/v1/chat')
       const SUPABASE_CHAT_API_URL = ""; 
 
       function openChat() {
@@ -497,7 +537,6 @@
         bodyEl.scrollTop = bodyEl.scrollHeight;
       }
 
-      // Lokale Fallback-Antworten (für Tests ohne aktives Backend)
       function mockBotReply(userText) {
         const t = userText.trim().toLowerCase();
         if (!t) return null;
@@ -514,10 +553,12 @@
         if (t.includes("mitarbeiter") || t.includes("ersetzt")) {
           return "Der Bot ersetzt niemanden. Er fängt Spitzen ab und filtert Standard-Anfragen, damit die Fachkräfte ungestört arbeiten können.";
         }
+        if (t.includes("rückruf") || t.includes("aufnehmen")) {
+          return "Gerne nehme ich eine Rückrufbitte auf. Bitte nennen Sie mir Ihren Namen, Ihre Telefonnummer und kurz Ihr Anliegen.";
+        }
         return "Im Testmodus (ohne Backend-Anbindung) kann ich hierzu keine passenden Infos aus den Dokumenten laden. Sobald die Edge Function aktiv ist, beantworte ich Fragen präzise auf Basis von faq-dach.md und knowledge.md.";
       }
 
-      // Kernfunktion zum Senden und Verarbeiten der Nachrichten
       async function handleSend(textOverride) {
         const text = textOverride !== undefined ? textOverride : inputEl.value;
         if (!text.trim()) return;
@@ -526,15 +567,12 @@
         inputEl.value = "";
         statusEl.textContent = "Antwort wird generiert...";
 
-        // Prüfen, ob eine Supabase-Verbindung konfiguriert ist
         if (SUPABASE_CHAT_API_URL) {
           try {
             const response = await fetch(SUPABASE_CHAT_API_URL, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
-                // Falls benötigt, hier Auth-Token oder Supabase Anon Key übergeben:
-                // "Authorization": "Bearer YOUR_ANON_KEY"
               },
               body: JSON.stringify({ message: text })
             });
@@ -550,7 +588,6 @@
             statusEl.textContent = "Verbunden mit Supabase Backend";
           }
         } else {
-          // Fallback auf das lokale Skript
           setTimeout(() => {
             const reply = mockBotReply(text);
             if (reply) appendMessage(reply, "bot");
