@@ -349,12 +349,12 @@
           echten Startseite eingesetzt wird.
         </p>
         <p>
-          Das Widget unten rechts ist derzeit ein Platzhalter mit einfachen Beispielantworten.
-          Später wird hier Ihre echte Wissensbasis (z.&nbsp;B. <code>knowledge.md</code>, <code>faq-dach.md</code>) angebunden.
+          Das Widget unten rechts verbindet sich flexibel mit deinem Backend. Als Wissensquellen dienen
+          die Dateien <code>faq-dach.md</code>, <code>rules.md</code> und <code>knowledge.md</code>.
         </p>
         <div class="pill-row">
           <div class="pill">DACH Handwerk &amp; Dienstleister</div>
-          <div class="pill">Nur Test – kein echtes Angebot</div>
+          <div class="pill">Supabase Backend Ready</div>
           <div class="pill">Chat‑UI v0.5</div>
         </div>
         <p class="note">
@@ -370,11 +370,10 @@
         <ul style="font-size:13px;color:var(--text-muted);margin-left:16px;margin-top:4px;line-height:1.5;">
           <li>Layout und Verhalten des Chat‑Widgets</li>
           <li>Tonalität in der Sie‑Form und Einstieg in Gespräche</li>
-          <li>Vorbereitung für eine spätere API‑ und Wissensbasis‑Anbindung</li>
+          <li>Vorbereitung für eine echte Supabase Vector‑ &amp; Edge-Function-Anbindung</li>
         </ul>
         <p class="note">
-          Die Antworten stammen aktuell aus einer einfachen Demo‑Logik im Browser.
-          Später wird hier eine echte Server‑Logik mit Zugriff auf Ihre Wissensquellen eingebaut.
+          Aktuell ist eine Fallback-Demo aktiv. Sobald du deine API-URL einträgst, schaltet das Widget vollautomatisch live.
         </p>
       </aside>
     </main>
@@ -444,7 +443,7 @@
         type="text"
         class="chat-input"
         id="chat-input"
-        placeholder="Nachricht eingeben … (Testmodus, ohne echte Beratung)"
+        placeholder="Nachricht eingeben …"
         autocomplete="off"
       />
       <button class="chat-send-btn" id="chat-send">
@@ -452,7 +451,7 @@
       </button>
     </div>
     <div class="chat-status" id="chat-status">
-      Testmodus: Antworten stammen aus einem einfachen Demo‑Skript, nicht aus der echten Wissensbasis.
+      Testmodus aktiv (Lokales Demo-Skript)
     </div>
   </section>
 
@@ -467,10 +466,9 @@
       const suggestionsEl = document.getElementById("chat-suggestions");
       const statusEl = document.getElementById("chat-status");
 
-      // TODO: Name- und Anrede-Handling später im Backend/LLM auswerten.
-      // Beispiel-Ziele:
-      // - Aus "Peter Müller" -> "Herr Müller" oder "Peter, was möchten Sie genau wissen?"
-      // - Formelle Sie-Ansprache beibehalten.
+      // KONFIGURATION SUPABASE EDGE FUNCTION
+      // Setze hier deine echte URL ein, sobald bereit (z.B. 'https://xxx.supabase.co/functions/v1/chat')
+      const SUPABASE_CHAT_API_URL = ""; 
 
       function openChat() {
         widget.classList.add("open");
@@ -499,48 +497,66 @@
         bodyEl.scrollTop = bodyEl.scrollHeight;
       }
 
+      // Lokale Fallback-Antworten (für Tests ohne aktives Backend)
       function mockBotReply(userText) {
         const t = userText.trim().toLowerCase();
-        if (!t) return;
+        if (!t) return null;
 
-        // Sehr einfache Demo-Erkennung für "Name nennen"
         if (t.startsWith("ich heiße") || t.startsWith("ich heisse") || t.startsWith("mein name ist")) {
           return "Vielen Dank. Ich merke mir Ihren Namen für dieses Gespräch. Was möchten Sie genau wissen?";
         }
-
         if (t.includes("was macht") || t.includes("genau")) {
-          return "Kurz gefasst: Der Bot nimmt Anrufe entgegen, beantwortet Standardfragen und sammelt strukturierte Rückrufdaten, damit Ihr Betrieb weniger Anrufe verliert und Sie konzentriert arbeiten können.";
+          return "Kurz gefasst: Der Bot nimmt Anrufe entgegen, beantwortet Standardfragen und sammelt strukturierte Rückrufdaten, damit Ihr Betrieb keine Chancen verpasst.";
         }
-
         if (t.includes("dsgvo") || t.includes("datenschutz")) {
-          return "Der Einsatz kann datenschutzkonform gestaltet werden, wenn nur notwendige Daten erfasst werden und klar geregelt ist, wie diese gespeichert und gelöscht werden. Konkrete Rechtsberatung muss aber über Ihren eigenen Ansprechpartner laufen.";
+          return "Der Einsatz kann datenschutzkonform gestaltet werden. Personendaten werden minimal gehalten. Eine echte Rechtsberatung biete ich jedoch nicht an.";
         }
-
         if (t.includes("mitarbeiter") || t.includes("ersetzt")) {
-          return "Der Bot ersetzt keine Mitarbeitenden. Er übernimmt wiederkehrende Standardanfragen und die Vorqualifizierung, damit Fachkräfte mehr Zeit für die eigentliche Arbeit haben.";
+          return "Der Bot ersetzt niemanden. Er fängt Spitzen ab und filtert Standard-Anfragen, damit die Fachkräfte ungestört arbeiten können.";
         }
-
-        if (t.includes("kosten") || t.includes("preis")) {
-          return "Im Testmodus nenne ich keine konkreten Preise. Die Idee ist: Der Bot ist deutlich günstiger als eine zusätzliche Telefonkraft, aber verlässlich erreichbar. Konkrete Konditionen gehören in ein persönliches Gespräch mit dem Betrieb.";
-        }
-
-        return "Im Testmodus kann ich nur allgemein antworten: Der AI‑Telefonassistent soll verpasste Anrufe reduzieren, Standardfragen automatisieren und saubere Rückruflisten vorbereiten. Für Details wird später Ihre echte Wissensbasis angebunden.";
+        return "Im Testmodus (ohne Backend-Anbindung) kann ich hierzu keine passenden Infos aus den Dokumenten laden. Sobald die Edge Function aktiv ist, beantworte ich Fragen präzise auf Basis von faq-dach.md und knowledge.md.";
       }
 
-      function handleSend(textOverride) {
+      // Kernfunktion zum Senden und Verarbeiten der Nachrichten
+      async function handleSend(textOverride) {
         const text = textOverride !== undefined ? textOverride : inputEl.value;
         if (!text.trim()) return;
 
         appendMessage(text, "user");
         inputEl.value = "";
-        statusEl.textContent = "Denke nach (Testmodus)…";
+        statusEl.textContent = "Antwort wird generiert...";
 
-        setTimeout(() => {
-          const reply = mockBotReply(text);
-          if (reply) appendMessage(reply, "bot");
-          statusEl.textContent =
-            "Testmodus: Antworten stammen aus einem einfachen Demo‑Skript, nicht aus der echten Wissensbasis.";
-        }, 400);
+        // Prüfen, ob eine Supabase-Verbindung konfiguriert ist
+        if (SUPABASE_CHAT_API_URL) {
+          try {
+            const response = await fetch(SUPABASE_CHAT_API_URL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+                // Falls benötigt, hier Auth-Token oder Supabase Anon Key übergeben:
+                // "Authorization": "Bearer YOUR_ANON_KEY"
+              },
+              body: JSON.stringify({ message: text })
+            });
+
+            if (!response.ok) throw new Error("Netzwerkfehler");
+            
+            const data = await response.json();
+            appendMessage(data.reply || "Fehler bei der Antwortverarbeitung.", "bot");
+          } catch (error) {
+            console.error(error);
+            appendMessage("Entschuldigung, beim Verbinden mit dem KI-Server ist ein Fehler aufgetreten.", "bot");
+          } finally {
+            statusEl.textContent = "Verbunden mit Supabase Backend";
+          }
+        } else {
+          // Fallback auf das lokale Skript
+          setTimeout(() => {
+            const reply = mockBotReply(text);
+            if (reply) appendMessage(reply, "bot");
+            statusEl.textContent = "Testmodus aktiv (Lokales Demo-Skript)";
+          }, 400);
+        }
       }
 
       sendBtn.addEventListener("click", () => handleSend());
