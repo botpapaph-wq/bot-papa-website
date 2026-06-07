@@ -247,7 +247,6 @@
       color: var(--accent);
     }
 
-    /* Product Image Container styling */
     .product-image-container {
       width: 100%;
       margin-bottom: 20px;
@@ -264,7 +263,6 @@
       display: block;
     }
 
-    /* Squeeze Form Styles */
     .squeeze-form {
       margin-top: 15px;
     }
@@ -483,16 +481,16 @@
       </section>
 
       <aside id="status" class="card">
-        <!-- Das verlangte Produktbild aus EBook Bild_2.png -->
+        <!-- URL-enkodierter Dateiname löst Ladeproblem auf Webservern -->
         <div class="product-image-container">
-          <img src="EBook Bild_2.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
+          <img src="EBook%20Bild_2.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
         </div>
 
         <div class="card-title">
           Leitfaden <strong>Anfordern</strong>
         </div>
         <p style="color: var(--muted); margin-top: 0; margin-bottom: 15px;">
-          Sichern Sie sich das exklusive eBook. Sie zahlen lediglich eine reine Handling- &amp; Bereitstellungspauschale von <strong>USD 2,99</strong>.
+          Sichern Sie sich das exklusive eBook. Sie zahlen lediglich eine reine Handling- &amp; Bereitstellungspauschale von <strong>USD 2,99 (ca. 2,75 EUR)</strong>.
         </p>
         
         <form id="supabaseSqueezeForm" class="squeeze-form">
@@ -518,7 +516,7 @@
           </div>
           <div class="form-group">
             <label for="email">E-Mail für digitale Lieferung *</label>
-            <input type="email" id="email" required placeholder="support@bot-papa.online">
+            <input type="email" id="email" required placeholder="sales@bot-pap.online">
           </div>
 
           <div class="checkbox-group">
@@ -526,7 +524,7 @@
             <label for="dsgvo">Ich willige ein, dass meine Formulardaten zur Bereitstellung des eBooks DSGVO-konform in Supabase gespeichert werden. *</label>
           </div>
 
-          <button type="submit" class="btn-submit">Weiter zu PayPal (USD 2,99)</button>
+          <button type="submit" class="btn-submit">Weiter zu PayPal (USD 2,99 / 2,75 EUR)</button>
         </form>
       </aside>
     </main>
@@ -625,7 +623,7 @@
         <div>
           <h3 style="font-size: 14px; margin: 0 0 4px;">Rückruf‑Notizen erstellen</h3>
           <p>
-            Name, Telefonnummer, Anliegen, Objekt/Projekt und beste Rückrufzeit werden erfasst –
+            Name, Telefonnummer, Anliegen, Objekt/Projekt und beste Rückrufzeit werden erfassung –
             in einer Form, die Sie schnell auf dem Handy, Tablet oder im Büro verarbeiten können.
           </p>
         </div>
@@ -665,7 +663,7 @@
   <script>
     document.getElementById('supabaseSqueezeForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("Daten werden DSGVO-konform an Supabase übertragen... Weiterleitung zum PayPal-Gateway zur Abrechnung von USD 2,99.");
+        alert("Daten werden DSGVO-konform an Supabase übertragen... Weiterleitung zum PayPal-Gateway zur Abrechnung.");
     });
   </script>
 </body>
