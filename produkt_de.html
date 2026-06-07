@@ -125,15 +125,6 @@
       width: 100%;
     }
 
-    .header-bottom-row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
-      width: 100%;
-      margin-top: 2px;
-    }
-
     .pill {
       border-radius: var(--radius-full);
       padding: 6px 14px;
@@ -148,46 +139,6 @@
 
     .pill strong {
       color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-weight: 400;
-    }
-
-    .nav-links a:hover {
-      border-color: rgba(255, 255, 255, 0.12);
-      background: rgba(5, 8, 22, 0.8);
-      text-decoration: none;
-    }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .lang-flag {
-      font-size: 18px;
-      line-height: 1;
-      display: inline-block;
-      filter: grayscale(60%);
-      transform: translateY(1px);
-    }
-
-    .lang-flag.active {
-      filter: grayscale(0%);
     }
 
     .btn-primary {
@@ -327,7 +278,24 @@
       color: var(--accent);
     }
 
-    /* Squeeze Form Styles matching the design */
+    /* Product Image Container */
+    .product-image-container {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: var(--border-soft);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: rgba(0,0,0,0.2);
+    }
+    
+    .product-image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Squeeze Form Styles */
     .squeeze-form {
       margin-top: 15px;
     }
@@ -485,20 +453,6 @@
       align-items: center;
     }
 
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-links a {
-      color: var(--muted);
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
     @media (max-width: 768px) {
       header {
         position: static;
@@ -514,17 +468,10 @@
       .header-right {
         align-items: flex-start;
       }
-      .header-top-row,
-      .header-bottom-row {
+      .header-top-row {
         justify-content: flex-start;
         flex-wrap: wrap;
         row-gap: 6px;
-      }
-      .nav-links {
-        flex-wrap: wrap;
-      }
-      .footer-links {
-        justify-content: flex-start;
       }
 
       .example-wrapper {
@@ -562,20 +509,6 @@
             Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
           </a>
         </div>
-        <div class="header-bottom-row">
-          <nav class="nav-links">
-            <a href="ueber_mich.html">Über mich</a>
-            <a href="contact.html">Kontakt</a>
-            <div class="lang-switch">
-              <a href="index.html" aria-label="English">
-                <span class="lang-flag">🇺🇸</span>
-              </a>
-              <a href="index_de.html" aria-label="Deutsch">
-                <span class="lang-flag active">🇩🇪</span>
-              </a>
-            </div>
-          </nav>
-        </div>
       </div>
     </header>
 
@@ -595,12 +528,8 @@
         </p>
 
         <div class="hero-actions">
-          <a href="https://meet.brevo.com/bodo-kopplin-online/erstgesprach-kostenlos" class="btn-primary" target="_blank" rel="noopener">
-            Kostenloses Erstgespräch buchen <span>✚</span>
-          </a>
-          <a href="#status" class="btn-secondary">
-            <span>●</span>
-            Exklusiver Strategie-Leitfaden eBook
+          <a href="#status" class="btn-primary">
+            Jetzt Strategie-Leitfaden sichern <span>✚</span>
           </a>
         </div>
 
@@ -612,11 +541,15 @@
       </section>
 
       <aside id="status" class="card">
+        <div class="product-image-container">
+          <img src="EBook Bild.png" alt="BOT PAPA Strategie-Leitfaden eBook Cover" />
+        </div>
+
         <div class="card-title">
           Leitfaden <strong>Anfordern</strong>
         </div>
         <p style="color: var(--muted); margin-top: 0; margin-bottom: 15px;">
-          Das eBook ist ein Freebie. Sie zahlen lediglich eine reine Handling- &amp; Bereitstellungspauschale von <strong>USD 2,99</strong>.
+          Sichern Sie sich das exklusive eBook. Sie zahlen lediglich eine reine Handling- &amp; Bereitstellungspauschale von <strong>USD 2,99</strong>.
         </p>
         
         <form id="supabaseSqueezeForm" class="squeeze-form">
@@ -652,12 +585,6 @@
 
           <button type="submit" class="btn-submit">Weiter zu PayPal (USD 2,99)</button>
         </form>
-
-        <p style="margin-top: 15px; font-size: 11px; text-align: center;">
-          <a href="https://meet.brevo.com/bodo-kopplin-online/erstgesprach-kostenlos" target="_blank" rel="noopener">
-            Lieber direkt zur kostenfreien 20-Minuten-Analyse? ↗
-          </a>
-        </p>
       </aside>
     </main>
 
@@ -788,10 +715,9 @@
     </section>
 
     <section class="section" id="contact">
-      <h2>Nächster Schritt: kurzes, fokussiertes Gespräch</h2>
+      <h2>Geschäftlicher Kontakt</h2>
       <p>
-        Wenn Sie prüfen möchten, ob ein KI‑Telefonempfang für Ihren Betrieb sinnvoll ist,
-        starten wir mit einem kostenfreien, 20‑minütigen Erstgespräch – ohne Verkaufsdruck.
+        Für strategische Kooperationen oder direkte Projektanfragen nutzen Sie bitte die folgenden Kontaktwege:
       </p>
       <div class="contact">
         <div class="contact-item">
@@ -805,7 +731,7 @@
         <div class="contact-item">
           <strong>Termin buchen:</strong>
           <a href="https://meet.brevo.com/bodo-kopplin-online/erstgesprach-kostenlos" target="_blank" rel="noopener">
-            Termin über Brevo vereinbaren
+            Erstbedarfsanalyse über Brevo vereinbaren
           </a>
         </div>
         <div class="contact-item">
@@ -820,17 +746,6 @@
     <footer>
       <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
       <div><a href="https://crm.bot-papa.online/login" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Mitarbeiter Login</a></div>
-      <div class="footer-links">
-        <a href="discovery_form_de">Bedarfsermittlung</a>
-        <span>•</span>
-        <a href="faq-de.html">FAQ</a>
-        <span>•</span>
-        <a href="impressum.html">Impressum</a>
-        <span>•</span>
-        <a href="datenschutz.html">Datenschutzerklärung</a>
-        <span>•</span>
-        <a href="agb.html">AGB</a>
-      </div>
     </footer>
   </div>
 
