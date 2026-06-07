@@ -6,9 +6,10 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ – BOT PAPA KI‑Telefonassistent</title>
-  <meta name="description" content="Häufige Fragen zu BOT PAPA: KI-Telefonassistent für Handwerksbetriebe und Dienstleister in der DACH-Region – Kosten, Technik, Datenschutz und Einsatzbereiche." />
+  <title>Impressum – BOT PAPA</title>
+  <meta name="description" content="Impressum von BOT PAPA – KI-Telefonassistenten für kleine Unternehmen in der DACH-Region." />
 
+  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -16,6 +17,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
+  <!-- End Google Tag Manager -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
 
@@ -81,11 +83,6 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      text-decoration: none !important;
-    }
-
-    .brand:hover {
-      text-decoration: none !important;
     }
 
     .brand-mark {
@@ -112,7 +109,6 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       font-size: 14px;
-      color: var(--text);
     }
 
     .brand-text-sub {
@@ -136,32 +132,75 @@
       width: 100%;
     }
 
-    /* Glossy Button Style */
-    .btn-primary {
-      background: linear-gradient(180deg, #00f0ff 0%, #00a8ff 100%);
-      color: #050816 !important;
-      font-weight: 600;
-      padding: 8px 18px;
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
       border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 12px;
-      letter-spacing: 0.02em;
-      box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-      transition: all 0.2s ease-in-out;
-      display: inline-flex;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .lang-switch {
+      display: flex;
       align-items: center;
       gap: 6px;
-      text-decoration: none !important;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-left: 4px;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
-      background: linear-gradient(180deg, #33f3ff 0%, #1ab2ff 100%);
+    .lang-switch a {
+      padding: 0;
+      border: none;
     }
 
-    .btn-primary span {
-      font-size: 11px;
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      filter: grayscale(60%);
+      transform: translateY(1px);
+    }
+
+    .lang-flag.active {
+      filter: grayscale(0%);
     }
 
     main {
@@ -179,31 +218,8 @@
       font-size: 22px;
     }
 
-    .faq-item {
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .faq-item:last-of-type {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .faq-item h2 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .faq-item p {
-      margin: 0 0 6px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .faq-item ul {
-      margin: 0 0 8px 18px;
-      padding: 0;
+    main p {
+      margin: 0 0 10px;
       color: var(--muted);
       font-size: 13px;
     }
@@ -248,10 +264,14 @@
       .header-right {
         align-items: flex-start;
       }
-      .header-top-row {
+      .header-top-row,
+      .header-bottom-row {
         justify-content: flex-start;
         flex-wrap: wrap;
         row-gap: 6px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
       }
       .footer-links {
         justify-content: flex-start;
@@ -260,13 +280,16 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="page">
     <header>
-      <a href="index.html" class="brand">
+      <div class="brand">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
@@ -274,187 +297,117 @@
           <div class="brand-text-title">BOT PAPA</div>
           <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
         </div>
-      </a>
+      </div>
       <div class="header-right">
         <div class="header-top-row">
+          <div class="pill">
+            Solo‑Gründer: <strong>Bodo Kopplin</strong>
+          </div>
           <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
             Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
           </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="index_de.html#who">Für wen</a>
+            <a href="index_de.html#behavior">Verhalten</a>
+            <a href="index_de.html#about">Über BOT PAPA</a>
+            <a href="contact.html">Kontakt</a>
+            <div class="lang-switch">
+              <a href="index.html" aria-label="English">
+                <span class="lang-flag">🇺🇸</span>
+              </a>
+              <a href="impressum.html" aria-label="Deutsch">
+                <span class="lang-flag active">🇩🇪</span>
+              </a>
+            </div>
+          </nav>
         </div>
       </div>
     </header>
 
     <main>
-      <h1>Häufige Fragen (FAQ)</h1>
+      <h1>Impressum</h1>
 
-      <div class="faq-item">
-        <h2>Für wen ist BOT PAPA gedacht?</h2>
-        <p>
-          BOT PAPA richtet sich an Handwerksbetriebe und dienstleistende Selbstständige in der DACH‑Region,
-          die tagsüber meist auf Baustellen, beim Kunden oder im Studio sind und trotzdem erreichbar
-          bleiben müssen.
-        </p>
-        <p>
-          Typische Beispiele: Maler, Dachdecker, Installateure, Schlosser, kleinere Servicebetriebe,
-          Coaches und Personal Trainer. Kanzleien und Arztpraxen gehören bewusst nicht zu meinem Fokus.
-        </p>
-      </div>
+      <p><strong>Anbieter dieser Website</strong></p>
+      <p>
+        BOT PAPA<br>
+        Bodo Kopplin<br>
+        Purok 20, Acacia Street<br>
+        Mandaguit Compound, Calinan<br>
+        8000 Davao City<br>
+        Philippinen
+      </p>
 
-      <div class="faq-item">
-        <h2>Was kostet der Einstieg?</h2>
-        <p>
-          Der erste Schritt ist ein kompakter Einstiegsleitfaden als PDF. Er kostet 2,99&nbsp;USD –
-          nicht als „Produktpreis“, sondern als Handling‑ und Versandpauschale für die Abwicklung.
-        </p>
-        <p>
-          Das Basis‑Setup eines individuellen KI‑Telefonassistenten (3 Stunden) kostet 299&nbsp;EUR
-          pauschal. Jede zusätzliche Stunde, die aufgrund von nachträglichen Wünschen oder Zusatzumfang
-          anfällt, berechne ich mit 49&nbsp;EUR.
-        </p>
-        <p>
-          Für die laufende Wartung und kleinere Änderungen gibt es einen Wartungsvertrag:
-          49&nbsp;EUR pro Monat, unabhängig davon, ob im jeweiligen Monat Änderungen anfallen oder nicht
-          – monatlich kündbar.
-        </p>
-      </div>
+      <p><strong>Korrespondenzadresse in Deutschland</strong></p>
+      <p>
+        Bodo Kopplin<br>
+        Caya Postbox 100685<br>
+        96035 Bamberg<br>
+        Deutschland
+      </p>
 
-      <div class="faq-item">
-        <h2>Was ist im 3‑Stunden‑Setup enthalten?</h2>
-        <p>Im Basis‑Setup sind in der Regel enthalten:</p>
-        <ul>
-          <li>eine kurze Bedarfsanalyse,</li>
-          <li>das Prompting eines individuellen Verhaltens‑Prompts für Ihren Sprachassistenten,</li>
-          <li>Einpflegen Ihrer wichtigsten Wissensquellen (Leistungen, Ablauf, Standort, Öffnungszeiten),</li>
-          <li>Backend‑Setup wie SMS‑ und/oder E‑Mail‑Benachrichtigungen, Weiterleitungen und Grundlogik.</li>
-        </ul>
-        <p>
-          Ziel ist ein Assistent, der in Ihrem Ton begrüßt, Anrufe strukturiert annimmt und
-          Rückruf‑fertige Notizen erzeugt – ohne Hype, dafür praxistauglich.
-        </p>
-      </div>
+      <p><strong>Kontakt</strong></p>
+      <p>
+        Telefon (US): <a href="tel:+16288959439">+1&nbsp;628&nbsp;895&nbsp;9439</a><br>
+        Telefon (DACH): <a href="tel:+491743282867">+49&nbsp;174&nbsp;3282867</a><br>
+        E‑Mail: <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
+      </p>
 
-      <div class="faq-item">
-        <h2>Welche Telefonanlagen werden unterstützt?</h2>
-        <p>
-          Für die DACH‑Region arbeite ich in erster Linie mit Placetel. Wenn Sie kein Placetel nutzen,
-          ist der erste Schritt meist ein Anbieterwechsel dorthin – dabei unterstütze ich Sie.
-        </p>
-        <p>
-          Alternativ kann ich auch Setups mit Telnyx begleiten. Ich verkaufe keine eigenen Telefonanlagen,
-          sondern konzipiere und betreue maßgeschneiderte KI‑Sprachassistenten auf bestehenden Systemen.
-        </p>
-      </div>
+      <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</strong></p>
+      <p>
+        Bodo Kopplin<br>
+        Purok 20, Acacia Street<br>
+        Mandaguit Compound, Calinan<br>
+        8000 Davao City<br>
+        Philippinen
+      </p>
 
-      <div class="faq-item">
-        <h2>Verkaufst du eine „eigene“ KI wie Placetel AI?</h2>
-        <p>
-          Nein. Placetel AI ist ein eigenes Produkt von Placetel, das direkt als KI‑Telefonassistent in
-          die Placetel‑Plattform integriert ist. Es kann Termine buchen, Anfragen qualifizieren und
-          Vorgänge direkt in angebundene Systeme weiterführen.
-        </p>
-        <p>
-          BOT PAPA baut auf solchen Plattformen auf, übersetzt Ihr Geschäft in klare Gesprächslogik
-          und kümmert sich um die individuelle Einrichtung, Anpassung und laufende Pflege – speziell
-          für kleinere Betriebe, die das nicht „nebenbei“ stemmen wollen.
-        </p>
-      </div>
+      <p><strong>Berufsbezeichnung</strong></p>
+      <p>
+        Freelancer / AI Voice Assistant Developer
+      </p>
 
-      <div class="faq-item">
-        <h2>Klingt das nicht unpersönlich?</h2>
-        <p>
-          Ein KI‑Assistent ersetzt keine Inhaberin und keinen Meister am Telefon. Er sorgt aber dafür,
-          dass Interessenten überhaupt eine Antwort bekommen, statt dauerhaft auf dem Anrufbeantworter
-          zu landen oder gar nicht durchzukommen.
-        </p>
-        <p>
-          Die Sprache wird bewusst natürlich gehalten, ohne Marketing‑Floskeln. Der Assistent stellt sich
-          klar als KI‑Empfang vor und versucht nicht, einen Menschen zu „spielen“.
-        </p>
-      </div>
+      <p><strong>Hinweis zur Leistungserbringung</strong></p>
+      <p>
+        Die Leistungserbringung erfolgt von den Philippinen aus. Kunden in Deutschland, Österreich
+        und der Schweiz werden ausschließlich im Rahmen des jeweils geltenden Rechts ihrer
+        Jurisdiktion betreut.
+      </p>
 
-      <div class="faq-item">
-        <h2>Versteht der Assistent meine Kundschaft wirklich?</h2>
-        <p>
-          Der Assistent nutzt moderne Sprachmodelle und ist darauf ausgelegt, normale Alltags‑Sprache
-          zu verstehen – inklusive „Baustellen‑Deutsch“ und unverblümten Formulierungen.
-        </p>
-        <p>
-          Ich arbeite mit realen Gesprächsbeispielen und passe den Prompt so an, dass typische Anfragen
-          aus Ihrem Gewerk sauber erfasst und strukturiert werden. Wenn etwas nicht verstanden wird,
-          wird offen nachgefragt – statt zu raten.
-        </p>
-      </div>
+      <p><strong>Haftung für Inhalte</strong></p>
+      <p>
+        Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Als
+        Diensteanbieter bin ich für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+        verantwortlich. Eine Verpflichtung zur Überwachung übermittelter oder gespeicherter fremder
+        Informationen besteht jedoch nicht. Verpflichtungen zur Entfernung oder Sperrung der Nutzung
+        von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.
+      </p>
 
-      <div class="faq-item">
-        <h2>Was passiert mit den Anrufen und Daten?</h2>
-        <p>
-          Technisch können Gespräche aufgezeichnet und Transkripte erstellt werden – ob das genutzt wird,
-          hängt von Ihrem Wunsch und von den rechtlichen Rahmenbedingungen in Ihrem Land ab.
-        </p>
-        <p>
-          Grundsätzlich gilt: Für die rechtssichere Gestaltung Ihrer Ansagen, Einwilligungen und Hinweise
-          an Anruferinnen und Anrufer sind Sie als Betreiber selbst verantwortlich. Ich unterstütze mit
-          praxisnahen Formulierungen, ersetze aber keine Rechtsberatung.
-        </p>
-      </div>
+      <p><strong>Haftung für Links</strong></p>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
+        Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen.
+        Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+        Seiten verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist ohne
+        konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+        Rechtsverletzungen werden derartige Links umgehend entfernt.
+      </p>
 
-      <div class="faq-item">
-        <h2>Ist das rechtlich überhaupt erlaubt?</h2>
-        <p>
-          Der Einsatz eines KI‑Telefonassistenten ist grundsätzlich zulässig, wenn Sie Transparenz wahren,
-          eine passende Rechtsgrundlage für die Verarbeitung der Daten haben und mit Ihren Anbietern
-          sauber arbeiten (z.B. Auftragsverarbeitungsverträge, DSGVO‑Konformität).
-        </p>
-        <p>
-          Wichtige Themen sind u.a. Information der Anrufer, Umgang mit Mitschnitten und die Wahl
-          der verwendeten Dienste. Wo es um konkrete Rechtsfragen geht, sollten Sie immer Ihre
-          Steuer‑ oder Rechtsberatung einbeziehen.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Was kann der Assistent ausdrücklich nicht?</h2>
-        <p>
-          Der Assistent macht keine Rechts‑ oder Steuerberatung und trifft keine verbindlichen
-          medizinischen Aussagen. Solche Themen müssen immer von qualifizierten Menschen übernommen
-          werden.
-        </p>
-        <p>
-          Notfälle, medizinische Anliegen, rechtliche Fragen oder eskalierte Beschwerden sollten
-          entweder gar nicht von der KI beantwortet oder sehr schnell an einen Menschen
-          weitergereicht werden – das berücksichtige ich bei der Gestaltung der Gesprächslogik.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Wann lohnt sich BOT PAPA eher nicht?</h2>
-        <p>
-          Wenn Sie nur wenige Anrufe pro Woche bekommen, die Sie problemlos selbst oder mit einem
-          klassischen Anrufbeantworter abfangen, lohnt ein KI‑Empfang meist nicht.
-        </p>
-        <p>
-          Spannend wird es dort, wo regelmäßig Anrufe reinkommen, Sie aber zwischen Gerüst, Baustelle
-          und Kundenterminen schlicht nicht jeden Anruf persönlich annehmen können – und trotzdem
-          nichts liegen lassen wollen.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Wie starte ich am besten?</h2>
-        <p>
-          Der einfachste Einstieg ist ein kurzes, fokussiertes Erstgespräch. Wir schauen uns Ihre
-          aktuelle Telefonanlage, typische Anruf‑Situationen und sinnvolle Aufgaben für den
-          Assistenten an – ohne Verkaufsdruck.
-        </p>
-        <p>
-          Wenn das für beide Seiten passt, folgt der Einstiegsleitfaden und danach das 3‑Stunden‑Setup
-          für Ihren ersten produktiven Bot.
-        </p>
-      </div>
+      <p><strong>Urheberrecht</strong></p>
+      <p>
+        Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+        dem Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
+        Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw.
+        Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht
+        kommerziellen Gebrauch gestattet, soweit nicht ausdrücklich anders vereinbart.
+      </p>
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines</div>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
       <div><a href="https://www.bot-papa.online" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">www.bot-papa.online</a></div>
       <div class="footer-links">
         <a href="faq-de.html">FAQ</a>
