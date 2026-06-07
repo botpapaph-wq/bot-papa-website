@@ -9,6 +9,9 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
 
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAaUDTfNEIPeNp8wDoVRgJswyZNoUH4veEpxbuEl51kZ-xlgBAlEOrBtrz7G3U5_GEhdz8KKI-gzl_W68&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -114,7 +117,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 32px;
-      align-items: start; /* Verhindert das unschöne Strecken von Boxen */
+      align-items: start;
     }
 
     .left-column {
@@ -210,7 +213,6 @@
       border: var(--border-soft);
       background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.98));
       box-shadow: var(--shadow-soft);
-      /* Klebt beim Scrollen perfekt fest und füllt die optische Achse */
       position: -webkit-sticky;
       position: sticky;
       top: 24px; 
@@ -270,6 +272,21 @@
       outline: none;
       border-color: var(--accent);
     }
+
+    .form-group input.error {
+      border-color: #ff6b6b;
+    }
+
+    .form-group .error-text {
+      font-size: 11px;
+      color: #ff6b6b;
+      margin-top: 3px;
+      display: none;
+    }
+
+    .form-group .error-text.show {
+      display: block;
+    }
     
     .checkbox-group {
       display: flex;
@@ -282,6 +299,60 @@
       font-size: 11px;
       color: var(--muted);
       line-height: 1.4;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    .loading-spinner {
+      display: none;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .loading-spinner.show {
+      display: block;
+    }
+
+    .spinner {
+      border: 3px solid rgba(0, 224, 255, 0.2);
+      border-top: 3px solid var(--accent);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 8px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-spinner p {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .paypal-container {
+      display: none;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: var(--border-soft);
+    }
+
+    .paypal-container.show {
+      display: block;
+    }
+
+    .paypal-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      text-align: center;
     }
     
     .btn-submit {
@@ -302,6 +373,11 @@
 
     .btn-submit:hover {
       opacity: 0.9;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
 
     footer {
@@ -340,7 +416,7 @@
     </header>
 
     <main class="grid">
-      <!-- LINKE SPALTE: Baut den Text vertikal auf, um Freiräume zu eliminieren -->
+      <!-- LINKE SPALTE -->
       <div class="left-column">
         <section class="hero">
           <div class="hero-kicker">Das Ende unbemerkt verbrannter Werbe-Euros</div>
@@ -348,7 +424,7 @@
             Während Sie auf der Baustelle anpacken, zieht die Konkurrenz Ihre <span>fünfstelligen Aufträge</span> ab.
           </h1>
           <p class="hero-sub">
-            Jeder unangenommene Anruf ist kein „verpasster Versuch“ – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
+            Jeder unangenommene Anruf ist kein „verpasster Versuch" – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
           </p>
           <p style="font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0;">
             Dieser brandneue Strategie-Leitfaden zeigt Ihnen die genauen Prompt-Blueprints, mit denen Sie künstliche Intelligenz so abrichten, dass sie Kunden begeistert, Termine eintütet und kritische Notfälle sofort zu Ihnen durchstellt.
@@ -356,7 +432,7 @@
         </section>
 
         <section class="story-card">
-          <h2>Die „Alarmstufe Rot“ Story: Warum normale Bots kläglich scheitern</h2>
+          <h2>Die „Alarmstufe Rot" Story: Warum normale Bots kläglich scheitern</h2>
           <div class="story-flex">
             <div class="story-img-wrapper">
               <img src="Baustellen Cartoon.png" alt="Echter Baustellen-Stress" />
@@ -376,7 +452,7 @@
         </section>
       </div>
 
-      <!-- RECHTE SPALTE: Bleibt dank sticky Design permanent präsent im Fokus -->
+      <!-- RECHTE SPALTE -->
       <aside id="status" class="card">
         <div class="product-image-container">
           <img src="https://raw.githubusercontent.com/botpapaph-wq/bot-papa-website/main/EBook%20Bild.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
@@ -389,51 +465,211 @@
           Das eBook ist ein Freebie. Sie übernehmen lediglich die tagesaktuelle Bereitstellungs- und Handlingpauschale von <strong>USD 2,99 / 2,75 EUR</strong>.
         </p>
         
-        <form id="supabaseSqueezeForm" class="squeeze-form">
+        <form id="supabaseSqueezeForm" class="squeeze-form" novalidate>
           <div class="form-group">
             <label for="nachname">Nachname *</label>
-            <input type="text" id="nachname" required placeholder="Müller">
+            <input type="text" id="nachname" name="nachname" required placeholder="Müller">
+            <div class="error-text">Nachname erforderlich</div>
           </div>
           <div class="form-group">
             <label for="vorname">Vorname *</label>
-            <input type="text" id="vorname" required placeholder="Markus">
+            <input type="text" id="vorname" name="vorname" required placeholder="Markus">
+            <div class="error-text">Vorname erforderlich</div>
           </div>
           <div class="form-group">
             <label for="position">Position im Unternehmen *</label>
-            <input type="text" id="position" required placeholder="z.B. Inhaber / Geschäftsführer">
+            <input type="text" id="position" name="position" required placeholder="z.B. Inhaber / Geschäftsführer">
+            <div class="error-text">Position erforderlich</div>
           </div>
           <div class="form-group">
             <label for="unternehmen">Name des Unternehmens *</label>
-            <input type="text" id="unternehmen" required placeholder="Müller Bedachungen GmbH">
+            <input type="text" id="unternehmen" name="unternehmen" required placeholder="Müller Bedachungen GmbH">
+            <div class="error-text">Unternehmensname erforderlich</div>
           </div>
           <div class="form-group">
             <label for="tel">Telefonnummer *</label>
-            <input type="tel" id="tel" required placeholder="+49 174 ...">
+            <input type="tel" id="tel" name="telefon" required placeholder="+49 174 ...">
+            <div class="error-text">Telefonnummer erforderlich</div>
           </div>
           <div class="form-group">
             <label for="email">E-Mail für die digitale Lieferung *</label>
-            <input type="email" id="email" required placeholder="ihre-adresse@firma.de">
+            <input type="email" id="email" name="email" required placeholder="ihre-adresse@firma.de">
+            <div class="error-text">Gültige E-Mail erforderlich</div>
           </div>
 
           <div class="checkbox-group">
-            <input type="checkbox" id="dsgvo" required>
+            <input type="checkbox" id="dsgvo" name="dsgvo" required>
             <label for="dsgvo">Ich willige ein, dass meine Formular- und Kontaktdaten zur sicheren Speicherung und Bereitstellung des digitalen Produkts DSGVO-konform in der verschlüsselten Cloud-Datenbank von <strong>SUPABASE</strong> verarbeitet werden. *</label>
           </div>
 
-          <button type="submit" class="btn-submit">Weiter zu PayPal (USD 2,99 / 2,75 EUR)</button>
+          <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Daten werden gespeichert...</p>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">Weiter zu PayPal (USD 2,99 / 2,75 EUR)</button>
+
+          <!-- PayPal Button Container (wird nach erfolgreicher Speicherung sichtbar) -->
+          <div class="paypal-container" id="paypalContainer">
+            <div class="paypal-label">👇 Zahlung verarbeiten:</div>
+            <div id="paypal-container-WNPZS39YFZSTL"></div>
+          </div>
         </form>
       </aside>
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – sales@bot-papa.online</div>
+      <div>© 2026 BOT PAPA – © 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
     </footer>
   </div>
 
   <script>
-    document.getElementById('supabaseSqueezeForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert("Daten werden via Supabase gesichert... Weiterleitung zum PayPal Gateway (USD 2,99 / 2,75 EUR).");
+    // ===== KONFIGURATION =====
+    // TODO: Ersetze "YOUR_SUPABASE_ANON_KEY" mit deinem echten anon-key
+    // Findest du unter: https://app.supabase.com → Settings → API Keys → "anon" key
+    
+    const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI'; // ← ERSETZE DIESEN WERT
+
+    const form = document.getElementById('supabaseSqueezeForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const paypalContainer = document.getElementById('paypalContainer');
+
+    // Validierung
+    function validateForm() {
+      let isValid = true;
+      const fields = form.querySelectorAll('input[required]');
+      
+      fields.forEach(field => {
+        const group = field.closest('.form-group');
+        const errorText = group?.querySelector('.error-text');
+        const value = field.value.trim();
+
+        if (field.type === 'email') {
+          const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+          if (!isValidEmail) {
+            field.classList.add('error');
+            errorText?.classList.add('show');
+            isValid = false;
+          } else {
+            field.classList.remove('error');
+            errorText?.classList.remove('show');
+          }
+        } else if (!value) {
+          field.classList.add('error');
+          errorText?.classList.add('show');
+          isValid = false;
+        } else {
+          field.classList.remove('error');
+          errorText?.classList.remove('show');
+        }
+      });
+
+      const dsgvoCheckbox = document.getElementById('dsgvo');
+      if (!dsgvoCheckbox.checked) {
+        alert('Bitte akzeptieren Sie die DSGVO-Bedingungen');
+        return false;
+      }
+
+      return isValid;
+    }
+
+    // Speichern in Supabase
+    async function saveToSupabase() {
+      const formData = {
+        vorname: document.getElementById('vorname').value.trim(),
+        nachname: document.getElementById('nachname').value.trim(),
+        position: document.getElementById('position').value.trim(),
+        unternehmen: document.getElementById('unternehmen').value.trim(),
+        telefon: document.getElementById('tel').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        product_id: 'leitfaden_prompt_engineering',
+        product_name: 'Professionelles prompt-Engineering für Placetel KI-Telefonassistenten',
+        price: 2.99,
+        currency: 'USD',
+        dsgvo_accepted: true,
+        payment_status: 'pending'
+      };
+
+      try {
+        const response = await fetch(
+          `${SUPABASE_URL}/rest/v1/digital_products_sales`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_KEY,
+            },
+            body: JSON.stringify(formData)
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Fehler beim Speichern der Daten');
+        }
+
+        return true;
+      } catch (error) {
+        console.error('Supabase Error:', error);
+        alert('Fehler: ' + error.message);
+        return false;
+      }
+    }
+
+    // Form Submit
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
+
+      submitBtn.disabled = true;
+      loadingSpinner.classList.add('show');
+
+      const success = await saveToSupabase();
+
+      if (success) {
+        submitBtn.style.display = 'none';
+        loadingSpinner.classList.remove('show');
+        
+        // Zeige PayPal Container nach 800ms
+        setTimeout(() => {
+          paypalContainer.classList.add('show');
+          
+          // Render PayPal Button
+          if (window.paypal) {
+            try {
+              paypal.HostedButtons({
+                hostedButtonId: "WNPZS39YFZSTL",
+              }).render("#paypal-container-WNPZS39YFZSTL");
+            } catch (err) {
+              console.error('PayPal render error:', err);
+            }
+          }
+        }, 800);
+      } else {
+        submitBtn.disabled = false;
+        loadingSpinner.classList.remove('show');
+      }
+    });
+
+    // Real-time Validierung beim Verlassen
+    form.querySelectorAll('input[required]').forEach(field => {
+      field.addEventListener('blur', () => {
+        const group = field.closest('.form-group');
+        const errorText = group?.querySelector('.error-text');
+        const value = field.value.trim();
+
+        if (!value || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))) {
+          field.classList.add('error');
+          errorText?.classList.add('show');
+        } else {
+          field.classList.remove('error');
+          errorText?.classList.remove('show');
+        }
+      });
     });
   </script>
 </body>
