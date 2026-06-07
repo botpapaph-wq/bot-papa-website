@@ -9,7 +9,6 @@
   <title>Kontakt – BOT PAPA KI-Telefonempfang</title>
   <meta name="description" content="Kontaktiere BOT PAPA für maßgeschneiderte KI-Telefonempfänger für Handwerk und Dienstleistungen. Kurze, fokussierte Gespräche statt endlose Verkaufspräsentationen." />
 
-  <!-- Brevo Conversations {literal} -->
   <script>
     (function(d, w, c) {
         w.BrevoConversationsID = '6a03e269574bc2e3ed063a39';
@@ -22,9 +21,6 @@
         if (d.head) d.head.appendChild(s);
     })(document, window, 'BrevoConversations');
   </script>
-  <!-- /Brevo Conversations {/literal} -->
-
-  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -32,11 +28,9 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
-  <!-- End Google Tag Manager -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
 
-  <!-- Supabase JS client v2 -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
 
   <style>
@@ -150,15 +144,6 @@
       width: 100%;
     }
 
-    .header-bottom-row {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 10px;
-      width: 100%;
-      margin-top: 2px;
-    }
-
     .pill {
       border-radius: var(--radius-full);
       padding: 6px 14px;
@@ -204,11 +189,11 @@
     main {
       display: grid;
       gap: 32px;
-      grid-template-columns: 1fr 360px;
+      grid-template-columns: 1fr 420px;
       align-items: start;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       main {
         grid-template-columns: 1fr;
       }
@@ -297,6 +282,7 @@
       border-radius: var(--radius-lg);
       padding: 24px;
       backdrop-filter: blur(8px);
+      width: 100%;
     }
 
     .form-card h2 {
@@ -315,12 +301,14 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      width: 100%;
     }
 
     .field-group {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      width: 100%;
     }
 
     .field-group label {
@@ -334,6 +322,8 @@
     .field-group input,
     .field-group select,
     .field-group textarea {
+      width: 100%;
+      max-width: 100%;
       border-radius: 8px;
       border: var(--border-soft);
       background: rgba(5, 8, 22, 0.6);
@@ -362,6 +352,13 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
     }
 
     .field-group textarea {
@@ -370,6 +367,7 @@
     }
 
     .btn-form {
+      width: 100%;
       border-radius: var(--radius-full);
       padding: 11px 24px;
       border: none;
@@ -470,9 +468,9 @@
       <section class="section">
         <h1>Kontakt zu BOT PAPA</h1>
         <p>
-          Wenn du klären möchtest, ob ein KI-Telefonempfänger zu deinem Betrieb passt,
+          Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt,
           geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation –
-          nur ein klarer Blick auf deine Anrufe, deine Tools und deine Grenzen.
+          nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
         </p>
         <h2>Direkte Kontaktmöglichkeiten</h2>
         <ul class="contact-list">
@@ -510,7 +508,7 @@
           In den meisten Erstgesprächen gehen wir drei Punkte durch:
         </p>
         <ul class="contact-list">
-          <li>Wie deine Anrufe derzeit ankommen und wer sie beantwortet.</li>
+          <li>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</li>
           <li>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</li>
           <li>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</li>
         </ul>
@@ -519,19 +517,19 @@
       <aside class="form-card">
         <h2>Kurze Nachricht (gespeichert in Supabase)</h2>
         <p class="form-note">
-          Dieses Formular speichert deine Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam –
-          nur eine Möglichkeit, dich mit etwas Konkretem zu kontaktieren.
+          Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam –
+          nur eine Möglichkeit, Sie mit etwas Konkretem zu kontaktieren.
         </p>
         <form id="contact-form">
           <div class="field-group">
             <label for="name">Name</label>
-            <input id="name" type="text" name="name" placeholder="Dein Name" required />
+            <input id="name" type="text" name="name" placeholder="Ihr Name" required />
           </div>
 
           <div class="form-row">
             <div class="field-group">
               <label for="email">E-Mail</label>
-              <input id="email" type="email" name="email" placeholder="du@example.com" required />
+              <input id="email" type="email" name="email" placeholder="ihre-e-mail@beispiel.de" required />
             </div>
             <div class="field-group">
               <label for="business">Betrieb / Gewerk</label>
@@ -543,14 +541,13 @@
             <div class="field-group">
               <label for="country_code">Ländervorwahl</label>
               <select id="country_code" name="country_code" required>
-                <option value="" disabled selected>Wähle deine Vorwahl</option>
-                <!-- EU Länder (Schwerpunkt) -->
+                <option value="" disabled selected>Wählen Sie Ihre Vorwahl</option>
                 <option value="+43">🇦🇹 +43 Österreich</option>
                 <option value="+32">🇧🇪 +32 Belgien</option>
                 <option value="+359">🇧🇬 +359 Bulgarien</option>
                 <option value="+385">🇭🇷 +385 Kroatien</option>
                 <option value="+357">🇨🇾 +357 Zypern</option>
-                <option value="+420">🇨🇿 +420 Tschechien</option>
+                <option value="+420">🇨zechia +420 Tschechien</option>
                 <option value="+45">🇩🇰 +45 Dänemark</option>
                 <option value="+372">🇪🇪 +372 Estland</option>
                 <option value="+358">🇫🇮 +358 Finnland</option>
@@ -573,7 +570,6 @@
                 <option value="+34">🇪🇸 +34 Spanien</option>
                 <option value="+46">🇸🇪 +46 Schweden</option>
 
-                <!-- English widely used / official -->
                 <option value="+1">🇺🇸 +1 USA</option>
                 <option value="+1">🇨🇦 +1 Kanada</option>
                 <option value="+44">🇬🇧 +44 UK</option>
@@ -595,7 +591,7 @@
           </div>
 
           <div class="field-group">
-            <label for="message">Was möchtest du klären?</label>
+            <label for="message">Was möchten Sie klären?</label>
             <textarea id="message" name="message" placeholder="Ein bis zwei Sätze genügen." required></textarea>
           </div>
 
@@ -609,7 +605,7 @@
 
     <footer>
       <div>© 2026 BOT PAPA – gemacht mit ❤️ in Davao City, Philippinen</div>
-      <a href="https://trafficpeak.io">Steigere Deine Website-Traffic mit TrafficPeak</a>
+      <a href="https://trafficpeak.io">Steigere Deinen Website-Traffic mit TrafficPeak</a>
     </footer>
   </div>
 
@@ -656,7 +652,7 @@
           }
 
           form.reset();
-          statusEl.textContent = 'Vielen Dank! Deine Nachricht wurde gespeichert. Ich melde mich bald bei dir.';
+          statusEl.textContent = 'Vielen Dank! Ihre Nachricht wurde gespeichert. Ich melde mich bald bei Ihnen.';
           statusEl.className = 'status-message ok';
           
           // Redirect zu index.html nach 2 Sekunden
@@ -665,7 +661,7 @@
           }, 2000);
         } catch (e) {
           console.error(e);
-          statusEl.textContent = 'Fehler beim Versenden. Bitte versuche es später erneut.';
+          statusEl.textContent = 'Fehler beim Versenden. Bitte versuchen Sie es später erneut.';
           statusEl.className = 'status-message err';
         }
       });
