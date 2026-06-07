@@ -145,20 +145,32 @@
       margin-top: 2px;
     }
 
-    .pill {
+    /* Glossy Button Style */
+    .btn-primary {
+      background: linear-gradient(180deg, #00f0ff 0%, #00a8ff 100%);
+      color: #050816 !important;
+      font-weight: 600;
+      padding: 8px 18px;
       border-radius: var(--radius-full);
-      padding: 6px 14px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border: var(--border-soft);
-      color: var(--muted);
-      background: rgba(5, 8, 22, 0.9);
-      white-space: nowrap;
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: all 0.2s ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none !important;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .pill strong {
-      color: var(--accent);
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+      background: linear-gradient(180deg, #33f3ff 0%, #1ab2ff 100%);
+    }
+
+    .btn-primary span {
+      font-size: 11px;
     }
 
     .nav-links {
@@ -167,44 +179,6 @@
       gap: 12px;
       font-size: 12px;
       color: var(--muted);
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      border-color: rgba(255, 255, 255, 0.12);
-      background: rgba(5, 8, 22, 0.8);
-      text-decoration: none;
-    }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 4px;
-    }
-
-    .lang-switch a {
-      padding: 0;
-      border: none;
-    }
-
-    .lang-flag {
-      font-size: 18px;
-      line-height: 1;
-      display: inline-block;
-      filter: grayscale(60%);
-      transform: translateY(1px);
-    }
-
-    .lang-flag.active {
-      filter: grayscale(0%);
     }
 
     main {
@@ -297,9 +271,6 @@
         flex-wrap: wrap;
         row-gap: 6px;
       }
-      .nav-links {
-        flex-wrap: wrap;
-      }
       .footer-links {
         justify-content: flex-start;
       }
@@ -324,9 +295,6 @@
       </a>
       <div class="header-right">
         <div class="header-top-row">
-          <div class="pill">
-            Solo‑Gründer: <strong>Bodo Kopplin</strong>
-          </div>
           <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
             Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
           </a>
@@ -400,7 +368,7 @@
       <div class="faq-item">
         <h2>Verkaufst du eine „eigene“ KI wie Placetel AI?</h2>
         <p>
-          Nein. Placetel AI ist ein eigens Produkt von Placetel, das direkt als KI‑Telefonassistent in
+          Nein. Placetel AI ist ein eigenes Produkt von Placetel, das direkt als KI‑Telefonassistent in
           die Placetel‑Plattform integriert ist. Es kann Termine buchen, Anfragen qualifizieren und
           Vorgänge direkt in angebundene Systeme weiterführen.
         </p>
@@ -482,42 +450,3 @@
         <h2>Wann lohnt sich BOT PAPA eher nicht?</h2>
         <p>
           Wenn Sie nur wenige Anrufe pro Woche bekommen, die Sie problemlos selbst oder mit einem
-          klassischen Anrufbeantworter abfangen, lohnt ein KI‑Empfang meist nicht.
-        </p>
-        <p>
-          Spannend wird es dort, wo regelmäßig Anrufe reinkommen, Sie aber zwischen Gerüst, Baustelle
-          und Kundenterminen schlicht nicht jeden Anruf persönlich annehmen können – und trotzdem
-          nichts liegen lassen wollen.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Wie starte ich am besten?</h2>
-        <p>
-          Der einfachste Einstieg ist ein kurzes, fokussiertes Erstgespräch. Wir schauen uns Ihre
-          aktuelle Telefonanlage, typische Anruf‑Situationen und sinnvolle Aufgaben für den
-          Assistenten an – ohne Verkaufsdruck.
-        </p>
-        <p>
-          Wenn das für beide Seiten passt, folgt der Einstiegsleitfaden und danach das 3‑Stunden‑Setup
-          für Ihren ersten produktiven Bot.
-        </p>
-      </div>
-    </main>
-
-    <footer>
-      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines</div>
-      <div><a href="https://www.bot-papa.online" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">www.bot-papa.online</a></div>
-      <div class="footer-links">
-        <a href="faq-de.html">FAQ</a>
-        <span>•</span>
-        <a href="impressum.html">Impressum</a>
-        <span>•</span>
-        <a href="datenschutz.html">Datenschutzerklärung</a>
-        <span>•</span>
-        <a href="agb.html">AGB</a>
-      </div>
-    </footer>
-  </div>
-</body>
-</html>
