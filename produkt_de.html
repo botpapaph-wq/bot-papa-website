@@ -63,7 +63,6 @@
       box-shadow: var(--shadow-soft);
     }
 
-    /* Dezenter Link für das Logo zurück zur Startseite */
     .brand-link {
       text-decoration: none;
       color: inherit;
@@ -164,6 +163,21 @@
       margin-bottom: 16px;
     }
 
+    .partner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 224, 255, 0.2);
+      border-radius: 8px;
+      font-size: 12px;
+      color: #fff;
+      margin-top: 10px;
+    }
+    
+    .partner-badge strong { color: var(--accent); }
+
     .story-card {
       padding: 28px 24px;
       border-radius: var(--radius-lg);
@@ -262,7 +276,7 @@
       margin-bottom: 5px;
     }
     
-    .form-group input {
+    .form-group input, .form-group select {
       width: 100%;
       background: rgba(5, 8, 22, 0.7);
       border: var(--border-soft);
@@ -272,7 +286,7 @@
       font-size: 13px;
     }
     
-    .form-group input:focus {
+    .form-group input:focus, .form-group select:focus {
       outline: none;
       border-color: var(--accent);
     }
@@ -407,7 +421,6 @@
   
   <div class="page">
     <header>
-      <!-- Dezenter, nahtloser Link zurück zur Home (index.html) -->
       <a href="index.html" class="brand-link">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
@@ -424,16 +437,20 @@
       <!-- LINKE SPALTE -->
       <div class="left-column">
         <section class="hero">
-          <div class="hero-kicker">Das Ende unbemerkt verbrannter Werbe-Euros</div>
+          <div class="hero-kicker">Aus der Praxis für die Praxis</div>
           <h1 class="hero-title">
             Während Sie auf der Baustelle anpacken, zieht die Konkurrenz Ihre <span>fünfstelligen Aufträge</span> ab.
           </h1>
           <p class="hero-sub">
-            Jeder unangenommene Anruf ist kein „verpasster Versuch" – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
+            Jeder unangenommene Anruf ist kein „verpasster Versuch" – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer Telefonanlage.
           </p>
-          <p style="font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0;">
-            Dieser brandneue Strategie-Leitfaden zeigt Ihnen die genauen Prompt-Blueprints, mit denen Sie künstliche Intelligenz so abrichten, dass sie Kunden begeistert, Termine eintütet und kritische Notfälle sofort zu Ihnen durchstellt.
+          <p style="font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px;">
+            Hinter BOT PAPA stehe ich: Ein ehemaliger Bauleiter mit 15 Jahren harter Baustellenerfahrung. Ich kenne den Stress im Dreck live. Heute genieße ich meinen Vorruhestand mit meiner Pinoy-Ehefrau in ihrer Heimat auf den Philippinen – aber weil ich das Handwerk im Blut habe, entwickle ich maßgeschneiderte KI-Telefonbots für Handwerksbetriebe. 
           </p>
+          
+          <div class="partner-badge">
+            🤝 Kooperationspartner der <strong>Deutsche Haus iT Service und Vertrieb</strong> (Inh. M. Mertens)
+          </div>
         </section>
 
         <section class="story-card">
@@ -447,10 +464,10 @@
                 Stellen Sie sich vor: Auf der Großbaustelle herrscht Stillstand. Fünf hochbezahlte Gesellen stehen herum, weil die Materiallieferung falsch geliefert wurde oder der Polier die Pläne nicht findet. Jede Stunde kostet Sie hunderte Euro. Das ist kein normaler Anruf. Das ist <strong>Alarmstufe Rot</strong>.
               </p>
               <p>
-                Ein billiger Standard-Bot würde den Anrufer jetzt vertrösten oder ein langes Ticket schreiben. Ein intelligenter, perfekt geprompteter KI-Telefonassistent analysiert die Tonalität und Schlüsselbegriffe in Millisekunden, bricht den Standard-Prozess sofort ab und <strong>schlägt direkt Alarm auf Ihrem Handy</strong>.
+                Ein billiger Standard-Bot würde den Anrufer jetzt vertrösten oder ein langes Ticket schreiben. Ein von mir perfekt geprompteter KI-Telefonassistent analysiert die Tonalität und Schlüsselbegriffe in Millisekunden, bricht den Standard-Prozess sofort ab und <strong>schlägt direkt Alarm auf Ihrem Handy</strong>.
               </p>
               <p>
-                Lernen Sie in diesem Leitfaden, wie Sie Ihre KI so scharf einstellen, dass sie Routinefragen lautlos wegfiltert, aber bei echten Umsatz-Killern sofort die Chefetage mobilisiert.
+                Lernen Sie in diesem Leitfaden, wie ich meine 15 Jahre Baustellenerfahrung in messerscharfe Prompts gegossen habe, die Routinefragen lautlos wegfiltern, aber bei echten Umsatz-Killern sofort die Chefetage mobilisieren.
               </p>
             </div>
           </div>
@@ -502,6 +519,17 @@
             <div class="error-text">Gültige E-Mail erforderlich</div>
           </div>
 
+          <!-- Neue Abfrage zur aktuellen Telefonanlage (Perfekt für die Übergabe an Mertens) -->
+          <div class="form-group">
+            <label for="telefonanlage">Aktuelle Telefonanlage *</label>
+            <select id="telefonanlage" name="telefonanlage" required>
+              <option value="" disabled selected>Bitte auswählen...</option>
+              <option value="placetel">Ich nutze bereits Placetel Cloudtelefonie</option>
+              <option value="andere">Ich nutze eine andere Anlage (z.B. FritzBox, Telekom)</option>
+              <option valuekeine>Wir haben noch keine Cloud-Anlage / Reiner Mobilfunk</option>
+            </select>
+          </div>
+
           <div class="checkbox-group">
             <input type="checkbox" id="dsgvo" name="dsgvo" required>
             <label for="dsgvo">Ich willige ein, dass meine Formular- und Kontaktdaten zur sicheren Speicherung und Bereitstellung des digitalen Produkts DSGVO-konform in der verschlüsselten Cloud-Datenbank von <strong>SUPABASE</strong> verarbeitet werden. *</label>
@@ -514,7 +542,7 @@
 
           <button type="submit" class="btn-submit" id="submitBtn">Weiter zu PayPal (USD 2,99 / 2,75 EUR)</button>
 
-          <!-- PayPal Button Container (wird nach erfolgreicher Speicherung sichtbar) -->
+          <!-- PayPal Button Container -->
           <div class="paypal-container" id="paypalContainer">
             <div class="paypal-label">👇 Zahlung verarbeiten:</div>
             <div id="paypal-container-WNPZS39YFZSTL"></div>
@@ -524,7 +552,7 @@
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
+      <div>© 2026 BOT PAPA – in Kooperation mit Deutsche Haus iT Service und Vertrieb – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
     </footer>
   </div>
 
@@ -541,7 +569,7 @@
     // Validierung
     function validateForm() {
       let isValid = true;
-      const fields = form.querySelectorAll('input[required]');
+      const fields = form.querySelectorAll('input[required], select[required]');
       
       fields.forEach(field => {
         const group = field.closest('.form-group');
@@ -586,6 +614,7 @@
         unternehmen: document.getElementById('unternehmen').value.trim(),
         telefon: document.getElementById('tel').value.trim(),
         email: document.getElementById('email').value.trim(),
+        anlagen_typ: document.getElementById('telefonanlage').value, // Zusätzliche Info für Mertens
         product_id: 'leitfaden_prompt_engineering',
         product_name: 'Professionelles prompt-Engineering für Placetel KI-Telefonassistenten',
         price: 2.99,
@@ -636,11 +665,9 @@
         submitBtn.style.display = 'none';
         loadingSpinner.classList.remove('show');
         
-        // Zeige PayPal Container nach 800ms
         setTimeout(() => {
           paypalContainer.classList.add('show');
           
-          // Render PayPal Button
           if (window.paypal) {
             try {
               paypal.HostedButtons({
@@ -657,8 +684,8 @@
       }
     });
 
-    // Real-time Validierung beim Verlassen
-    form.querySelectorAll('input[required]').forEach(field => {
+    // Real-time Validierung
+    form.querySelectorAll('input[required], select[required]').forEach(field => {
       field.addEventListener('blur', () => {
         const group = field.closest('.form-group');
         const errorText = group?.querySelector('.error-text');
