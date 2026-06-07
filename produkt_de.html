@@ -167,13 +167,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(0, 224, 255, 0.2);
       border-radius: 8px;
       font-size: 12px;
       color: #fff;
       margin-top: 10px;
+      line-height: 1.4;
     }
     
     .partner-badge strong { color: var(--accent); }
@@ -445,11 +446,11 @@
             Jeder unangenommene Anruf ist kein „verpasster Versuch" – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer Telefonanlage.
           </p>
           <p style="font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 16px;">
-            Hinter BOT PAPA stehe ich: Ein ehemaliger Bauleiter mit 15 Jahren harter Baustellenerfahrung. Ich kenne den Stress im Dreck live. Heute genieße ich meinen Vorruhestand mit meiner Pinoy-Ehefrau in ihrer Heimat auf den Philippinen – aber weil ich das Handwerk im Blut habe, entwickle ich maßgeschneiderte KI-Telefonbots für Handwerksbetriebe. 
+            Hinter BOT PAPA stehe ich: Ein ehemaliger Bauleiter mit 15 Jahren harter Baustellenerfahrung. Ich kenne den Stress im Dreck live. Heute genieße ich meinen Vorruhestand zusammen mit meiner philippinischen Ehefrau in ihrer Heimat – aber weil ich das Handwerk im Blut habe, unterstütze ich Betriebe partnerschaftlich und remote in Teilzeit bei der maßgeschneiderten Bot-Entwicklung. 
           </p>
           
           <div class="partner-badge">
-            🤝 Kooperationspartner der <strong>Deutsche Haus iT Service und Vertrieb</strong> (Inh. M. Mertens)
+            🤝 In Kooperation mit: <strong>Haus iT Service und Vertrieb</strong>, Paderborn (Geschäftsführer Wolfgang-Udo Mertens)
           </div>
         </section>
 
@@ -519,14 +520,14 @@
             <div class="error-text">Gültige E-Mail erforderlich</div>
           </div>
 
-          <!-- Neue Abfrage zur aktuellen Telefonanlage (Perfekt für die Übergabe an Mertens) -->
+          <!-- Abfrage zur aktuellen Telefonanlage (Perfekt für die Übergabe an Mertens) -->
           <div class="form-group">
             <label for="telefonanlage">Aktuelle Telefonanlage *</label>
             <select id="telefonanlage" name="telefonanlage" required>
               <option value="" disabled selected>Bitte auswählen...</option>
               <option value="placetel">Ich nutze bereits Placetel Cloudtelefonie</option>
               <option value="andere">Ich nutze eine andere Anlage (z.B. FritzBox, Telekom)</option>
-              <option valuekeine>Wir haben noch keine Cloud-Anlage / Reiner Mobilfunk</option>
+              <option value="keine">Wir haben noch keine Cloud-Anlage / Reiner Mobilfunk</option>
             </select>
           </div>
 
@@ -552,7 +553,7 @@
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – in Kooperation mit Deutsche Haus iT Service und Vertrieb – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
+      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines – sales@bot-papa.online</div>
     </footer>
   </div>
 
@@ -614,7 +615,7 @@
         unternehmen: document.getElementById('unternehmen').value.trim(),
         telefon: document.getElementById('tel').value.trim(),
         email: document.getElementById('email').value.trim(),
-        anlagen_typ: document.getElementById('telefonanlage').value, // Zusätzliche Info für Mertens
+        anlagen_typ: document.getElementById('telefonanlage').value, 
         product_id: 'leitfaden_prompt_engineering',
         product_name: 'Professionelles prompt-Engineering für Placetel KI-Telefonassistenten',
         price: 2.99,
