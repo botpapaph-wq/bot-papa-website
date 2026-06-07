@@ -111,18 +111,9 @@
 
     .header-right {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      flex: 1;
-    }
-
-    .header-top-row {
-      display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 10px;
-      width: 100%;
+      gap: 12px;
     }
 
     .pill {
@@ -139,52 +130,6 @@
 
     .pill strong {
       color: var(--accent);
-    }
-
-    .btn-primary {
-      border-radius: var(--radius-full);
-      padding: 9px 18px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #00e0ff, #7b3fff);
-      color: #050816;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      text-decoration: none;
-    }
-
-    .btn-primary span {
-      font-size: 16px;
-      transform: translateY(1px);
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.06);
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .btn-secondary {
-      border-radius: var(--radius-full);
-      padding: 8px 14px;
-      font-size: 12px;
-      border: var(--border-soft);
-      color: var(--muted);
-      background: rgba(5, 8, 22, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-secondary span {
-      font-size: 14px;
     }
 
     .grid {
@@ -242,6 +187,30 @@
       margin-bottom: 16px;
     }
 
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 12px 24px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
@@ -278,7 +247,7 @@
       color: var(--accent);
     }
 
-    /* Product Image Container */
+    /* Product Image Container styling */
     .product-image-container {
       width: 100%;
       margin-bottom: 20px;
@@ -286,7 +255,7 @@
       border: var(--border-soft);
       overflow: hidden;
       box-shadow: var(--shadow-soft);
-      background: rgba(0,0,0,0.2);
+      background: rgba(0, 0, 0, 0.2);
     }
     
     .product-image-container img {
@@ -427,30 +396,13 @@
       margin-bottom: 4px;
     }
 
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 14px;
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
-
-    .contact-item strong {
-      color: var(--text);
-    }
-
     footer {
       margin-top: 28px;
       padding-top: 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 11px;
       color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
-      align-items: center;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -466,14 +418,9 @@
         padding: 22px 18px 18px;
       }
       .header-right {
-        align-items: flex-start;
-      }
-      .header-top-row {
         justify-content: flex-start;
-        flex-wrap: wrap;
-        row-gap: 6px;
+        width: 100%;
       }
-
       .example-wrapper {
         flex-direction: column;
       }
@@ -501,13 +448,8 @@
         </div>
       </div>
       <div class="header-right">
-        <div class="header-top-row">
-          <div class="pill">
-            Status: <strong>aktiv</strong>
-          </div>
-          <a href="https://meet.brevo.com/bodo-kopplin-online/erstgesprach-kostenlos" class="btn-primary" target="_blank" rel="noopener">
-            Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
-          </a>
+        <div class="pill">
+          Status: <strong>aktiv</strong>
         </div>
       </div>
     </header>
@@ -541,8 +483,9 @@
       </section>
 
       <aside id="status" class="card">
+        <!-- Das verlangte Produktbild aus EBook Bild_2.png -->
         <div class="product-image-container">
-          <img src="EBook Bild.png" alt="BOT PAPA Strategie-Leitfaden eBook Cover" />
+          <img src="EBook Bild_2.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
         </div>
 
         <div class="card-title">
@@ -566,7 +509,7 @@
             <input type="text" id="position" placeholder="z.B. Geschäftsführer">
           </div>
           <div class="form-group">
-            <label for="unternehmen">Name des Unternehmens *</label>
+            <label for="unternehmen">Name des Unternehmen *</label>
             <input type="text" id="unternehmen" required placeholder="BOT PAPA">
           </div>
           <div class="form-group">
@@ -714,38 +657,8 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
-      <h2>Geschäftlicher Kontakt</h2>
-      <p>
-        Für strategische Kooperationen oder direkte Projektanfragen nutzen Sie bitte die folgenden Kontaktwege:
-      </p>
-      <div class="contact">
-        <div class="contact-item">
-          <strong>E‑Mail:</strong>
-          <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
-        </div>
-        <div class="contact-item">
-          <strong>Telefon:</strong>
-          <a href="tel:+491743282867">+49 174 3282867</a>
-        </div>
-        <div class="contact-item">
-          <strong>Termin buchen:</strong>
-          <a href="https://meet.brevo.com/bodo-kopplin-online/erstgesprach-kostenlos" target="_blank" rel="noopener">
-            Erstbedarfsanalyse über Brevo vereinbaren
-          </a>
-        </div>
-        <div class="contact-item">
-          <strong>Updates:</strong>
-          <a href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
-            BOT PAPA auf Facebook
-          </a>
-        </div>
-      </div>
-    </section>
-
     <footer>
       <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
-      <div><a href="https://crm.bot-papa.online/login" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Mitarbeiter Login</a></div>
     </footer>
   </div>
 
@@ -753,7 +666,6 @@
     document.getElementById('supabaseSqueezeForm').addEventListener('submit', function(e) {
         e.preventDefault();
         alert("Daten werden DSGVO-konform an Supabase übertragen... Weiterleitung zum PayPal-Gateway zur Abrechnung von USD 2,99.");
-        // Native Supabase Logik & PayPal Redirect folgen hier
     });
   </script>
 </body>
