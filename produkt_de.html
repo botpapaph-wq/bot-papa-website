@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOT PAPA – KI‑Telefonempfang für Handwerk & Servicebetriebe</title>
-  <meta name="description" content="BOT PAPA richtet KI‑Telefonassistenten für kleine Handwerks- und Servicebetriebe ein. Kein Anruf geht mehr verloren, Alarmstufe‑Rot‑Anrufe werden erkannt und sofort priorisiert." />
+  <title>BOT PAPA – Schluss mit verpassten Aufträgen</title>
+  <meta name="description" content="Sichern Sie sich den exklusiven Strategie-Leitfaden für Placetel KI-Telefonassistenten. Schützen Sie Ihren Betrieb vor teuren Umsatzverlusten." />
 
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
@@ -27,8 +27,7 @@
       --radius-lg: 18px;
       --radius-full: 999px;
       --border-soft: 1px solid rgba(255, 255, 255, 0.08);
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -39,14 +38,6 @@
       background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
     }
 
     .page {
@@ -67,9 +58,6 @@
       background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
       backdrop-filter: blur(16px);
       box-shadow: var(--shadow-soft);
-      position: sticky;
-      top: 16px;
-      z-index: 10;
     }
 
     .brand {
@@ -109,13 +97,6 @@
       color: var(--muted);
     }
 
-    .header-right {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
     .pill {
       border-radius: var(--radius-full);
       padding: 6px 14px;
@@ -125,22 +106,19 @@
       border: var(--border-soft);
       color: var(--muted);
       background: rgba(5, 8, 22, 0.9);
-      white-space: nowrap;
     }
 
-    .pill strong {
-      color: var(--accent);
-    }
+    .pill strong { color: var(--accent); }
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 32px;
       align-items: stretch;
     }
 
     .hero {
-      padding: 26px 24px 24px;
+      padding: 32px 28px;
       border-radius: var(--radius-lg);
       border: var(--border-soft);
       background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.08), transparent 55%),
@@ -153,77 +131,31 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .hero-title {
-      font-size: clamp(26px, 3.1vw, 32px);
-      line-height: 1.12;
-      margin: 0 0 12px;
+      font-size: clamp(28px, 3.5vw, 38px);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      font-weight: 800;
     }
 
-    .hero-title span {
-      color: var(--accent);
-    }
+    .hero-title span { color: var(--accent); }
 
     .hero-sub {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 580px;
-      margin-bottom: 12px;
-    }
-
-    .hero-sub-2 {
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 580px;
-      margin-bottom: 18px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text);
       margin-bottom: 16px;
     }
 
-    .btn-primary {
-      border-radius: var(--radius-full);
-      padding: 12px 24px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #00e0ff, #7b3fff);
-      color: #050816;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      text-decoration: none;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.06);
-      transform: translateY(-1px);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 12px;
+    .hero-sub-2 {
+      font-size: 14px;
+      line-height: 1.5;
       color: var(--muted);
-    }
-
-    .hero-meta span {
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      background: rgba(0, 0, 0, 0.36);
-      border: var(--border-soft);
+      margin-bottom: 24px;
     }
 
     .card {
@@ -232,19 +164,6 @@
       border: var(--border-soft);
       background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.98));
       box-shadow: var(--shadow-soft);
-      font-size: 13px;
-    }
-
-    .card-title {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .card-title strong {
-      color: var(--accent);
     }
 
     .product-image-container {
@@ -263,12 +182,21 @@
       display: block;
     }
 
-    .squeeze-form {
-      margin-top: 15px;
+    .card-title {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text);
+      margin-bottom: 8px;
+      font-weight: 700;
     }
-    .form-group {
-      margin-bottom: 14px;
-    }
+
+    .card-title strong { color: var(--accent); }
+
+    .squeeze-form { margin-top: 15px; }
+    
+    .form-group { margin-bottom: 14px; }
+    
     .form-group label {
       display: block;
       font-size: 11px;
@@ -277,6 +205,7 @@
       color: var(--muted);
       margin-bottom: 5px;
     }
+    
     .form-group input {
       width: 100%;
       background: rgba(5, 8, 22, 0.7);
@@ -285,89 +214,77 @@
       padding: 10px 12px;
       color: var(--text);
       font-size: 13px;
-      transition: border-color 0.2s;
     }
+    
     .form-group input:focus {
       outline: none;
       border-color: var(--accent);
     }
+    
     .checkbox-group {
       display: flex;
       gap: 8px;
       margin: 15px 0;
       align-items: flex-start;
     }
-    .checkbox-group input {
-      margin-top: 3px;
-    }
+    
     .checkbox-group label {
       font-size: 11px;
       color: var(--muted);
       line-height: 1.4;
     }
+    
     .btn-submit {
       width: 100%;
       border-radius: var(--radius-full);
-      padding: 12px;
+      padding: 14px;
       border: none;
       cursor: pointer;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       background: linear-gradient(135deg, #00e0ff, #7b3fff);
       color: #050816;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      transition: all 0.2s;
-    }
-    .btn-submit:hover {
-      filter: brightness(1.1);
     }
 
     .section {
       margin-top: 28px;
-      padding: 20px 18px;
+      padding: 28px 24px;
       border-radius: var(--radius-lg);
       border: var(--border-soft);
       background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
       box-shadow: var(--shadow-soft);
-      font-size: 14px;
     }
 
     .section h2 {
       margin-top: 0;
-      margin-bottom: 8px;
-      font-size: 18px;
+      margin-bottom: 16px;
+      font-size: 22px;
+      font-weight: 700;
     }
 
     .section p {
-      margin: 0 0 8px;
       color: var(--muted);
-      font-size: 13px;
-    }
-
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 14px;
-      margin-top: 12px;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .example-wrapper {
       display: flex;
       align-items: flex-start;
       gap: 28px;
-      margin-top: 12px;
+      margin-top: 20px;
       flex-wrap: wrap;
     }
 
     .example-img {
-      width: 48%;
+      width: 45%;
       max-width: 520px;
       border-radius: 14px;
       border: var(--border-soft);
       box-shadow: var(--shadow-soft);
-      flex-shrink: 0;
     }
 
     .example-text {
@@ -375,28 +292,9 @@
       min-width: 260px;
     }
 
-    .example-top {
-      margin-bottom: 10px;
-    }
-
-    .example-top p {
-      margin-bottom: 6px;
-    }
-
-    .example-bottom-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .example-bottom-grid p {
-      margin-bottom: 4px;
-    }
-
     footer {
-      margin-top: 28px;
-      padding-top: 16px;
+      margin-top: 48px;
+      padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 11px;
       color: var(--muted);
@@ -404,28 +302,9 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        position: static;
-        border-radius: 14px;
-        padding: 10px 12px;
-      }
-      .grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero {
-        padding: 22px 18px 18px;
-      }
-      .header-right {
-        justify-content: flex-start;
-        width: 100%;
-      }
-      .example-wrapper {
-        flex-direction: column;
-      }
-      .example-img {
-        width: 100%;
-        max-width: 100%;
-      }
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      .example-wrapper { flex-direction: column; }
+      .example-img { width: 100%; }
     }
   </style>
 </head>
@@ -434,6 +313,7 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
+  
   <div class="page">
     <header>
       <div class="brand">
@@ -442,86 +322,67 @@
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">Digitale Unternehmenskommunikation für Macher</div>
         </div>
       </div>
-      <div class="header-right">
-        <div class="pill">
-          Status: <strong>aktiv</strong>
-        </div>
-      </div>
+      <div class="pill">Exklusiver <strong>Strategie-Slam</strong></div>
     </header>
 
     <main class="grid">
       <section class="hero">
-        <div class="hero-kicker">KI‑Telefonempfang für Handwerk & Service</div>
+        <div class="hero-kicker">Das Ende unbemerkt verbrannter Werbe-Euros</div>
         <h1 class="hero-title">
-          Keinen Anruf mehr verpassen – und <span>Alarmstufe‑Rot‑Anrufe</span> automatisch nach oben.
+          Während Sie auf der Baustelle anpacken, zieht die Konkurrenz Ihre <span>fünfstelligen Aufträge</span> ab.
         </h1>
         <p class="hero-sub">
-          BOT PAPA richtet einen KI‑Telefonassistenten ein, der Anrufe sofort annimmt, vorsortiert
-          und Ihnen Rückruf‑fertige Notizen liefert – statt sie auf dem Anrufbeantworter versanden zu lassen.
+          Jeder unangenommene Anruf ist kein „verpasster Versuch“ – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
         </p>
         <p class="hero-sub-2">
-          Speziell für Betriebe mit echter Vor‑Ort‑Arbeit: Maler, Dachdecker, Installateure, Schlosser,
-          kleinere Servicebetriebe, Coaches und Personal Trainer.
+          Dieser brandneue Strategie-Leitfaden zeigt Ihnen die genauen Prompt-Blueprints, mit denen Sie künstliche Intelligenz so abrichten, dass sie Kunden begeistert, Termine eintütet und kritische Notfälle sofort zu Ihnen durchstellt.
         </p>
-
-        <div class="hero-actions">
-          <a href="#status" class="btn-primary">
-            Jetzt Strategie-Leitfaden sichern <span>✚</span>
-          </a>
-        </div>
-
-        <div class="hero-meta">
-          <span>Individueller KI‑Telefonempfang</span>
-          <span>Für Telnyx‑ &amp; Placetel‑Setups</span>
-          <span>Direkte Zusammenarbeit mit dem Entwickler</span>
-        </div>
       </section>
 
       <aside id="status" class="card">
-        <!-- URL-enkodierter Dateiname löst Ladeproblem auf Webservern -->
         <div class="product-image-container">
-          <img src="EBook%20Bild_2.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
+          <img src="https://raw.githubusercontent.com/botpapaph-wq/bot-papa-website/main/EBook%20Bild.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
         </div>
 
         <div class="card-title">
-          Leitfaden <strong>Anfordern</strong>
+          Leitfaden <strong>Sofort anfordern</strong>
         </div>
-        <p style="color: var(--muted); margin-top: 0; margin-bottom: 15px;">
-          Sichern Sie sich das exklusive eBook. Sie zahlen lediglich eine reine Handling- &amp; Bereitstellungspauschale von <strong>USD 2,99 (ca. 2,75 EUR)</strong>.
+        <p style="color: var(--muted); margin-top: 0; margin-bottom: 15px; font-size: 13px; line-height: 1.4;">
+          Das eBook ist ein Freebie. Sie übernehmen lediglich die tagesaktuelle Bereitstellungs- und Handlingpauschale von <strong>USD 2,99 / 2,75 EUR</strong>.
         </p>
         
         <form id="supabaseSqueezeForm" class="squeeze-form">
           <div class="form-group">
             <label for="nachname">Nachname *</label>
-            <input type="text" id="nachname" required placeholder="Kopplin">
+            <input type="text" id="nachname" required placeholder="Müller">
           </div>
           <div class="form-group">
             <label for="vorname">Vorname *</label>
-            <input type="text" id="vorname" required placeholder="Bodo">
+            <input type="text" id="vorname" required placeholder="Markus">
           </div>
           <div class="form-group">
-            <label for="position">Position im Unternehmen</label>
-            <input type="text" id="position" placeholder="z.B. Geschäftsführer">
+            <label for="position">Position im Unternehmen *</label>
+            <input type="text" id="position" required placeholder="z.B. Inhaber / Geschäftsführer">
           </div>
           <div class="form-group">
-            <label for="unternehmen">Name des Unternehmen *</label>
-            <input type="text" id="unternehmen" required placeholder="BOT PAPA">
+            <label for="unternehmen">Name des Unternehmens *</label>
+            <input type="text" id="unternehmen" required placeholder="Müller Bedachungen GmbH">
           </div>
           <div class="form-group">
-            <label for="tel">Telefonnummer</label>
-            <input type="tel" id="tel" placeholder="+49 174 ...">
+            <label for="tel">Telefonnummer *</label>
+            <input type="tel" id="tel" required placeholder="+49 174 ...">
           </div>
           <div class="form-group">
-            <label for="email">E-Mail für digitale Lieferung *</label>
-            <input type="email" id="email" required placeholder="sales@bot-pap.online">
+            <label for="email">E-Mail für die digitale Lieferung *</label>
+            <input type="email" id="email" required placeholder="ihre-adresse@firma.de">
           </div>
 
           <div class="checkbox-group">
             <input type="checkbox" id="dsgvo" required>
-            <label for="dsgvo">Ich willige ein, dass meine Formulardaten zur Bereitstellung des eBooks DSGVO-konform in Supabase gespeichert werden. *</label>
+            <label for="dsgvo">Ich willige ein, dass meine Formular- und Kontaktdaten zur sicheren Speicherung und Bereitstellung des digitalen Produkts DSGVO-konform in der verschlüsselten Cloud-Datenbank von <strong>SUPABASE</strong> verarbeitet werden. *</label>
           </div>
 
           <button type="submit" class="btn-submit">Weiter zu PayPal (USD 2,99 / 2,75 EUR)</button>
@@ -529,141 +390,33 @@
       </aside>
     </main>
 
-    <section class="section" id="who">
-      <h2>Für wen BOT PAPA gedacht ist</h2>
-      <p>
-        BOT PAPA ist kein generischer Callcenter‑Bot, sondern ein auf Ihren Betrieb zugeschnittener Telefonempfang
-        – mit Ihren Worten, Ihren Abläufen und klaren Grenzen.
-      </p>
-      <div class="section-grid">
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Handwerk &amp; Außendienst</h3>
-          <p>
-            Maler, Dachdecker, Installateure, Schlosser und ähnliche Gewerke, die ständig
-            auf Baustellen stehen, aber keine ernsthafte Anfrage liegen lassen wollen.
-          </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Coaches &amp; persönliche Dienstleistungen</h3>
-          <p>
-            Coaches und Personal Trainer, die in Sessions sind und ihre Kundinnen und Kunden
-            nicht bei jedem Klingeln unterbrechen möchten – aber trotzdem erreichbar bleiben müssen.
-          </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Nicht im Fokus: Kanzleien &amp; Arztpraxen</h3>
-          <p>
-            BOT PAPA richtet sich bewusst nicht an medizinische Einrichtungen oder Kanzleien.
-            Der Schwerpunkt bleibt bei praxisnahen Dienstleistern mit klaren Leistungen.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="alarm">
-      <h2>Branchen‑Beispiel Handwerk: Wie ein Prompt „Alarmstufe Rot“ erkennt</h2>
+    <section class="section">
+      <h2>Die „Alarmstufe Rot“ Story: Warum normale Bots kläglich scheitern</h2>
       <div class="example-wrapper">
-        <img
-          src="Baustellen Cartoon.png"
-          alt="Cartoon einer Baustelle als Beispiel für Alarmstufe Rot im Handwerk"
-          class="example-img"
-        />
+        <img src="Baustellen Cartoon.png" alt="Echter Baustellen-Stress" class="example-img" />
         <div class="example-text">
-          <div class="example-top">
-            <p>
-              Im Handwerk gibt es Anrufe, die einfach wichtig sind – und es gibt Anrufe, bei denen jede Minute Verzögerung richtig Geld kostet.
-              Wenn auf der Baustelle fahrbereite Leute herumstehen, das Material fehlt und der Polier anruft, ist das keine normale Rückfrage,
-              sondern die Alarmstufe Rot.
-            </p>
-            <p>
-              Ein KI‑Telefonassistent muss solche Situationen klar erkennen und anders behandeln als Standard‑Anfragen.
-              Deshalb wird im Prompt genau festgelegt, welche Formulierungen als „kritisch“ gelten und welche Sofort‑Aktion folgt.
-            </p>
-          </div>
-          <div class="example-bottom-grid">
-            <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Typische Alarm‑Szenarien</h3>
-              <p>
-                Material‑ oder Lieferprobleme („Materiallieferung ist nicht da“, „LKW steht im Stau“, „falsches Material geliefert“),
-                Baustopp oder drohender Baustopp („hier steht alles“, „wir können nicht weiterarbeiten“).
-              </p>
-            </div>
-            <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Personalausfall &amp; Ärger beim Kunden</h3>
-              <p>
-                Niemand auf der Baustelle, Schlüssel fehlt, Kunde ist stinksauer, Beschwerde, Termin platzt oder Abnahme in Gefahr.
-              </p>
-            </div>
-            <div>
-              <h3 style="font-size: 14px; margin: 0 0 4px;">Was dann passiert</h3>
-              <p>
-                Der Assistent stellt solche Anrufe z.B. direkt aufs Handy des Chefs durch und schickt zusätzlich eine kurze Zusammenfassung
-                per SMS oder E‑Mail – damit kein echter Alarmfall im Rückruf‑Stapel verschwindet.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="behavior">
-      <h2>Was Ihr KI‑Telefonassistent konkret übernimmt</h2>
-      <p>
-        Der Assistent meldet sich klar als KI‑Empfang, stellt ein paar gezielte Fragen
-        und dokumentiert alles so, dass Sie mit einem Blick wissen, was zu tun ist.
-      </p>
-      <div class="section-grid">
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Anrufe annehmen &amp; vorsortieren</h3>
           <p>
-            Der Assistent begrüßt, fragt nach dem Anliegen, filtert heraus, was dringend ist,
-            und trennt zwischen neuen Anfragen, Bestandskunden, Lieferanten und „bitte später“.
+            Stellen Sie sich vor: Auf der Großbaustelle herrscht Stillstand. Fünf hochbezahlte Gesellen stehen herum, weil die Materiallieferung falsch geliefert wurde oder der Polier die Pläne nicht findet. Jede Stunde kostet Sie hunderte Euro. Das ist kein normaler Anruf. Das ist <strong>Alarmstufe Rot</strong>.
           </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Rückruf‑Notizen erstellen</h3>
           <p>
-            Name, Telefonnummer, Anliegen, Objekt/Projekt und beste Rückrufzeit werden erfassung –
-            in einer Form, die Sie schnell auf dem Handy, Tablet oder im Büro verarbeiten können.
+            Ein billiger Standard-Bot würde den Anrufer jetzt vertrösten oder ein langes Ticket schreiben. Ein intelligenter, perfekt geprompteter KI-Telefonassistent analysiert die Tonalität und Schlüsselbegriffe in Millisekunden, bricht den Standard-Prozess sofort ab und **schlägt direkt Alarm auf Ihrem Handy**. 
           </p>
-        </div>
-        <div>
-          <h3 style="font-size: 14px; margin: 0 0 4px;">Klare Grenzen &amp; kein „Herumraten“</h3>
           <p>
-            Der Assistent gibt keine rechtlichen, steuerlichen oder medizinischen Auskünfte
-            und rät nicht. Wenn etwas unklar ist, fragt er nach oder verweist auf einen Rückruf.
+            Lernen Sie in diesem Leitfaden, wie Sie Ihre KI so scharf einstellen, dass sie Routinefragen (wie Öffnungszeiten) lautlos wegfiltert, aber bei echten Umsatz-Killern sofort die Chefetage mobilisiert.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="about">
-      <h2>Über BOT PAPA (Bodo)</h2>
-      <p>
-        BOT PAPA ist Bodos persönliches Projekt mit Schwerpunkt auf KI‑Telefonassistenten
-        und Automatisierung für kleine Unternehmen – kein anonymes Callcenter‑Produkt.
-      </p>
-      <div class="section-grid">
-        <div>
-          <p><strong>Rolle:</strong> Aufbau und laufende Betreuung Ihres KI‑Telefonempfangs – von der ersten Skizze des Gesprächsablaufs bis zum Live‑Betrieb.</p>
-          <p><strong>Tech‑Stack:</strong> KI‑Sprachagenten, angebunden an Telefonanlagen wie Telnyx und Placetel, plus die Integrationen dazwischen.</p>
-        </div>
-        <div>
-          <p><strong>Arbeitsstil:</strong> Direkt, pragmatisch und transparent. Keine großen Versprechen, sondern klare Absprachen, was die KI übernehmen soll und was ausdrücklich nicht.</p>
-          <p><strong>Sprachen:</strong> Deutsch und Englisch, mit dieser Seite speziell für Kundinnen und Kunden in der DACH‑Region.</p>
         </div>
       </div>
     </section>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div>© 2026 BOT PAPA – sales@bot-papa.online</div>
     </footer>
   </div>
 
   <script>
     document.getElementById('supabaseSqueezeForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        alert("Daten werden DSGVO-konform an Supabase übertragen... Weiterleitung zum PayPal-Gateway zur Abrechnung.");
+        alert("Daten werden via Supabase gesichert... Weiterleitung zum PayPal Gateway (USD 2,99 / 2,75 EUR).");
     });
   </script>
 </body>
