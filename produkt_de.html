@@ -392,6 +392,17 @@
       text-align: center;
     }
 
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+
     @media (max-width: 768px) {
       .grid { grid-template-columns: minmax(0, 1fr); }
       .card { position: static; }
@@ -516,7 +527,7 @@
 
           <div class="checkbox-group">
             <input type="checkbox" id="dsgvo" name="dsgvo" required>
-            <label for="dsgvo">Ich willige ein, dass meine Formular- und Kontaktdaten zur sicheren Speicherung und Bereitstellung des digitalen Produkts DSGVO-konform in der verschlüsselten Cloud-Datenbank von <strong>SUPABASE</strong> verarbeitet werden. *</label>
+            <label for="dsgvo">Ich willige ein, dass meine Formular- und Kontaktdaten zur sichuren Speicherung und Bereitstellung des digitalen Produkts DSGVO-konform in der verschlüsselten Cloud-Datenbank von <strong>SUPABASE</strong> verarbeitet werden. *</label>
           </div>
 
           <div class="loading-spinner" id="loadingSpinner">
@@ -536,7 +547,7 @@
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines – sales@bot-papa.online</div>
+      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines – <a href="mailto:sales@bot-papa.online">sales@bot-papa.online</a></div>
     </footer>
   </div>
 
