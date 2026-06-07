@@ -112,9 +112,15 @@
 
     .grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 32px;
-      align-items: stretch;
+      align-items: start; /* Verhindert das unschöne Strecken von Boxen */
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     .hero {
@@ -136,8 +142,8 @@
     }
 
     .hero-title {
-      font-size: clamp(28px, 3.5vw, 38px);
-      line-height: 1.15;
+      font-size: clamp(26px, 3.2vw, 36px);
+      line-height: 1.2;
       margin: 0 0 16px;
       font-weight: 800;
     }
@@ -145,17 +151,57 @@
     .hero-title span { color: var(--accent); }
 
     .hero-sub {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.5;
       color: var(--text);
       margin-bottom: 16px;
     }
 
-    .hero-sub-2 {
-      font-size: 14px;
-      line-height: 1.5;
+    .story-card {
+      padding: 28px 24px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .story-card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .story-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .story-img-wrapper {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .story-img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .story-text p {
       color: var(--muted);
-      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+    
+    .story-text p:last-child {
+      margin-bottom: 0;
     }
 
     .card {
@@ -164,6 +210,10 @@
       border: var(--border-soft);
       background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.98));
       box-shadow: var(--shadow-soft);
+      /* Klebt beim Scrollen perfekt fest und füllt die optische Achse */
+      position: -webkit-sticky;
+      position: sticky;
+      top: 24px; 
     }
 
     .product-image-container {
@@ -247,49 +297,11 @@
       background: linear-gradient(135deg, #00e0ff, #7b3fff);
       color: #050816;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: opacity 0.2s ease;
     }
 
-    .section {
-      margin-top: 28px;
-      padding: 28px 24px;
-      border-radius: var(--radius-lg);
-      border: var(--border-soft);
-      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
-      box-shadow: var(--shadow-soft);
-    }
-
-    .section h2 {
-      margin-top: 0;
-      margin-bottom: 16px;
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .section p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .example-wrapper {
-      display: flex;
-      align-items: flex-start;
-      gap: 28px;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
-
-    .example-img {
-      width: 45%;
-      max-width: 520px;
-      border-radius: 14px;
-      border: var(--border-soft);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .example-text {
-      flex: 1;
-      min-width: 260px;
+    .btn-submit:hover {
+      opacity: 0.9;
     }
 
     footer {
@@ -303,8 +315,7 @@
 
     @media (max-width: 768px) {
       .grid { grid-template-columns: minmax(0, 1fr); }
-      .example-wrapper { flex-direction: column; }
-      .example-img { width: 100%; }
+      .card { position: static; }
     }
   </style>
 </head>
@@ -329,19 +340,43 @@
     </header>
 
     <main class="grid">
-      <section class="hero">
-        <div class="hero-kicker">Das Ende unbemerkt verbrannter Werbe-Euros</div>
-        <h1 class="hero-title">
-          Während Sie auf der Baustelle anpacken, zieht die Konkurrenz Ihre <span>fünfstelligen Aufträge</span> ab.
-        </h1>
-        <p class="hero-sub">
-          Jeder unangenommene Anruf ist kein „verpasster Versuch“ – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
-        </p>
-        <p class="hero-sub-2">
-          Dieser brandneue Strategie-Leitfaden zeigt Ihnen die genauen Prompt-Blueprints, mit denen Sie künstliche Intelligenz so abrichten, dass sie Kunden begeistert, Termine eintütet und kritische Notfälle sofort zu Ihnen durchstellt.
-        </p>
-      </section>
+      <!-- LINKE SPALTE: Baut den Text vertikal auf, um Freiräume zu eliminieren -->
+      <div class="left-column">
+        <section class="hero">
+          <div class="hero-kicker">Das Ende unbemerkt verbrannter Werbe-Euros</div>
+          <h1 class="hero-title">
+            Während Sie auf der Baustelle anpacken, zieht die Konkurrenz Ihre <span>fünfstelligen Aufträge</span> ab.
+          </h1>
+          <p class="hero-sub">
+            Jeder unangenommene Anruf ist kein „verpasster Versuch“ – es ist bares Geld, das direkt in die Kasse Ihres größten Wettbewerbers fließt. Ein klassischer Anrufbeantworter frustriert Neukunden nur. Die Lösung? Ein kompromisslos präziser KI-Assistent auf Ihrer bestehenden Placetel- oder Telnyx-Anlage.
+          </p>
+          <p style="font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0;">
+            Dieser brandneue Strategie-Leitfaden zeigt Ihnen die genauen Prompt-Blueprints, mit denen Sie künstliche Intelligenz so abrichten, dass sie Kunden begeistert, Termine eintütet und kritische Notfälle sofort zu Ihnen durchstellt.
+          </p>
+        </section>
 
+        <section class="story-card">
+          <h2>Die „Alarmstufe Rot“ Story: Warum normale Bots kläglich scheitern</h2>
+          <div class="story-flex">
+            <div class="story-img-wrapper">
+              <img src="Baustellen Cartoon.png" alt="Echter Baustellen-Stress" />
+            </div>
+            <div class="story-text">
+              <p>
+                Stellen Sie sich vor: Auf der Großbaustelle herrscht Stillstand. Fünf hochbezahlte Gesellen stehen herum, weil die Materiallieferung falsch geliefert wurde oder der Polier die Pläne nicht findet. Jede Stunde kostet Sie hunderte Euro. Das ist kein normaler Anruf. Das ist <strong>Alarmstufe Rot</strong>.
+              </p>
+              <p>
+                Ein billiger Standard-Bot würde den Anrufer jetzt vertrösten oder ein langes Ticket schreiben. Ein intelligenter, perfekt geprompteter KI-Telefonassistent analysiert die Tonalität und Schlüsselbegriffe in Millisekunden, bricht den Standard-Prozess sofort ab und <strong>schlägt direkt Alarm auf Ihrem Handy</strong>.
+              </p>
+              <p>
+                Lernen Sie in diesem Leitfaden, wie Sie Ihre KI so scharf einstellen, dass sie Routinefragen lautlos wegfiltert, aber bei echten Umsatz-Killern sofort die Chefetage mobilisiert.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RECHTE SPALTE: Bleibt dank sticky Design permanent präsent im Fokus -->
       <aside id="status" class="card">
         <div class="product-image-container">
           <img src="https://raw.githubusercontent.com/botpapaph-wq/bot-papa-website/main/EBook%20Bild.png" alt="Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten eBook" />
@@ -389,24 +424,6 @@
         </form>
       </aside>
     </main>
-
-    <section class="section">
-      <h2>Die „Alarmstufe Rot“ Story: Warum normale Bots kläglich scheitern</h2>
-      <div class="example-wrapper">
-        <img src="Baustellen Cartoon.png" alt="Echter Baustellen-Stress" class="example-img" />
-        <div class="example-text">
-          <p>
-            Stellen Sie sich vor: Auf der Großbaustelle herrscht Stillstand. Fünf hochbezahlte Gesellen stehen herum, weil die Materiallieferung falsch geliefert wurde oder der Polier die Pläne nicht findet. Jede Stunde kostet Sie hunderte Euro. Das ist kein normaler Anruf. Das ist <strong>Alarmstufe Rot</strong>.
-          </p>
-          <p>
-            Ein billiger Standard-Bot würde den Anrufer jetzt vertrösten oder ein langes Ticket schreiben. Ein intelligenter, perfekt geprompteter KI-Telefonassistent analysiert die Tonalität und Schlüsselbegriffe in Millisekunden, bricht den Standard-Prozess sofort ab und **schlägt direkt Alarm auf Ihrem Handy**. 
-          </p>
-          <p>
-            Lernen Sie in diesem Leitfaden, wie Sie Ihre KI so scharf einstellen, dass sie Routinefragen (wie Öffnungszeiten) lautlos wegfiltert, aber bei echten Umsatz-Killern sofort die Chefetage mobilisiert.
-          </p>
-        </div>
-      </div>
-    </section>
 
     <footer>
       <div>© 2026 BOT PAPA – sales@bot-papa.online</div>
