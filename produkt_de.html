@@ -63,10 +63,14 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .brand {
+    /* Dezenter Link für das Logo zurück zur Startseite */
+    .brand-link {
+      text-decoration: none;
+      color: inherit;
       display: flex;
       align-items: center;
       gap: 18px;
+      cursor: pointer;
     }
 
     .brand-mark {
@@ -403,7 +407,8 @@
   
   <div class="page">
     <header>
-      <div class="brand">
+      <!-- Dezenter, nahtloser Link zurück zur Home (index.html) -->
+      <a href="index.html" class="brand-link">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
@@ -411,7 +416,7 @@
           <div class="brand-text-title">BOT PAPA</div>
           <div class="brand-text-sub">Digitale Unternehmenskommunikation für Macher</div>
         </div>
-      </div>
+      </a>
       <div class="pill">Exklusiver <strong>Strategie-Slam</strong></div>
     </header>
 
@@ -519,17 +524,14 @@
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – © 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines sales@bot-papa.online</div>
     </footer>
   </div>
 
   <script>
     // ===== KONFIGURATION =====
-    // TODO: Ersetze "YOUR_SUPABASE_ANON_KEY" mit deinem echten anon-key
-    // Findest du unter: https://app.supabase.com → Settings → API Keys → "anon" key
-    
     const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI'; // ← ERSETZE DIESEN WERT
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
 
     const form = document.getElementById('supabaseSqueezeForm');
     const submitBtn = document.getElementById('submitBtn');
