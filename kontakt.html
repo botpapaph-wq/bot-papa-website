@@ -1,4 +1,554 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt – BOT PAPA KI-Telefonempfang</title>
+  <meta name="description" content="Kontaktiere BOT PAPA für maßgeschneiderte KI-Telefonempfänger für Handwerk und Dienstleistungen." />
+
+  <!-- Brevo & GTM Scripts -->
+  <script>
+    (function(d, w, c) {
+        w.BrevoConversationsID = '6a03e269574bc2e3ed063a39';
+        w[c] = w[c] || function() { (w[c].q = w[c].q || []).push(arguments); };
+        var s = d.createElement('script'); s.async = true; s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+  </script>
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+
+  <style>
+    :root {
+      --bg: #060919;
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --header-bg: rgba(10, 15, 41, 0.6);
+      --border: 1px solid rgba(255, 255, 255, 0.06);
+      --accent: #00e0ff;
+      --text: #f5f7ff;
+      --muted: #8fa0dd;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      background-image: radial-gradient(circle at top center, #111a40 0%, #060919 70%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      padding: 40px 24px;
+    }
+
+    .wrapper {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    /* Glossy & Leicht Transparenter Header (Ausbilding wie im Live-Design) */
+    header {
+      background: var(--header-bg);
+      border: var(--border);
+      backdrop-filter: blur(16px) saturate(120%);
+      -webkit-backdrop-filter: blur(16px) saturate(120%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      padding: 12px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .brand-title {
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .btn-top {
+      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-top:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0, 198, 255, 0.4);
+    }
+
+    /* Layout Spalten & Feine Typografie */
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    /* Feine, elegante Body-Schrift */
+    p {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245, 247, 255, 0.7);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 36px;
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    /* Kontakt-Karten Links */
+    .info-card {
+      background: var(--card-bg);
+      border: var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .info-card .icon {
+      font-size: 16px;
+      color: var(--accent);
+      background: rgba(0, 224, 255, 0.05);
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    .info-card div label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 2px;
+    }
+
+    .info-card div a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+
+    .info-card div a:hover {
+      color: var(--accent);
+    }
+
+    /* Social Media */
+    .social-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .social-btn {
+      background: var(--card-bg);
+      border: var(--border);
+      color: rgba(255,255,255,0.6);
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    /* Feine Aufzählungszeichen */
+    .custom-bullets {
+      list-style: none;
+    }
+
+    .custom-bullets li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245, 247, 255, 0.7);
+    }
+
+    .custom-bullets li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 6px;
+      top: -1px;
+      font-size: 16px;
+    }
+
+    /* Formular-Design */
+    .form-pane {
+      background: rgba(255, 255, 255, 0.01);
+      border: var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .form-pane h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-info-text {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 8px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      background: rgba(3, 5, 13, 0.5);
+      border: var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 300;
+      transition: all 0.2s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(3, 5, 13, 0.8);
+    }
+
+    .row-twin {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit-form {
+      width: 100%;
+      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 198, 255, 0.2);
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .btn-submit-form:hover {
+      box-shadow: 0 6px 22px rgba(0, 198, 255, 0.4);
+    }
+
+    .status-msg {
+      margin-top: 14px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 80px;
+      border-top: var(--border);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      margin-left: 20px;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 868px) {
+      .grid { grid-template-columns: 1fr; gap: 40px; }
+      header { flex-direction: column; gap: 16px; border-radius: 24px; padding: 20px; text-align: center; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      footer div { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    
+    <header>
+      <a href="index.html" class="brand">
+        <img src="BOT_PAPA-removebg.png" alt="BOT PAPA" />
+        <div>
+          <div class="brand-title">BOT PAPA</div>
+          <div class="brand-sub">KI-Telefonassistenten für KMU</div>
+        </div>
+      </a>
+      <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-top" target="_blank" rel="noopener">
+        Kostenloses 20-Min Gespräch
+      </a>
+    </header>
+
+    <main class="grid">
+      
+      <!-- Infos links -->
+      <section>
+        <h1>Kontakt zu BOT PAPA</h1>
+        <p>
+          Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt, geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation – nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
+        </p>
+
+        <h2>Direkte Kontaktmöglichkeiten</h2>
+        
+        <div class="info-card">
+          <span class="icon">✉</span>
+          <div>
+            <label>E-Mail</label>
+            <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="icon">📞</span>
+          <div>
+            <label>Telefon (US-Nummer)</label>
+            <a href="tel:+16288959439">+1 628 895 9439</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <span class="icon">📱</span>
+          <div>
+            <label>Telefon (DACH Mobil)</label>
+            <a href="tel:+491743282867">+49 174 3282867</a>
+          </div>
+        </div>
+
+        <div class="social-container" style="margin-top: 20px;">
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
+          <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
+          <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
+        </div>
+
+        <h2>Was wir im ersten Gespräch klären</h2>
+        <ul class="custom-bullets">
+          <li>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</li>
+          <li>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</li>
+          <li>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</li>
+        </ul>
+      </section>
+
+      <!-- Formular rechts -->
+      <aside class="form-pane">
+        <h3>Kurze Nachricht</h3>
+        <div class="form-info-text">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
+        
+        <form id="contact-form">
+          <div class="input-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" required placeholder="Ihr Name" />
+          </div>
+
+          <div class="row-twin">
+            <div class="input-group">
+              <label for="email">E-Mail</label>
+              <input id="email" type="email" required placeholder="ihre@mail.de" />
+            </div>
+            <div class="input-group">
+              <label for="business">Betrieb / Gewerk</label>
+              <input id="business" type="text" placeholder="z.B. Elektro" />
+            </div>
+          </div>
+
+          <div class="row-twin">
+            <div class="input-group">
+              <label for="country_code">Ländervorwahl</label>
+              <select id="country_code" required>
+                <option value="+49">🇩🇪 +49 DE</option>
+                <option value="+43">🇦🇹 +43 AT</option>
+                <option value="+41">🇨🇭 +41 CH</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="phone_number">Telefonnummer</label>
+              <input id="phone_number" type="text" placeholder="123456" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Was möchten Sie klären?</label>
+            <textarea id="message" required rows="4" placeholder="Ein bis zwei Sätze genügen."></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit-form">Anfrage senden</button>
+          <div id="status" class="status-msg"></div>
+        </form>
+      </aside>
+
+    </main>
+
+    <footer>
+      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn</div>
+      <div>
+        <a href="faq-de.html">FAQ</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Supabase Integration -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
+
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('status');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        statusEl.style.display = 'block';
+        statusEl.style.color = 'rgba(255,255,255,0.5)';
+        statusEl.textContent = 'Wird gesendet...';
+
+        try {
+          const { error } = await supabaseClient
+            .from('contact_requests_simple')
+            .insert([{
+              name: document.getElementById('name').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              business: document.getElementById('business').value.trim(),
+              country_code: document.getElementById('country_code').value,
+              phone_number: document.getElementById('phone_number').value.trim(),
+              message: document.getElementById('message').value.trim(),
+              source: 'kontakt_seite'
+            }]);
+
+          if (error) {
+            statusEl.style.color = '#ff4b6b';
+            statusEl.textContent = 'Fehler: ' + error.message;
+            return;
+          }
+
+          form.reset();
+          statusEl.style.color = '#00e0ff';
+          statusEl.textContent = 'Vielen Dank! Nachricht erfolgreich gespeichert.';
+          setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+        } catch (e) {
+          statusEl.style.color = '#ff4b6b';
+          statusEl.textContent = 'Verbindungsfehler.';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
 <html lang="de">
 <head>
   <meta name="google-adsense-account" content="ca-pub-9428336256500980">
