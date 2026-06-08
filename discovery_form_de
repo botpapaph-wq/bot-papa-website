@@ -71,8 +71,8 @@
     }
 
     .brand-mark {
-      width: 180px;
-      height: 180px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -392,7 +392,7 @@
 
     <main>
       <section class="hero">
-        <div class="hero-kicker">KI-Telefonassistent • Erhebungsformular v1.0</div>
+        <div class="hero-kicker">KI-Telefonassistent • Erhebungsformular</div>
         <h1 class="hero-title">
           Projekterhebung für Ihre KI-gestützte Telefonie-Einrichtung.
         </h1>
