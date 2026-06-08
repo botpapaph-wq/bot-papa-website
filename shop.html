@@ -652,7 +652,7 @@
     </section>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines
+      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
       <div><a href="https://www.bot-papa.online" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">www.bot-papa.online</a></div>
     </footer>
   </div>
@@ -668,6 +668,8 @@
       price: "0.00"
     };
 
+    let activeOrderId = null;
+
     const buttons = document.querySelectorAll('.btn-scroll-checkout');
     const summaryName = document.getElementById('summary-name');
     const summaryPrice = document.getElementById('summary-price');
@@ -675,7 +677,6 @@
     const summaryTotal = document.getElementById('summary-total');
     const billingForm = document.getElementById('billing-form');
 
-    // Event-Listener für die Produktauswahl aktualisiert nur die Variablen
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
         currentProduct.name = btn.getAttribute('data-product-name');
@@ -691,7 +692,6 @@
       });
     });
 
-    // PayPal Buttons direkt beim Seitenstart instanziieren (Standardkonform)
     paypal.Buttons({
       style: {
         layout: 'vertical',
@@ -701,13 +701,11 @@
       },
 
       onClick: function(data, actions) {
-        // Validierung 1: Produkt ausgewählt?
         if (!currentProduct.id) {
           alert("Bitte wähle zuerst oben ein Produkt aus, indem du auf 'Jetzt kaufen' klickst.");
           return actions.reject();
         }
 
-        // Validierung 2: Formularfelder ausgefüllt?
         if (!billingForm.checkValidity()) {
           alert("Bitte fülle alle erforderlichen Rechnungsdaten (*) aus, bevor du die Zahlung startest.");
           billingForm.reportValidity();
@@ -719,26 +717,30 @@
         const address = document.getElementById('address').value;
         const notes = document.getElementById('notes').value;
 
-        // Versuche, Daten in Supabase zu speichern
+        activeOrderId = crypto.randomUUID();
+
         return supabaseClient
           .from('orders')
           .insert([
             { 
+              id: activeOrderId,
               customer_name: fullName, 
               customer_email: email, 
               billing_address: address, 
               product_id: currentProduct.id,
               notes: notes,
-              payment_status: 'pending'
+              payment_status: 'pending',
+              amount: parseFloat(currentProduct.price),
+              product_name: currentProduct.name
             }
           ])
           .then(({ error }) => {
             if (error) {
               console.error('Supabase Schreibfehler:', error);
               alert('Fehler beim Speichern der Bestelldaten in der Datenbank.');
-              return actions.reject(); // PayPal bricht ab, wenn DB-Eintrag scheitert
+              return actions.reject();
             }
-            return actions.resolve(); // DB-Eintrag erfolgreich, PayPal öffnet sich
+            return actions.resolve();
           });
       },
 
@@ -756,15 +758,28 @@
 
       onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
-          alert('Danke für deine Zahlung, ' + details.payer.name.given_name + '! Dein Download startet jetzt.');
+          const paypalOrderId = data.orderID;
+          const paypalCaptureId = details.purchase_units[0].payments.captures[0].id;
+          const now = new Date().toISOString();
 
-          if (currentProduct.id === 'p1') {
-            window.location.href = "https://www.bot-papa.online/downloads/guide-placetel-xyz.pdf";
-          } else if (currentProduct.id === 'p2') {
-            window.location.href = "https://www.bot-papa.online/downloads/produkt-2.pdf";
-          } else if (currentProduct.id === 'p3') {
-            window.location.href = "https://www.bot-papa.online/downloads/product-3-en.pdf";
-          }
+          return supabaseClient
+            .from('orders')
+            .update({
+              payment_status: 'paid',
+              paypal_order_id: paypalOrderId,
+              paypal_capture_id: paypalCaptureId,
+              paid_at: now
+            })
+            .eq('id', activeOrderId)
+            .then(({ error }) => {
+              if (error) {
+                console.error('Fehler beim Aktualisieren des Zahlungsstatus:', error);
+                alert('Zahlung war erfolgreich, aber der Status konnte nicht aktualisiert werden. Bitte kontaktiere den Support.');
+              } else {
+                alert('Danke für deine Zahlung! Dein sicherer Download startet jetzt.');
+                window.location.href = `/download?orderId=${activeOrderId}`;
+              }
+            });
         });
       },
 
