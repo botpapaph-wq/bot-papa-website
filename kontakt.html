@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kontakt – BOT PAPA KI-Telefonempfang</title>
   <meta name="description" content="Kontaktiere BOT PAPA für maßgeschneiderte KI-Telefonempfänger für Handwerk und Dienstleistungen." />
 
@@ -19,132 +19,189 @@
     })(document, window, 'BrevoConversations');
   </script>
   <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
 
   <style>
     :root {
-      --bg: #03050d;
-      --card-bg: rgba(7, 11, 30, 0.4);
-      --border: 1px solid rgba(255, 255, 255, 0.08);
+      --bg: #050816;
+      --bg-soft: #0b1020;
       --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
       --text: #f5f7ff;
-      --muted: #64748b;
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
     }
 
-    * { 
-      box-sizing: border-box; 
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     body {
+      margin: 0;
       font-family: var(--font-sans);
-      background-color: var(--bg);
-      background-image: radial-gradient(circle at top center, #0a0f28 0%, #03050d 80%);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
       color: var(--text);
-      line-height: 1.6;
-      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1200px;
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
       margin: 0 auto;
-      width: 100%;
+      padding: 24px 20px 64px;
     }
 
-    /* KORRIGIERTER HEADER: Clean, rahmenlos und ohne klobigen Pille-Hintergrund */
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      margin-bottom: 60px;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
       text-decoration: none;
+      color: inherit;
     }
 
-    .brand img {
-      width: 44px;
-      height: 44px;
+    .brand-mark {
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .brand-title {
-      color: #fff;
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
       font-weight: 700;
-      font-size: 16px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
     }
 
-    .brand-sub {
+    .brand-text-sub {
       font-size: 12px;
       color: var(--muted);
-      font-weight: 400;
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
     }
 
     .btn-top {
-      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-      color: #fff;
-      padding: 10px 24px;
-      border-radius: 100px;
+      border-radius: var(--radius-full);
+      padding: 8px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      color: #050816;
+      background: linear-gradient(135deg, #00e0ff, #4cf0ff);
+      box-shadow: 0 10px 30px rgba(0, 224, 255, 0.3);
+      cursor: pointer;
       text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      transition: opacity 0.2s;
+      white-space: nowrap;
     }
 
-    .btn-top:hover {
-      opacity: 0.9;
+    main {
+      padding: 22px 20px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
     }
 
-    /* Restlicher Body-Content bleibt exakt wie im Screenshot */
-    h1 {
-      color: #fff;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 24px;
+    main h1 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 22px;
     }
 
     .intro-text {
-      font-size: 16px;
-      font-weight: 300;
-      color: rgba(245, 247, 255, 0.8);
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
       max-width: 800px;
-      margin-bottom: 40px;
     }
 
     h2 {
-      color: #fff;
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-top: 40px;
-      margin-bottom: 16px;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--muted);
     }
 
     .contact-row {
-      background: var(--card-bg);
-      border: var(--border);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
-      max-width: 600px;
+      background: rgba(5, 8, 22, 0.9);
+      border-radius: 12px;
+      border: var(--border-soft);
+      padding: 12px 14px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
     .contact-row .icon {
@@ -158,42 +215,54 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 2px;
+      letter-spacing: 0.06em;
     }
 
     .contact-row div a {
       color: var(--accent);
       text-decoration: none;
-      font-size: 15px;
+      font-size: 14px;
+    }
+
+    .contact-row div a:hover {
+      text-decoration: underline;
     }
 
     .social-wrap {
       display: flex;
-      gap: 12px;
-      margin-top: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      margin-bottom: 8px;
     }
 
     .social-link {
-      background: rgba(255, 255, 255, 0.03);
-      border: var(--border);
-      color: rgba(255,255,255,0.7);
-      padding: 8px 20px;
-      border-radius: 100px;
-      font-size: 13px;
+      background: rgba(5, 8, 22, 0.9);
+      border: var(--border-soft);
+      color: rgba(245, 247, 255, 0.8);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: rgba(0, 224, 255, 0.1);
       text-decoration: none;
     }
 
     .bullet-list {
       list-style: none;
-      margin-bottom: 50px;
+      margin: 0 0 28px;
+      padding: 0;
     }
 
     .bullet-list li {
       position: relative;
-      padding-left: 24px;
-      margin-bottom: 14px;
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(245, 247, 255, 0.8);
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: rgba(245, 247, 255, 0.88);
     }
 
     .bullet-list li::before {
@@ -203,27 +272,25 @@
       left: 6px;
     }
 
-    /* Formular-Bereich */
     .form-box {
-      margin-top: 50px;
-      max-width: 600px;
+      margin-top: 24px;
+      max-width: 640px;
     }
 
     .form-box h3 {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 6px;
+      color: #ffffff;
+      font-size: 18px;
+      margin-bottom: 4px;
     }
 
     .form-desc {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     .field-group {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .field-group label {
@@ -233,101 +300,148 @@
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 6px;
+      letter-spacing: 0.06em;
     }
 
     .field-group input,
     .field-group select,
     .field-group textarea {
       width: 100%;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 6px;
-      padding: 12px;
+      background: rgba(5, 8, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 10px 12px;
       color: #fff;
       font-family: var(--font-sans);
       font-size: 14px;
     }
 
+    .field-group textarea {
+      resize: vertical;
+    }
+
     .fields-inline {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
 
     .submit-button {
       width: 100%;
-      background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-      color: #fff;
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #00e0ff, #4cf0ff);
+      color: #050816;
       border: none;
-      padding: 14px;
-      border-radius: 100px;
+      padding: 12px;
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
+      box-shadow: 0 14px 35px rgba(0, 224, 255, 0.3);
+    }
+
+    .submit-button:hover {
+      filter: brightness(1.03);
     }
 
     .status-msg {
-      margin-top: 12px;
+      margin-top: 10px;
       font-size: 13px;
       text-align: center;
       display: none;
     }
 
-    /* KORRIGIERTER FOOTER: Sauber ausgerichtet, korrekte Abstände und Links funktionstüchtig */
     footer {
-      margin-top: 80px;
-      border-top: var(--border);
-      padding: 24px 0;
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13px;
-      color: var(--muted);
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-left {
-      font-weight: 400;
-    }
-
-    .footer-right {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-right a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-right a:hover {
-      color: var(--accent);
+      flex: 1;
+      min-width: 250px;
     }
 
     @media (max-width: 768px) {
-      header { margin-bottom: 40px; }
-      .brand-sub { display: none; }
-      .fields-inline { grid-template-columns: 1fr; gap: 0; }
-      footer { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-right { gap: 14px; }
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      main {
+        padding: 18px 16px;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .fields-inline {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .footer-links {
+        justify-content: flex-start;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-  <div class="container">
-    
+  <div class="page">
     <header>
       <a href="index.html" class="brand">
-        <img src="BOT_PAPA-removebg.png" alt="BOT PAPA" />
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
         <div>
-          <div class="brand-title">BOT PAPA</div>
-          <div class="brand-sub">KI-Telefonassistenten für KMU</div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
         </div>
       </a>
-      <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-top" target="_blank" rel="noopener">
-        Kostenloses Gespräch
-      </a>
+      <div class="header-right">
+        <div class="header-top-row">
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-top" target="_blank" rel="noopener">
+            Kostenloses Gespräch
+          </a>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -337,7 +451,7 @@
       </p>
 
       <h2>Direkte Kontaktmöglichkeiten</h2>
-      
+
       <div class="contact-row">
         <span class="icon">✉</span>
         <div>
@@ -378,7 +492,7 @@
       <div class="form-box">
         <h3>Kurze Nachricht</h3>
         <div class="form-desc">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
-        
+
         <form id="contact-form">
           <div class="field-group">
             <label for="name">Name</label>
@@ -423,17 +537,21 @@
     </main>
 
     <footer>
-      <div class="footer-left">
-        © 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn
-      </div>
-      <div class="footer-right">
-        <a href="faq-de.html">FAQ</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
+      <div class="footer-content">
+        <div class="footer-left">
+          © 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines
+        </div>
+        <div class="footer-links">
+          <a href="faq-de.html">FAQ</a>
+          <span>•</span>
+          <a href="impressum.html">Impressum</a>
+          <span>•</span>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+          <span>•</span>
+          <a href="agb.html">AGB</a>
+        </div>
       </div>
     </footer>
-
   </div>
 
   <script>
