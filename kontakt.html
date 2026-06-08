@@ -32,7 +32,7 @@
       --bg: #03050d;
       --card-bg: rgba(7, 11, 30, 0.4);
       --header-bg: rgba(7, 11, 30, 0.6);
-      --border: 1px solid rgba(255, 255, 255, 0.05);
+      --border: 1px solid rgba(255, 255, 255, 0.08);
       --accent: #00e0ff;
       --text: #f5f7ff;
       --muted: #64748b;
@@ -50,19 +50,17 @@
       background-color: var(--bg);
       background-image: radial-gradient(circle at top center, #0a0f28 0%, #03050d 80%);
       color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
       padding: 30px 20px;
     }
 
-    .wrapper {
-      max-width: 800px; /* Zentrierte, kompakte Breite wie im Impressum */
+    .container {
+      max-width: 760px; /* Exakte Breite der zentrierten Impressum-Card */
       margin: 0 auto;
       width: 100%;
     }
 
-    /* Glossy Header Pille aus dem Impressum */
+    /* Glossy Header Pille */
     header {
       background: var(--header-bg);
       border: var(--border);
@@ -112,7 +110,6 @@
       text-decoration: none;
       font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.02em;
       transition: opacity 0.2s;
     }
 
@@ -120,23 +117,10 @@
       opacity: 0.9;
     }
 
-    /* Das zentrale Haupt-Paneel (Exakt der Impressum-Card-Style) */
-    .main-card {
-      background: var(--card-bg);
-      border: var(--border);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02), 0 10px 40px rgba(0, 0, 0, 0.2);
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 40px;
-    }
-
     h1 {
       color: #fff;
       font-size: 26px;
       font-weight: 700;
-      letter-spacing: -0.01em;
       margin-bottom: 20px;
     }
 
@@ -144,13 +128,12 @@
       font-size: 14px;
       font-weight: 300;
       color: rgba(245, 247, 255, 0.75);
-      line-height: 1.6;
       margin-bottom: 30px;
     }
 
     h2 {
       color: #fff;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -158,51 +141,51 @@
       margin-bottom: 15px;
     }
 
-    /* Kompakte Kontakt-Reihen */
-    .info-card {
+    /* Kontakt-Listen-Einträge */
+    .contact-row {
       background: rgba(255, 255, 255, 0.02);
       border: var(--border);
       border-radius: 8px;
-      padding: 12px 16px;
+      padding: 14px 18px;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 14px;
     }
 
-    .info-card .icon {
-      font-size: 14px;
+    .contact-row .icon {
       color: var(--accent);
+      font-size: 16px;
+      width: 24px;
     }
 
-    .info-card div label {
+    .contact-row div label {
       display: block;
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
       color: var(--muted);
+      margin-bottom: 2px;
     }
 
-    .info-card div a {
+    .contact-row div a {
       color: var(--accent);
       text-decoration: none;
       font-size: 14px;
-      font-weight: 400;
     }
 
-    .info-card div a:hover {
+    .contact-row div a:hover {
       text-decoration: underline;
     }
 
-    /* Social-Buttons */
-    .social-container {
+    /* Social Links */
+    .social-wrap {
       display: flex;
       gap: 10px;
       margin-top: 15px;
       margin-bottom: 35px;
     }
 
-    .social-btn {
+    .social-link {
       background: rgba(255, 255, 255, 0.03);
       border: var(--border);
       color: rgba(255,255,255,0.7);
@@ -210,21 +193,20 @@
       border-radius: 100px;
       font-size: 12px;
       text-decoration: none;
-      transition: all 0.2s;
     }
 
-    .social-btn:hover {
+    .social-link:hover {
       color: #fff;
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Bullet-Points */
-    .custom-bullets {
+    /* Bullets */
+    .bullet-list {
       list-style: none;
       margin-bottom: 40px;
     }
 
-    .custom-bullets li {
+    .bullet-list li {
       position: relative;
       padding-left: 20px;
       margin-bottom: 12px;
@@ -233,74 +215,75 @@
       color: rgba(245, 247, 255, 0.75);
     }
 
-    .custom-bullets li::before {
+    .bullet-list li::before {
       content: "•";
       color: var(--accent);
       position: absolute;
       left: 4px;
     }
 
-    /* Formular-Bereich nahtlos in der Card integriert */
-    .form-section {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    /* Formular-Bereich */
+    .form-box {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       padding-top: 35px;
       margin-top: 35px;
     }
 
-    .form-section h3 {
+    .form-box h3 {
       color: #fff;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .form-info-text {
+    .form-desc {
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 24px;
     }
 
-    .input-group {
+    .field-group {
       margin-bottom: 18px;
     }
 
-    .input-group label {
+    .field-group label {
       display: block;
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
       color: var(--muted);
       margin-bottom: 6px;
     }
 
-    .input-group input,
-    .input-group select,
-    .input-group textarea {
+    /* Hellere Rahmen & Hintergründe für die Felder gegen das Absaufen */
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
       width: 100%;
-      background: #02040a;
-      border: var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       padding: 12px;
       color: #fff;
       font-family: var(--font-sans);
       font-size: 13px;
+      transition: border-color 0.2s;
     }
 
-    .input-group input:focus,
-    .input-group select:focus,
-    .input-group textarea:focus {
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
       outline: none;
       border-color: var(--accent);
     }
 
-    .row-twin {
+    .fields-inline {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .btn-submit-form {
+    .submit-button {
       width: 100%;
       background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
       color: #fff;
@@ -322,6 +305,7 @@
 
     /* Footer */
     footer {
+      margin-top: 60px;
       border-top: var(--border);
       padding-top: 20px;
       display: flex;
@@ -342,10 +326,9 @@
 
     @media (max-width: 768px) {
       body { padding: 15px 10px; }
-      .main-card { padding: 20px; }
       header { border-radius: 30px; padding: 10px 16px; }
       .brand-sub { display: none; }
-      .row-twin { grid-template-columns: 1fr; gap: 0; }
+      .fields-inline { grid-template-columns: 1fr; gap: 0; }
       footer { flex-direction: column; gap: 10px; text-align: center; }
       footer a { margin: 0 8px; }
     }
@@ -353,7 +336,7 @@
 </head>
 <body>
 
-  <div class="wrapper">
+  <div class="container">
     
     <header>
       <a href="index.html" class="brand">
@@ -368,8 +351,7 @@
       </a>
     </header>
 
-    <main class="main-card">
-      
+    <main>
       <h1>Kontakt zu BOT PAPA</h1>
       <p>
         Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt, geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation – nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
@@ -377,7 +359,7 @@
 
       <h2>Direkte Kontaktmöglichkeiten</h2>
       
-      <div class="info-card">
+      <div class="contact-row">
         <span class="icon">✉</span>
         <div>
           <label>E-Mail</label>
@@ -385,7 +367,7 @@
         </div>
       </div>
 
-      <div class="info-card">
+      <div class="contact-row">
         <span class="icon">📞</span>
         <div>
           <label>Telefon (US-Nummer)</label>
@@ -393,7 +375,7 @@
         </div>
       </div>
 
-      <div class="info-card">
+      <div class="contact-row">
         <span class="icon">📱</span>
         <div>
           <label>Telefon (DACH Mobil)</label>
@@ -401,43 +383,42 @@
         </div>
       </div>
 
-      <div class="social-container">
-        <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
-        <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
-        <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
+      <div class="social-wrap">
+        <a class="social-link" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
+        <a class="social-link" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
+        <a class="social-link" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
       </div>
 
       <h2>Was wir im ersten Gespräch klären</h2>
-      <ul class="custom-bullets">
+      <ul class="bullet-list">
         <li>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</li>
         <li>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</li>
         <li>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</li>
       </ul>
 
-      <!-- Das Formular sitzt jetzt sauber zentriert darunter, genau im selben Container -->
-      <div class="form-section">
+      <div class="form-box">
         <h3>Kurze Nachricht</h3>
-        <div class="form-info-text">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
+        <div class="form-desc">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
         
         <form id="contact-form">
-          <div class="input-group">
+          <div class="field-group">
             <label for="name">Name</label>
             <input id="name" type="text" required placeholder="Ihr Name" />
           </div>
 
-          <div class="row-twin">
-            <div class="input-group">
+          <div class="fields-inline">
+            <div class="field-group">
               <label for="email">E-Mail</label>
               <input id="email" type="email" required placeholder="ihre@mail.de" />
             </div>
-            <div class="input-group">
+            <div class="field-group">
               <label for="business">Betrieb / Gewerk</label>
               <input id="business" type="text" placeholder="z.B. Elektro" />
             </div>
           </div>
 
-          <div class="row-twin">
-            <div class="input-group">
+          <div class="fields-inline">
+            <div class="field-group">
               <label for="country_code">Ländervorwahl</label>
               <select id="country_code" required>
                 <option value="+49">🇩🇪 +49 DE</option>
@@ -445,22 +426,21 @@
                 <option value="+41">🇨🇭 +41 CH</option>
               </select>
             </div>
-            <div class="input-group">
+            <div class="field-group">
               <label for="phone_number">Telefonnummer</label>
               <input id="phone_number" type="text" placeholder="123456" />
             </div>
           </div>
 
-          <div class="input-group">
+          <div class="field-group">
             <label for="message">Was möchten Sie klären?</label>
             <textarea id="message" required rows="4" placeholder="Ein bis zwei Sätze genügen."></textarea>
           </div>
 
-          <button type="submit" class="btn-submit-form">Anfrage senden</button>
+          <button type="submit" class="submit-button">Anfrage senden</button>
           <div id="status" class="status-msg"></div>
         </form>
       </div>
-
     </main>
 
     <footer>
