@@ -32,7 +32,7 @@
       --bg: #03050d;
       --card-bg: rgba(7, 11, 30, 0.4);
       --header-bg: rgba(7, 11, 30, 0.6);
-      --border: 1px solid rgba(255, 255, 255, 0.08);
+      --border: 1px solid rgba(255, 255, 255, 0.05);
       --accent: #00e0ff;
       --text: #f5f7ff;
       --muted: #64748b;
@@ -50,12 +50,14 @@
       background-color: var(--bg);
       background-image: radial-gradient(circle at top center, #0a0f28 0%, #03050d 80%);
       color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       line-height: 1.6;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
-    .container {
-      max-width: 760px; /* Exakte Breite der zentrierten Impressum-Card */
+    .wrapper {
+      max-width: 800px; /* Kompakte Breite exakt wie das Impressum */
       margin: 0 auto;
       width: 100%;
     }
@@ -110,6 +112,7 @@
       text-decoration: none;
       font-size: 12px;
       font-weight: 700;
+      letter-spacing: 0.02em;
       transition: opacity 0.2s;
     }
 
@@ -117,10 +120,23 @@
       opacity: 0.9;
     }
 
+    /* Die zentrale Haupt-Card exakt aus dem Impressum-Design */
+    .main-card {
+      background: var(--card-bg);
+      border: var(--border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02), 0 10px 40px rgba(0, 0, 0, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+
     h1 {
       color: #fff;
       font-size: 26px;
       font-weight: 700;
+      letter-spacing: -0.01em;
       margin-bottom: 20px;
     }
 
@@ -128,12 +144,13 @@
       font-size: 14px;
       font-weight: 300;
       color: rgba(245, 247, 255, 0.75);
+      line-height: 1.6;
       margin-bottom: 30px;
     }
 
     h2 {
       color: #fff;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -141,51 +158,36 @@
       margin-bottom: 15px;
     }
 
-    /* Kontakt-Listen-Einträge */
-    .contact-row {
-      background: rgba(255, 255, 255, 0.02);
-      border: var(--border);
-      border-radius: 8px;
-      padding: 14px 18px;
+    /* Kontakt-Links im Stil des Impressums */
+    .info-item {
       margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .contact-row .icon {
-      color: var(--accent);
-      font-size: 16px;
-      width: 24px;
-    }
-
-    .contact-row div label {
-      display: block;
-      font-size: 10px;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-
-    .contact-row div a {
-      color: var(--accent);
-      text-decoration: none;
       font-size: 14px;
     }
 
-    .contact-row div a:hover {
+    .info-item label {
+      display: inline-block;
+      width: 160px;
+      color: var(--muted);
+    }
+
+    .info-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .info-item a:hover {
       text-decoration: underline;
     }
 
-    /* Social Links */
-    .social-wrap {
+    /* Social-Buttons */
+    .social-container {
       display: flex;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 20px;
       margin-bottom: 35px;
     }
 
-    .social-link {
+    .social-btn {
       background: rgba(255, 255, 255, 0.03);
       border: var(--border);
       color: rgba(255,255,255,0.7);
@@ -193,20 +195,21 @@
       border-radius: 100px;
       font-size: 12px;
       text-decoration: none;
+      transition: all 0.2s;
     }
 
-    .social-link:hover {
+    .social-btn:hover {
       color: #fff;
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Bullets */
-    .bullet-list {
+    /* Bullet-Points */
+    .custom-bullets {
       list-style: none;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
-    .bullet-list li {
+    .custom-bullets li {
       position: relative;
       padding-left: 20px;
       margin-bottom: 12px;
@@ -215,52 +218,53 @@
       color: rgba(245, 247, 255, 0.75);
     }
 
-    .bullet-list li::before {
+    .custom-bullets li::before {
       content: "•";
       color: var(--accent);
       position: absolute;
       left: 4px;
     }
 
-    /* Formular-Bereich */
-    .form-box {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Formular-Trennlinie und Container */
+    .form-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding-top: 35px;
-      margin-top: 35px;
+      margin-top: 45px;
     }
 
-    .form-box h3 {
+    .form-section h3 {
       color: #fff;
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .form-desc {
+    .form-info-text {
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 24px;
     }
 
-    .field-group {
+    .input-group {
       margin-bottom: 18px;
     }
 
-    .field-group label {
+    .input-group label {
       display: block;
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
+      letter-spacing: 0.03em;
       color: var(--muted);
       margin-bottom: 6px;
     }
 
-    /* Hellere Rahmen & Hintergründe für die Felder gegen das Absaufen */
-    .field-group input,
-    .field-group select,
-    .field-group textarea {
+    /* Eingabefelder mit sichtbarem Rahmen, damit nichts im dunklen Hintergrund absäuft */
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
       width: 100%;
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 6px;
       padding: 12px;
@@ -270,20 +274,20 @@
       transition: border-color 0.2s;
     }
 
-    .field-group input:focus,
-    .field-group select:focus,
-    .field-group textarea:focus {
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
       outline: none;
       border-color: var(--accent);
     }
 
-    .fields-inline {
+    .row-twin {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .submit-button {
+    .btn-submit-form {
       width: 100%;
       background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
       color: #fff;
@@ -294,6 +298,11 @@
       font-weight: 700;
       cursor: pointer;
       margin-top: 10px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-submit-form:hover {
+      opacity: 0.9;
     }
 
     .status-msg {
@@ -305,7 +314,6 @@
 
     /* Footer */
     footer {
-      margin-top: 60px;
       border-top: var(--border);
       padding-top: 20px;
       display: flex;
@@ -325,10 +333,12 @@
     }
 
     @media (max-width: 768px) {
-      body { padding: 15px 10px; }
+      body { padding: 20px 12px; }
+      .main-card { padding: 24px; }
       header { border-radius: 30px; padding: 10px 16px; }
       .brand-sub { display: none; }
-      .fields-inline { grid-template-columns: 1fr; gap: 0; }
+      .info-item label { display: block; margin-bottom: 2px; }
+      .row-twin { grid-template-columns: 1fr; gap: 0; }
       footer { flex-direction: column; gap: 10px; text-align: center; }
       footer a { margin: 0 8px; }
     }
@@ -336,7 +346,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="wrapper">
     
     <header>
       <a href="index.html" class="brand">
@@ -351,7 +361,8 @@
       </a>
     </header>
 
-    <main>
+    <main class="main-card">
+      
       <h1>Kontakt zu BOT PAPA</h1>
       <p>
         Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt, geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation – nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
@@ -359,66 +370,58 @@
 
       <h2>Direkte Kontaktmöglichkeiten</h2>
       
-      <div class="contact-row">
-        <span class="icon">✉</span>
-        <div>
-          <label>E-Mail</label>
-          <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
-        </div>
+      <div class="info-item">
+        <label>E-Mail:</label>
+        <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
       </div>
 
-      <div class="contact-row">
-        <span class="icon">📞</span>
-        <div>
-          <label>Telefon (US-Nummer)</label>
-          <a href="tel:+16288959439">+1 628 895 9439</a>
-        </div>
+      <div class="info-item">
+        <label>Telefon (US-Nummer):</label>
+        <a href="tel:+16288959439">+1 628 895 9439</a>
       </div>
 
-      <div class="contact-row">
-        <span class="icon">📱</span>
-        <div>
-          <label>Telefon (DACH Mobil)</label>
-          <a href="tel:+491743282867">+49 174 3282867</a>
-        </div>
+      <div class="info-item">
+        <label>Telefon (DACH Mobil):</label>
+        <a href="tel:+491743282867">+49 174 3282867</a>
       </div>
 
-      <div class="social-wrap">
-        <a class="social-link" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
-        <a class="social-link" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
-        <a class="social-link" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
+      <div class="social-container">
+        <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
+        <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
+        <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
       </div>
 
       <h2>Was wir im ersten Gespräch klären</h2>
-      <ul class="bullet-list">
+      <ul class="custom-bullets">
         <li>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</li>
         <li>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</li>
         <li>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</li>
       </ul>
 
-      <div class="form-box">
+      <!-- Formular nahtlos integriert innerhalb des Hauptcontainers -->
+      <div class="form-section">
         <h3>Kurze Nachricht</h3>
-        <div class="form-desc">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
+        <div class="form-info-text">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
         
         <form id="contact-form">
-          <div class="field-group">
+          <div class="input-group">
             <label for="name">Name</label>
             <input id="name" type="text" required placeholder="Ihr Name" />
           </div>
 
-          <div class="fields-inline">
-            <div class="field-group">
+          <div class="row-twin">
+            <div class="input-group">
               <label for="email">E-Mail</label>
               <input id="email" type="email" required placeholder="ihre@mail.de" />
             </div>
-            <div class="field-group">
+            <div class="input-group">
               <label for="business">Betrieb / Gewerk</label>
               <input id="business" type="text" placeholder="z.B. Elektro" />
             </div>
           </div>
 
-          <div class="fields-inline">
-            <div class="field-group">
+          <div class="row-twin">
+            <div class="input-group">
               <label for="country_code">Ländervorwahl</label>
               <select id="country_code" required>
                 <option value="+49">🇩🇪 +49 DE</option>
@@ -426,21 +429,22 @@
                 <option value="+41">🇨🇭 +41 CH</option>
               </select>
             </div>
-            <div class="field-group">
+            <div class="input-group">
               <label for="phone_number">Telefonnummer</label>
               <input id="phone_number" type="text" placeholder="123456" />
             </div>
           </div>
 
-          <div class="field-group">
+          <div class="input-group">
             <label for="message">Was möchten Sie klären?</label>
             <textarea id="message" required rows="4" placeholder="Ein bis zwei Sätze genügen."></textarea>
           </div>
 
-          <button type="submit" class="submit-button">Anfrage senden</button>
+          <button type="submit" class="btn-submit-form">Anfrage senden</button>
           <div id="status" class="status-msg"></div>
         </form>
       </div>
+
     </main>
 
     <footer>
