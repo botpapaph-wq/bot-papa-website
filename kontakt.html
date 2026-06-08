@@ -6,9 +6,21 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ – BOT PAPA KI‑Telefonassistent</title>
-  <meta name="description" content="Häufige Fragen zu BOT PAPA: KI-Telefonassistent für Handwerksbetriebe und Dienstleister in der DACH-Region – Kosten, Technik, Datenschutz und Einsatzbereiche." />
+  <title>Kontakt – BOT PAPA KI-Telefonempfang</title>
+  <meta name="description" content="Kontaktiere BOT PAPA für maßgeschneiderte KI-Telefonempfänger für Handwerk und Dienstleistungen. Kurze, fokussierte Gespräche statt endlose Verkaufspräsentationen." />
 
+  <script>
+    (function(d, w, c) {
+        w.BrevoConversationsID = '6a03e269574bc2e3ed063a39';
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+  </script>
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -17,7 +29,9 @@
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
-       crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
 
   <style>
     :root {
@@ -49,6 +63,7 @@
     a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
     a:hover {
       text-decoration: underline;
@@ -58,6 +73,9 @@
       max-width: 1120px;
       margin: 0 auto;
       padding: 24px 20px 64px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -65,8 +83,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 10px 16px 12px;
-      margin-bottom: 32px;
+      padding: 10px 24px;
+      margin-bottom: 48px;
       border-radius: var(--radius-full);
       border: var(--border-soft);
       background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
@@ -80,17 +98,12 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 18px;
-      text-decoration: none !important;
-    }
-
-    .brand:hover {
-      text-decoration: none !important;
+      gap: 16px;
     }
 
     .brand-mark {
-      width: 80px;
-      height: 80px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -98,6 +111,7 @@
       justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(0, 224, 255, 0.2);
     }
 
     .brand-mark img {
@@ -111,7 +125,7 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text);
     }
 
@@ -120,293 +134,576 @@
       color: var(--muted);
     }
 
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 10px 20px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 224, 255, 0.4);
+      text-decoration: none;
+    }
+
     main {
-      padding: 22px 20px;
-      border-radius: var(--radius-lg);
-      border: var(--border-soft);
-      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
-      box-shadow: var(--shadow-soft);
-      font-size: 14px;
+      display: grid;
+      gap: 48px;
+      grid-template-columns: 1fr 440px;
+      align-items: start;
+      flex: 1;
     }
 
-    main h1 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      font-size: 22px;
+    @media (max-width: 900px) {
+      header {
+        border-radius: 24px;
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+      }
+      .brand {
+        flex-direction: column;
+        gap: 8px;
+      }
+      main {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
     }
 
-    .faq-item {
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .faq-item:last-of-type {
-      border-bottom: none;
-      padding-bottom: 0;
+    .section h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+      background: linear-gradient(135deg, #fff 30%, var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .faq-item h2 {
-      margin: 0 0 6px;
+    .section h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 16px 0 4px;
+      color: #fff;
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .section p {
       font-size: 16px;
+      line-height: 1.6;
+      color: rgba(245, 247, 255, 0.8);
+      margin: 0;
     }
 
-    .faq-item p {
-      margin: 0 0 6px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .faq-item ul {
-      margin: 0 0 8px 18px;
+    .contact-list {
+      list-style: none;
       padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-list li {
+      font-size: 15px;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .contact-list li .icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 12px;
+      margin: 8px 0 16px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: rgba(255, 255, 255, 0.03);
       color: var(--muted);
       font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      background: rgba(0, 224, 255, 0.08);
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .form-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+      border: var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-card h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 24px;
+      line-height: 1.5;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-group label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: var(--border-soft);
+      background: rgba(5, 8, 22, 0.7);
+      color: var(--text);
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+    }
+
+    .field-group input:focus,
+    .field-group select:focus,
+    .field-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(5, 8, 22, 0.9);
+      box-shadow: 0 0 0 4px rgba(0, 224, 255, 0.15);
+    }
+
+    .field-group input::placeholder,
+    .field-group textarea::placeholder {
+      color: rgba(245, 247, 255, 0.35);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-form {
+      width: 100%;
+      border-radius: var(--radius-full);
+      padding: 14px 28px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0, 224, 255, 0.35);
+    }
+
+    .btn-form:active {
+      transform: translateY(0);
+    }
+
+    .status-message {
+      font-size: 13px;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 12px;
+      text-align: center;
+      display: none;
+      line-height: 1.4;
+    }
+
+    .status-message:not(:empty) {
+      display: block;
+    }
+
+    .status-message.ok {
+      background: rgba(0, 224, 255, 0.12);
+      color: #00e0ff;
+      border: 1px solid rgba(0, 224, 255, 0.25);
+    }
+
+    .status-message.err {
+      background: rgba(255, 75, 107, 0.12);
+      color: #ff8899;
+      border: 1px solid rgba(255, 75, 107, 0.25);
     }
 
     footer {
-      margin-top: 28px;
-      padding-top: 16px;
+      margin-top: 64px;
+      padding: 24px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 11px;
-      color: var(--muted);
+    }
+
+    .footer-content {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer-left {
+      line-height: 1.5;
     }
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      gap: 16px;
+      white-space: nowrap;
     }
 
-    .footer-links a {
+    footer a {
       color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
     @media (max-width: 768px) {
-      header {
-        position: static;
-        border-radius: 14px;
-        padding: 10px 12px;
-      }
-      main {
-        padding: 18px 16px;
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
       }
       .footer-links {
-        justify-content: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
   <div class="page">
     <header>
       <a href="index.html" class="brand">
         <div class="brand-mark">
-          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">KI-Telefonassistenten für KMU</div>
         </div>
+      </a>
+      <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+        Kostenloses 20‑min Gespräch 
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
     </header>
 
     <main>
-      <h1>Häufige Fragen (FAQ)</h1>
-
-      <div class="faq-item">
-        <h2>Für wen ist BOT PAPA gedacht?</h2>
+      <section class="section">
+        <h1>Kontakt zu BOT PAPA</h1>
         <p>
-          BOT PAPA richtet sich an Handwerksbetriebe und dienstleistende Selbstständige in der DACH‑Region,
-          die tagsüber meist auf Baustellen, beim Kunden oder im Studio sind und trotzdem erreichbar
-          bleiben müssen.
+          Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt,
+          geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation –
+          nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
         </p>
-        <p>
-          Typische Beispiele: Maler, Dachdecker, Installateure, Schlosser, kleinere Servicebetriebe,
-          Coaches und Personal Trainer. Kanzleien und Arztpraxen gehören bewusst nicht zu meinem Fokus.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Was kostet der Einstieg?</h2>
-        <p>
-          Der erste Schritt ist ein kompakter Einstiegsleitfaden als PDF. Er kostet 2,99&nbsp;USD –
-          nicht als „Produktpreis“, sondern als Handling‑ und Versandpauschale für die Abwicklung.
-        </p>
-        <p>
-          Das Basis‑Setup eines individuellen KI‑Telefonassistenten (3 Stunden) kostet 299&nbsp;EUR
-          pauschal. Jede zusätzliche Stunde, die aufgrund von nachträglichen Wünschen oder Zusatzumfang
-          anfällt, berechne ich mit 49&nbsp;EUR.
-        </p>
-        <p>
-          Für die laufende Wartung und kleinere Änderungen gibt es einen Wartungsvertrag:
-          49&nbsp;EUR pro Monat, unabhängig davon, ob im jeweiligen Monat Änderungen anfallen oder nicht
-          – monatlich kündbar.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Was ist im 3‑Stunden‑Setup enthalten?</h2>
-        <p>Im Basis‑Setup sind in der Regel enthalten:</p>
-        <ul>
-          <li>eine kurze Bedarfsanalyse,</li>
-          <li>das Prompting eines individuellen Verhaltens‑Prompts für Ihren Sprachassistenten,</li>
-          <li>Einpflegen Ihrer wichtigsten Wissensquellen (Leistungen, Ablauf, Standort, Öffnungszeiten),</li>
-          <li>Backend‑Setup wie SMS‑ und/oder E‑Mail‑Benachrichtigungen, Weiterleitungen und Grundlogik.</li>
+        
+        <h2>Direkte Kontaktmöglichkeiten</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="icon">✉</span>
+            <div>
+              <strong>E-Mail:</strong><br>
+              <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📞</span>
+            <div>
+              <strong>Telefon (US-Nummer):</strong><br>
+              <a href="tel:+16288959439">+1‑628‑895‑9439</a>
+            </div>
+          </li>
+          <li>
+            <span class="icon">📱</span>
+            <div>
+              <strong>Telefon (DACH Mobil):</strong><br>
+              <a href="tel:+491743282867">+49‑174‑3282867</a>
+            </div>
+          </li>
         </ul>
-        <p>
-          Ziel ist ein Assistent, der in Ihrem Ton begrüßt, Anrufe strukturiert annimmt und
-          Rückruf‑fertige Notizen erzeugt – ohne Hype, dafür praxistauglich.
-        </p>
-      </div>
 
-      <div class="faq-item">
-        <h2>Welche Telefonanlagen werden unterstützt?</h2>
-        <p>
-          Für die DACH‑Region arbeite ich in erster Linie mit Placetel. Wenn Sie kein Placetel nutzen,
-          ist der erste Schritt meist ein Anbieterwechsel dorthin – dabei unterstütze ich Sie.
-        </p>
-        <p>
-          Alternativ kann ich auch Setups mit Telnyx begleiten. Ich verkaufe keine eigenen Telefonanlagen,
-          sondern konzipiere und betreue maßgeschneiderte KI‑Sprachassistenten auf bestehenden Systemen.
-        </p>
-      </div>
+        <div class="social-buttons">
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h3v-9h4.5l.5-3H12V6c0-.5.5-1 1-1h3V2h-4c-2.5 0-4 1.5-4 4v2z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2c-.3-1.1-1.1-2-2.2-2.3C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.3.4c-1.1.3-1.9 1.2-2.2 2.3C.1 8.1 0 12 0 12s.1 3.9.4 5.8c.3 1.1 1.1 2 2.2 2.3 1.9.4 9.3.4 9.3.4s7.4 0 9.3-.4c1.1-.3 1.9-1.2 2.2-2.3.3-1.9.4-5.8.4-5.8s-.1-3.9-.4-5.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523 2.528 2.528 0 0 1-2.522-2.523 2.528 2.528 0 0 1 2.522-2.52h2.52v2.52zm1.261 0a2.528 2.528 0 0 1 2.52-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.042a2.528 2.528 0 0 1-2.522 2.52H8.823a2.528 2.528 0 0 1-2.52-2.52v-5.042zM8.823 5.043a2.528 2.528 0 0 1-2.52-2.52 2.528 2.528 0 0 1 2.52-2.522 2.528 2.528 0 0 1 2.522 2.522v2.52h-2.522zm0 1.261a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.522H3.781a2.528 2.528 0 0 1-2.522-2.522V8.824a2.528 2.528 0 0 1 2.522-2.52h5.042zm10.135 3.761a2.528 2.528 0 0 1 2.522-2.52 2.528 2.528 0 0 1 2.52 2.52v2.522h-2.52a2.528 2.528 0 0 1-2.522-2.522zm-1.262 0a2.528 2.528 0 0 1-2.52 2.522H10.13a2.528 2.528 0 0 1-2.52-2.522V3.781a2.528 2.528 0 0 1 2.52-2.522h5.043a2.528 2.528 0 0 1 2.52 2.522v5.043zm-3.76 10.134a2.528 2.528 0 0 1 2.52 2.522 2.528 2.528 0 0 1-2.52 2.52 2.528 2.528 0 0 1-2.522-2.52v-2.522h2.522zm0-1.261a2.528 2.528 0 0 1-2.522-2.52v-5.043a2.528 2.528 0 0 1 2.522-2.52h5.043a2.528 2.528 0 0 1 2.522 2.52v5.043a2.528 2.528 0 0 1-2.522 2.52h-5.043z"/></svg>
+            <span>Slack</span>
+          </a>
+        </div>
 
-      <div class="faq-item">
-        <h2>Verkaufst du eine „eigene“ KI wie Placetel AI?</h2>
-        <p>
-          Nein. Placetel AI ist ein eigenes Produkt von Placetel, das direkt als KI‑Telefonassistent in
-          die Placetel‑Plattform integriert ist. Es kann Termine buchen, Anfragen qualifizieren und
-          Vorgänge direkt in angebundene Systeme weiterführen.
-        </p>
-        <p>
-          BOT PAPA baut auf solchen Plattformen auf, übersetzt Ihr Geschäft in klare Gesprächslogik
-          und kümmert sich um die individuelle Einrichtung, Anpassung und laufende Pflege – speziell
-          für kleinere Betriebe, die das nicht „nebenbei“ stemmen wollen.
-        </p>
-      </div>
+        <h2>Was wir im ersten Gespräch klären</h2>
+        <p>In den meisten Erstgesprächen gehen wir drei Punkte durch:</p>
+        <ul class="contact-list">
+          <li><span class="icon">▸</span> <span>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</span></li>
+          <li><span class="icon">▸</span> <span>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</span></li>
+          <li><span class="icon">▸</span> <span>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</span></li>
+        </ul>
+      </section>
 
-      <div class="faq-item">
-        <h2>Klingt das nicht unpersönlich?</h2>
-        <p>
-          Ein KI‑Assistent ersetzt keine Inhaberin und keinen Meister am Telefon. Er sorgt aber dafür,
-          dass Interessenten überhaupt eine Antwort bekommen, statt dauerhaft auf dem Anrufbeantworter
-          zu landen oder gar nicht durchzukommen.
+      <aside class="form-card">
+        <h2>Kurze Nachricht</h2>
+        <p class="form-note">
+          Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam –
+          nur eine Möglichkeit, Sie mit etwas Konkretem zu kontaktieren.
         </p>
-        <p>
-          Die Sprache wird bewusst natürlich gehalten, ohne Marketing‑Floskeln. Der Assistent stellt sich
-          klar als KI‑Empfang vor und versucht nicht, einen Menschen zu „spielen“.
-        </p>
-      </div>
+        <form id="contact-form">
+          <div class="field-group">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" placeholder="Ihr Name" required />
+          </div>
 
-      <div class="faq-item">
-        <h2>Versteht der Assistent meine Kundschaft wirklich?</h2>
-        <p>
-          Der Assistent nutzt moderne Sprachmodelle und ist darauf ausgelegt, normale Alltags‑Sprache
-          zu verstehen – inklusive „Baustellen‑Deutsch“ und unverblümten Formulierungen.
-        </p>
-        <p>
-          Ich arbeite mit realen Gesprächsbeispielen und passe den Prompt so an, dass typische Anfragen
-          aus Ihrem Gewerk sauber erfasst und strukturiert werden. Wenn etwas nicht verstanden wird,
-          wird offen nachgefragt – statt zu raten.
-        </p>
-      </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="email">E-Mail</label>
+              <input id="email" type="email" name="email" placeholder="ihre-e-mail@beispiel.de" required />
+            </div>
+            <div class="field-group">
+              <label for="business">Betrieb / Gewerk</label>
+              <input id="business" type="text" name="business" placeholder="z.B. Elektro, Klempner" />
+            </div>
+          </div>
 
-      <div class="faq-item">
-        <h2>Was passiert mit den Anrufen und Daten?</h2>
-        <p>
-          Technisch können Gespräche aufgezeichnet und Transkripte erstellt werden – ob das genutzt wird,
-          häng von Ihrem Wunsch und von den rechtlichen Rahmenbedingungen in Ihrem Land ab.
-        </p>
-        <p>
-          Grundsätzlich gilt: Für die rechtssichere Gestaltung Ihrer Ansagen, Einwilligungen und Hinweise
-          an Anruferinnen und Anrufer sind Sie als Betreiber selbst verantwortlich. Ich unterstütze mit
-          praxisnahen Formulierungen, ersetze aber keine Rechtsberatung.
-        </p>
-      </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="country_code">Ländervorwahl</label>
+              <select id="country_code" name="country_code" required>
+                <option value="" disabled selected>Wählen Sie Ihre Vorwahl</option>
+                <option value="+49">🇩🇪 +49 Deutschland</option>
+                <option value="+43">🇦🇹 +43 Österreich</option>
+                <option value="+41">🇨🇭 +41 Schweiz</option>
+                <option value="+32">🇧🇪 +32 Belgien</option>
+                <option value="+359">🇧🇬 +359 Bulgarien</option>
+                <option value="+385">🇭🇷 +385 Kroatien</option>
+                <option value="+357">🇨🇾 +357 Zypern</option>
+                <option value="+420">🇨zechia +420 Tschechien</option>
+                <option value="+45">🇩🇰 +45 Dänemark</option>
+                <option value="+372">🇪🇪 +372 Estland</option>
+                <option value="+358">🇫🇮 +358 Finnland</option>
+                <option value="+33">🇫🇷 +33 Frankreich</option>
+                <option value="+30">🇬🇷 +30 Griechenland</option>
+                <option value="+36">🇭🇺 +36 Ungarn</option>
+                <option value="+353">🇮🇪 +353 Irland</option>
+                <option value="+39">🇮🇹 +39 Italien</option>
+                <option value="+371">🇱🇻 +371 Lettland</option>
+                <option value="+370">🇱🇹 +370 Litauen</option>
+                <option value="+352">🇱🇺 +352 Luxemburg</option>
+                <option value="+356">🇲🇹 +356 Malta</option>
+                <option value="+31">🇳🇱 +31 Niederlande</option>
+                <option value="+48">🇵🇱 +48 Polen</option>
+                <option value="+351">🇵🇹 +351 Portugal</option>
+                <option value="+40">🇷🇴 +40 Rumänien</option>
+                <option value="+421">🇸🇰 +421 Slowakei</option>
+                <option value="+386">🇸🇮 +386 Slowenien</option>
+                <option value="+34">🇪🇸 +34 Spanien</option>
+                <option value="+46">🇸🇪 +46 Schweden</option>
+                <option value="+1">🇺🇸 +1 USA</option>
+                <option value="+1">🇨🇦 +1 Kanada</option>
+                <option value="+44">🇬🇧 +44 UK</option>
+                <option value="+61">🇦🇺 +61 Australien</option>
+                <option value="+64">🇳🇿 +64 Neuseeland</option>
+                <option value="+65">🇸🇬 +65 Singapur</option>
+                <option value="+91">🇮🇳 +91 Indien</option>
+                <option value="+63">🇵🇭 +63 Philippinen</option>
+                <option value="+27">🇿🇦 +27 Südafrika</option>
+                <option value="+971">🇦🇪 +971 VAE</option>
+                <option value="+47">🇳ウォー +47 Norwegen</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="phone_number">Telefonnummer</label>
+              <input id="phone_number" type="text" name="phone_number" placeholder="123 456 789" />
+            </div>
+          </div>
 
-      <div class="faq-item">
-        <h2>Ist das rechtlich überhaupt erlaubt?</h2>
-        <p>
-          Der Einsatz eines KI‑Telefonassistenten ist grundsätzlich zulässig, wenn Sie Transparenz wahren,
-          eine passende Rechtsgrundlage für die Verarbeitung der Daten haben und mit Ihren Anbietern
-          sauber arbeiten (z.B. Auftragsverarbeitungsverträge, DSGVO‑Konformität).
-        </p>
-        <p>
-          Wichtige Themen sind u.a. Information der Anrufer, Umgang mit Mitschnitten und die Wahl
-          der verwendeten Dienste. Wo es um konkrete Rechtsfragen geht, sollten Sie immer Ihre
-          Steuer‑ oder Rechtsberatung einbeziehen.
-        </p>
-      </div>
+          <div class="field-group">
+            <label for="message">Was möchten Sie klären?</label>
+            <textarea id="message" name="message" placeholder="Ein bis zwei Sätze genügen." required></textarea>
+          </div>
 
-      <div class="faq-item">
-        <h2>Was kann der Assistent ausdrücklich nicht?</h2>
-        <p>
-          Der Assistent macht keine Rechts‑ oder Steuerberatung und trifft keine verbindlichen
-          medizinischen Aussagen. Solche Themen müssen immer von qualifizierten Menschen übernommen
-          werden.
-        </p>
-        <p>
-          Notfälle, medizinische Anliegen, rechtliche Fragen oder eskalierte Beschwerden sollten
-          entweder gar nicht von der KI beantwortet oder sehr schnell an einen Menschen
-          weitergereicht werden – das berücksichtige ich bei der Gestaltung der Gesprächslogik.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Wann lohnt sich BOT PAPA eher nicht?</h2>
-        <p>
-          Wenn Sie nur wenige Anrufe pro Woche bekommen, die Sie problemlos selbst oder mit einem
-          klassischen Anrufbeantworter abfangen, lohnt ein KI‑Empfang meist nicht.
-        </p>
-        <p>
-          Spannend wird es dort, wo regelmäßig Anrufe reinkommen, Sie aber zwischen Gerüst, Baustelle
-          und Kundenterminen schlicht nicht jeden Anruf persönlich annehmen können – und trotzdem
-          nichts liegen lassen wollen.
-        </p>
-      </div>
-
-      <div class="faq-item">
-        <h2>Wie starte ich am besten?</h2>
-        <p>
-          Der einfachste Einstieg ist ein kurzes, fokussiertes Erstgespräch. Wir schauen uns Ihre
-          aktuelle Telefonanlage, typische Anruf‑Situationen und sinnvolle Aufgaben für den
-          Assistenten an – ohne Verkaufsdruck.
-        </p>
-        <p>
-          Wenn das für beide Seiten passt, folgt der Einstiegsleitfaden und danach das 3‑Stunden‑Setup
-          für Ihren ersten produktiven Bot.
-        </p>
-      </div>
+          <button type="submit" class="btn-form">
+            Anfrage senden
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </button>
+          <div id="status" class="status-message"></div>
+        </form>
+      </aside>
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines</div>
-      <div><a href="https://www.bot-papa.online" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">www.bot-papa.online</a></div>
-      <div class="footer-links">
-        <a href="faq-de.html">FAQ</a>
-        <span>•</span>
-        <a href="impressum.html">Impressum</a>
-        <span>•</span>
-        <a href="datenschutz.html">Datenschutzerklärung</a>
-        <span>•</span>
-        <a href="agb.html">AGB</a>
+      <div class="footer-content">
+        <div class="footer-left">
+          © 2026 BOT PAPA – in Kooperation mit Haus iT Service und Vertrieb, Paderborn – made with love ❤️ in Davao City, Philippines
+        </div>
+        <div class="footer-links">
+          <a href="faq-de.html">FAQ</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
+        </div>
       </div>
     </footer>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
+      const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
+
+      const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('status');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        statusEl.textContent = 'Wird gesendet...';
+        statusEl.className = 'status-message';
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const business = document.getElementById('business').value.trim();
+        const countryCode = document.getElementById('country_code').value;
+        const phoneNumber = document.getElementById('phone_number').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        try {
+          const { error } = await supabaseClient
+            .from('contact_requests_simple')
+            .insert([{
+              name,
+              email,
+              business,
+              country_code: countryCode,
+              phone_number: phoneNumber,
+              message,
+              source: 'kontakt_seite'
+            }]);
+
+          if (error) {
+            console.error(error);
+            statusEl.textContent = 'Fehler: ' + (error.message || 'Unbekannter Fehler');
+            statusEl.className = 'status-message err';
+            return;
+          }
+
+          form.reset();
+          statusEl.textContent = 'Vielen Dank! Ihre Nachricht wurde gespeichert. Ich melde mich bald bei Ihnen.';
+          statusEl.className = 'status-message ok';
+          
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 2000);
+        } catch (e) {
+          console.error(e);
+          statusEl.textContent = 'Fehler beim Versenden. Bitte versuchen Sie es später erneut.';
+          statusEl.className = 'status-message err';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
