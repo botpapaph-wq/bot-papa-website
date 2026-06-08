@@ -379,7 +379,7 @@
 <body>
   <div class="page">
     <header>
-      <div class="brand">
+      <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
@@ -387,17 +387,7 @@
           <div class="brand-text-title">BOT PAPA</div>
           <div class="brand-text-sub">KI-Telefonassistenten für kleine Unternehmen</div>
         </div>
-      </div>
-      <div class="header-right">
-        <div class="header-top-row">
-          <div class="pill">
-            Erhebungsformular • KI-Telefonassistent
-          </div>
-          <a href="index" class="btn-primary">
-            Zurück zur Startseite <span>↗</span>
-          </a>
-        </div>
-      </div>
+      </a>
     </header>
 
     <main>
