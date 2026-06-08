@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BOT PAPA – Leitfaden Sichern</title>
+  <title>BOT PAPA – Shop</title>
 
   <!-- PayPal SDK mit Hosted-Buttons Komponente -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAaUDTfNEIPeNp8wDoVRgJswyZNoUH4veEpxbuEl51kZ-xlgBAlEOrBtrz7G3U5_GEhdz8KKI-gzl_W68&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
@@ -19,14 +19,12 @@
   
   <style>
     :root {
-      --bg: #050816;
-      --accent: #00e0ff;
-      --text: #f5f7ff;
-      --muted: #a3aac2;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-      --radius-lg: 18px;
-      --radius-full: 999px;
-      --border-soft: 1px solid rgba(255, 255, 255, 0.08);
+      --bg: #030611;
+      --card-bg: #070c24;
+      --accent: #00a3ff;
+      --text: #ffffff;
+      --muted: #7882a4;
+      --border: 1px solid rgba(255, 255, 255, 0.05);
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
@@ -34,228 +32,433 @@
     body {
       margin: 0;
       font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      background-color: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px;
     }
 
-    .page {
-      max-width: 600px;
+    .container {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 20px;
     }
 
+    /* Top Navigation Header */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 16px;
-      margin-bottom: 32px;
-      border-radius: var(--radius-full);
-      border: var(--border-soft);
-      background: rgba(0, 224, 255, 0.05);
-      backdrop-filter: blur(16px);
+      background: rgba(7, 12, 36, 0.7);
+      backdrop-filter: blur(12px);
+      border: var(--border);
+      border-radius: 99px;
+      padding: 12px 24px;
+      margin-bottom: 40px;
     }
 
-    .brand-link {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .brand-mark {
-      width: 50px;
-      height: 50px;
+    .brand img {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: #ffffff;
-      overflow: hidden;
+      background: #fff;
     }
 
-    .brand-mark img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .brand-text-title {
+    .brand-info .title {
       font-weight: 700;
       font-size: 14px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
     }
 
-    .card {
+    .brand-info .sub {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .btn-call {
+      background: #00a3ff;
+      color: #000;
+      padding: 8px 16px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    /* Main Section Style */
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* Drei-Spalten-Grid für Produkte */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: var(--border);
+      border-radius: 12px;
       padding: 24px;
-      border-radius: var(--radius-lg);
-      border: var(--border-soft);
-      background: rgba(8, 13, 34, 0.95);
-      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .product-box {
-      border-bottom: var(--border-soft);
-      padding-bottom: 16px;
+    .product-card.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(0, 163, 255, 0.15);
+    }
+
+    .p-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .p-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      line-height: 1.4;
+    }
+
+    .p-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+    }
+
+    .p-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .p-price {
+      font-size: 16px;
+      font-weight: 700;
       margin-bottom: 20px;
     }
 
-    .product-box h2 {
-      margin: 0 0 6px 0;
-      font-size: 18px;
-    }
-
-    .price {
-      font-size: 13px;
-      color: var(--accent);
-    }
-
-    .form-group { margin-bottom: 14px; }
-    .form-group label {
-      display: block;
+    .p-price span {
       font-size: 11px;
-      text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 4px;
+      font-weight: normal;
     }
-    
-    .form-group input, .form-group select {
+
+    .btn-buy {
       width: 100%;
-      background: rgba(5, 8, 22, 0.8);
-      border: var(--border-soft);
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: var(--text);
+      background: #0070ba;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .product-card.selected .btn-buy {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Checkout Bereich unten */
+    .checkout-card {
+      background: var(--card-bg);
+      border: var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
       font-size: 13px;
     }
-    
+
+    .summary-table td {
+      padding: 6px 0;
+    }
+
+    .summary-table tr td:last-child {
+      text-align: right;
+    }
+
+    /* Formular-Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 3;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .form-group input, .form-group select {
+      background: #030611;
+      border: var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      color: #fff;
+      font-size: 13px;
+    }
+
     .form-group input:focus, .form-group select:focus {
       outline: none;
       border-color: var(--accent);
     }
 
     .form-group input.error, .form-group select.error { border-color: #ff6b6b; }
-    .form-group .error-text { font-size: 11px; color: #ff6b6b; margin-top: 3px; display: none; }
-    .form-group .error-text.show { display: block; }
-    
+
     .checkbox-group {
+      grid-column: span 3;
       display: flex;
-      gap: 8px;
-      margin: 16px 0;
+      gap: 10px;
+      margin-top: 10px;
     }
-    
-    .checkbox-group label { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    .checkbox-group label {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
 
     .paypal-container {
+      grid-column: span 3;
       display: none;
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: var(--border-soft);
+      margin-top: 20px;
+      text-align: center;
     }
 
     .paypal-container.show { display: block; }
-    
-    .btn-submit {
-      width: 100%;
-      border-radius: var(--radius-full);
-      padding: 14px;
+
+    .btn-submit-main {
+      grid-column: span 3;
+      background: linear-gradient(135deg, #00a3ff, #7b3fff);
+      color: #000;
       border: none;
-      cursor: pointer;
-      font-size: 13px;
+      padding: 16px;
+      border-radius: 99px;
       font-weight: 700;
+      font-size: 14px;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #00e0ff, #7b3fff);
-      color: #050816;
+      cursor: pointer;
+      margin-top: 15px;
     }
 
-    .loading-spinner { display: none; text-align: center; padding: 15px 0; }
+    .loading-spinner { grid-column: span 3; display: none; text-align: center; padding: 20px; }
     .loading-spinner.show { display: block; }
-    .spinner {
-      border: 3px solid rgba(0, 224, 255, 0.2);
-      border-top: 3px solid var(--accent);
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 8px;
+
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width, .checkbox-group, .btn-submit-main, .paypal-container, .loading-spinner { grid-column: span 1; }
     }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
-  
-  <div class="page">
+
+  <div class="container">
+    <!-- Header genau wie in image_06691a.jpg -->
     <header>
-      <div class="brand-link">
-        <div class="brand-mark">
-          <img src="BOT_PAPA-removebg.png" alt="Logo" />
+      <div class="brand">
+        <img src="BOT_PAPA-removebg.png" alt="Logo" />
+        <div class="brand-info">
+          <div class="title">BOT PAPA</div>
+          <div class="sub">AI Phone Assistants & Guides</div>
         </div>
-        <div class="brand-text-title">BOT PAPA</div>
+      </div>
+      <div class="nav-links">
+        <span style="color:#00a3ff; font-size:10px;">SOLO FOUNDER: <strong>BODO KOPPLIN</strong></span>
+        <a href="#">Back to main page</a>
+        <a href="#" class="active">Shop</a>
+        <a href="#">Checkout</a>
+        <span>DE US</span>
+        <a href="#" class="btn-call">Free 20-Min Call ↗</a>
       </div>
     </header>
 
     <main>
-      <div class="card">
-        <div class="product-box">
-          <h2>Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten</h2>
-          <div class="price">Handlinggebühr: <strong>USD 2,99</strong></div>
-        </div>
-        
-        <form id="supabaseSqueezeForm" novalidate>
-          <div class="form-group">
-            <label for="nachname">Nachname *</label>
-            <input type="text" id="nachname" name="nachname" required>
-            <div class="error-text">Nachname erforderlich</div>
-          </div>
-          <div class="form-group">
-            <label for="vorname">Vorname *</label>
-            <input type="text" id="vorname" name="vorname" required>
-            <div class="error-text">Vorname erforderlich</div>
-          </div>
-          <div class="form-group">
-            <label for="position">Position im Unternehmen *</label>
-            <input type="text" id="position" name="position" required>
-            <div class="error-text">Position erforderlich</div>
-          </div>
-          <div class="form-group">
-            <label for="unternehmen">Name des Unternehmens *</label>
-            <input type="text" id="unternehmen" name="unternehmen" required>
-            <div class="error-text">Unternehmensname erforderlich</div>
-          </div>
-          <div class="form-group">
-            <label for="tel">Telefonnummer *</label>
-            <input type="tel" id="tel" name="telefon" required>
-            <div class="error-text">Telefonnummer erforderlich</div>
-          </div>
-          <div class="form-group">
-            <label for="email">E-Mail für Lieferung *</label>
-            <input type="email" id="email" name="email" required>
-            <div class="error-text">Gültige E-Mail erforderlich</div>
-          </div>
+      <!-- Produkt-Sektion -->
+      <div class="section-title">Digitale Produkte & Guides</div>
+      <div class="section-sub">Wählen Sie ein Produkt und klicken auf „Jetzt kaufen“. Im Checkout siehst du danach das ausgewählte Produkt mit Preis und Menge.</div>
 
+      <div class="products-grid">
+        <!-- Produkt 1 -->
+        <div class="product-card selected" id="p1" onclick="changeProduct('p1', 'Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten', 2.99, 'Dieses eBook zeigt dir Schritt für Schritt, wie du Placetel Telefonassistenten so einstellst, dass sie wichtige Anrufe erkennen...')">
+          <div>
+            <div class="p-tag">Digitales Produkt</div>
+            <h3 class="p-title">Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten</h3>
+            <p class="p-desc">Dieses eBook zeigt dir Schritt für Schritt, wie du Placetel Telefonassistenten so einstellst, dass sie wichtige Anrufe erkennen, sauber dokumentieren und sinnvoll weiterleiten.</p>
+          </div>
+          <div>
+            <div class="p-meta">Sprache: Deutsch | Lizenz: Nur für dich persönlich</div>
+            <div class="p-price">2.99 <span>Preis in USD, Handling & „Versand“.</span></div>
+            <button class="btn-buy">Jetzt kaufen</button>
+          </div>
+        </div>
+
+        <!-- Produkt 2 -->
+        <div class="product-card" id="p2" onclick="changeProduct('p2', 'DEIN PRODUKTNAME (DE)', 4.99, 'Kurzbeschreibung für ein weiteres deutsches Produkt. 2-3 Sätze, was der Inhalt bringt und für wen es gedacht ist.')">
+          <div>
+            <div class="p-tag">Digitales Produkt</div>
+            <h3 class="p-title">DEIN PRODUKTNAME (DE)</h3>
+            <p class="p-desc">Kurzbeschreibung für ein weiteres deutsches Produkt. 2-3 Sätze, was der Inhalt bringt und für wen es gedacht ist.</p>
+          </div>
+          <div>
+            <div class="p-meta">Sprache: Deutsch | Lizenz: Nur für dich persönlich</div>
+            <div class="p-price">4.99 <span>Preis in USD, Handling & „Versand“.</span></div>
+            <button class="btn-buy">Jetzt kaufen</button>
+          </div>
+        </div>
+
+        <!-- Produkt 3 -->
+        <div class="product-card" id="p3" onclick="changeProduct('p3', 'YOUR PRODUCT NAME (EN)', 3.49, 'Short description for an English product. 2-3 sentences about what it does and who it is for.')">
+          <div>
+            <div class="p-tag">Digitales Produkt</div>
+            <h3 class="p-title">YOUR PRODUCT NAME (EN)</h3>
+            <p class="p-desc">Short description for an English product. 2-3 sentences about what it does and who it is for.</p>
+          </div>
+          <div>
+            <div class="p-meta">Language: English | License: Personal use only</div>
+            <div class="p-price">3.49 <span>Price in USD, handling & „shipping“.</span></div>
+            <button class="btn-buy">Buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Zahlungsbereich unten -->
+      <div class="checkout-card">
+        <div class="section-title">Rechnungsdaten & Zahlung</div>
+        
+        <div style="margin-top: 20px; font-weight: 700; font-size: 13px; color: var(--muted); text-transform: uppercase;">Ausgewähltes Produkt</div>
+        <table class="summary-table">
+          <tr>
+            <td>Produkt:</td>
+            <td id="summary-name" style="color: #00a3ff;">Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten</td>
+          </tr>
+          <tr>
+            <td>Preis:</td>
+            <td id="summary-price">USD 2,99</td>
+          </tr>
+          <tr>
+            <td>Menge:</td>
+            <td>1</td>
+          </tr>
+          <tr style="border-top: 1px solid rgba(255,255,255,0.1); font-weight: 700;">
+            <td style="padding-top: 12px;">Summe:</td>
+            <td style="padding-top: 12px; color: #00a3ff;" id="summary-total">USD 2,99</td>
+          </tr>
+        </table>
+
+        <div class="section-sub" style="margin-bottom: 0;">Trage hier deine Rechnungsdaten ein und schließe die Zahlung über PayPal ab.</div>
+
+        <form id="checkoutForm" class="form-grid" novalidate>
           <div class="form-group">
-            <label for="telefonanlage">Aktuelle Telefonanlage *</label>
-            <select id="telefonanlage" name="telefonanlage" required>
+            <label>Vollständiger Name *</label>
+            <input type="text" id="fullname" required placeholder="z.B. Markus Müller">
+          </div>
+          <div class="form-group">
+            <label>E-Mail-Adresse *</label>
+            <input type="email" id="email" required placeholder="ihre-adresse@firma.de">
+          </div>
+          <div class="form-group">
+            <label>Rechnungsadresse *</label>
+            <input type="text" id="address" required placeholder="Straße, Hausnummer, PLZ, Ort">
+          </div>
+          
+          <div class="form-group">
+            <label>Unternehmen (Optional)</label>
+            <input type="text" id="company" placeholder="Firmenname GmbH">
+          </div>
+          <div class="form-group">
+            <label>Telefonnummer *</label>
+            <input type="tel" id="phone" required placeholder="+49 174 ...">
+          </div>
+          <div class="form-group">
+            <label>Aktuelle Telefonanlage *</label>
+            <select id="telefonanlage" required>
               <option value="" disabled selected>Bitte auswählen...</option>
               <option value="placetel">Ich nutze bereits Placetel Cloudtelefonie</option>
               <option value="andere">Ich nutze eine andere Anlage (z.B. FritzBox, Telekom)</option>
               <option value="keine">Wir haben noch keine Cloud-Anlage</option>
             </select>
-            <div class="error-text">Bitte eine Option wählen</div>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Optionale Notiz</label>
+            <input type="text" id="note" placeholder="z. B. Firmenname, USt-ID oder interne Bestellnummer.">
           </div>
 
           <div class="checkbox-group">
-            <input type="checkbox" id="dsgvo" name="dsgvo" required>
-            <label for="dsgvo">Ich willige in die DSGVO-konforme Speicherung in der Supabase Cloud-Datenbank ein. *</label>
+            <input type="checkbox" id="dsgvo" required>
+            <label for="dsgvo">Ich willige in die DSGVO-konforme Verarbeitung und Speicherung meiner Formulardaten in der verschlüsselten Cloud-Datenbank von Supabase ein. *</label>
           </div>
 
-          <button type="submit" class="btn-submit" id="submitBtn">Daten bestätigen & PayPal laden</button>
+          <button type="submit" class="btn-submit-main" id="submitBtn">Daten verifizieren & PayPal Checkout laden</button>
 
           <div class="paypal-container" id="paypalContainer">
-            <div style="font-size:12px; margin-bottom:10px; text-align:center; color:var(--muted);">Zahlung via PayPal abschließen:</div>
+            <div style="font-size:13px; color:var(--muted); margin-bottom:12px;">👇 Bitte Zahlung über PayPal autorisieren:</div>
             <div id="paypal-container-WNPZS39YFZSTL"></div>
           </div>
 
           <div class="loading-spinner" id="loadingSpinner">
             <div class="spinner"></div>
-            <p style="font-size:12px; color:var(--muted);">Zahlung verifiziert! Speichere Bestellung...</p>
+            <p style="font-size:13px; color:var(--muted);">Zahlung erfolgreich! Speichere in Datenbank...</p>
           </div>
         </form>
       </div>
@@ -266,36 +469,56 @@
     const SUPABASE_URL = 'https://jvujmlssgnqawqqaeqnb.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
 
-    const form = document.getElementById('supabaseSqueezeForm');
+    // Globaler State für das ausgewählte Produkt
+    let currentProduct = {
+      id: 'leitfaden_prompt_engineering',
+      name: 'Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten',
+      price: 2.99
+    };
+
+    const form = document.getElementById('checkoutForm');
     const submitBtn = document.getElementById('submitBtn');
-    const loadingSpinner = document.getElementById('loadingSpinner');
     const paypalContainer = document.getElementById('paypalContainer');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
+    // Produkt-Umschaltung per Klick auf die Karten
+    function changeProduct(cardId, name, price, desc) {
+      currentProduct.id = cardId === 'p1' ? 'leitfaden_prompt_engineering' : cardId;
+      currentProduct.name = name;
+      currentProduct.price = price;
+
+      // Update UI Tabelle unten
+      document.getElementById('summary-name').textContent = name;
+      document.getElementById('summary-price').textContent = 'USD ' + price.toFixed(2).replace('.', ',');
+      document.getElementById('summary-total').textContent = 'USD ' + price.toFixed(2).replace('.', ',');
+
+      // Update aktive Karte CSS
+      document.querySelectorAll('.product-card').forEach(card => card.classList.remove('selected'));
+      document.getElementById(cardId).classList.add('selected');
+
+      // PayPal ausblenden falls offen, da Produkt gewechselt wurde
+      paypalContainer.classList.remove('show');
+      submitBtn.style.display = 'block';
+    }
 
     function validateForm() {
       let isValid = true;
       const fields = form.querySelectorAll('input[required], select[required]');
       
       fields.forEach(field => {
-        const group = field.closest('.form-group');
-        const errorText = group?.querySelector('.error-text');
         const value = field.value.trim();
-
         if (field.type === 'email') {
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
             field.classList.add('error');
-            errorText?.classList.add('show');
             isValid = false;
           } else {
             field.classList.remove('error');
-            errorText?.classList.remove('show');
           }
         } else if (!value) {
           field.classList.add('error');
-          errorText?.classList.add('show');
           isValid = false;
         } else {
           field.classList.remove('error');
-          errorText?.classList.remove('show');
         }
       });
 
@@ -325,13 +548,13 @@
             loadingSpinner.classList.remove('show');
             
             if (success) {
-              alert('Zahlung erfolgreich! Daten wurden gespeichert.');
+              alert('Zahlung erfolgreich verbucht und Bestellung erfasst!');
               form.reset();
               submitBtn.style.display = 'block';
             }
           },
           onError: (err) => {
-            alert('Zahlungsfehler oder Abbruch.');
+            alert('Zahlung abgebrochen oder fehlgeschlagen.');
             submitBtn.style.display = 'block';
             paypalContainer.classList.remove('show');
           }
@@ -340,17 +563,21 @@
     });
 
     async function saveToSupabase() {
+      const parts = document.getElementById('fullname').value.trim().split(' ');
+      const vorname = parts[0] || '';
+      const nachname = parts.slice(1).join(' ') || '';
+
       const formData = {
-        vorname: document.getElementById('vorname').value.trim(),
-        nachname: document.getElementById('nachname').value.trim(),
-        position: document.getElementById('position').value.trim(),
-        unternehmen: document.getElementById('unternehmen').value.trim(),
-        telefon: document.getElementById('tel').value.trim(),
+        vorname: vorname,
+        nachname: nachname,
+        position: 'Shop-Bestellung', 
+        unternehmen: document.getElementById('company').value.trim() || 'Nicht angegeben',
+        telefon: document.getElementById('phone').value.trim(),
         email: document.getElementById('email').value.trim(),
         anlagen_typ: document.getElementById('telefonanlage').value, 
-        product_id: 'leitfaden_prompt_engineering',
-        product_name: 'Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten',
-        price: 2.99, 
+        product_id: currentProduct.id,
+        product_name: currentProduct.name,
+        price: currentProduct.price, 
         currency: 'USD',
         dsgvo_accepted: true,
         payment_status: 'completed'
