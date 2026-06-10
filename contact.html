@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta name="google-adsense-account" content="ca-pub-9428336256500980">
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact – BOT PAPA AI Phone Reception</title>
-  <meta name="description" content="Contact BOT PAPA for custom AI phone reception setups for trades and service businesses. Short, focused calls instead of endless sales pitches." />
+  <title>Kontakt – BOT PAPA KI-Telefonempfang</title>
+  <meta name="description" content="Kontaktiere BOT PAPA für maßgeschneiderte KI-Telefonempfänger für Handwerk und Dienstleistungen." />
 
-  <!-- Brevo Conversations {literal} -->
+  <!-- Brevo & GTM Scripts -->
   <script>
     (function(d, w, c) {
         w.BrevoConversationsID = '6a03e269574bc2e3ed063a39';
-        w[c] = w[c] || function() {
-            (w[c].q = w[c].q || []).push(arguments);
-        };
-        var s = d.createElement('script');
-        s.async = true;
-        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        w[c] = w[c] || function() { (w[c].q = w[c].q || []).push(arguments); };
+        var s = d.createElement('script'); s.async = true; s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
         if (d.head) d.head.appendChild(s);
     })(document, window, 'BrevoConversations');
   </script>
-  <!-- /Brevo Conversations {/literal} -->
-
-  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -32,11 +25,8 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
-  <!-- End Google Tag Manager -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
-
-  <!-- Supabase JS client v2 -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
 
   <style>
@@ -56,7 +46,11 @@
         "Segoe UI", sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       margin: 0;
@@ -101,6 +95,8 @@
       display: flex;
       align-items: center;
       gap: 18px;
+      text-decoration: none;
+      color: inherit;
     }
 
     .brand-mark {
@@ -171,9 +167,7 @@
       white-space: nowrap;
     }
 
-    .pill strong {
-      color: var(--accent);
-    }
+    .pill strong { color: var(--accent); }
 
     .nav-links {
       display: flex;
@@ -197,35 +191,10 @@
       text-decoration: none;
     }
 
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 4px;
-    }
-
-    .lang-switch a {
-      padding: 0;
-      border: none;
-    }
-
-    .lang-flag {
-      font-size: 18px;
-      line-height: 1;
-      display: inline-block;
-      filter: grayscale(60%);
-      transform: translateY(1px);
-    }
-
-    .lang-flag.active {
-      filter: grayscale(0%);
-    }
-
     .btn-primary {
       border-radius: var(--radius-full);
       padding: 9px 18px;
       border: none;
-      outline: none;
       cursor: pointer;
       font-size: 13px;
       font-weight: 600;
@@ -238,32 +207,18 @@
       align-items: center;
       gap: 8px;
       white-space: nowrap;
+      text-decoration: none;
     }
 
-    .btn-primary span {
-      font-size: 16px;
-      transform: translateY(1px);
-    }
+    .btn-primary span { font-size: 16px; transform: translateY(1px); }
 
     .btn-primary:hover {
       filter: brightness(1.06);
       transform: translateY(-1px);
-    }
-
-    .btn-primary:active {
-      filter: brightness(0.98);
-      transform: translateY(0);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+      text-decoration: none;
     }
 
     main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: flex-start;
-    }
-
-    .section {
       padding: 22px 20px;
       border-radius: var(--radius-lg);
       border: var(--border-soft);
@@ -272,185 +227,227 @@
       font-size: 14px;
     }
 
-    .section h1 {
+    main h1 {
       margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 24px;
+      margin-bottom: 12px;
+      font-size: 22px;
     }
 
-    .section p {
-      margin: 0 0 10px;
+    .intro-text {
+      margin: 0 0 24px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 14px;
+      max-width: 800px;
     }
 
-    .section h2 {
-      margin-top: 16px;
-      margin-bottom: 8px;
-      font-size: 16px;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
     }
 
-    .contact-list {
-      list-style: none;
-      margin: 8px 0 0;
-      padding: 0;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .contact-list li {
-      margin-bottom: 6px;
-    }
-
-    .contact-list strong {
-      color: var(--text);
-    }
-
-    .social-buttons {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 12px;
-      border-radius: 999px;
+    h2 {
       font-size: 12px;
-      font-weight: 500;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(5, 8, 22, 0.9);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0;
+      margin-bottom: 12px;
       color: var(--muted);
-      text-decoration: none;
     }
 
-    .social-btn span {
+    .contact-row {
+      background: rgba(5, 8, 22, 0.9);
+      border-radius: 12px;
+      border: var(--border-soft);
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .contact-row .icon {
+      color: var(--accent);
+      font-size: 18px;
+    }
+
+    .contact-row div label {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-row div a {
+      color: var(--accent);
+      text-decoration: none;
       font-size: 14px;
     }
 
-    .social-btn:hover {
-      text-decoration: none;
-      border-color: rgba(255, 255, 255, 0.24);
-      background: rgba(10, 15, 30, 0.95);
+    .contact-row div a:hover {
+      text-decoration: underline;
     }
 
-    .form-card {
-      padding: 20px 18px;
-      border-radius: var(--radius-lg);
+    .social-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    .social-link {
+      background: rgba(5, 8, 22, 0.9);
       border: var(--border-soft);
-      background: linear-gradient(155deg, rgba(8, 13, 34, 0.97), rgba(2, 4, 13, 0.98));
-      box-shadow: var(--shadow-soft);
-      font-size: 13px;
-    }
-
-    .form-card h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-
-    .form-note {
+      color: rgba(245, 247, 255, 0.8);
+      padding: 6px 16px;
+      border-radius: 999px;
       font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
+      text-decoration: none;
     }
 
-    .field-group {
-      margin-bottom: 10px;
+    .social-link:hover {
+      background: rgba(0, 224, 255, 0.1);
+      text-decoration: none;
     }
 
-    label {
-      display: block;
-      font-size: 12px;
-      color: var(--muted);
+    .bullet-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: rgba(245, 247, 255, 0.88);
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 6px;
+    }
+
+    .form-box {
+      max-width: 100%;
+    }
+
+    .form-box h3 {
+      color: #ffffff;
+      font-size: 18px;
       margin-bottom: 4px;
     }
 
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(3, 5, 16, 0.9);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 13px;
+    .form-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 16px;
     }
 
-    textarea {
-      min-height: 96px;
+    .field-group {
+      margin-bottom: 16px;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+      letter-spacing: 0.06em;
+    }
+
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%;
+      background: rgba(5, 8, 22, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 14px;
+    }
+
+    .field-group textarea {
       resize: vertical;
     }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: rgba(163, 170, 194, 0.7);
+    .fields-inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
-    .form-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .form-row .field-group {
-      flex: 1;
-    }
-
-    .btn-form {
-      margin-top: 6px;
+    .submit-button {
+      width: 100%;
       border-radius: var(--radius-full);
-      padding: 8px 16px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      background: linear-gradient(135deg, #00e0ff, #4cf0ff);
       color: #050816;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-form span {
+      border: none;
+      padding: 12px;
       font-size: 14px;
-      transform: translateY(1px);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 35px rgba(0, 224, 255, 0.3);
     }
 
-    .status-message {
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-      min-height: 16px;
+    .submit-button:hover {
+      filter: brightness(1.03);
     }
 
-    .status-message.ok {
-      color: #7ee787;
-    }
-
-    .status-message.err {
-      color: var(--danger);
+    .status-msg {
+      margin-top: 10px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
     }
 
     footer {
-      margin-top: 32px;
+      margin-top: 28px;
       padding-top: 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 11px;
       color: var(--muted);
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left { flex: 1; min-width: 250px; }
+
+    .footer-links {
+      display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-between;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -460,7 +457,7 @@
         padding: 10px 12px;
       }
       main {
-        grid-template-columns: minmax(0, 1fr);
+        padding: 18px 16px;
       }
       .header-right {
         align-items: flex-start;
@@ -471,205 +468,170 @@
         flex-wrap: wrap;
         row-gap: 6px;
       }
-      .nav-links {
-        flex-wrap: wrap;
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .fields-inline {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .footer-links {
+        justify-content: flex-start;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <div class="page">
     <header>
-      <div class="brand">
+      <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">AI Phone Assistants for Small Businesses</div>
+          <div class="brand-text-sub">KI&#8209;Telefonassistenten für kleine Unternehmen</div>
         </div>
-      </div>
+      </a>
       <div class="header-right">
         <div class="header-top-row">
           <div class="pill">
-            Solo founder: <strong>Bodo Kopplin</strong>
+            Status: <strong>aktiv</strong>
           </div>
           <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
-            Free 20‑min call <span>↗</span>
+            Kostenfreies 20&#8209;Minuten&#8209;Gespräch <span>↗</span>
           </a>
         </div>
         <div class="header-bottom-row">
           <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#who">Who it's for</a>
-            <a href="index.html#behavior">How it behaves</a>
-            <a href="index.html#about">About</a>
-            <a href="contact.html">Contact</a>
-            <div class="lang-switch">
-              <a href="contact.html" aria-label="English">
-                <span class="lang-flag active">🇺🇸</span>
-              </a>
-              <a href="index_de.html" aria-label="Deutsch">
-                <span class="lang-flag">🇩🇪</span>
-              </a>
-            </div>
+            <a href="discovery_form_de">Bedarfsermittlung</a>
+            <a href="https://mitarbeiter.bot-papa.online">Mitarbeiter Login</a>
+            <a href="ueber_mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
           </nav>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="section">
-        <h1>Contact BOT PAPA</h1>
-        <p>
-          If you want to explore whether an AI phone receptionist fits your business,
-          the fastest way is a short, focused call. No long pitch deck – just a clear look
-          at your calls, tools and constraints.
-        </p>
-        <h2>Direct contact</h2>
-        <ul class="contact-list">
-          <li>
-            <strong>Email:</strong>
-            <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
-          </li>
-          <li>
-            <strong>Phone (US number):</strong>
-            <a href="tel:+16288959439">+1‑628‑895‑9439</a>
-          </li>
-          <li>
-            <strong>Phone (DACH mobile):</strong>
-            <a href="tel:+491743282867">+49‑174‑3282867</a>
-          </li>
-        </ul>
+      <h1>Kontakt zu BOT PAPA</h1>
+      <p class="intro-text">
+        Wenn Sie klären möchten, ob ein KI-Telefonempfänger zu Ihrem Betrieb passt, geht das am schnellsten mit einem kurzen, fokussierten Gespräch. Keine lange Präsentation – nur ein klarer Blick auf Ihre Anrufe, Ihre Tools und Ihre Grenzen.
+      </p>
 
-        <div class="social-buttons">
-          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">
-            <span>📘</span>
-            <span>Facebook</span>
-          </a>
-          <a class="social-btn" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">
-            <span>▶</span>
-            <span>YouTube</span>
-          </a>
-          <a class="social-btn" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">
-            <span>💬</span>
-            <span>Slack</span>
-          </a>
-        </div>
+      <div class="contact-layout">
+        <!-- Linke Spalte: Kontaktinfos + Bulletliste -->
+        <section>
+          <h2>Direkte Kontaktmöglichkeiten</h2>
 
-        <h2 style="margin-top:16px;">What we usually cover</h2>
-        <p>
-          In most first calls we walk through three things:
-        </p>
-        <ul class="contact-list">
-          <li>How your calls currently arrive and who answers them.</li>
-          <li>Which calls are valuable, which ones are noise.</li>
-          <li>Where an AI receptionist could safely take over without harming trust.</li>
-        </ul>
-      </section>
-
-      <aside class="form-card">
-        <h2>Short message (stored via Supabase)</h2>
-        <p class="form-note">
-          This form stores your message in a secure database. No newsletter, no spam –
-          just a way to get back to you with something concrete.
-        </p>
-        <form id="contact-form">
-          <div class="field-group">
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" placeholder="Your name" required />
-          </div>
-
-          <div class="form-row">
-            <div class="field-group">
-              <label for="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="you@example.com" required />
-            </div>
-            <div class="field-group">
-              <label for="business">Business</label>
-              <input id="business" type="text" name="business" placeholder="Trade / service business" />
+          <div class="contact-row">
+            <span class="icon">✉</span>
+            <div>
+              <label>E-Mail</label>
+              <a href="mailto:support@bot-papa.online">support@bot-papa.online</a>
             </div>
           </div>
 
-          <div class="form-row">
-            <div class="field-group">
-              <label for="country_code">Country code</label>
-              <select id="country_code" name="country_code" required>
-                <option value="" disabled selected>Select code</option>
-                <!-- EU main country codes -->
-                <option value="+43">🇦🇹 +43 Austria</option>
-                <option value="+32">🇧🇪 +32 Belgium</option>
-                <option value="+359">🇧🇬 +359 Bulgaria</option>
-                <option value="+385">🇭🇷 +385 Croatia</option>
-                <option value="+357">🇨🇾 +357 Cyprus</option>
-                <option value="+420">🇨🇿 +420 Czech Republic</option>
-                <option value="+45">🇩🇰 +45 Denmark</option>
-                <option value="+372">🇪🇪 +372 Estonia</option>
-                <option value="+358">🇫🇮 +358 Finland</option>
-                <option value="+33">🇫🇷 +33 France</option>
-                <option value="+49">🇩🇪 +49 Germany</option>
-                <option value="+30">🇬🇷 +30 Greece</option>
-                <option value="+36">🇭🇺 +36 Hungary</option>
-                <option value="+353">🇮🇪 +353 Ireland</option>
-                <option value="+39">🇮🇹 +39 Italy</option>
-                <option value="+371">🇱🇻 +371 Latvia</option>
-                <option value="+370">🇱🇹 +370 Lithuania</option>
-                <option value="+352">🇱🇺 +352 Luxembourg</option>
-                <option value="+356">🇲🇹 +356 Malta</option>
-                <option value="+31">🇳🇱 +31 Netherlands</option>
-                <option value="+48">🇵🇱 +48 Poland</option>
-                <option value="+351">🇵🇹 +351 Portugal</option>
-                <option value="+40">🇷🇴 +40 Romania</option>
-                <option value="+421">🇸🇰 +421 Slovakia</option>
-                <option value="+386">🇸🇮 +386 Slovenia</option>
-                <option value="+34">🇪🇸 +34 Spain</option>
-                <option value="+46">🇸🇪 +46 Sweden</option>
-
-                <!-- English widely used / official -->
-                <option value="+1">🇺🇸 +1 United States</option>
-                <option value="+1">🇨🇦 +1 Canada</option>
-                <option value="+44">🇬🇧 +44 United Kingdom</option>
-                <option value="+61">🇦🇺 +61 Australia</option>
-                <option value="+64">🇳🇿 +64 New Zealand</option>
-                <option value="+65">🇸🇬 +65 Singapore</option>
-                <option value="+91">🇮🇳 +91 India</option>
-                <option value="+63">🇵🇭 +63 Philippines</option>
-                <option value="+27">🇿🇦 +27 South Africa</option>
-                <option value="+971">🇦🇪 +971 UAE</option>
-                <option value="+41">🇨🇭 +41 Switzerland</option>
-                <option value="+47">🇳🇴 +47 Norway</option>
-              </select>
-            </div>
-            <div class="field-group">
-              <label for="phone_number">Phone number</label>
-              <input id="phone_number" type="text" name="phone_number" placeholder="123 456 789" />
+          <div class="contact-row">
+            <span class="icon">📞</span>
+            <div>
+              <label>Telefon (US-Nummer)</label>
+              <a href="tel:+16288959439">+1 628 895 9439</a>
             </div>
           </div>
 
-          <div class="field-group">
-            <label for="message">What do you want to sort out?</label>
-            <textarea id="message" name="message" placeholder="Two or three sentences are enough." required></textarea>
+          <div class="contact-row">
+            <span class="icon">📱</span>
+            <div>
+              <label>Telefon (DACH Mobil)</label>
+              <a href="tel:+491743282867">+49 174 3282867</a>
+            </div>
           </div>
 
-          <button type="submit" class="btn-form">
-            Send request <span>✉</span>
-          </button>
-          <div id="status" class="status-message"></div>
-        </form>
-      </aside>
+          <div class="social-wrap">
+            <a class="social-link" href="https://www.facebook.com/profile.php?id=61589643718976" target="_blank" rel="noopener">Facebook</a>
+            <a class="social-link" href="https://www.youtube.com/@BotPapaPH" target="_blank" rel="noopener">YouTube</a>
+            <a class="social-link" href="https://botpapa.slack.com/archives/C0B4V9WHWDP" target="_blank" rel="noopener">Slack</a>
+          </div>
+
+          <h2>Was wir im ersten Gespräch klären</h2>
+          <ul class="bullet-list">
+            <li>Wie Ihre Anrufe derzeit ankommen und wer sie beantwortet.</li>
+            <li>Welche Anrufe wertvoll sind und welche Rauschen darstellen.</li>
+            <li>Wo eine KI-Assistentin sicher übernehmen kann, ohne Vertrauen zu beschädigen.</li>
+          </ul>
+        </section>
+
+        <!-- Rechte Spalte: Formular -->
+        <section class="form-box">
+          <h3>Kurze Nachricht</h3>
+          <div class="form-desc">Dieses Formular speichert Ihre Nachricht in einer sicheren Datenbank. Kein Newsletter, kein Spam.</div>
+
+          <form id="contact-form">
+            <div class="field-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" required placeholder="Ihr Name" />
+            </div>
+
+            <div class="fields-inline">
+              <div class="field-group">
+                <label for="email">E-Mail</label>
+                <input id="email" type="email" required placeholder="ihre@mail.de" />
+              </div>
+              <div class="field-group">
+                <label for="business">Betrieb / Gewerk</label>
+                <input id="business" type="text" placeholder="z.B. Elektro" />
+              </div>
+            </div>
+
+            <div class="fields-inline">
+              <div class="field-group">
+                <label for="country_code">Ländervorwahl</label>
+                <select id="country_code" required>
+                  <option value="+49">🇩🇪 +49 DE</option>
+                  <option value="+43">🇦🇹 +43 AT</option>
+                  <option value="+41">🇨🇭 +41 CH</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="phone_number">Telefonnummer</label>
+                <input id="phone_number" type="text" placeholder="123456" />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="message">Was möchten Sie klären?</label>
+              <textarea id="message" required rows="4" placeholder="Ein bis zwei Sätze genügen."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Anfrage senden</button>
+            <div id="status" class="status-msg"></div>
+          </form>
+        </section>
+      </div>
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines
-      <a href="https://trafficpeak.io">Boost Your Website Traffic with TrafficPeak</a>
-      
+      <div class="footer-content">
+        <div class="footer-left">
+          © 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines
+        </div>
+        <div class="footer-links">
+          <a href="faq-de.html">FAQ</a>
+          <span>•</span>
+          <a href="impressum.html">Impressum</a>
+          <span>•</span>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+          <span>•</span>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
     </footer>
   </div>
 
@@ -679,49 +641,41 @@
       const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI';
 
       const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
       const form = document.getElementById('contact-form');
       const statusEl = document.getElementById('status');
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        statusEl.textContent = 'Sending...';
-        statusEl.className = 'status-message';
-
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const business = document.getElementById('business').value.trim();
-        const countryCode = document.getElementById('country_code').value;
-        const phoneNumber = document.getElementById('phone_number').value.trim();
-        const message = document.getElementById('message').value.trim();
+        statusEl.style.display = 'block';
+        statusEl.style.color = 'rgba(255,255,255,0.5)';
+        statusEl.textContent = 'Wird gesendet...';
 
         try {
           const { error } = await supabaseClient
             .from('contact_requests_simple')
             .insert([{
-              name,
-              email,
-              business,
-              country_code: countryCode,
-              phone_number: phoneNumber,
-              message,
-              source: 'contact_page'
+              name: document.getElementById('name').value.trim(),
+              email: document.getElementById('email').value.trim(),
+              business: document.getElementById('business').value.trim(),
+              country_code: document.getElementById('country_code').value,
+              phone_number: document.getElementById('phone_number').value.trim(),
+              message: document.getElementById('message').value.trim(),
+              source: 'kontakt_seite'
             }]);
 
           if (error) {
-            console.error(error);
-            statusEl.textContent = 'Supabase error: ' + (error.message || 'unknown');
-            statusEl.className = 'status-message err';
+            statusEl.style.color = '#ff4b6b';
+            statusEl.textContent = 'Fehler: ' + error.message;
             return;
           }
 
           form.reset();
-          statusEl.textContent = 'Thanks. Your message has been stored. I will get back to you.';
-          statusEl.className = 'status-message ok';
+          statusEl.style.color = '#00e0ff';
+          statusEl.textContent = 'Vielen Dank! Nachricht erfolgreich gespeichert.';
+          setTimeout(() => { window.location.href = 'index.html'; }, 2000);
         } catch (e) {
-          console.error(e);
-          statusEl.textContent = 'Unexpected error. Please try again later.';
-          statusEl.className = 'status-message err';
+          statusEl.style.color = '#ff4b6b';
+          statusEl.textContent = 'Verbindungsfehler.';
         }
       });
     });
