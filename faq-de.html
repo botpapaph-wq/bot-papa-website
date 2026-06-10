@@ -145,32 +145,67 @@
       margin-top: 2px;
     }
 
-    /* Glossy Button Style */
-    .btn-primary {
-      background: linear-gradient(180deg, #00f0ff 0%, #00a8ff 100%);
-      color: #050816 !important;
-      font-weight: 600;
-      padding: 8px 18px;
+    .pill {
       border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-size: 12px;
-      letter-spacing: 0.02em;
-      box-shadow: 0 4px 15px rgba(0, 224, 255, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-      transition: all 0.2s ease-in-out;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      text-decoration: none !important;
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
     }
+
+    .btn-primary span { font-size: 16px; transform: translateY(1px); }
 
     .btn-primary:hover {
+      filter: brightness(1.06);
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
-      background: linear-gradient(180deg, #33f3ff 0%, #1ab2ff 100%);
-    }
-
-    .btn-primary span {
-      font-size: 11px;
+      text-decoration: none;
     }
 
     main {
@@ -228,6 +263,16 @@
       gap: 12px;
     }
 
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left { flex: 1; min-width: 250px; }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -240,43 +285,7 @@
     }
 
     .footer-links a:hover {
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
       text-decoration: underline;
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
-    }
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
     }
 
     @media (max-width: 768px) {
@@ -310,23 +319,32 @@
   </noscript>
   <div class="page">
     <header>
-      <a href="index.html" class="brand">
+      <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">KI&#8209;Telefonassistenten für kleine Unternehmen</div>
         </div>
       </a>
       <div class="header-right">
         <div class="header-top-row">
+          <div class="pill">
+            Status: <strong>aktiv</strong>
+          </div>
           <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
-            Kostenfreies 20‑Minuten‑Gespräch <span>↗</span>
+            Kostenfreies 20&#8209;Minuten&#8209;Gespräch <span>↗</span>
           </a>
         </div>
         <div class="header-bottom-row">
-          </div>
+          <nav class="nav-links">
+            <a href="discovery_form_de">Bedarfsermittlung</a>
+            <a href="https://mitarbeiter.bot-papa.online">Mitarbeiter Login</a>
+            <a href="ueber_mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -350,7 +368,7 @@
         <h2>Was kostet der Einstieg?</h2>
         <p>
           Der erste Schritt ist ein kompakter Einstiegsleitfaden als PDF. Er kostet 2,99&nbsp;USD –
-          nicht als „Produktpreis“, sondern als Handling‑ und Versandpauschale für die Abwicklung.
+          nicht als „Produktpreis", sondern als Handling‑ und Versandpauschale für die Abwicklung.
         </p>
         <p>
           Das Basis‑Setup eines individuellen KI‑Telefonassistenten (3 Stunden) kostet 299&nbsp;EUR
@@ -392,7 +410,7 @@
       </div>
 
       <div class="faq-item">
-        <h2>Verkaufst du eine „eigene“ KI wie Placetel AI?</h2>
+        <h2>Verkaufst du eine „eigene" KI wie Placetel AI?</h2>
         <p>
           Nein. Placetel AI ist ein eigenes Produkt von Placetel, das direkt als KI‑Telefonassistent in
           die Placetel‑Plattform integriert ist. Es kann Termine buchen, Anfragen qualifizieren und
@@ -401,7 +419,7 @@
         <p>
           BOT PAPA baut auf solchen Plattformen auf, übersetzt Ihr Geschäft in klare Gesprächslogik
           und kümmert sich um die individuelle Einrichtung, Anpassung und laufende Pflege – speziell
-          für kleinere Betriebe, die das nicht „nebenbei“ stemmen wollen.
+          für kleinere Betriebe, die das nicht „nebenbei" stemmen wollen.
         </p>
       </div>
 
@@ -414,7 +432,7 @@
         </p>
         <p>
           Die Sprache wird bewusst natürlich gehalten, ohne Marketing‑Floskeln. Der Assistent stellt sich
-          klar als KI‑Empfang vor und versucht nicht, einen Menschen zu „spielen“.
+          klar als KI‑Empfang vor und versucht nicht, einen Menschen zu „spielen".
         </p>
       </div>
 
@@ -422,7 +440,7 @@
         <h2>Versteht der Assistent meine Kundschaft wirklich?</h2>
         <p>
           Der Assistent nutzt moderne Sprachmodelle und ist darauf ausgelegt, normale Alltags‑Sprache
-          zu verstehen – inklusive „Baustellen‑Deutsch“ und unverblümten Formulierungen.
+          zu verstehen – inklusive „Baustellen‑Deutsch" und unverblümten Formulierungen.
         </p>
         <p>
           Ich arbeite mit realen Gesprächsbeispielen und passe den Prompt so an, dass typische Anfragen
