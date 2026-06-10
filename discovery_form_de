@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <meta name="google-adsense-account" content="ca-pub-9428336256500980">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BOT PAPA – Erhebungsformular für KI-Telefonassistent</title>
   <meta name="description" content="Erhebungsformular für KI-Telefonassistenten-Projekte mit BOT PAPA. Strukturierte Erfassung von Anforderungen für KI-gestützte Telefonie, Routing und Automatisierung." />
+
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P5XG82W9');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
+     crossorigin="anonymous"></script>
 
   <style>
     :root {
@@ -22,9 +33,7 @@
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: var(--font-sans);
@@ -32,7 +41,6 @@
       color: var(--text);
       -webkit-font-smoothing: antialiased;
     }
-
     a {
       color: var(--accent);
       text-decoration: none;
@@ -40,13 +48,11 @@
     a:hover {
       text-decoration: underline;
     }
-
     .page {
       max-width: 1120px;
       margin: 0 auto;
       padding: 24px 20px 64px;
     }
-
     header {
       display: flex;
       align-items: center;
@@ -63,13 +69,11 @@
       top: 16px;
       z-index: 10;
     }
-
     .brand {
       display: flex;
       align-items: center;
       gap: 18px;
     }
-
     .brand-mark {
       width: 80px;
       height: 80px;
@@ -81,26 +85,22 @@
       overflow: hidden;
       flex-shrink: 0;
     }
-
     .brand-mark img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
     }
-
     .brand-text-title {
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       font-size: 14px;
     }
-
     .brand-text-sub {
       font-size: 12px;
       color: var(--muted);
     }
-
     .header-right {
       display: flex;
       flex-direction: column;
@@ -108,7 +108,6 @@
       gap: 6px;
       flex: 1;
     }
-
     .header-top-row {
       display: flex;
       align-items: center;
@@ -116,7 +115,14 @@
       gap: 10px;
       width: 100%;
     }
-
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
     .pill {
       border-radius: var(--radius-full);
       padding: 6px 14px;
@@ -128,7 +134,26 @@
       background: rgba(5, 8, 22, 0.9);
       white-space: nowrap;
     }
-
+    .pill strong { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
     .btn-primary {
       border-radius: var(--radius-full);
       padding: 9px 18px;
@@ -146,28 +171,25 @@
       align-items: center;
       gap: 8px;
       white-space: nowrap;
+      text-decoration: none;
     }
-
     .btn-primary span {
       font-size: 16px;
       transform: translateY(1px);
     }
-
     .btn-primary:hover {
       filter: brightness(1.06);
       transform: translateY(-1px);
+      text-decoration: none;
     }
-
     .btn-primary:active {
       filter: brightness(0.98);
       transform: translateY(0);
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
     }
-
     main {
       margin-top: 12px;
     }
-
     .hero {
       padding: 26px 24px 20px;
       border-radius: var(--radius-lg);
@@ -177,7 +199,6 @@
       box-shadow: var(--shadow-soft);
       margin-bottom: 20px;
     }
-
     .hero-kicker {
       font-size: 12px;
       text-transform: uppercase;
@@ -185,20 +206,17 @@
       color: var(--accent);
       margin-bottom: 8px;
     }
-
     .hero-title {
       font-size: clamp(24px, 2.7vw, 30px);
       line-height: 1.15;
       margin: 0 0 10px;
     }
-
     .hero-sub {
       font-size: 14px;
       color: var(--muted);
       max-width: 640px;
       margin-bottom: 4px;
     }
-
     .form-card {
       margin-top: 20px;
       padding: 20px 18px 22px;
@@ -208,29 +226,24 @@
       box-shadow: var(--shadow-soft);
       font-size: 14px;
     }
-
     h2.section-title {
       margin: 18px 0 8px;
       font-size: 18px;
     }
-
     .field-group {
       margin-bottom: 14px;
     }
-
     .field-label {
       display: block;
       font-size: 13px;
       margin-bottom: 4px;
       color: var(--text);
     }
-
     .field-help {
       font-size: 12px;
       color: var(--muted);
       margin-bottom: 6px;
     }
-
     input[type="text"],
     input[type="number"],
     input[type="email"],
@@ -245,17 +258,14 @@
       font-size: 13px;
       outline: none;
     }
-
     textarea {
       min-height: 70px;
       resize: vertical;
     }
-
     input::placeholder,
     textarea::placeholder {
       color: rgba(163, 170, 194, 0.7);
     }
-
     .checkbox-grid,
     .radio-grid {
       display: grid;
@@ -263,7 +273,6 @@
       gap: 6px 18px;
       margin-top: 4px;
     }
-
     .checkbox-inline,
     .radio-inline {
       display: flex;
@@ -272,31 +281,26 @@
       font-size: 13px;
       color: var(--muted);
     }
-
     .inline-group {
       display: flex;
       flex-wrap: wrap;
       gap: 10px 18px;
       margin-top: 4px;
     }
-
     .inline-group .field-group {
       flex: 1;
       min-width: 180px;
       margin-bottom: 0;
     }
-
     .divider {
       margin: 18px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
-
     .tagline {
       font-size: 12px;
       color: var(--muted);
       margin-top: 4px;
     }
-
     .status-bar {
       display: flex;
       align-items: center;
@@ -307,7 +311,6 @@
       margin-top: 16px;
       flex-wrap: wrap;
     }
-
     .status-dot {
       width: 8px;
       height: 8px;
@@ -315,31 +318,25 @@
       background: #20c997;
       margin-right: 6px;
     }
-
     .status-left {
       display: flex;
       align-items: center;
       gap: 6px;
     }
-
     .status-right {
       text-align: right;
     }
-
     .status-error {
       color: var(--danger);
     }
-
     .status-success {
       color: #20c997;
     }
-
     .submit-row {
       margin-top: 18px;
       display: flex;
       justify-content: flex-end;
     }
-
     footer {
       margin-top: 28px;
       padding-top: 16px;
@@ -347,11 +344,29 @@
       font-size: 11px;
       color: var(--muted);
       display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-left { flex: 1; min-width: 250px; }
+    .footer-links {
+      display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      justify-content: space-between;
     }
-
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
     @media (max-width: 768px) {
       header {
         position: static;
@@ -361,7 +376,8 @@
       .header-right {
         align-items: flex-start;
       }
-      .header-top-row {
+      .header-top-row,
+      .header-bottom-row {
         justify-content: flex-start;
         flex-wrap: wrap;
         row-gap: 6px;
@@ -374,20 +390,43 @@
       }
     }
   </style>
-<base target="_blank">
+  <base target="_blank">
 </head>
 <body>
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
   <div class="page">
     <header>
-      <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+      <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI-Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">KI&#8209;Telefonassistenten für kleine Unternehmen</div>
         </div>
       </a>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Status: <strong>aktiv</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenfreies 20&#8209;Minuten&#8209;Gespräch <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="discovery_form_de">Bedarfsermittlung</a>
+            <a href="https://mitarbeiter.bot-papa.online">Mitarbeiter Login</a>
+            <a href="ueber_mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -402,7 +441,6 @@
           entwickeln können, der perfekt in Ihren realen Betrieb passt.
         </p>
       </section>
-
       <section class="form-card">
         <form id="discovery-form">
           <!-- 0. Projektgrundlage / Business Case -->
@@ -444,31 +482,25 @@
               </label>
             </div>
           </div>
-
           <div class="field-group">
             <label for="reason_other" class="field-label">Anderer Grund</label>
             <input type="text" id="reason_other" name="reason_other" placeholder="Sonstiges: Kurzbeschreibung" />
           </div>
-
           <div class="field-group">
             <label for="estimated_monthly_cost" class="field-label">Geschätzte monatliche Kosten des aktuellen Problems</label>
             <input type="text" id="estimated_monthly_cost" name="estimated_monthly_cost" placeholder="Grobe Schätzung in Ihrer Währung" />
           </div>
-
           <div class="field-group">
             <label for="improvement_goal" class="field-label">Was genau soll sich verbessern?</label>
             <textarea id="improvement_goal" name="improvement_goal" placeholder="Freitext – Beschreiben Sie die praktischen Verbesserungen, die Sie sich wünschen."></textarea>
           </div>
-
           <div class="divider"></div>
-
           <!-- 1. Unternehmensinformationen -->
           <h2 class="section-title">1. Unternehmensinformationen</h2>
           <div class="field-group">
             <label for="company_name" class="field-label">Firmenname</label>
             <input type="text" id="company_name" name="company_name" required />
           </div>
-
           <div class="inline-group">
             <div class="field-group">
               <label for="website" class="field-label">Webseite</label>
@@ -479,13 +511,10 @@
               <input type="text" id="industry" name="industry" required />
             </div>
           </div>
-
-          <!-- Länderauswahl (Europa exkl. TR/UA/AL + englischsprachig/PH) -->
           <div class="field-group">
             <label for="country" class="field-label">Land</label>
             <select id="country" name="country">
               <option value="">Land auswählen…</option>
-              <!-- Europa (Beispiele, ohne TR/UA/AL) -->
               <option value="DE">Deutschland</option>
               <option value="AT">Österreich</option>
               <option value="CH">Schweiz</option>
@@ -520,8 +549,6 @@
               <option value="EE">Estland</option>
               <option value="LV">Lettland</option>
               <option value="LT">Litauen</option>
-
-              <!-- Englischsprachig / Englisch offizielle oder ko-offizielle Sprache + PH -->
               <option value="US">Vereinigte Staaten</option>
               <option value="CA">Kanada</option>
               <option value="AU">Australien</option>
@@ -546,8 +573,6 @@
               <option value="PG">Papua-Neuguinea</option>
             </select>
           </div>
-
-          <!-- Rechnungs- / Firmenadresse -->
           <div class="inline-group">
             <div class="field-group" style="flex:2">
               <label for="address_street" class="field-label">Straße</label>
@@ -558,7 +583,6 @@
               <input type="text" id="address_number" name="address_number" placeholder="12a" />
             </div>
           </div>
-
           <div class="inline-group">
             <div class="field-group" style="flex:0.8">
               <label for="address_zip" class="field-label">PLZ</label>
@@ -573,14 +597,12 @@
               <input type="text" id="address_state" name="address_state" placeholder="z. B. Bayern" />
             </div>
           </div>
-
           <div class="inline-group">
             <div class="field-group">
               <label for="num_employees" class="field-label">Anzahl der Mitarbeiter</label>
               <input type="text" id="num_employees" name="num_employees" />
             </div>
           </div>
-
           <div class="inline-group">
             <div class="field-group">
               <label for="phone_contacts" class="field-label">Telefonische Ansprechpartner</label>
@@ -591,8 +613,6 @@
               <input type="text" id="business_hours" name="business_hours" placeholder="z. B. Mo–Fr 8:00–17:00 Ortszeit" />
             </div>
           </div>
-
-          <!-- Kunden-Telefon & E-Mail -->
           <div class="inline-group">
             <div class="field-group">
               <label for="phone_country_code" class="field-label">Länderkennzahl Kundennummer</label>
@@ -628,7 +648,6 @@
               <input type="text" id="phone_number_customer" name="phone_number_customer" required placeholder="Ortsnummer ohne Länderkennzahl" />
             </div>
           </div>
-
           <div class="field-group">
             <label for="customer_email" class="field-label">Kunden-E-Mail</label>
             <input
@@ -644,9 +663,7 @@
               Generische Postfächer wie <code>info@</code> werden oft nicht regelmäßig geprüft. Bitte verwenden Sie eine persönliche oder rollenspezifische Adresse.
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 2. Projektbeteiligte -->
           <h2 class="section-title">2. Projektbeteiligte</h2>
           <div class="field-group">
@@ -678,9 +695,7 @@
             <label for="final_approval" class="field-label">Wer gibt die finale Freigabe?</label>
             <input type="text" id="final_approval" name="final_approval" />
           </div>
-
           <div class="divider"></div>
-
           <!-- 3. Bestehende Telefonie-Anlage -->
           <h2 class="section-title">3. Bestehende Telefonie-Anlage</h2>
           <div class="field-group">
@@ -708,9 +723,7 @@
               </label>
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 4. Anrufvolumen -->
           <h2 class="section-title">4. Anrufvolumen</h2>
           <div class="inline-group">
@@ -733,7 +746,6 @@
               <input type="text" id="missed_calls" name="missed_calls" placeholder="Schätzung pro Tag/Woche" />
             </div>
           </div>
-
           <div class="field-group">
             <span class="field-label">Saisonale Schwankungen?</span>
             <div class="inline-group">
@@ -747,7 +759,6 @@
               </label>
             </div>
           </div>
-
           <div class="field-group">
             <span class="field-label">Saisonale Muster (falls vorhanden)</span>
             <div class="checkbox-grid">
@@ -773,10 +784,8 @@
             <label for="seasonal_other" class="field-label">Sonstige saisonale Hinweise</label>
             <input type="text" id="seasonal_other" name="seasonal_other" />
           </div>
-
           <div class="divider"></div>
-
-          <!-- 5. Zielbild – Was soll die KI übernehmen? -->
+          <!-- 5. Zielbild -->
           <h2 class="section-title">5. Zielbild – Was soll die KI übernehmen?</h2>
           <div class="field-group">
             <span class="field-label">Aufgaben für die KI</span>
@@ -815,14 +824,11 @@
               </label>
             </div>
           </div>
-
           <div class="field-group">
             <label for="ai_not_do" class="field-label">Was soll die KI NICHT tun?</label>
             <textarea id="ai_not_do" name="ai_not_do" placeholder="Themen, Entscheidungen oder Prozesse, die beim Menschen bleiben müssen."></textarea>
           </div>
-
           <div class="divider"></div>
-
           <!-- 6. Häufigste Kundenanfragen -->
           <h2 class="section-title">6. Häufigste Kundenanfragen</h2>
           <div class="field-group">
@@ -842,9 +848,7 @@
               </label>
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 7. Eskalationslogik -->
           <h2 class="section-title">7. Eskalationslogik</h2>
           <div class="field-group">
@@ -880,14 +884,12 @@
               </label>
             </div>
           </div>
-
           <div class="field-group">
             <label for="misunderstanding_loops" class="field-label">
               Nach mehr als ____ Missverständnis-Schleifen eskalieren
             </label>
             <input type="text" id="misunderstanding_loops" name="misunderstanding_loops" placeholder="Anzahl der Schleifen vor Eskalation" />
           </div>
-
           <div class="inline-group">
             <div class="field-group">
               <label for="sales_escalation" class="field-label">Vertriebs-Eskalation</label>
@@ -908,9 +910,7 @@
               <input type="text" id="accounting" name="accounting" placeholder="Umgang mit Rechnungs-/Zahlungsthemen" />
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 8. Datenerfassung durch die KI -->
           <h2 class="section-title">8. Datenerfassung durch die KI</h2>
           <div class="inline-group">
@@ -961,9 +961,7 @@
               </div>
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 9. Sprache & Aussprache -->
           <h2 class="section-title">9. Sprache & Aussprache</h2>
           <div class="field-group">
@@ -1006,7 +1004,6 @@
             <label for="secondary_language" class="field-label">Falls ja, welche Zweitsprache?</label>
             <input type="text" id="secondary_language" name="secondary_language" />
           </div>
-
           <div class="field-group">
             <span class="field-label">Akzentpräferenz</span>
             <div class="checkbox-grid">
@@ -1028,7 +1025,6 @@
               </label>
             </div>
           </div>
-
           <div class="field-group">
             <label for="industry_terms" class="field-label">Typische Branchenbegriffe / Produktnamen</label>
             <textarea id="industry_terms" name="industry_terms" placeholder="Alles, was die KI korrekt aussprechen lernen sollte."></textarea>
@@ -1046,9 +1042,7 @@
               </label>
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 10. Wissensquellen -->
           <h2 class="section-title">10. Wissensquellen</h2>
           <div class="field-group">
@@ -1092,7 +1086,6 @@
             <label for="knowledge_path_p1" class="field-label">Pfad / Quelle (Priorität 1)</label>
             <input type="text" id="knowledge_path_p1" name="knowledge_path_p1" placeholder="URLs, Freigabeordner, Tools" />
           </div>
-
           <div class="field-group">
             <label for="knowledge_priority_2" class="field-label">Priorität 2 (Kurzbeschreibung)</label>
             <textarea id="knowledge_priority_2" name="knowledge_priority_2"></textarea>
@@ -1101,9 +1094,7 @@
             <label for="knowledge_priority_3" class="field-label">Priorität 3 (Kurzbeschreibung)</label>
             <textarea id="knowledge_priority_3" name="knowledge_priority_3"></textarea>
           </div>
-
           <div class="divider"></div>
-
           <!-- 11. Systeme & Integrationen -->
           <h2 class="section-title">11. Systeme & Integrationen</h2>
           <div class="checkbox-grid">
@@ -1128,9 +1119,7 @@
               API / Webhook gewünscht
             </label>
           </div>
-
           <div class="divider"></div>
-
           <!-- 12. Compliance -->
           <h2 class="section-title">12. Compliance</h2>
           <div class="field-group">
@@ -1154,9 +1143,7 @@
             <label for="compliance_notes" class="field-label">Falls ja, bitte beschreiben</label>
             <textarea id="compliance_notes" name="compliance_notes"></textarea>
           </div>
-
           <div class="divider"></div>
-
           <!-- 13. Erfolgsdefinition / ROI -->
           <h2 class="section-title">13. Erfolgsdefinition / ROI</h2>
           <div class="inline-group">
@@ -1179,85 +1166,82 @@
               <input type="text" id="roi_money_saved" name="roi_money_saved" placeholder="Schätzung in Währung" />
             </div>
           </div>
-
           <div class="divider"></div>
-
           <!-- 14. Prozessbeschränkungen -->
           <h2 class="section-title">14. Prozessbeschränkungen</h2>
           <div class="field-group">
             <label for="process_restrictions" class="field-label">Welche Prozesse dürfen NICHT geändert werden?</label>
             <textarea id="process_restrictions" name="process_restrictions" placeholder="Beschreiben Sie Prozesse, die fest vorgegeben sind und durch das KI-Setup nicht verändert werden dürfen."></textarea>
           </div>
-
           <div class="submit-row">
             <button type="submit" class="btn-primary">
               Erhebungsformular absenden <span>✚</span>
             </button>
           </div>
-
           <div class="status-bar">
             <div class="status-left">
               <span class="status-dot"></span>
               <span id="status-message">Formular noch nicht abgesendet.</span>
             </div>
-            <div class="status-right">
-            </div>
+            <div class="status-right"></div>
           </div>
         </form>
       </section>
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+      <div class="footer-content">
+        <div class="footer-left">
+          © 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines
+        </div>
+        <div class="footer-links">
+          <a href="faq-de.html">FAQ</a>
+          <span>•</span>
+          <a href="impressum.html">Impressum</a>
+          <span>•</span>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+          <span>•</span>
+          <a href="agb.html">AGB</a>
+        </div>
+      </div>
     </footer>
   </div>
 
-  <!-- Supabase via CDN (v2) – Platzhalter, URL & ANON KEY später eintragen -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
     const SUPABASE_URL = "https://jvujmlssgnqawqqaeqnb.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI";
     const SUPABASE_TABLE = "ai_discovery_forms_v1";
-
     let supabaseClient = null;
     if (SUPABASE_URL && SUPABASE_URL !== "https://YOUR-PROJECT-ID.supabase.co") {
       supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     }
-
     function getCheckedValues(name) {
       return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
         .map(el => el.value);
     }
-
     function getRadioValue(name) {
       const el = document.querySelector('input[name="' + name + '"]:checked');
       return el ? el.value : null;
     }
-
     document.getElementById("discovery-form").addEventListener("submit", async function (e) {
       e.preventDefault();
       const statusEl = document.getElementById("status-message");
-
       if (!supabaseClient) {
         statusEl.textContent = "Supabase ist noch nicht konfiguriert. Bitte URL und ANON KEY hinterlegen.";
         statusEl.classList.remove("status-success");
         statusEl.classList.add("status-error");
         return;
       }
-
       statusEl.textContent = "Wird gesendet…";
       statusEl.classList.remove("status-error", "status-success");
-
       const form = e.target;
       const data = {
-        // 0. Projektgrundlage
         reasons: getCheckedValues("reasons"),
         reason_other: form.reason_other.value || null,
         estimated_monthly_cost: form.estimated_monthly_cost.value || null,
         improvement_goal: form.improvement_goal.value || null,
-
-        // 1. Unternehmensinformationen
         company_name: form.company_name.value || null,
         website: form.website.value || null,
         industry: form.industry.value || null,
@@ -1273,19 +1257,13 @@
         phone_country_code: form.phone_country_code.value || null,
         phone_number_customer: form.phone_number_customer.value || null,
         customer_email: form.customer_email.value || null,
-
-        // 2. Projektbeteiligte
         technical_contact: form.technical_contact.value || null,
         operational_contact: form.operational_contact.value || null,
         commercial_decision_maker: form.commercial_decision_maker.value || null,
         management_involved: getRadioValue("management_involved"),
         final_approval: form.final_approval.value || null,
-
-        // 3. Bestehende Telefonie-Anlage
         current_phone_system: form.current_phone_system.value || null,
         telephony_elements: getCheckedValues("telephony_elements"),
-
-        // 4. Anrufvolumen
         avg_calls_per_day: form.avg_calls_per_day.value || null,
         avg_calls_per_week: form.avg_calls_per_week.value || null,
         peak_times: form.peak_times.value || null,
@@ -1293,28 +1271,18 @@
         seasonal_fluctuations: getRadioValue("seasonal_fluctuations"),
         seasonal_patterns: getCheckedValues("seasonal_patterns"),
         seasonal_other: form.seasonal_other.value || null,
-
-        // 5. Zielbild
         ai_tasks: getCheckedValues("ai_tasks"),
         ai_not_do: form.ai_not_do.value || null,
-
-        // 6. Häufigste Kundenanfragen
         top_inquiries: form.top_inquiries.value || null,
         standard_answers_available: getRadioValue("standard_answers_available"),
-
-        // 7. Eskalationslogik
         escalation_triggers: getCheckedValues("escalation_triggers"),
         misunderstanding_loops: form.misunderstanding_loops.value || null,
         sales_escalation: form.sales_escalation.value || null,
         support_escalation: form.support_escalation.value || null,
         emergency_service: form.emergency_service.value || null,
         accounting: form.accounting.value || null,
-
-        // 8. Datenerfassung
         required_fields: getCheckedValues("required_fields"),
         optional_fields: getCheckedValues("optional_fields"),
-
-        // 9. Sprache & Aussprache
         customer_languages: getCheckedValues("customer_languages"),
         primary_language: form.primary_language.value || null,
         secondary_language_required: getRadioValue("secondary_language_required"),
@@ -1322,37 +1290,24 @@
         accent_preference: getCheckedValues("accent_preference"),
         industry_terms: form.industry_terms.value || null,
         spelled_out_often: getRadioValue("spelled_out_often"),
-
-        // 10. Wissensquellen
         knowledge_priority_1: getCheckedValues("knowledge_priority_1"),
         knowledge_path_p1: form.knowledge_path_p1.value || null,
         knowledge_priority_2: form.knowledge_priority_2.value || null,
         knowledge_priority_3: form.knowledge_priority_3.value || null,
-
-        // 11. Systeme & Integrationen
         systems_integrations: getCheckedValues("systems_integrations"),
-
-        // 12. Compliance
         compliance: getCheckedValues("compliance"),
         compliance_notes: form.compliance_notes.value || null,
-
-        // 13. Erfolgsdefinition / ROI
         roi_fewer_missed_calls: form.roi_fewer_missed_calls.value || null,
         roi_more_leads: form.roi_more_leads.value || null,
         roi_hours_saved: form.roi_hours_saved.value || null,
         roi_money_saved: form.roi_money_saved.value || null,
-
-        // 14. Prozessbeschränkungen
         process_restrictions: form.process_restrictions.value || null,
-
         submitted_at: new Date().toISOString()
       };
-
       try {
         const { error } = await supabaseClient
           .from(SUPABASE_TABLE)
           .insert([data]);
-
         if (error) {
           console.error(error);
           statusEl.textContent = "Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie Bodo.";
@@ -1369,7 +1324,7 @@
         statusEl.classList.add("status-error");
       }
     });
-    }); // DOMContentLoaded
+    });
   </script>
 </body>
 </html>
