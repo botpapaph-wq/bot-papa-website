@@ -9,7 +9,6 @@
   <title>Impressum – BOT PAPA</title>
   <meta name="description" content="Impressum von BOT PAPA – KI-Telefonassistenten für kleine Unternehmen in der DACH-Region." />
 
-  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -17,7 +16,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
-  <!-- End Google Tag Manager -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
      crossorigin="anonymous"></script>
 
@@ -153,9 +151,7 @@
       white-space: nowrap;
     }
 
-    .pill strong {
-      color: var(--accent);
-    }
+    .pill strong { color: var(--accent); }
 
     .nav-links {
       display: flex;
@@ -179,28 +175,31 @@
       text-decoration: none;
     }
 
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-left: 4px;
-    }
-
-    .lang-switch a {
-      padding: 0;
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
       border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
     }
 
-    .lang-flag {
-      font-size: 18px;
-      line-height: 1;
-      display: inline-block;
-      filter: grayscale(60%);
-      transform: translateY(1px);
-    }
+    .btn-primary span { font-size: 16px; transform: translateY(1px); }
 
-    .lang-flag.active {
-      filter: grayscale(0%);
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+      text-decoration: none;
     }
 
     main {
@@ -235,6 +234,16 @@
       gap: 12px;
     }
 
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left { flex: 1; min-width: 250px; }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -247,43 +256,7 @@
     }
 
     .footer-links a:hover {
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
       text-decoration: underline;
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
-    }
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
     }
 
     @media (max-width: 768px) {
@@ -314,24 +287,40 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <div class="page">
     <header>
-      <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+      <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">KI&#8209;Telefonassistenten für kleine Unternehmen</div>
         </div>
       </a>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Status: <strong>aktiv</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenfreies 20&#8209;Minuten&#8209;Gespräch <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="discovery_form_de">Bedarfsermittlung</a>
+            <a href="https://mitarbeiter.bot-papa.online">Mitarbeiter Login</a>
+            <a href="ueber_mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main>
