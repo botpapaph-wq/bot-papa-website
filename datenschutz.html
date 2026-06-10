@@ -9,7 +9,6 @@
   <title>Datenschutzerklärung – BOT PAPA</title>
   <meta name="description" content="Datenschutzerklärung von BOT PAPA – Informationen zur Verarbeitung personenbezogener Daten bei Nutzung dieser Website." />
 
-  <!-- Google Tag Manager -->
   <script>
   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -17,7 +16,6 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-P5XG82W9');
   </script>
-  <!-- End Google Tag Manager -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9428336256500980"
        crossorigin="anonymous"></script>
 
@@ -116,6 +114,94 @@
       color: var(--muted);
     }
 
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .pill strong { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn-primary span { font-size: 16px; transform: translateY(1px); }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
     main {
       padding: 22px 20px;
       border-radius: var(--radius-lg);
@@ -161,6 +247,16 @@
       gap: 12px;
     }
 
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left { flex: 1; min-width: 250px; }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -173,43 +269,7 @@
     }
 
     .footer-links a:hover {
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
       text-decoration: underline;
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
-    }
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
     }
 
     @media (max-width: 768px) {
@@ -221,6 +281,15 @@
       main {
         padding: 18px 16px;
       }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row,
+      .header-bottom-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
       .footer-links {
         justify-content: flex-start;
       }
@@ -228,24 +297,40 @@
   </style>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5XG82W9"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <div class="page">
     <header>
-      <a href="index.html" class="brand" style="text-decoration: none; color: inherit;">
+      <a href="index.html" class="brand" style="text-decoration:none;color:inherit;">
         <div class="brand-mark">
           <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
         </div>
         <div>
           <div class="brand-text-title">BOT PAPA</div>
-          <div class="brand-text-sub">KI‑Telefonassistenten für kleine Unternehmen</div>
+          <div class="brand-text-sub">KI&#8209;Telefonassistenten für kleine Unternehmen</div>
         </div>
       </a>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">
+            Status: <strong>aktiv</strong>
+          </div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">
+            Kostenfreies 20&#8209;Minuten&#8209;Gespräch <span>↗</span>
+          </a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="discovery_form_de">Bedarfsermittlung</a>
+            <a href="https://mitarbeiter.bot-papa.online">Mitarbeiter Login</a>
+            <a href="ueber_mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main>
@@ -304,7 +389,7 @@
       <p>
         Wenn Sie das Kontaktformular auf dieser Website nutzen, werden die von Ihnen eingegebenen
         Daten (z.B. Name, E‑Mail‑Adresse, Telefonnummer, Nachricht) über den Dienst
-        „Supabase“ gespeichert und an mich übermittelt.
+        „Supabase" gespeichert und an mich übermittelt.
       </p>
       <p>
         Dienstanbieter: Supabase, Inc., 970 Toa Payoh North #07-04, Singapore 318992. [Infos zum Dienst siehe Website des Anbieters.]
@@ -325,7 +410,7 @@
 
       <h2>5. Brevo (Chat & Terminbuchung)</h2>
       <p>
-        Auf dieser Website kommen Funktionen von „Brevo“ zum Einsatz, z.B. für den
+        Auf dieser Website kommen Funktionen von „Brevo" zum Einsatz, z.B. für den
         Chat‑/Conversations‑Dienst sowie für die Online‑Terminbuchung.
       </p>
       <p>
@@ -414,7 +499,7 @@
       <p>
         Ich behalte mir vor, diese Datenschutzerklärung anzupassen, wenn sich die Rechtslage oder
         die eingesetzten Dienste ändern. Die jeweils aktuelle Version ist jederzeit auf dieser
-        Website unter „Datenschutzerklärung“ abrufbar.
+        Website unter „Datenschutzerklärung" abrufbar.
       </p>
     </main>
 
