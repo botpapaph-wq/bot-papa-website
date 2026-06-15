@@ -18,7 +18,7 @@
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
       --radius-lg: 18px;
       --radius-full: 999px;
-      --border-soft: 1px solid rgba(255, 255, 255, 0.07);
+      --border-soft: 1px solid rgba(255, 255, 255, 0.08);
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
         "Segoe UI", sans-serif;
     }
@@ -71,8 +71,8 @@
     }
 
     .brand-mark {
-      width: 180px;
-      height: 180px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: #ffffff;
       display: flex;
@@ -115,6 +115,34 @@
       justify-content: flex-end;
       gap: 10px;
       width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 400;
+    }
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
     }
 
     .pill {
@@ -346,11 +374,12 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       font-size: 11px;
       color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: space-between;
     }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-left { flex: 1; min-width: 250px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
       header {
@@ -389,12 +418,16 @@
       </div>
       <div class="header-right">
         <div class="header-top-row">
-          <div class="pill">
-            Discovery form • AI telephone assistant
-          </div>
-          <a href="index" class="btn-primary">
-            Back to main site <span>↗</span>
-          </a>
+          <div class="pill">Status: <strong>active</strong></div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">Free 20&#8209;minute call <span>↗</span></a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="discovery_form_en">Discovery Form</a>
+            <a href="https://mitarbeiter.bot-papa.online" target="_blank" rel="noopener">Staff Login</a>
+            <a href="about_me">About me</a>
+            <a href="faq_en.html">FAQ</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -1217,8 +1250,18 @@
     </main>
 
     <footer>
-      <div>© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
-      <div>www.bot-papa.online</div>
+      <div class="footer-content">
+        <div class="footer-left">© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+        <div class="footer-links">
+          <a href="faq_en.html">FAQ</a>
+          <span>•</span>
+          <a href="imprint_en">Imprint</a>
+          <span>•</span>
+          <a href="privacy_en">Privacy Policy</a>
+          <span>•</span>
+          <a href="terms_en">Terms of Service</a>
+        </div>
+      </div>
     </footer>
   </div>
 
