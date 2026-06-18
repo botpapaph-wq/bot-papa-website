@@ -392,6 +392,8 @@
         position: static;
         border-radius: 14px;
         padding: 10px 12px;
+        flex-direction: column;
+        align-items: stretch;
       }
       .products-grid { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
@@ -401,7 +403,17 @@
         align-items: flex-start;
       }
           .brand-mark { width: 48px; height: 48px; }
-}
+
+      .header-right {
+        width: 100%;
+        align-items: stretch;
+      }
+    
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -584,6 +596,14 @@
       id: 'leitfaden_prompt_engineering',
       name: 'Professionelles Prompt-Engineering für Placetel KI-Telefonassistenten',
       price: 2.99
+      .header-right {
+        width: 100%;
+        align-items: stretch;
+      }
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
     };
 
     const form = document.getElementById('checkoutForm');

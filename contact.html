@@ -455,12 +455,15 @@
         position: static;
         border-radius: 14px;
         padding: 10px 12px;
+        flex-direction: column;
+        align-items: stretch;
       }
       main {
         padding: 18px 16px;
       }
       .header-right {
         align-items: flex-start;
+        width: 100%;
       }
       .header-top-row,
       .header-bottom-row {
@@ -483,7 +486,12 @@
       .nav-links { flex-wrap: wrap; gap: 6px; }
       .nav-links a { padding: 10px 14px; font-size: 14px; }
       .social-link { padding: 10px 16px; }
-}
+
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -682,6 +690,10 @@
           statusEl.textContent = 'Verbindungsfehler.';
         }
       });
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
     });
   </script>
 </body>

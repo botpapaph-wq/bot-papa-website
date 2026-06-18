@@ -408,8 +408,22 @@
     @media (max-width: 768px) {
       .grid { grid-template-columns: minmax(0, 1fr); }
       .card { position: static; }
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
           .brand-mark { width: 48px; height: 48px; }
-}
+
+      .header-right {
+        width: 100%;
+        align-items: stretch;
+      }
+    
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -601,6 +615,14 @@
       }
 
       return isValid;
+      .header-right {
+        width: 100%;
+        align-items: stretch;
+      }
+      .btn-primary {
+        white-space: normal;
+        justify-content: center;
+      }
     }
 
     // Speichern in Supabase

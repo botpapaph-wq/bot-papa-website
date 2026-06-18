@@ -427,12 +427,15 @@
         position: static;
         border-radius: 14px;
         padding: 10px 12px;
+        flex-direction: column;
+        align-items: stretch;
       }
       main {
         grid-template-columns: minmax(0, 1fr);
       }
       .header-right {
         align-items: flex-start;
+        width: 100%;
       }
       .header-top-row,
       .header-bottom-row {
@@ -445,7 +448,10 @@
       }
           .brand-mark { width: 48px; height: 48px; }
       .nav-links a { padding: 10px 14px; font-size: 14px; }
-      .btn-primary { padding: 14px 20px; font-size: 15px; }
+      .btn-primary { padding: 14px 20px; font-size: 15px;
+        white-space: normal;
+        justify-content: center;
+      }
 }
   </style>
 </head>
