@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOT PAPA – AI Telephone Assistant Discovery Form</title>
+  <meta name="description" content="Discovery form for AI telephone assistant projects with BOT PAPA. Collect structured requirements for AI-powered telephony, routing and automation." />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --accent: #00e0ff;
+      --accent-soft: rgba(0, 224, 255, 0.12);
+      --text: #f5f7ff;
+      --muted: #a3aac2;
+      --danger: #ff4b6b;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --border-soft: 1px solid rgba(255, 255, 255, 0.08);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #101735 0, #050816 55%, #02030a 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 16px 12px;
+      margin-bottom: 32px;
+      border-radius: var(--radius-full);
+      border: var(--border-soft);
+      background: linear-gradient(135deg, rgba(0, 224, 255, 0.12), transparent);
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 16px;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text-title {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .header-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 100%;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .nav-links a {
+      color: var(--muted);
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 400;
+    }
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(5, 8, 22, 0.8);
+      text-decoration: none;
+    }
+
+    .pill {
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: var(--border-soft);
+      color: var(--muted);
+      background: rgba(5, 8, 22, 0.9);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-full);
+      padding: 9px 18px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #00e0ff, #7b3fff);
+      color: #050816;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .btn-primary span {
+      font-size: 16px;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      filter: brightness(0.98);
+      transform: translateY(0);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+    }
+
+    main {
+      margin-top: 12px;
+    }
+
+    .hero {
+      padding: 26px 24px 20px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(0, 224, 255, 0.08), transparent 55%),
+        linear-gradient(145deg, rgba(14, 21, 47, 0.95), rgba(3, 5, 16, 0.98));
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(24px, 2.7vw, 30px);
+      line-height: 1.15;
+      margin: 0 0 10px;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 4px;
+    }
+
+    .form-card {
+      margin-top: 20px;
+      padding: 20px 18px 22px;
+      border-radius: var(--radius-lg);
+      border: var(--border-soft);
+      background: linear-gradient(155deg, rgba(8, 13, 34, 0.95), rgba(2, 4, 13, 0.98));
+      box-shadow: var(--shadow-soft);
+      font-size: 14px;
+    }
+
+    h2.section-title {
+      margin: 18px 0 8px;
+      font-size: 18px;
+    }
+
+    .field-group {
+      margin-bottom: 14px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .field-help {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(3, 6, 20, 0.96);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(163, 170, 194, 0.7);
+    }
+
+    .checkbox-grid,
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 6px 18px;
+      margin-top: 4px;
+    }
+
+    .checkbox-inline,
+    .radio-inline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .inline-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 4px;
+    }
+
+    .inline-group .field-group {
+      flex: 1;
+      min-width: 180px;
+      margin-bottom: 0;
+    }
+
+    .divider {
+      margin: 18px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #20c997;
+      margin-right: 6px;
+    }
+
+    .status-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-right {
+      text-align: right;
+    }
+
+    .status-error {
+      color: var(--danger);
+    }
+
+    .status-success {
+      color: #20c997;
+    }
+
+    .submit-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-left { flex: 1; min-width: 250px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      header {
+        position: static;
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      .header-right {
+        align-items: flex-start;
+      }
+      .header-top-row {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .hero {
+        padding: 22px 18px 18px;
+      }
+      .status-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="BOT_PAPA-removebg.png" alt="BOT PAPA Logo" />
+        </div>
+        <div>
+          <div class="brand-text-title">BOT PAPA</div>
+          <div class="brand-text-sub">AI Phone Assistants for Small Businesses</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="header-top-row">
+          <div class="pill">Status: <strong>active</strong></div>
+          <a href="https://meet.brevo.com/bodo-kopplin-online" class="btn-primary" target="_blank" rel="noopener">Free 20&#8209;minute call <span>↗</span></a>
+        </div>
+        <div class="header-bottom-row">
+          <nav class="nav-links">
+            <a href="discovery_form_en">Discovery Form</a>
+            <a href="https://mitarbeiter.bot-papa.online" target="_blank" rel="noopener">Staff Login</a>
+            <a href="about_me">About me</a>
+            <a href="faq_en.html">FAQ</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-kicker">AI Telephone Assistant • Discovery Form v1.0</div>
+        <h1 class="hero-title">
+          Project discovery for your AI‑powered telephony setup.
+        </h1>
+        <p class="hero-sub">
+          This form collects the key details about your current phone setup,
+          call flows and constraints – so we can design an AI telephone assistant
+          that fits your real‑world operations.
+        </p>
+      </section>
+
+      <section class="form-card">
+        <form id="discovery-form">
+          <!-- 0. Project Background / Business Case -->
+          <h2 class="section-title">0. Project Background / Business Case</h2>
+          <div class="field-group">
+            <span class="field-label">Why is the client exploring AI‑powered telephony right now?</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="too_many_missed_calls" />
+                Too many missed calls
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="staff_shortage" />
+                Staff shortage
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="business_growth" />
+                Business growth
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="need_24_7" />
+                Need for 24/7 availability
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="high_support_workload" />
+                High support workload
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="many_repetitive_inquiries" />
+                Many repetitive inquiries
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="quality_issues_phone_service" />
+                Quality issues in phone service
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="reasons" value="cost_reduction" />
+                Cost reduction
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="reason_other" class="field-label">Other reason</label>
+            <input type="text" id="reason_other" name="reason_other" placeholder="Other: short description" />
+          </div>
+
+          <div class="field-group">
+            <label for="estimated_monthly_cost" class="field-label">Estimated monthly cost of the current problem</label>
+            <input type="text" id="estimated_monthly_cost" name="estimated_monthly_cost" placeholder="Rough estimate in your currency" />
+          </div>
+
+          <div class="field-group">
+            <label for="improvement_goal" class="field-label">What exactly should improve?</label>
+            <textarea id="improvement_goal" name="improvement_goal" placeholder="Free text – describe the practical improvements you want to see."></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 1. Company Information -->
+          <h2 class="section-title">1. Company Information</h2>
+          <div class="field-group">
+            <label for="company_name" class="field-label">Company name</label>
+            <input type="text" id="company_name" name="company_name" required />
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="website" class="field-label">Website</label>
+              <input type="text" id="website" name="website" />
+            </div>
+            <div class="field-group">
+              <label for="industry" class="field-label">Industry</label>
+              <input type="text" id="industry" name="industry" required />
+            </div>
+          </div>
+
+          <!-- Country selection (Europe excl. TR/UA/AL + English-speaking/PH) -->
+          <div class="field-group">
+            <label for="country" class="field-label">Country</label>
+            <select id="country" name="country">
+              <option value="">Select country…</option>
+              <!-- Europe (some examples, ohne TR/UA/AL) -->
+              <option value="DE">Germany</option>
+              <option value="AT">Austria</option>
+              <option value="CH">Switzerland</option>
+              <option value="FR">France</option>
+              <option value="IT">Italy</option>
+              <option value="ES">Spain</option>
+              <option value="PT">Portugal</option>
+              <option value="NL">Netherlands</option>
+              <option value="BE">Belgium</option>
+              <option value="LU">Luxembourg</option>
+              <option value="DK">Denmark</option>
+              <option value="SE">Sweden</option>
+              <option value="NO">Norway</option>
+              <option value="FI">Finland</option>
+              <option value="IS">Iceland</option>
+              <option value="IE">Ireland</option>
+              <option value="GB">United Kingdom</option>
+              <option value="PL">Poland</option>
+              <option value="CZ">Czech Republic</option>
+              <option value="SK">Slovakia</option>
+              <option value="HU">Hungary</option>
+              <option value="SI">Slovenia</option>
+              <option value="HR">Croatia</option>
+              <option value="RS">Serbia</option>
+              <option value="BA">Bosnia and Herzegovina</option>
+              <option value="MK">North Macedonia</option>
+              <option value="RO">Romania</option>
+              <option value="BG">Bulgaria</option>
+              <option value="GR">Greece</option>
+              <option value="CY">Cyprus</option>
+              <option value="MT">Malta</option>
+              <option value="EE">Estonia</option>
+              <option value="LV">Latvia</option>
+              <option value="LT">Lithuania</option>
+
+              <!-- English-speaking / English official or co-official + PH -->
+              <option value="US">United States</option>
+              <option value="CA">Canada</option>
+              <option value="AU">Australia</option>
+              <option value="NZ">New Zealand</option>
+              <option value="ZA">South Africa</option>
+              <option value="PH">Philippines</option>
+              <option value="SG">Singapore</option>
+              <option value="IN">India</option>
+              <option value="PK">Pakistan</option>
+              <option value="NG">Nigeria</option>
+              <option value="GH">Ghana</option>
+              <option value="KE">Kenya</option>
+              <option value="TZ">Tanzania</option>
+              <option value="UG">Uganda</option>
+              <option value="ZW">Zimbabwe</option>
+              <option value="JM">Jamaica</option>
+              <option value="TT">Trinidad and Tobago</option>
+              <option value="BB">Barbados</option>
+              <option value="BS">Bahamas</option>
+              <option value="BZ">Belize</option>
+              <option value="FJ">Fiji</option>
+              <option value="PG">Papua New Guinea</option>
+            </select>
+          </div>
+
+          <!-- Billing / Company Address -->
+          <div class="inline-group">
+            <div class="field-group" style="flex:2">
+              <label for="address_street" class="field-label">Street</label>
+              <input type="text" id="address_street" name="address_street" required placeholder="Street name" />
+            </div>
+            <div class="field-group" style="flex:0.6">
+              <label for="address_number" class="field-label">No.</label>
+              <input type="text" id="address_number" name="address_number" placeholder="12a" />
+            </div>
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group" style="flex:0.8">
+              <label for="address_zip" class="field-label">ZIP / Postcode</label>
+              <input type="text" id="address_zip" name="address_zip" required placeholder="e.g. 10115" />
+            </div>
+            <div class="field-group" style="flex:2">
+              <label for="address_city" class="field-label">City</label>
+              <input type="text" id="address_city" name="address_city" required placeholder="e.g. Berlin" />
+            </div>
+            <div class="field-group" style="flex:1.5">
+              <label for="address_state" class="field-label">State / Region</label>
+              <input type="text" id="address_state" name="address_state" placeholder="e.g. Bayern" />
+            </div>
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="num_employees" class="field-label">Number of employees</label>
+              <input type="text" id="num_employees" name="num_employees" />
+            </div>
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="phone_contacts" class="field-label">Phone contacts</label>
+              <input type="text" id="phone_contacts" name="phone_contacts" placeholder="How many people handle calls?" />
+            </div>
+            <div class="field-group">
+              <label for="business_hours" class="field-label">Business hours</label>
+              <input type="text" id="business_hours" name="business_hours" placeholder="e.g. Mon–Fri 8:00–17:00 local time" />
+            </div>
+          </div>
+
+          <!-- Customer phone & email -->
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="phone_country_code" class="field-label">Customer phone country code</label>
+              <select id="phone_country_code" name="phone_country_code">
+                <option value="">Select code…</option>
+                <option value="+49">+49 (Germany)</option>
+                <option value="+43">+43 (Austria)</option>
+                <option value="+41">+41 (Switzerland)</option>
+                <option value="+33">+33 (France)</option>
+                <option value="+39">+39 (Italy)</option>
+                <option value="+34">+34 (Spain)</option>
+                <option value="+351">+351 (Portugal)</option>
+                <option value="+31">+31 (Netherlands)</option>
+                <option value="+32">+32 (Belgium)</option>
+                <option value="+44">+44 (United Kingdom)</option>
+                <option value="+1">+1 (USA/Canada)</option>
+                <option value="+61">+61 (Australia)</option>
+                <option value="+64">+64 (New Zealand)</option>
+                <option value="+27">+27 (South Africa)</option>
+                <option value="+63">+63 (Philippines)</option>
+                <option value="+65">+65 (Singapore)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+92">+92 (Pakistan)</option>
+                <option value="+234">+234 (Nigeria)</option>
+                <option value="+233">+233 (Ghana)</option>
+                <option value="+254">+254 (Kenya)</option>
+                <option value="+255">+255 (Tanzania)</option>
+                <option value="+256">+256 (Uganda)</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="phone_number_customer" class="field-label">Customer phone number</label>
+              <input type="text" id="phone_number_customer" name="phone_number_customer" required placeholder="Local number without country code" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="customer_email" class="field-label">Customer email</label>
+            <input
+              type="email"
+              id="customer_email"
+              name="customer_email"
+              placeholder="name@company.com"
+              pattern="^(?!info@).*"
+              required
+              title="Please use a personal or role-specific email, not a generic info@ address."
+            />
+            <div class="field-help">
+              Generic inboxes like <code>info@</code> are often not monitored closely. Please use a personal or role‑specific address.
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 2. Project Stakeholders -->
+          <h2 class="section-title">2. Project Stakeholders</h2>
+          <div class="field-group">
+            <label for="technical_contact" class="field-label">Technical contact</label>
+            <input type="text" id="technical_contact" name="technical_contact" placeholder="Name, role, email/phone if helpful" />
+          </div>
+          <div class="field-group">
+            <label for="operational_contact" class="field-label">Operational contact</label>
+            <input type="text" id="operational_contact" name="operational_contact" placeholder="Person responsible for day‑to‑day phone ops" />
+          </div>
+          <div class="field-group">
+            <label for="commercial_decision_maker" class="field-label">Commercial decision maker</label>
+            <input type="text" id="commercial_decision_maker" name="commercial_decision_maker" />
+          </div>
+          <div class="field-group">
+            <span class="field-label">Is management involved?</span>
+            <div class="inline-group">
+              <label class="radio-inline">
+                <input type="radio" name="management_involved" value="yes" />
+                Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="management_involved" value="no" />
+                No
+              </label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="final_approval" class="field-label">Who gives final approval?</label>
+            <input type="text" id="final_approval" name="final_approval" />
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 3. Current Telephony Setup -->
+          <h2 class="section-title">3. Current Telephony Setup</h2>
+          <div class="field-group">
+            <label for="current_phone_system" class="field-label">Current phone system</label>
+            <input type="text" id="current_phone_system" name="current_phone_system" placeholder="e.g. Telnyx, Placetel, other PBX" />
+          </div>
+          <div class="field-group">
+            <span class="field-label">Existing elements</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="telephony_elements" value="main_company_number" />
+                Main company number exists
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="telephony_elements" value="extensions" />
+                Extensions exist
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="telephony_elements" value="call_groups" />
+                Call groups exist
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="telephony_elements" value="queues" />
+                Queues / waiting loops exist
+              </label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 4. Call Volume -->
+          <h2 class="section-title">4. Call Volume</h2>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="avg_calls_per_day" class="field-label">Average calls per day</label>
+              <input type="text" id="avg_calls_per_day" name="avg_calls_per_day" />
+            </div>
+            <div class="field-group">
+              <label for="avg_calls_per_week" class="field-label">Average calls per week</label>
+              <input type="text" id="avg_calls_per_week" name="avg_calls_per_week" />
+            </div>
+          </div>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="peak_times" class="field-label">Peak times</label>
+              <input type="text" id="peak_times" name="peak_times" placeholder="e.g. Mon morning, lunch time, season" />
+            </div>
+            <div class="field-group">
+              <label for="missed_calls" class="field-label">Missed calls</label>
+              <input type="text" id="missed_calls" name="missed_calls" placeholder="Estimate per day/week" />
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Seasonal fluctuations?</span>
+            <div class="inline-group">
+              <label class="radio-inline">
+                <input type="radio" name="seasonal_fluctuations" value="yes" />
+                Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="seasonal_fluctuations" value="no" />
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Seasonal patterns (if any)</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="seasonal_patterns" value="christmas" />
+                Christmas
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="seasonal_patterns" value="summer" />
+                Summer
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="seasonal_patterns" value="trade_fairs" />
+                Trade fairs
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="seasonal_patterns" value="month_end" />
+                Month‑end
+              </label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="seasonal_other" class="field-label">Other seasonal notes</label>
+            <input type="text" id="seasonal_other" name="seasonal_other" />
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 5. Target Picture – What should the AI handle? -->
+          <h2 class="section-title">5. Target Picture – What should the AI handle?</h2>
+          <div class="field-group">
+            <span class="field-label">Tasks for the AI</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="first_level_call_reception" />
+                First‑level call reception
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="lead_qualification" />
+                Lead qualification
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="appointment_scheduling" />
+                Appointment scheduling
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="support_inquiries" />
+                Support inquiries
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="faq_automation" />
+                FAQ automation
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="callback_management" />
+                Callback management
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="order_status" />
+                Order status
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="ai_tasks" value="emergency_triage" />
+                Emergency triage
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="ai_not_do" class="field-label">What should the AI NOT do?</label>
+            <textarea id="ai_not_do" name="ai_not_do" placeholder="Topics, decisions or processes that must stay with humans."></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 6. Top Customer Inquiries -->
+          <h2 class="section-title">6. Top Customer Inquiries</h2>
+          <div class="field-group">
+            <label for="top_inquiries" class="field-label">Top customer inquiries</label>
+            <textarea id="top_inquiries" name="top_inquiries" placeholder="List the 5–10 most common types of calls or questions."></textarea>
+          </div>
+          <div class="field-group">
+            <span class="field-label">Standardized answers available?</span>
+            <div class="inline-group">
+              <label class="radio-inline">
+                <input type="radio" name="standard_answers_available" value="yes" />
+                Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="standard_answers_available" value="no" />
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 7. Escalation Logic -->
+          <h2 class="section-title">7. Escalation Logic</h2>
+          <div class="field-group">
+            <span class="field-label">Situations that should trigger escalation</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="angry_customer" />
+                Angry customer
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="cancellation_request" />
+                Cancellation request
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="payment_issues" />
+                Payment issues
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="data_protection_concerns" />
+                Data protection concerns
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="legal_questions" />
+                Legal questions
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="technical_issue" />
+                Technical issue
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="escalation_triggers" value="demands_human_agent" />
+                Customer demands a human agent
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="misunderstanding_loops" class="field-label">
+              Escalate after more than ____ misunderstanding loops
+            </label>
+            <input type="text" id="misunderstanding_loops" name="misunderstanding_loops" placeholder="Number of loops before escalation" />
+          </div>
+
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="sales_escalation" class="field-label">Sales escalation</label>
+              <input type="text" id="sales_escalation" name="sales_escalation" placeholder="Who / where should sales leads go?" />
+            </div>
+            <div class="field-group">
+              <label for="support_escalation" class="field-label">Support escalation</label>
+              <input type="text" id="support_escalation" name="support_escalation" placeholder="Support routing details" />
+            </div>
+          </div>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="emergency_service" class="field-label">Emergency service</label>
+              <input type="text" id="emergency_service" name="emergency_service" placeholder="On‑call rules, numbers, time windows" />
+            </div>
+            <div class="field-group">
+              <label for="accounting" class="field-label">Accounting</label>
+              <input type="text" id="accounting" name="accounting" placeholder="How to handle billing/payment topics" />
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 8. Data Collection by the AI -->
+          <h2 class="section-title">8. Data Collection by the AI</h2>
+          <div class="inline-group">
+            <div class="field-group">
+              <span class="field-label">Required fields</span>
+              <div class="checkbox-grid">
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="required_fields" value="name" />
+                  Name
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="required_fields" value="company" />
+                  Company
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="required_fields" value="phone_number" />
+                  Phone number
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="required_fields" value="email" />
+                  Email
+                </label>
+              </div>
+            </div>
+            <div class="field-group">
+              <span class="field-label">Optional fields</span>
+              <div class="checkbox-grid">
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="optional_fields" value="budget" />
+                  Budget
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="optional_fields" value="project_size" />
+                  Project size
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="optional_fields" value="product_interest" />
+                  Product interest
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="optional_fields" value="location" />
+                  Location
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="optional_fields" value="lead_source" />
+                  Lead source
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 9. Language & Pronunciation -->
+          <h2 class="section-title">9. Language & Pronunciation</h2>
+          <div class="field-group">
+            <span class="field-label">Customer language</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="customer_languages" value="english" />
+                English
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="customer_languages" value="german_dach" />
+                German (DACH)
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="customer_languages" value="spanish" />
+                Spanish
+              </label>
+            </div>
+          </div>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="primary_language" class="field-label">Primary language</label>
+              <input type="text" id="primary_language" name="primary_language" />
+            </div>
+            <div class="field-group">
+              <span class="field-label">Secondary language required?</span>
+              <div class="inline-group">
+                <label class="radio-inline">
+                  <input type="radio" name="secondary_language_required" value="yes" />
+                  Yes
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="secondary_language_required" value="no" />
+                  No
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="secondary_language" class="field-label">If yes, which secondary language?</label>
+            <input type="text" id="secondary_language" name="secondary_language" />
+          </div>
+
+          <div class="field-group">
+            <span class="field-label">Accent preference</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="accent_preference" value="us" />
+                US
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="accent_preference" value="uk" />
+                UK
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="accent_preference" value="aus_nz" />
+                Australia / NZ
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="accent_preference" value="neutral" />
+                Neutral
+              </label>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="industry_terms" class="field-label">Typical industry terms / product names</label>
+            <textarea id="industry_terms" name="industry_terms" placeholder="Anything that the AI should learn to pronounce correctly."></textarea>
+          </div>
+          <div class="field-group">
+            <span class="field-label">Are names/data often spelled out?</span>
+            <div class="inline-group">
+              <label class="radio-inline">
+                <input type="radio" name="spelled_out_often" value="yes" />
+                Yes
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="spelled_out_often" value="no" />
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 10. Knowledge Sources -->
+          <h2 class="section-title">10. Knowledge Sources</h2>
+          <div class="field-group">
+            <span class="field-label">Priority 1</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="website" />
+                Website
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="faq" />
+                FAQ
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="crm" />
+                CRM
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="erp" />
+                ERP
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="price_lists" />
+                Price lists
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="pdf_catalogues" />
+                PDF catalogues
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="sops" />
+                SOPs
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="knowledge_priority_1" value="ticket_system" />
+                Ticket system
+              </label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="knowledge_path_p1" class="field-label">Path / source (Priority 1)</label>
+            <input type="text" id="knowledge_path_p1" name="knowledge_path_p1" placeholder="URLs, shared folders, tools" />
+          </div>
+
+          <div class="field-group">
+            <label for="knowledge_priority_2" class="field-label">Priority 2 (short description)</label>
+            <textarea id="knowledge_priority_2" name="knowledge_priority_2"></textarea>
+          </div>
+          <div class="field-group">
+            <label for="knowledge_priority_3" class="field-label">Priority 3 (short description)</label>
+            <textarea id="knowledge_priority_3" name="knowledge_priority_3"></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 11. Systems & Integrations -->
+          <h2 class="section-title">11. Systems & Integrations</h2>
+          <div class="checkbox-grid">
+            <label class="checkbox-inline">
+              <input type="checkbox" name="systems_integrations" value="crm_available" />
+              CRM available
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="systems_integrations" value="erp_available" />
+              ERP available
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="systems_integrations" value="calendar_integration" />
+              Calendar integration
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="systems_integrations" value="ticket_system" />
+              Ticket system
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" name="systems_integrations" value="api_webhook_desired" />
+              API / Webhook desired
+            </label>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 12. Compliance -->
+          <h2 class="section-title">12. Compliance</h2>
+          <div class="field-group">
+            <span class="field-label">Compliance aspects</span>
+            <div class="checkbox-grid">
+              <label class="checkbox-inline">
+                <input type="checkbox" name="compliance" value="sensitive_data" />
+                Sensitive / regulated data
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="compliance" value="call_recording_allowed" />
+                Call recording allowed
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name="compliance" value="special_requirements" />
+                Industry with special compliance requirements
+              </label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="compliance_notes" class="field-label">If yes, please describe</label>
+            <textarea id="compliance_notes" name="compliance_notes"></textarea>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 13. Success Definition / ROI -->
+          <h2 class="section-title">13. Success Definition / ROI</h2>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="roi_fewer_missed_calls" class="field-label">% fewer missed calls</label>
+              <input type="text" id="roi_fewer_missed_calls" name="roi_fewer_missed_calls" placeholder="e.g. 50%" />
+            </div>
+            <div class="field-group">
+              <label for="roi_more_leads" class="field-label">More leads</label>
+              <input type="text" id="roi_more_leads" name="roi_more_leads" placeholder="Number per month" />
+            </div>
+          </div>
+          <div class="inline-group">
+            <div class="field-group">
+              <label for="roi_hours_saved" class="field-label">Hours saved per week</label>
+              <input type="text" id="roi_hours_saved" name="roi_hours_saved" />
+            </div>
+            <div class="field-group">
+              <label for="roi_money_saved" class="field-label">Money saved per month</label>
+              <input type="text" id="roi_money_saved" name="roi_money_saved" placeholder="Estimate in currency" />
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 14. Process Restrictions -->
+          <h2 class="section-title">14. Process Restrictions</h2>
+          <div class="field-group">
+            <label for="process_restrictions" class="field-label">Which processes must NOT be changed?</label>
+            <textarea id="process_restrictions" name="process_restrictions" placeholder="Describe any processes that are fixed and cannot be altered by the AI setup."></textarea>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn-primary">
+              Submit discovery form <span>✚</span>
+            </button>
+          </div>
+
+          <div class="status-bar">
+            <div class="status-left">
+              <span class="status-dot"></span>
+              <span id="status-message">Form not yet submitted.</span>
+            </div>
+            <div class="status-right">
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-left">© 2026 BOT PAPA – made with love ❤️ in Davao City, Philippines</div>
+        <div class="footer-links">
+          <a href="faq_en.html">FAQ</a>
+          <span>•</span>
+          <a href="imprint_en">Imprint</a>
+          <span>•</span>
+          <a href="privacy_en">Privacy Policy</a>
+          <span>•</span>
+          <a href="terms_en">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Supabase via CDN (v2) – placeholders, fill in URL & ANON KEY later -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const SUPABASE_URL = "https://jvujmlssgnqawqqaeqnb.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp2dWptbHNzZ25xYXdxcWFlcW5iIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5MzQwMzcsImV4cCI6MjA5NTUxMDAzN30.H604HEyX8ezyP41JMxT6JcZ1J4wlNBmo_u2LIT5KPiI";
+    const SUPABASE_TABLE = "ai_discovery_forms_v1";
+
+    let supabaseClient = null;
+    if (SUPABASE_URL && SUPABASE_URL !== "https://YOUR-PROJECT-ID.supabase.co") {
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    }
+
+    function getCheckedValues(name) {
+      return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
+        .map(el => el.value);
+    }
+
+    function getRadioValue(name) {
+      const el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : null;
+    }
+
+    document.getElementById("discovery-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const statusEl = document.getElementById("status-message");
+
+      if (!supabaseClient) {
+        statusEl.textContent = "Supabase not configured yet. Please set URL and ANON KEY.";
+        statusEl.classList.remove("status-success");
+        statusEl.classList.add("status-error");
+        return;
+      }
+
+      statusEl.textContent = "Submitting…";
+      statusEl.classList.remove("status-error", "status-success");
+
+      const form = e.target;
+      const data = {
+        // 0. Project Background
+        reasons: getCheckedValues("reasons"),
+        reason_other: form.reason_other.value || null,
+        estimated_monthly_cost: form.estimated_monthly_cost.value || null,
+        improvement_goal: form.improvement_goal.value || null,
+
+        // 1. Company Information
+        company_name: form.company_name.value || null,
+        website: form.website.value || null,
+        industry: form.industry.value || null,
+        country: form.country.value || null,
+        address_street: form.address_street.value || null,
+        address_number: form.address_number.value || null,
+        address_zip: form.address_zip.value || null,
+        address_city: form.address_city.value || null,
+        address_state: form.address_state.value || null,
+        num_employees: form.num_employees.value || null,
+        phone_contacts: form.phone_contacts.value || null,
+        business_hours: form.business_hours.value || null,
+        phone_country_code: form.phone_country_code.value || null,
+        phone_number_customer: form.phone_number_customer.value || null,
+        customer_email: form.customer_email.value || null,
+
+        // 2. Project Stakeholders
+        technical_contact: form.technical_contact.value || null,
+        operational_contact: form.operational_contact.value || null,
+        commercial_decision_maker: form.commercial_decision_maker.value || null,
+        management_involved: getRadioValue("management_involved"),
+        final_approval: form.final_approval.value || null,
+
+        // 3. Current Telephony Setup
+        current_phone_system: form.current_phone_system.value || null,
+        telephony_elements: getCheckedValues("telephony_elements"),
+
+        // 4. Call Volume
+        avg_calls_per_day: form.avg_calls_per_day.value || null,
+        avg_calls_per_week: form.avg_calls_per_week.value || null,
+        peak_times: form.peak_times.value || null,
+        missed_calls: form.missed_calls.value || null,
+        seasonal_fluctuations: getRadioValue("seasonal_fluctuations"),
+        seasonal_patterns: getCheckedValues("seasonal_patterns"),
+        seasonal_other: form.seasonal_other.value || null,
+
+        // 5. Target Picture
+        ai_tasks: getCheckedValues("ai_tasks"),
+        ai_not_do: form.ai_not_do.value || null,
+
+        // 6. Top Customer Inquiries
+        top_inquiries: form.top_inquiries.value || null,
+        standard_answers_available: getRadioValue("standard_answers_available"),
+
+        // 7. Escalation Logic
+        escalation_triggers: getCheckedValues("escalation_triggers"),
+        misunderstanding_loops: form.misunderstanding_loops.value || null,
+        sales_escalation: form.sales_escalation.value || null,
+        support_escalation: form.support_escalation.value || null,
+        emergency_service: form.emergency_service.value || null,
+        accounting: form.accounting.value || null,
+
+        // 8. Data Collection
+        required_fields: getCheckedValues("required_fields"),
+        optional_fields: getCheckedValues("optional_fields"),
+
+        // 9. Language & Pronunciation
+        customer_languages: getCheckedValues("customer_languages"),
+        primary_language: form.primary_language.value || null,
+        secondary_language_required: getRadioValue("secondary_language_required"),
+        secondary_language: form.secondary_language.value || null,
+        accent_preference: getCheckedValues("accent_preference"),
+        industry_terms: form.industry_terms.value || null,
+        spelled_out_often: getRadioValue("spelled_out_often"),
+
+        // 10. Knowledge Sources
+        knowledge_priority_1: getCheckedValues("knowledge_priority_1"),
+        knowledge_path_p1: form.knowledge_path_p1.value || null,
+        knowledge_priority_2: form.knowledge_priority_2.value || null,
+        knowledge_priority_3: form.knowledge_priority_3.value || null,
+
+        // 11. Systems & Integrations
+        systems_integrations: getCheckedValues("systems_integrations"),
+
+        // 12. Compliance
+        compliance: getCheckedValues("compliance"),
+        compliance_notes: form.compliance_notes.value || null,
+
+        // 13. Success Definition / ROI
+        roi_fewer_missed_calls: form.roi_fewer_missed_calls.value || null,
+        roi_more_leads: form.roi_more_leads.value || null,
+        roi_hours_saved: form.roi_hours_saved.value || null,
+        roi_money_saved: form.roi_money_saved.value || null,
+
+        // 14. Process Restrictions
+        process_restrictions: form.process_restrictions.value || null,
+
+        submitted_at: new Date().toISOString()
+      };
+
+      try {
+        const { error } = await supabaseClient
+          .from(SUPABASE_TABLE)
+          .insert([data]);
+
+        if (error) {
+          console.error(error);
+          statusEl.textContent = "Error while submitting. Please try again or contact Bodo.";
+          statusEl.classList.add("status-error");
+        } else {
+          statusEl.textContent = "Form submitted successfully. Thank you! Redirecting…";
+          statusEl.classList.add("status-success");
+          form.reset();
+          setTimeout(() => { window.location.href = "https://www.bot-papa.online"; }, 2000);
+        }
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = "Unexpected error. Please try again or send details via email.";
+        statusEl.classList.add("status-error");
+      }
+    });
+    }); // DOMContentLoaded
+  </script>
+</body>
+</html>
